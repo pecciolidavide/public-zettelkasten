@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div class="thm" id="org6dfb89f">
+<p>
+Ogni <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzione continua</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_cc7569b31938898526ac015cc5f3b4ddb0542c8a.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_cc7569b31938898526ac015cc5f3b4ddb0542c8a.svg" class="org-svg" />, per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_eda3320e85ecf7a138446ee46839f774edd04e08.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_eda3320e85ecf7a138446ee46839f774edd04e08.svg" class="org-svg" />, può essere scritta come
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_f99b60902e44a626411e8c96e414c5f06b62f0bc.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_f99b60902e44a626411e8c96e414c5f06b62f0bc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_f99b7fe4747f44610f934e10e9037a5835c674c4.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_f99b7fe4747f44610f934e10e9037a5835c674c4.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_12ae526b60cd95cf7cb352cf58294172bb212897.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_12ae526b60cd95cf7cb352cf58294172bb212897.svg" class="org-svg" /> sono <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzioni continue</a> in una variabile, e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_12ae526b60cd95cf7cb352cf58294172bb212897.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_12ae526b60cd95cf7cb352cf58294172bb212897.svg" class="org-svg" /> sono <a href="20250203132953-funzione_monotona.html#ID-810d1151-63b5-40d3-b401-63e66e383750">funzioni monotone</a> che non dipendono da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />.
+</p>
+
+</div>
+<div class="thm" id="orgb2c4339">
+<p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_a4bf7e4fbcd4efe2d178f70799ad08eb5969feb7.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_a4bf7e4fbcd4efe2d178f70799ad08eb5969feb7.svg" class="org-svg" /> esiste una <a href="20250203132953-funzione_monotona.html#ID-d7cf3983-e12d-46af-ba73-8449a44096ba">funzione crescente</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_5c6e4d37abe6d46256aa9b0d15f85392335c0893.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_5c6e4d37abe6d46256aa9b0d15f85392335c0893.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_72775ba678c5c1e7f0a0ddbfad844ede33911861.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_72775ba678c5c1e7f0a0ddbfad844ede33911861.svg" class="org-svg" />, dipendente da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" class="org-svg" />, con la seguente proprietà: per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_b8ae7c64e3b1bbb615b73733738ad6f1af23ee56.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_b8ae7c64e3b1bbb615b73733738ad6f1af23ee56.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_84bc4a09d80c1503b9ba20ea82fd0d136d8ffe39.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_84bc4a09d80c1503b9ba20ea82fd0d136d8ffe39.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_19d304f1e057cd36befdc382f279cb6af6d4daf6.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_19d304f1e057cd36befdc382f279cb6af6d4daf6.svg" class="org-svg" />, tale che ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_cc7569b31938898526ac015cc5f3b4ddb0542c8a.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_cc7569b31938898526ac015cc5f3b4ddb0542c8a.svg" class="org-svg" /> può essere scritta come
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_e7824bfda4ba7882c9a531c707b4bd8d5dbe323e.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_e7824bfda4ba7882c9a531c707b4bd8d5dbe323e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_c0a73140b87cd31231fe6643fbb99cab657a2db1.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_c0a73140b87cd31231fe6643fbb99cab657a2db1.svg" class="org-svg" /> è continua e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_db29ceb8193cfd3ed522f6ee0970e1385b9da379.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_db29ceb8193cfd3ed522f6ee0970e1385b9da379.svg" class="org-svg" /> è indipendente da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />.
+</p>
+
+</div>
+<div id="outline-container-org730761f" class="outline-2">
+<h2 id="org730761f">Applicazione alle reti neurali</h2>
+<div class="outline-text-2" id="text-org730761f">
+<p>
+This result is important to the field of <a href="20250624155858-neurone_artificiale.html#ID-a711da1a-cc75-4706-8bed-4bf92c79eb5c">neural networks</a> because it states that any <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continuous function</a> on <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_bd425d47acc5f6b86cc43d26a8b285e58540be11.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_bd425d47acc5f6b86cc43d26a8b285e58540be11.svg" class="org-svg" /> can be <a href="20250708122736-exact_learning_machine_learning.html#ID-d9ac8def-ffff-4b62-bca4-d8fa588ef5ce">represented exactly</a> by a <a href="20250624155858-neurone_artificiale.html#ID-a711da1a-cc75-4706-8bed-4bf92c79eb5c">neural network</a> with two <a href="20250624155858-neurone_artificiale.html#ID-db72ee94-1615-4a75-a3af-9eb07631c96e">hidden layers</a>. The <a href="20250624155858-neurone_artificiale.html#ID-44b3867d-3969-44ff-aad2-8fab83314a25">activation function</a> for the first hidden layer is <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" class="org-svg" /> and for the second hidden layer is <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_e83e0f9f9a677c934dfbb9ac58299d7fc02875b8.svg" alt="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold_e83e0f9f9a677c934dfbb9ac58299d7fc02875b8.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

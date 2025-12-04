@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Applicazioni successive della mappa di suddivisione finisce nel sottomodulo del complesso singolare somma</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Applicazioni successive della mappa di suddivisione finisce nel sottomodulo del complesso singolare somma</h1>
+<div id="outline-container-org6973ba8" class="outline-2">
+<h2 id="org6973ba8">Lemma</h2>
+<div class="outline-text-2" id="text-org6973ba8">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_2b0a9e02e5c422402e72065cbc2e8c7e50510b31.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_2b0a9e02e5c422402e72065cbc2e8c7e50510b31.svg" class="org-svg" /> è una <a href="20250129094132-trasformazione_affine.html#ID-5d2aa410-a894-4434-a460-6f82bf0dae0c">mappa affine</a>, allora la <a href="20250128132200-mesh_di_un_elemento_del_modulo_delle_catene_singolari.html#ID-32401ece-cda4-4a70-b074-63615f01c8ec">mesh</a> della sua immagine tramite la <a href="20250128132040-mappa_di_suddivisione_tra_complessi_di_catene_singolari.html#ID-e188dad3-cb2b-4d6b-b255-3d61bce33e58">mappa di suddivisione</a> è maggiorata come segue:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_70dd30e349e4d5698aa41187835104f12451e5a2.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_70dd30e349e4d5698aa41187835104f12451e5a2.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org8d1032e" class="outline-3">
+<h3 id="org8d1032e"><span class="todo TODO">TODO</span> Dimostrazione&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h3>
+</div>
+
+<div id="outline-container-org0d9df5d" class="outline-3">
+<h3 id="org0d9df5d">Corollario</h3>
+<div class="outline-text-3" id="text-org0d9df5d">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_6dc79021d8a026d90f61463ffc22dba70bc72d08.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_6dc79021d8a026d90f61463ffc22dba70bc72d08.svg" class="org-svg" /> è l&rsquo;identità, allora per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_ca004d3aec283a37791805648764a26893c30148.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_ca004d3aec283a37791805648764a26893c30148.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org6a44c55" class="outline-4">
+<h4 id="org6a44c55">Dimostrazione</h4>
+<div class="outline-text-4" id="text-org6a44c55">
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_3cd069dca031a30f8028d421332e41bdf84cb222.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_3cd069dca031a30f8028d421332e41bdf84cb222.svg" class="org-svg" /> è l&rsquo;identità, allora è una trasformazione affine, e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_a8369e90a24413d49c377840451c75e1613bf5bf.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_a8369e90a24413d49c377840451c75e1613bf5bf.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org1b87444" class="outline-2">
+<h2 id="org1b87444">Proposizione</h2>
+<div class="outline-text-2" id="text-org1b87444">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> un <a href="20241219112842-pid.html#ID-CFCD9E38-AFEC-4381-A8C6-5AD75E7E43DC">PID</a> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a>. Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_c4cd5175aafd25555e0c86c9a1fd62590ec6e89f.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_c4cd5175aafd25555e0c86c9a1fd62590ec6e89f.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_11bfcd3662df518cba73d2c82f3b156d3438e89c.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_11bfcd3662df518cba73d2c82f3b156d3438e89c.svg" class="org-svg" /> (vedi <a href="20250122181431-parte_interna.html#ID-177e40ac-00b4-4a0c-ad7f-16d8294a124a">Parte interna</a>).
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_5c3b99e947ce142fc58b5508e7411cb7b69824d7.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_5c3b99e947ce142fc58b5508e7411cb7b69824d7.svg" class="org-svg" /> (vedi <a href="20250122133435-simplesso_singolare.html#ID-076f9a06-2038-48c0-b441-43c3257114d0">Simplesso singolare</a>) esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_958849b03d1e93200fbad72b65874ad2387ad9d5.svg" alt="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma_958849b03d1e93200fbad72b65874ad2387ad9d5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(vedi <a href="20250128131221-complesso_di_catene_singolare_somma.html#ID-95712b08-f4fb-461b-9813-014b2d29eccb">Complesso di catene singolare somma</a>)
+</p>
+</div>
+<div id="outline-container-org948eae3" class="outline-3">
+<h3 id="org948eae3"><span class="todo TODO">TODO</span> Dimostrazione&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h3>
+<div class="outline-text-3" id="text-org948eae3">
+<p>
+<a href="20250129100530-lemma_del_numero_di_lebesgue.html#ID-323892cd-e20e-404e-a3a7-8214a8339581">Lemma del numero di Lebesgue</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

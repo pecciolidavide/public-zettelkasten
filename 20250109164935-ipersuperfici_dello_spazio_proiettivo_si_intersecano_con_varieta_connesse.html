@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ipersuperficie dello spazio proiettivo interseca ogni varietà connessa diversa da un solo punto.</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ipersuperficie dello spazio proiettivo interseca ogni varietà connessa diversa da un solo punto.</h1>
+<p>
+Corollario del <a href="20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.html#ID-162e57fc-4f5b-4c97-a594-68f86b6d15ce">TEOREMA</a>. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" class="org-svg" /> un <a href="20241231112713-campo_algebricamente_chiuso.html#ID-6ccadde1-dfc2-4c91-a5f7-4d214b6ca537">campo algebricamente chiuso</a>.
+</p>
+<div id="outline-container-org4c9e0fd" class="outline-2">
+<h2 id="org4c9e0fd">Corollario</h2>
+<div class="outline-text-2" id="text-org4c9e0fd">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_500b81988d09017cb8cf18ef36dcb9b260151c55.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_500b81988d09017cb8cf18ef36dcb9b260151c55.svg" class="org-svg" /> (vedi <a href="20241231115051-spazio_proiettivo.html#ID-dbad3607-127c-4f50-ac11-d7ac06ac3b8e">spazio proiettivo</a>) una <a href="20241231123223-varieta_algebrica_proiettiva.html#ID-fc105c9d-d6d0-4719-8852-8569a2afab96">varietà algebrica proiettiva</a> <a href="20250103165325-spazio_topologico_connesso.html#ID-023f897c-53df-4be2-97cd-684ce24b9e8e">connessa</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_e98b290e98d760cc0a4420d4549bec7330598d09.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_e98b290e98d760cc0a4420d4549bec7330598d09.svg" class="org-svg" /> per qualche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" class="org-svg" />.
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_62e5fc9aa66914f1c8de44d392bf1162273b62e4.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_62e5fc9aa66914f1c8de44d392bf1162273b62e4.svg" class="org-svg" /> una <a href="20250110103632-varieta_algebrica_ipersuperficie.html#ID-28d60fb3-3231-4116-870a-8456a86ea810">ipersuperficie</a>.
+Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_97449f7b480c04f5b2c3d068b9b9b08a5483da6c.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_97449f7b480c04f5b2c3d068b9b9b08a5483da6c.svg" class="org-svg" />
+</p>
+</div>
+<div id="outline-container-orgcb1e364" class="outline-3">
+<h3 id="orgcb1e364">Dimostrazione</h3>
+<div class="outline-text-3" id="text-orgcb1e364">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_9f72e529d487053c80223b7a05ff1731e7468b17.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_9f72e529d487053c80223b7a05ff1731e7468b17.svg" class="org-svg" /> (vedi <a href="20241219113434-anello_dei_polinomi.html#ID-0C7F82D1-FB6F-4DBD-B401-27DE8C1F8B6C">Anello-dei-polinomi</a>) <a href="20241231121125-polinomi_omogenei.html#ID-d36e0d8c-9e18-4ba0-a822-9cf385ea9844">omogeneo</a> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_38f631a559443a0a8c14836627bc605b85dcbc23.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_38f631a559443a0a8c14836627bc605b85dcbc23.svg" class="org-svg" />. (vedi <a href="20241231112823-radici_polinomiali.html#ID-b7f15eca-8c80-4764-a5e1-4f5a8ce62891">Luogo di zeri</a>).
+</p>
+
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_8382816af3271fb2e900725e50f7bd530b8bc848.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_8382816af3271fb2e900725e50f7bd530b8bc848.svg" class="org-svg" />, allora per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" class="org-svg" /> si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_948727d6ee8af1a99dd2237177cda9b99451c32c.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_948727d6ee8af1a99dd2237177cda9b99451c32c.svg" class="org-svg" />.
+</p>
+
+<p>
+Pertanto, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_a757b5fd6ef32d9f27947287b1bc7ea866e3e0aa.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_a757b5fd6ef32d9f27947287b1bc7ea866e3e0aa.svg" class="org-svg" /> (vedi <a href="20241231124742-grado_polinomi.html#ID-7c28a1e4-40ce-44d2-84f6-dd61d51abbce">Grado-Polinomi</a>), allora le funzioni
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_d59875bcc3ea5040ae0c1e445f934e191b64aa2c.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_d59875bcc3ea5040ae0c1e445f934e191b64aa2c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+sono <a href="20250107112412-morfismo_tra_varieta_algebriche_qp.html#ID-927a1a7b-84b0-4720-a10a-7b627daba52b">morfismi</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_8fc96a00e5d22728d24d09bacf605590500dcbf7.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_8fc96a00e5d22728d24d09bacf605590500dcbf7.svg" class="org-svg" />.
+</p>
+
+<p>
+Per il <a href="20250109164824-morfismo_da_varieta_proiettiva_connessa_allo_spazio_affine_unidimensionale_e_costante.html#ID-1f013e7b-6968-427c-804f-c41af42ff7be">corollario precedente</a>, tutte queste funzioni sono costanti su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />. Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è composto da un unico punto. Assurdo.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

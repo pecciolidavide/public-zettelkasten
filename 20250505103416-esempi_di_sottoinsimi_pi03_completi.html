@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esempi di sottoinsiemi pi03 completi</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Esempi di sottoinsiemi pi03 completi</h1>
+<div id="outline-container-org5e872c5" class="outline-2">
+<h2 id="org5e872c5">Esercizio 3</h2>
+<div class="outline-text-2" id="text-org5e872c5">
+<p>
+Prove that the sets
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_5c775208db36617bd20b4a34414ba1de11d27fb9.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_5c775208db36617bd20b4a34414ba1de11d27fb9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+are both <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_f8671a2ec201e304d28d33ae1f9b28cf4aab914b.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_f8671a2ec201e304d28d33ae1f9b28cf4aab914b.svg" class="org-svg" />-complete.
+</p>
+
+<p>
+<i>Hint.</i> For the hardness part, compare these sets with the <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_f8671a2ec201e304d28d33ae1f9b28cf4aab914b.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_f8671a2ec201e304d28d33ae1f9b28cf4aab914b.svg" class="org-svg" />-complete set <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_5ba5e83db59ebee76c1197e545440a0a501da10e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_5ba5e83db59ebee76c1197e545440a0a501da10e.svg" class="org-svg" /> from Exercise 2.1.27 in the notes.
+</p>
+</div>
+<div id="outline-container-org95cbc36" class="outline-3">
+<h3 id="org95cbc36">Soluzione</h3>
+<div class="outline-text-3" id="text-org95cbc36">
+</div>
+<div id="outline-container-org107de07" class="outline-4">
+<h4 id="org107de07"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_caad801cfd0fd8770de2ca88b33371224e0cbd66.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_caad801cfd0fd8770de2ca88b33371224e0cbd66.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> sono degli insiemi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_7e05b53c7840f6364d305b382a182c93255ee33b.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_7e05b53c7840f6364d305b382a182c93255ee33b.svg" class="org-svg" />.</h4>
+<div class="outline-text-4" id="text-org107de07">
+</div>
+<div id="outline-container-orgfcc6a54" class="outline-5">
+<h5 id="orgfcc6a54">Insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_caad801cfd0fd8770de2ca88b33371224e0cbd66.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_caad801cfd0fd8770de2ca88b33371224e0cbd66.svg" class="org-svg" />.</h5>
+<div class="outline-text-5" id="text-orgfcc6a54">
+<p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_1409720d081a40d4adf06a9f98c4fb6829da2f3a.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_1409720d081a40d4adf06a9f98c4fb6829da2f3a.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b29ab0fe607751e7c11889e32475f2c6ebb232c0.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b29ab0fe607751e7c11889e32475f2c6ebb232c0.svg" class="org-svg" /> e:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_902615ab2a3b3b946cb2bb74e0ee7be2cb6afbae.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_902615ab2a3b3b946cb2bb74e0ee7be2cb6afbae.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ovvero, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_9578c2bf374277293ae30e43d396b55f6216ce28.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_9578c2bf374277293ae30e43d396b55f6216ce28.svg" class="org-svg" />, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_af8180acdad9c38f3390fe2e97f341c6b6b8e6e2.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_af8180acdad9c38f3390fe2e97f341c6b6b8e6e2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Quindi, dette <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b8bca2bd2b838fa110a23ee564659c3a3f4aee86.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b8bca2bd2b838fa110a23ee564659c3a3f4aee86.svg" class="org-svg" /> le <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" />-esime proiezioni (continue per definizione di topologia prodotto):
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_5cd620464b7623c1d64bbee30013344c74b47f14.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_5cd620464b7623c1d64bbee30013344c74b47f14.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_59d8e3de883c672dd6ebe39acb3780dd8309da6a.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_59d8e3de883c672dd6ebe39acb3780dd8309da6a.svg" class="org-svg" /> è chiuso. Per il Lemma 2.1.5:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_d291594cb7efbff78fee8d7dd7c30d36b38b8d96.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_d291594cb7efbff78fee8d7dd7c30d36b38b8d96.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si ottiene che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_9c891914024d6857c7ac7874596390a7eb25a920.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_9c891914024d6857c7ac7874596390a7eb25a920.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org1f8e393" class="outline-5">
+<h5 id="org1f8e393">Insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" />.</h5>
+<div class="outline-text-5" id="text-org1f8e393">
+<p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_1c749f7322f5e4a9961664db618b3cea9fcd14e7.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_1c749f7322f5e4a9961664db618b3cea9fcd14e7.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_0852608bf27e9775931c0a41b5e45cdbe43f1733.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_0852608bf27e9775931c0a41b5e45cdbe43f1733.svg" class="org-svg" /> e
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_337c6c05e0711f6a770f732039cdbf00b54da01f.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_337c6c05e0711f6a770f732039cdbf00b54da01f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ovvero, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b6fa976dd64adcde310b853e1fb3c62e57f2d052.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b6fa976dd64adcde310b853e1fb3c62e57f2d052.svg" class="org-svg" />, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_94478c54bc269b01032a602d7d57d8559cf8f44d.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_94478c54bc269b01032a602d7d57d8559cf8f44d.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Poiché la funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_3ba370fde048cbaa2a39e02f301e1b2b8eb0d23d.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_3ba370fde048cbaa2a39e02f301e1b2b8eb0d23d.svg" class="org-svg" /> è continua, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ca4071c63caf2a513ac8ed655693547f7f1b6e59.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ca4071c63caf2a513ac8ed655693547f7f1b6e59.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_1dcd0049f743f81a8166138a27921d9a4415a1b1.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_1dcd0049f743f81a8166138a27921d9a4415a1b1.svg" class="org-svg" /> è chiuso. Per il Lemma 2.1.5:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_7d5d381aa14c85a5d5407f4e80406bd4975517e8.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_7d5d381aa14c85a5d5407f4e80406bd4975517e8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si ottiene che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_63216518220af7d59e28640a687b3881b0ba2ca7.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_63216518220af7d59e28640a687b3881b0ba2ca7.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e27218" class="outline-4">
+<h4 id="org6e27218">Hardness</h4>
+<div class="outline-text-4" id="text-org6e27218">
+<p>
+È noto (Esercizio 2.1.27) che l&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_8e15522218747d1590f879d3f65c4a0905364ae2.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_8e15522218747d1590f879d3f65c4a0905364ae2.svg" class="org-svg" /> sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b64b6a971ea53d1e73a20deaadf135edd263cbc8.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b64b6a971ea53d1e73a20deaadf135edd263cbc8.svg" class="org-svg" />-hard. Pertanto si cercano delle funzioni continue
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_24b6315bca765caac4674acd603f13d70481c0da.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_24b6315bca765caac4674acd603f13d70481c0da.svg" class="org-svg" />
+</span>
+</div>
+<p>
+tali che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_74eb58d0f76e6fab1985ac6012851196de9e0e49.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_74eb58d0f76e6fab1985ac6012851196de9e0e49.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questo, per mezzo del Lemma 2.1.23, garantisce che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_4cebac1a6e7877c887901c8feef50be37f309467.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_4cebac1a6e7877c887901c8feef50be37f309467.svg" class="org-svg" /> siano insiemi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b64b6a971ea53d1e73a20deaadf135edd263cbc8.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b64b6a971ea53d1e73a20deaadf135edd263cbc8.svg" class="org-svg" />-hard (e quindi, per il punto precedente, completi).
+</p>
+
+<p>
+Le due funzioni si definiscono come segue:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_f02d0647472e61591ad5759bcb387153fd6333fa.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_f02d0647472e61591ad5759bcb387153fd6333fa.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org031093b" class="outline-5">
+<h5 id="org031093b"><span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è continua.</span></h5>
+<div class="outline-text-5" id="text-org031093b">
+<p>
+La funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è continua poiché lo è su ciascuna componente (in quanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_2b22fed1101f5af3129462377a91829c70ee6cf0.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_2b22fed1101f5af3129462377a91829c70ee6cf0.svg" class="org-svg" /> ha la topologia discreta).
+</p>
+</div>
+</div>
+<div id="outline-container-orgc58c21d" class="outline-5">
+<h5 id="orgc58c21d"><span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è continua.</span></h5>
+<div class="outline-text-5" id="text-orgc58c21d">
+<p>
+La funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è continua poiché lo è su ciascuna componente:
+</p>
+<ul class="org-ul">
+<li>la componente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" class="org-svg" />-esima di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" class="org-svg" /> dispari, è data dalla funzione costante nulla, continua;</li>
+<li>la componente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" class="org-svg" />-esima di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_bc86c037be19a78fb8a218fd6c61f293eac0183e.svg" class="org-svg" /> pari, è data dalla funzione proiezione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_091d7f24bfc45ff5f7265053ebac4373bf4db9be.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_091d7f24bfc45ff5f7265053ebac4373bf4db9be.svg" class="org-svg" />, continua per definizione di topologia prodotto.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org945d7f1" class="outline-5">
+<h5 id="org945d7f1"><span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_1ac278b9320809a180eba3800d3421eff98a51a3.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_1ac278b9320809a180eba3800d3421eff98a51a3.svg" class="org-svg" />.</span></h5>
+<div class="outline-text-5" id="text-org945d7f1">
+<p>
+Si dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_756f1812b6f3f06f6dbc71e909e6df8628c4024e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_756f1812b6f3f06f6dbc71e909e6df8628c4024e.svg" class="org-svg" /> sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b63c81e1335d971845dd4d95d91fbb7a63d54a76.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b63c81e1335d971845dd4d95d91fbb7a63d54a76.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li><p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_d42af0a6df593d2a5eea150ca17034cc6c0bbbb3.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_d42af0a6df593d2a5eea150ca17034cc6c0bbbb3.svg" class="org-svg" /> allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" class="org-svg" /> tale che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_3ee4f3e982f05bf5187b67fe94e00063e29e4995.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_3ee4f3e982f05bf5187b67fe94e00063e29e4995.svg" class="org-svg" /> si ha<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ec6610b83bed5f4ab670ed5bd9b8bdd30ecc265c.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ec6610b83bed5f4ab670ed5bd9b8bdd30ecc265c.svg" class="org-svg" />.
+</p>
+
+<p>
+Pertanto, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_3ee4f3e982f05bf5187b67fe94e00063e29e4995.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_3ee4f3e982f05bf5187b67fe94e00063e29e4995.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_cac1a0443da239bc2d8fbf1c634a3d48b00be346.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_cac1a0443da239bc2d8fbf1c634a3d48b00be346.svg" class="org-svg" /> e, siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_e80d8d195cf70d49bfd25f40be13f8b1b37b5838.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_e80d8d195cf70d49bfd25f40be13f8b1b37b5838.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_2a351c6762c526301f979241bca75f595c9bba1c.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_2a351c6762c526301f979241bca75f595c9bba1c.svg" class="org-svg" />. Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b63c81e1335d971845dd4d95d91fbb7a63d54a76.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b63c81e1335d971845dd4d95d91fbb7a63d54a76.svg" class="org-svg" />.
+</p></li>
+<li><p>
+Viceversa, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_684f77b6ff750aa49130e068763ff0ec6a790334.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_684f77b6ff750aa49130e068763ff0ec6a790334.svg" class="org-svg" />. Si supponga per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_9b4551377169ceadd181fea74266b6fc99880ff8.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_9b4551377169ceadd181fea74266b6fc99880ff8.svg" class="org-svg" />.
+</p>
+
+<p>
+Allora, definitivamente, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_120bdbc0ad8c0468b50867068d40bc78afae37b6.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_120bdbc0ad8c0468b50867068d40bc78afae37b6.svg" class="org-svg" /> (e in particolare <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_93b5f8642c585c9fdee435d841232b9ed96fa421.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_93b5f8642c585c9fdee435d841232b9ed96fa421.svg" class="org-svg" />), poiché altrimenti non si avrebbe convergenza a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" class="org-svg" />. In particolare, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_294bd7ea89fe258c84655d3404ea8026f1f51f44.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_294bd7ea89fe258c84655d3404ea8026f1f51f44.svg" class="org-svg" />, definitivamente:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_1fa387c3d98365265f4454d827fa71be1c753d27.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_1fa387c3d98365265f4454d827fa71be1c753d27.svg" class="org-svg" />
+</span>
+</div>
+<p>
+poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_4867f1d2a0c2adc94ed9db35f62f35c9daf64f72.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_4867f1d2a0c2adc94ed9db35f62f35c9daf64f72.svg" class="org-svg" />. Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_efce1774ef6694be64debe86907f813987852d32.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_efce1774ef6694be64debe86907f813987852d32.svg" class="org-svg" />. Assurdo.
+</p>
+
+<p>
+Si ottiene perciò che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_0b8f8424de27fe4ab6ee584e46ca895beee0e11a.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_0b8f8424de27fe4ab6ee584e46ca895beee0e11a.svg" class="org-svg" />.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1fa0656" class="outline-5">
+<h5 id="org1fa0656"><span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ad12052ebb8c4cd32906aec960db1f6c02288c07.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ad12052ebb8c4cd32906aec960db1f6c02288c07.svg" class="org-svg" />.</span></h5>
+<div class="outline-text-5" id="text-org1fa0656">
+<p>
+Si dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_50ebbb79d3c15b60189b828339e74ca1137e4f76.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_50ebbb79d3c15b60189b828339e74ca1137e4f76.svg" class="org-svg" /> sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_fef3bc9447625d904a6d4d158981e4ce238e188e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_fef3bc9447625d904a6d4d158981e4ce238e188e.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b492abb5168b421d3c4a291a17d5f0da62765e3c.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b492abb5168b421d3c4a291a17d5f0da62765e3c.svg" class="org-svg" /> allora la successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ebe72490aabd9dced448723bc23efe6904e1378e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ebe72490aabd9dced448723bc23efe6904e1378e.svg" class="org-svg" /> converge a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" class="org-svg" />, e pertanto converge: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_fef3bc9447625d904a6d4d158981e4ce238e188e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_fef3bc9447625d904a6d4d158981e4ce238e188e.svg" class="org-svg" />.</li>
+<li>Viceversa, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ff5807d8e1e5b238e9ef10a480d98bb8227d1f61.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ff5807d8e1e5b238e9ef10a480d98bb8227d1f61.svg" class="org-svg" /> , allora la successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_ebe72490aabd9dced448723bc23efe6904e1378e.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_ebe72490aabd9dced448723bc23efe6904e1378e.svg" class="org-svg" /> non converge, in quanto presenta due sottosuccessioni (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_8a0b30460c669d82b331f4abdb3566e05f1ad6a6.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_8a0b30460c669d82b331f4abdb3566e05f1ad6a6.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_b087ee9444cb732c623299933f553343fcd38fbd.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_b087ee9444cb732c623299933f553343fcd38fbd.svg" class="org-svg" />) con caratteri diversi: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250505103416-esempi_di_sottoinsimi_pi03_completi_965c4d402429f10bb899f0d65e353b3368f80666.svg" alt="20250505103416-esempi_di_sottoinsimi_pi03_completi_965c4d402429f10bb899f0d65e353b3368f80666.svg" class="org-svg" />.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
