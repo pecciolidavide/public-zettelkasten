@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Morfismo tra varietà algebriche affini</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Morfismo tra varietà algebriche affini</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" class="org-svg" /> un <a href="20241231112713-campo_algebricamente_chiuso.html#ID-6ccadde1-dfc2-4c91-a5f7-4d214b6ca537">campo algebricamente chiuso</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_61a5102396f1ecf13d29eca2c7d82ac6da23467f.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_61a5102396f1ecf13d29eca2c7d82ac6da23467f.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_ef38350c688809305290b9a816e6091e959bf3e4.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_ef38350c688809305290b9a816e6091e959bf3e4.svg" class="org-svg" /> <a href="20241231114256-varieta_algebrica_affine.html#ID-4d723a6a-9083-464f-80d0-c12d5978cda5">varietà algebriche affini</a>. (Vedi <a href="20241231114009-spazio_affine.html#ID-34467cae-3c90-4d7a-978d-9460a1816388">Spazio Affine</a>)
+</p>
+<div id="outline-container-org2c9b8c6" class="outline-2">
+<h2 id="org2c9b8c6">Definizione</h2>
+<div class="outline-text-2" id="text-org2c9b8c6">
+<p>
+Una funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_e2ba377634abaad316e9f90aa8fff3844c1ec253.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_e2ba377634abaad316e9f90aa8fff3844c1ec253.svg" class="org-svg" /> è un <b>morfismo tra varietà affini</b> se esiste una mappa polinomiale
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_09c6fb5b2f5dcbbb10e2590238183773ae7897dd.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_09c6fb5b2f5dcbbb10e2590238183773ae7897dd.svg" class="org-svg" />
+</span>
+</div>
+<p>
+tale che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_641f29d1e1779740780dc0ac71617c625a8461bd.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_641f29d1e1779740780dc0ac71617c625a8461bd.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org85ce558" class="outline-3">
+<h3 id="org85ce558">Precisazione</h3>
+<div class="outline-text-3" id="text-org85ce558">
+<p>
+Per mappa polinomiale si intende
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_225998c81cc71d6a5eacf1825e8e5fa73a68fa02.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_225998c81cc71d6a5eacf1825e8e5fa73a68fa02.svg" class="org-svg" />
+</span>
+</div>
+<p>
+con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_b3a0cd6f5a615f25a0c97de405cb0b0f9167427b.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_b3a0cd6f5a615f25a0c97de405cb0b0f9167427b.svg" class="org-svg" /> (vedi <a href="20241219113434-anello_dei_polinomi.html#ID-0C7F82D1-FB6F-4DBD-B401-27DE8C1F8B6C">Anello-dei-polinomi</a>).
+</p>
+</div>
+</div>
+<div id="outline-container-org7e8e78e" class="outline-3">
+<h3 id="org7e8e78e">Osservazione</h3>
+<div class="outline-text-3" id="text-org7e8e78e">
+<p>
+La definizione richiede che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_342b621f081d2287bcb25bd5504b2160c2e9038b.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_342b621f081d2287bcb25bd5504b2160c2e9038b.svg" class="org-svg" />, pertanto non tutti i polinomi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_f660812e7884234148cfbe6d143512c6680b750c.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_f660812e7884234148cfbe6d143512c6680b750c.svg" class="org-svg" /> danno luogo a morfismi da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_d2fb6c21aca0d9bd32a18366a96b2f92542aea69.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_d2fb6c21aca0d9bd32a18366a96b2f92542aea69.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4eece24" class="outline-2">
+<h2 id="org4eece24">Isomorfismo tra varietà algebriche affini</h2>
+<div class="outline-text-2" id="text-org4eece24">
+</div>
+<div id="outline-container-orgf81923b" class="outline-3">
+<h3 id="orgf81923b">Definizione</h3>
+<div class="outline-text-3" id="text-orgf81923b">
+<p>
+Un morfismo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_21573f42670a27df3a66f66f5505a7cefc692102.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_21573f42670a27df3a66f66f5505a7cefc692102.svg" class="org-svg" /> è un <a href="20241128162125-isomorfismo.html#ID-EE54E46B-6271-4478-84BB-405064453B79">isomorfismo</a> se
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è <a href="20250104111707-funzione_biunivoca.html#ID-bc2ec820-d050-4c81-a7c9-833d186b7e35">biunivoca</a> (e quindi esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_079be7a92e3e985ff1e72dfb0e077da0a7e8e251.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_079be7a92e3e985ff1e72dfb0e077da0a7e8e251.svg" class="org-svg" />);</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_079be7a92e3e985ff1e72dfb0e077da0a7e8e251.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_079be7a92e3e985ff1e72dfb0e077da0a7e8e251.svg" class="org-svg" /> è un morfismo.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org606894c" class="outline-2">
+<h2 id="org606894c">Esempi di morfismi</h2>
+<div class="outline-text-2" id="text-org606894c">
+</div>
+<div id="outline-container-orged14f2a" class="outline-3">
+<h3 id="orged14f2a">Esempio 1</h3>
+<div class="outline-text-3" id="text-orged14f2a">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_6dd93d0b02b0d162f8ae70e3212d92e7121d34bd.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_6dd93d0b02b0d162f8ae70e3212d92e7121d34bd.svg" class="org-svg" /> (vedi <a href="20250104111539-spazio_delle_matrici.html#ID-3e21bddd-06e6-465b-afa1-28f7e3cf458c">Spazio delle matrici</a>) e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_0124a9179e9805cc8c69f7217288216707ac72aa.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_0124a9179e9805cc8c69f7217288216707ac72aa.svg" class="org-svg" />.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_9ddf1cc22870fcbb4df37f957d24767da8e4a2f7.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_9ddf1cc22870fcbb4df37f957d24767da8e4a2f7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è un morfismo, poiché è polinomiale (data da polinomi di primo grado).
+</p>
+
+<p>
+Inoltre, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è invertibile se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> è <a href="20250104111735-matrice_invertibile.html#ID-a6076a37-bacb-44a3-88e1-e52b9d8c22b1">invertibile</a> (ovver sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_94599282d895ff17966463812f0a595d1b9076b3.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_94599282d895ff17966463812f0a595d1b9076b3.svg" class="org-svg" />, vedi <a href="20250104111751-determinante_di_una_matrice.html#ID-4126fa6a-3b08-41e0-b318-8740237854b5">Determinante di una matrice</a>).
+</p>
+</div>
+</div>
+<div id="outline-container-org2c445a5" class="outline-3">
+<h3 id="org2c445a5">Esempio 2</h3>
+<div class="outline-text-3" id="text-org2c445a5">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_0e5cc7e4d3b3e5faa98ed41c5b90043105edea54.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_0e5cc7e4d3b3e5faa98ed41c5b90043105edea54.svg" class="org-svg" />, e consideriamo
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_4831d9b3c6a2813cad42266940d2a3e774334dc6.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_4831d9b3c6a2813cad42266940d2a3e774334dc6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+la proiezione sulle prime <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" /> coordinate.
+</p>
+
+<p>
+Evidentemente è un morfismo, poiché le mappe sono polinomiali. Allo stesso tempo è evidente che non sia un isomorfismo.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5e20c2" class="outline-3">
+<h3 id="orgb5e20c2">Esempio 3</h3>
+<div class="outline-text-3" id="text-orgb5e20c2">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_2be4d571f0b6331fa91ab32b803c0bd24e36905c.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_2be4d571f0b6331fa91ab32b803c0bd24e36905c.svg" class="org-svg" />, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_9301d5f6d3c709d9fb2ad0ca3f7499750ec1ec88.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_9301d5f6d3c709d9fb2ad0ca3f7499750ec1ec88.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_f9a6cfa89e32b383cd59aa6518b3e96c7319c26b.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_f9a6cfa89e32b383cd59aa6518b3e96c7319c26b.svg" class="org-svg" />
+Consideriamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_79e5dab26dbb2057b65d1a48c117a2be83d8ded5.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_79e5dab26dbb2057b65d1a48c117a2be83d8ded5.svg" class="org-svg" /> (vedi <a href="20241231112823-radici_polinomiali.html#ID-b7f15eca-8c80-4764-a5e1-4f5a8ce62891">Luogo di zeri</a>). <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è il <a href="20250104112443-grafico_di_una_funzione.html#ID-cfa16e89-6a78-4944-9714-898e7cc376b4">grafico</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />.
+</p>
+
+<p>
+Si hanno le mappe
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_9f2d9955d5408116eba030b474a63b7443473a37.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_9f2d9955d5408116eba030b474a63b7443473a37.svg" class="org-svg" />
+</span>
+</div>
+<p>
+che è un morfismo poiché polinomiale, e la sua inversa
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_27a32fb6853af54defde51f98cc932e631d9adef.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_27a32fb6853af54defde51f98cc932e631d9adef.svg" class="org-svg" />
+</span>
+</div>
+<p>
+che è morfismo per l&rsquo;esempio precedente, poiché proiezione sul primo fattore.
+</p>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250104110524-morfismo_tra_varieta_algebriche_affini_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è un <a href="#org4eece24">isomorfismo</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+name: Fix Absolute Paths
+on:
+  push:
+    branches:
+      - master  # O 'master', cambia con il nome del tuo branch
+    paths:
+      - '**/*.html' # Attiva l'azione solo se carichi file HTML
+
+jobs:
+  fix-paths:
+    runs-on: ubuntu-latest
+
+    # Permessi necessari per poter fare il commit delle modifiche
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout del codice
+      uses: actions/checkout@v4
+
+    - name: Rimuovi percorsi assoluti
+      run: |
+        # --- CONFIGURAZIONE ---
+        # Inserisci qui il percorso che Emacs genera sul TUO PC e che vuoi cancellare.
+        # Esempio: /home/tuonome/Documents/roam_website/
+        # Usa il percorso ESATTO che vedi ispezionando un tuo HTML rotto.
+        OLD_PATH="file:///Users/davidepeccioli/Documents/roam_website/"
+
+        echo "Sto cercando e rimuovendo: $OLD_PATH"
+
+        # Cerca in tutti i file .html e sostituisce il percorso vecchio con il nulla
+        # Usiamo il delimitatore | per evitare conflitti con gli slash del percorso
+        find . -name "*.html" -exec sed -i "s|$OLD_PATH||g" {} +
+
+    - name: Commit e Push delle correzioni
+      run: |
+        # Configura un utente "bot" fittizio per il commit
+        git config user.name "Path Fixer Bot"
+        git config user.email "actions@github.com"
+
+        # Aggiunge i file modificati
+        git add .
+
+        # Se ci sono modifiche, fa il commit e il push.
+        # Se sed non ha trovato nulla da cambiare, non fa nulla (evita errori).
+        git commit -m "Auto-fix: converted absolute paths to relative" || echo "Nessuna modifica necessaria"
+        git push
