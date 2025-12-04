@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Istituzioni di Geometria [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Istituzioni di Geometria [CORSO]</h1>
+<div id="outline-container-org7769112" class="outline-2">
+<h2 id="org7769112">Istituzioni di Geometria (9 cfu)</h2>
+<div class="outline-text-2" id="text-org7769112">
+</div>
+<div id="outline-container-orgd135acc" class="outline-3">
+<h3 id="orgd135acc">Geometria Algebrica (3 cfu)</h3>
+<div class="outline-text-3" id="text-orgd135acc">
+<ul class="org-ul">
+<li><a href="20241219113434-anello_dei_polinomi.html#ID-0C7F82D1-FB6F-4DBD-B401-27DE8C1F8B6C">Anello-dei-polinomi</a></li>
+<li><a href="20241231112713-campo_algebricamente_chiuso.html#ID-6ccadde1-dfc2-4c91-a5f7-4d214b6ca537">Campo Algebricamente Chiuso</a></li>
+<li><a href="20241231114009-spazio_affine.html#ID-34467cae-3c90-4d7a-978d-9460a1816388">Spazio Affine</a></li>
+<li><a href="20241231114256-varieta_algebrica_affine.html#ID-4d723a6a-9083-464f-80d0-c12d5978cda5">Varietà Algebrica Affine</a></li>
+<li><a href="20241231115051-spazio_proiettivo.html#ID-dbad3607-127c-4f50-ac11-d7ac06ac3b8e">Spazio Proiettivo</a></li>
+<li><a href="20241231121125-polinomi_omogenei.html#ID-d36e0d8c-9e18-4ba0-a822-9cf385ea9844">Polinomi Omogenei</a></li>
+<li><a href="20241231123223-varieta_algebrica_proiettiva.html#ID-fc105c9d-d6d0-4719-8852-8569a2afab96">Varietà Algebrica Proiettiva</a></li>
+<li><a href="20250102103618-infinitezza_campi_alg_chiusi.html#ID-64cc4bf9-e6dc-4c25-b3ba-fef43b094a35">Infinitezza Campi alg chiusi</a></li>
+<li><a href="20250102141936-insiemi_finiti_di_punti_dello_spazio_proiettivo.html#ID-1215e099-0eba-45cb-9de8-8212de675eef">Insiemi finiti di punti dello spazio proiettivo</a></li>
+<li><a href="20250102143739-insiemi_finiti_di_punti_dello_spazio_affine.html#ID-b67bda1f-f10e-4cb6-9ff3-e857c5e00a48">Insiemi finiti di punti dello spazio affine come zeri di due polinomi</a></li>
+<li><a href="20250102115740-anello_dei_polinomi_ad_ideali_principali.html#ID-6be53540-715e-4970-930b-6387e01c4bbc">Anello dei polinomi ad ideali principali</a></li>
+<li><a href="20250102115942-anello_noetheriano.html#ID-7a2d1aa0-6a33-4d13-8af8-33fe21d1ffbf">Anello Noetheriano</a></li>
+<li><a href="20250102165143-ideali_generati_di_un_anello_noetheriano.html#ID-ef88984c-d32d-4a59-8afa-24dbaafd08e3">Ideali Generati di un Anello Noetheriano</a></li>
+<li><a href="20250102165420-teorema_della_base_di_hilbert.html#ID-25589af4-ef87-4caf-abc2-b2cdbea3c89e">Teorema della Base di Hilbert</a></li>
+<li><a href="20250102175222-campi_sono_anelli_noetheriani.html#ID-d7809a2a-852a-4177-8419-7b25077c0929">Campi sono anelli Noetheriani</a></li>
+<li><a href="20250102180050-zeri_di_un_ideale_generato_in_uno_spazio_affine.html#ID-447c9a5c-842a-4d97-a2e4-342c872495fd">Zeri di un ideale generato in uno spazio affine</a></li>
+<li><a href="20250102182726-ideale_di_polinomi_omogeneo.html#ID-1147678f-5c35-48a0-8b44-a5e2fb88664a">Ideale di polinomi omogeneo</a></li>
+<li><a href="20250102183523-luogo_di_zeri_di_un_ideale_omogeneo.html#ID-f53d8952-ce69-4b84-9861-27a2c9a77ab2">Luogo di zeri di un ideale omogeneo</a></li>
+<li><a href="20250103100601-varieta_algebriche_luogo_di_zeri_di_finiti_polinomi.html#ID-e0db9af4-215d-4f70-8cfb-afe58fcb3e27">Varietà Algebriche luogo di zeri di finiti polinomi</a></li>
+<li><a href="20250103101459-topologia_di_zariski_affine.html#ID-f1bc00d5-ee7b-4a55-afd4-9c0072b4b03e">Topologia di Zariski affine</a></li>
+<li><a href="20250103180214-topologia_di_zariski_proiettiva.html#ID-fbf2f62d-fc3c-40dc-83a2-645e3f569768">Topologia di Zariski proiettiva</a></li>
+<li><a href="20250103144124-ideale_di_un_sottoinsieme.html#ID-a8629503-e7bf-42b7-950b-11b550194a72">Ideale di un sottoinsieme</a></li>
+<li><a href="20250103145915-zeri_di_un_ideale_di_un_sottoinsieme_affine.html#ID-9a7ed73c-a42e-4661-b8f8-5842fb1dd27f">Zeri di un ideale di un sottoinsieme affine</a></li>
+<li><a href="20250109115213-zeri_di_un_ideale_di_un_sottoinsieme_proiettivo.html#ID-25cd8fa1-bad0-43bd-bc9b-817abcee1240">Zeri di un ideale di un sottoinsieme proiettivo</a></li>
+<li><a href="20250103152646-spazio_topologico_noetheriano.html#ID-94004aac-fba0-4a56-a034-7ca354ec4d20">Spazio topologico Noetheriano</a></li>
+<li><a href="20250103153610-topologia_di_zariski_affine_e_noetheriana.html#ID-8f683b10-775c-43f6-834a-9a06114e125b">Topologia di Zariski affine è noetheriana</a></li>
+<li><a href="20250103155209-caratterizzazione_topologia_noetheriana.html#ID-6dc5671b-527c-47ef-95e9-f3d9cf124d5f">Caratterizzazione topologia noetheriana</a></li>
+<li><a href="20250103163621-spazio_topologico_noetheriano_e_compatto.html#ID-e9032c39-807f-402a-b3f3-62ef799eab86">Spazio topologico Noetheriano è compatto</a></li>
+<li><a href="20250103164917-sottospazio_irriducibile.html#ID-dac2855b-faf5-403d-8171-4efb726c0cac">Sottospazio irriducibile</a></li>
+<li><a href="20250103170236-scomposizione_di_sp_top_noetheriani_in_componenti_irriducibili.html#ID-3e6d507c-945d-4278-b981-cf23b87dd79b">Scomposizione di sp top noetheriani in componenti irriducibili</a></li>
+<li><a href="20250103170329-caratterizzazione_di_sottospazi_affini_irriducibili_tramite_ideali.html#ID-e222c80b-9bba-4dde-8698-cc829a232576">Caratterizzazione di sottospazi affini irriducibili tramite ideali</a></li>
+<li><a href="20250104100907-spazio_affine_e_irriducibile.html#ID-fe3a293d-e486-4d14-85e3-8d93a6fd0434">Spazio affine è irriducibile</a></li>
+<li><a href="20250104110524-morfismo_tra_varieta_algebriche_affini.html#ID-23bc5305-ece2-4eca-8624-af5972fe6f5b">Morfismo tra varietà algebriche affini</a></li>
+<li><a href="20250104112713-morfismo_tra_varieta_algebriche_affini_e_continuo.html#ID-3a8f54d3-31a4-44b3-8f7f-54f308a31265">Morfismo tra varietà algebriche affini è continuo</a></li>
+<li><a href="20250104114505-morfismo_tra_varieta_algebriche_affini_non_e_chiuso.html#ID-9074e591-418a-45c0-ad1c-20055bd86dc9">Morfismo tra varietà algebriche affini non è chiuso</a></li>
+<li><a href="20250104120600-morfismo_tra_varieta_algebriche_proiettive.html#ID-bf76d8c7-ab1f-46a9-ae71-0504216a0202">Morfismo tra varietà algebriche proiettive</a></li>
+<li><a href="20250104121634-curva_razionale_normale.html#ID-da58ab84-9f0e-412a-9006-1935a6830dbd">Curva Razionale Normale</a></li>
+<li><a href="20250104121837-mappa_di_veronese.html#ID-5cd7f19c-0401-4626-b682-4f02f926ca93">Mappa di Veronese</a></li>
+<li><a href="20250107112123-varieta_algebrica_quasi_proiettiva_qp.html#ID-ab32c74f-848e-4ac4-bcbb-c5b94c7854b9">Varietà Algebrica Quasi Proiettiva QP</a></li>
+<li><a href="20250107112412-morfismo_tra_varieta_algebriche_qp.html#ID-927a1a7b-84b0-4720-a10a-7b627daba52b">Morfismo tra varietà algebriche QP</a></li>
+<li><a href="20250104190620-mappa_di_segre.html#ID-f7a1b830-3507-4163-bd15-d16f0a0f05fb">Mappa di Segre</a></li>
+<li><a href="20250107123816-proiezioni_da_prodotti_di_varieta_proiettive_sono_morfisi.html#ID-267759b9-0175-423c-969e-911f4ce12e0a">Proiezioni da prodotti di varietà proiettive sono morfisi</a></li>
+<li><a href="20250107143702-copie_dello_spazio_proiettivo_dentro_la_varieta_di_segre_sono_lineari.html#ID-842fbba3-c6d6-41e4-bf46-78b81a7af0b2">Copie dello spazio proiettivo dentro la varietà di Segre sono lineari</a></li>
+<li><a href="20250107170928-varieta_proiettiva_dentro_prodotti_di_spazi_proiettivi.html#ID-d26f3d09-ff2b-4e88-82e8-78da81c900db">Varietà proiettiva dentro prodotti di spazi proiettivi</a></li>
+<li><a href="20250108102640-prodotti_di_varieta_qp.html#ID-69d8bc95-d445-4114-a692-7885a204ebee">Prodotti di varietà QP</a></li>
+<li><a href="20250108124906-grafico_di_un_morfismo_proiettivo_e_varieta.html#ID-bc758785-6a6d-442e-9aad-5dd330bce49d">Grafico di un morfismo proiettivo è varietà</a></li>
+<li><a href="20250108162146-proiezione_su_un_iperpiano_dentro_allo_spazio_proiettivo.html#ID-dfcef8cd-8b82-441e-a77c-fedf1972ac99">Proiezione su un iperpiano dentro allo spazio proiettivo</a></li>
+<li><a href="20250108172559-teorema_proiezione_su_un_iperpiano_di_una_varieta_e_varieta.html#ID-d7eeb5d6-85ec-448d-b24e-ead6b1f0c762">Teorema proiezione su un iperpiano di una varietà è varietà</a></li>
+<li><a href="20250108173056-fattori_non_costanti_comuni_tra_polinomi.html#ID-b031a4f5-2b0d-4743-b55f-66586f202472">Fattori non costanti comuni tra polinomi</a></li>
+<li><a href="20250109095734-risultante_per_polinomi_in_piu_variabili.html#ID-4469a541-a13d-44db-82f3-6e4e49a30dc0">Risultante per polinomi in più variabili</a></li>
+<li><a href="20250109120343-cono_in_uno_spazio_proiettivo.html#ID-87965a40-cf1f-4089-a19c-badad2d96d65">Cono in uno spazio proiettivo</a></li>
+<li><a href="20250109141249-morfismo_da_varieta_proiettiva_a_varieta_qp_e_chiuso.html#ID-162e57fc-4f5b-4c97-a594-68f86b6d15ce">Morfismo da varietà proiettiva a varietà qp è chiuso</a></li>
+<li><a href="20250109164824-morfismo_da_varieta_proiettiva_connessa_allo_spazio_affine_unidimensionale_e_costante.html#ID-1f013e7b-6968-427c-804f-c41af42ff7be">Morfismo da varietà proiettiva connessa allo spazio affine unidimensionale è costante</a></li>
+<li><a href="20250109164935-ipersuperfici_dello_spazio_proiettivo_si_intersecano_con_varieta_connesse.html#ID-3da890ce-19eb-48ee-a93f-985121ac60cf">Ipersuperficie dello spazio proiettivo interseca ogni varietà connessa diversa da un solo punto</a></li>
+<li><a href="20250110125225-radicale_di_un_ideale.html#ID-fd18f526-a0e1-4c59-9e66-927cd73a1843">Radicale di un ideale</a></li>
+<li><a href="20250110125621-radicale_di_un_ideale_e_ideale.html#ID-f388ef43-ee29-49e3-b4c5-99d88811c628">Radicale di un ideale è ideale</a></li>
+<li><a href="20250110142357-ideale_radicale.html#ID-28579eb1-2010-42af-82a7-c65332f88c1a">Ideale Radicale</a></li>
+<li><a href="20250110182255-ideale_radicale_e_anello_quoziente.html#ID-a12cf4e1-48fa-4407-bbf4-7aca0a76a18a">Ideale radicale e anello quoziente</a></li>
+<li><a href="20250110144451-ideale_primo_e_radicale.html#ID-37422b3d-3a84-4388-8bd7-e97a408bfd20">Ideale primo è radicale</a></li>
+<li><a href="20250110143120-nullstellensatz.html#ID-d249e662-a85e-4d1f-a489-074dae5d515a">Nullstellensatz</a></li>
+<li><a href="20250110143644-nullstellensatz_debole.html#ID-1a8b8975-2923-4614-a6c9-14203a080fc9">Nullstellensatz debole</a></li>
+<li><a href="20250110145609-nullstellensatz_debole_implica_nullstellensatz.html#ID-1484a3ff-d492-447a-b67e-c2455eef8c0a">Nullstellensatz debole implica Nullstellensatz</a></li>
+<li><a href="20250110150011-corrispondenza_ideali_radicali_e_chiusi_algebrici_dello_spazio_affine.html#ID-191a5815-6d3b-4692-8797-da677201faa8">Corrispondenza ideali radicali e chiusi algebrici dello spazio affine</a></li>
+<li><a href="20250110174110-anello_delle_coordinate.html#ID-e1d8043d-93e3-4216-bba5-698efffd16d7">Anello delle coordinate</a></li>
+<li><a href="20250110175552-algebra_su_un_campo.html#ID-698b2573-8376-45b9-a7cd-a8bdc5e89b9c">Algebra su un campo</a></li>
+<li><a href="20250110180014-algebra_su_un_campo_finitamente_generata.html#ID-e691c11b-0227-4ba2-b49b-4af6769672a4">Algebra su un campo finitamente generata</a></li>
+<li><a href="20250110175521-k_algebre_fin_generate_e_ridotte_come_anelli_delle_coordinate_di_varieta_affini.html#ID-a983c44d-1f60-4307-b77a-07f2cec63d85">K-Algebre fin generate e ridotte come anelli delle coordinate di varietà affini</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org716f7da" class="outline-3">
+<h3 id="org716f7da">Geometria Differenziale</h3>
+<div class="outline-text-3" id="text-org716f7da">
+<ul class="org-ul">
+<li><a href="20250111092123-varieta_topologica.html#ID-a80efedb-fdcc-4004-97d1-62220698d2f1">Varietà Topologica</a></li>
+<li><a href="20250111161343-esempi_fondamentali_di_varieta_topologiche.html#ID-aabacea2-1981-4e30-ba91-ddfa14d0a840">Esempi fondamentali di varietà topologiche</a></li>
+<li><a href="20250111161808-immagini_tramiti_omeomorfismi_di_varieta_topologiche_sono_varieta_topologiche.html#ID-0256f6fb-73ac-4972-b1e7-013682349a60">Immagini tramiti omeomorfismi di varietà topologiche sono varietà topologiche</a></li>
+<li><a href="20250113095039-atlante_topologico.html#ID-ae33dd77-5581-4479-af1e-34efd2fed838">Atlante topologico</a></li>
+<li><a href="20250113095300-la_sfera_n_dimensionale_e_varieta_topologica.html#ID-d6afee2a-0bca-47d5-a45e-e00d6246b1f2">La sfera n-dimensionale è varietà topologica</a></li>
+<li><a href="20250113095404-spazio_proiettivo_e_varieta_topologica.html#ID-bd922da3-6076-4761-ada6-8f20d53e836c">Spazio proiettivo è varietà topologica</a></li>
+<li><a href="20250113095724-spazio_delle_matrici_invertibili_e_varieta_topologica.html#ID-64aae713-371a-45dc-8e33-0cd7a7393b59">Spazio delle matrici reali invertibili è varietà topologica</a></li>
+<li><a href="20250113100307-gruppo_lineare_complesso_e_varieta_topologica.html#ID-e0c5307a-d59f-4015-aa39-46f64a200fd9">Gruppo lineare complesso è varietà topologica</a></li>
+<li><a href="20250113102456-connessione_per_archi_di_varieta_topologiche.html#ID-3bc13129-15b7-4b7e-9217-2898850f1b5a">Connessione per archi di varietà topologiche</a></li>
+<li><a href="20250113103405-cambio_di_carte_per_un_atlante_topologico.html#ID-f486fdbe-631d-4488-a4ad-a30865780fd6">Cambio di carte per un atlante topologico</a></li>
+<li><a href="20250113104517-atlante_astratto.html#ID-b68da521-f8ab-43e6-9f68-b6a3ede3f91c">Atlante astratto</a></li>
+<li><a href="20250113105334-compatibilita_tra_atlanti_astratti_e_varieta_topologiche.html#ID-b0a1c97e-d70e-4ce9-a361-380872282201">Compatibilità tra atlanti astratti e varietà topologiche</a></li>
+<li><a href="20250113103136-atlante_topologico_differenziabile.html#ID-9e693307-2609-4c65-82b8-d231066cf281">Atlante topologico differenziabile</a></li>
+<li><a href="20250113110035-atlanti_differenziabili_compatibili.html#ID-8d73e0df-fb81-475e-9241-4b89874284a2">Atlanti differenziabili compatibili</a></li>
+<li><a href="20250113115909-struttura_differenziabile.html#ID-b0c2ae3d-f639-4507-98f7-4122db015e25">Struttura Differenziabile</a></li>
+<li><a href="20250113120151-esistenza_e_unicita_di_una_struttura_differenziabile_per_ogni_atlante.html#ID-3bec4cdb-f2cc-4e01-a677-0be7b37a3e7c">Esistenza e unicità di una struttura differenziabile per ogni atlante</a></li>
+<li><a href="20250113120835-esempi_fondamentali_di_varieta_differenziabili.html#ID-a95c126e-8c2c-4b19-b640-89d71fdf4ad8">Esempi fondamentali di varietà differenziabili</a></li>
+<li><a href="20250113121849-varieta_topologica_omeomorfa_a_varieta_differenziabile_ne_eredita_la_struttura.html#ID-1eb4bdaf-35b1-4f30-9f12-bb645e0eb727">Varietà Topologica omeomorfa a varietà differenziabile ne eredità la struttura</a></li>
+<li><a href="20250113122627-varieta_topologiche_in_dimensione_minore_uguale_a_tre_hanno_struttura_differenziabile.html#ID-fa016892-4aed-4698-b4c0-4f560ba982b6">Varietà topologiche in dimensione minore uguale a tre hanno struttura differenziabile</a></li>
+<li><a href="20250113122808-strutture_differenziabili_sulla_sfera_7_dimensionale.html#ID-315edb5b-3662-4bda-b249-089efd9a75f4">Strutture differenziabili sulla sfera 7 dimensionale</a></li>
+<li><a href="20250113124917-prodotto_di_varieta_differenziabili_e_varieta_differenziabile.html#ID-a86b67a7-1e9b-48d6-9d02-2aa6fb871082">Prodotto di varietà differenziabili è varietà differenziabile</a></li>
+<li><a href="20250113125032-toro_ha_struttura_di_varieta_differenziabile.html#ID-7f91f901-11cf-4261-9248-fd753dcde332">Toro ha struttura di varietà differenziabile</a></li>
+<li><a href="20250113125429-teorema_dell_inversa_locale.html#ID-6cb9c7fb-838d-4bab-b579-e06d983fea07">Teorema dell&rsquo;inversa locale</a></li>
+<li><a href="20250113125903-teorema_della_funzione_implicita.html#ID-b33e561c-fde7-4e9c-a8d9-f3c5b51e5f95">Teorema della funzione implicita</a></li>
+<li><a href="20250113141843-differenziale_del_determinante_di_una_matrice_reale.html#ID-cd09a695-3c6a-4742-94c9-3b532c17ab83">Differenziale del determinante di una matrice reale</a></li>
+<li><a href="20250113142135-gruppo_lineare_speciale_e_varieta_differenziabile.html#ID-173dd836-defd-445a-a1d7-dcaa0bc337d9">Gruppo lineare speciale è varietà differenziabile</a></li>
+<li><a href="20250113144147-gruppo_ortogonale_e_una_varieta_differenziabile.html#ID-e1eaebc5-e4c4-4e78-95bb-cebe69a91b2d">Gruppo ortogonale è una varietà differenziabile</a></li>
+<li><a href="20250113144514-gruppo_lineare_e_sconnesso_e_compatto.html#ID-c3bd194c-104b-48c0-a9a0-eabc47eba541">Gruppo ortogonale è sconnesso e compatto</a></li>
+<li><a href="20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.html#ID-811e4063-7daa-4d88-b964-bd0848864154">Funzioni Cinfinito tra varietà differenziabili</a></li>
+<li><a href="20250113151718-restrizione_di_funzioni_reali_cinfinito_su_varieta_differenziabili_definite_in_forma_implicita_e_ancora_cinfinito.html#ID-adbac87e-388e-4d8b-aedd-7c43b43c15a5">Restrizione di funzioni reali Cinfinito su varietà differenziabili definite in forma implicita è ancora Cinfinito</a></li>
+<li><a href="20250113152036-lemma_di_incollamento_tra_funzioni_cinfinito_tra_varieta_differenziabili.html#ID-b90f7672-5b95-4ee3-9993-aac4dc147a3a">Lemma di incollamento tra funzioni Cinfinito tra varietà differenziabili</a></li>
+<li><a href="20250113154629-funzione_sulle_carte_indotta_da_funzione_cinfinito_tra_due_varieta_e_cinfinito.html#ID-65b9cfd7-3a12-4d2b-906c-e645b6757046">Funzione sulle carte indotta da funzione Cinfinito tra due varietà è Cinfinito</a></li>
+<li><a href="20250113172736-composizione_di_funzioni_cinfinito_e_cinfinito.html#ID-2675873e-95a0-4492-8fa7-2061c14a1120">Composizione di funzioni Cinfinito è Cinfinito</a></li>
+<li><a href="20250113172924-diffeomorfismo_tra_varieta_differenziabili.html#ID-f0ba8a7a-70ef-45b0-96a1-c74701370aeb">Diffeomorfismo tra varietà differenziabili</a></li>
+<li><a href="20250113173218-diffeomorfismo_tra_le_strutture_differenziali_sui_numeri_reali.html#ID-54553c02-ae0f-4427-904a-f7ac5aa1e028">Diffeomorfismo tra le strutture differenziali sui numeri reali</a></li>
+<li><a href="20250113173255-gruppo_dei_diffeomorfismi_di_una_varieta_differenziabile.html#ID-c323c24d-4737-45d3-90e2-9ccc2ac0026e">Gruppo dei diffeomorfismi di una varietà differenziabile</a></li>
+<li><a href="20250113175231-rivestimento.html#ID-84d7a703-15fa-42f9-a006-e7f39a1a548b">Rivestimento</a></li>
+<li><a href="20250114094653-rivestimenti_e_gruppo_fondamentale.html#ID-36904e2a-3c75-4b1a-9e20-61c9722c98b5">Rivestimenti e gruppo fondamentale</a></li>
+<li><a href="20250114095243-teorema_del_rivestimento_universale.html#ID-ce1f3be0-d14d-4ec0-b1cc-217fef5440a6">Teorema del rivestimento universale</a></li>
+<li><a href="20250114095744-rivestimento_n_1.html#ID-a5194d3b-7770-4ca8-a821-aed07cfcf301">Rivestimento n:1</a></li>
+<li><a href="20250114095901-teorema_sui_rivestimenti_di_varieta_differenziabili.html#ID-a42a04e3-49cf-4ea2-bbef-17869d4d315f">Teorema sui rivestimenti di varietà differenziabili</a></li>
+<li><a href="20250114100254-germi_di_funzioni.html#ID-5926a80e-ce6c-49a4-9dc3-9d20eef3b941">Germi di funzioni</a></li>
+<li><a href="20250114101157-spazio_dei_germi_di_funzioni_e_algebra_reale.html#ID-c7b42479-2147-46f9-9a55-86b2d05bce54">Spazio dei germi di funzioni è algebra reale</a></li>
+<li><a href="20250114101437-derivazione_su_una_varieta_differenziabile.html#ID-94ca5605-1516-4cd3-9605-f8ba2a4a7a7d">Derivazione su una varietà differenziabile</a></li>
+<li><a href="20250114101917-derivazioni_canoniche_su_una_varieta_differenziabile.html#ID-e2da4d5e-8120-4bf5-bfe2-3dd3f652b1cf">Derivazioni Canoniche su una varietà differenziabile</a></li>
+<li><a href="20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.html#ID-d4bfaacc-f0b4-406f-8db5-6dd69a6b2b37">Spazio tangente ad un punto di una varietà differenziabile</a></li>
+<li><a href="20250114103339-teorema_sulla_base_dello_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.html#ID-89c132c7-d6b8-4cc6-ad80-648199a06e3f">Teorema sulla base dello spazio tangente ad un punto di una varietà differenziabile</a></li>
+<li><a href="20250114104914-cambio_di_base_sullo_spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.html#ID-7312bd90-f02b-43a2-8d46-ee0586510de4">Cambio di base sullo spazio tangente ad un punto di una varietà differenziabile</a></li>
+<li><a href="20250114110247-curve_su_varieta_e_loro_derivata.html#ID-11edde19-f157-4b5e-98ec-5e8673f03f5c">Curve su varietà e loro derivata</a></li>
+<li><a href="20250114102823-spazio_tangente_ad_un_punto_di_una_varieta_differenziabile.html#ID-21045ba0-c2a2-451c-9572-2384660de4d3">Vettori dello spazio tangente ad una varietà in un punto come derivate di curve</a></li>
+<li><a href="20250114111331-differenziale_di_una_funzione_tra_varieta_differenziabili.html#ID-45b1b00d-5f5a-4e1a-b08f-65fd319bdcf0">Differenziale di una funzione tra varietà differenziabili</a></li>
+<li><a href="20250114112126-differenziale_di_composizione_di_funzioni_tra_varieta.html#ID-24eae16f-a818-4287-9183-b10e11eee9cf">Differenziale di composizione di funzioni tra varietà</a></li>
+<li><a href="20250114112633-differenziale_di_diffeomorfismo_tra_varieta_e_isomorfismo.html#ID-0df39cdc-f258-400f-8eef-5bee681e5d69">Differenziale di diffeomorfismo tra varietà è isomorfismo</a></li>
+<li><a href="20250114112834-differenziale_in_coordinate_locali_su_una_varieta_differenziabile.html#ID-7a431e58-6896-4700-8866-8bdc4419dbd9">Differenziale in coordinate locali su una varietà differenziabile</a></li>
+<li><a href="20250114124407-cambiamento_del_differenziale_in_coordinate_locali_tramite_un_cambio_di_coordinate_su_varieta_differenziali.html#ID-73340681-cfc9-4c24-9ff6-3267e3d1ab46">Cambiamento del differenziale in coordinate locali tramite un cambio di coordinate su varietà differenziabii</a></li>
+<li><a href="20250114124504-immersione_di_varieta_differenziabili.html#ID-e4521ecf-e119-4f39-b7b4-1bc83f07ab94">Immersione di varietà differenziabili</a></li>
+<li><a href="20250115105535-sommersione_di_varieta_differenziabili.html#ID-e0cdc861-82ce-44bc-b7fa-3faf9ae349ba">Sommersione di varietà differenziabili</a></li>
+<li><a href="20250114124533-embedding_di_varieta_differenziabili.html#ID-9c3f65c9-b78c-4c38-983a-a726566c7ddb">Embedding di varietà differenziabili</a></li>
+<li><a href="20250115102238-immersione_iniettiva_chiusa_e_embedding.html#ID-fb5ea9a8-4f35-4c76-b864-dc632fa1c230">Immersione iniettiva chiusa è embedding</a></li>
+<li><a href="20250114124541-sottovarieta_differenziabile.html#ID-4a021ddf-857a-4fa8-844f-9053300b2a42">Sottovarietà differenziabile</a></li>
+<li><a href="20250114130106-esempio_di_sottovarieta_tramite_il_teorema_della_funzione_implicita.html#ID-5c2297c5-788d-4a0c-95ed-6f634387b54f">Esempio di sottovarietà tramite il teorema della funzione implicita</a></li>
+<li><a href="20250114130223-teorema_delle_slice_delle_sottovarieta.html#ID-eff91ef8-e5a7-4cc2-8937-eb8b7078f546">Teorema delle slice delle sottovarietà</a></li>
+<li><a href="20250114131231-teorema_del_rango_per_funzioni_reali.html#ID-0f0c7468-0492-4fe7-b61d-4f482ca39a5b">Teorema del rango per funzioni reali</a></li>
+<li><a href="20250114132151-teorema_della_funzione_implicita_tra_varieta_differenziabili.html#ID-71dfb0ae-4c9a-4c26-bc1d-bbbfe36a4667">Teorema della funzione implicita tra varietà differenziabili</a></li>
+<li><a href="20250114151933-immersione_da_compatti_e_embedding.html#ID-fda746c9-3a9b-494f-b076-2fc090e0c4c5">Immersione da compatti è embedding</a></li>
+<li><a href="20250114151913-immagine_dello_spazio_tangente_ad_un_punto_di_una_sottovarieta_tramite_il_differenziale_dell_immersione.html#ID-19674f72-7a7f-49f1-821b-cf0b0728f93c">Immagine dello spazio tangente ad un punto di una sottovarietà tramite il differenziale dell&rsquo;immersione</a></li>
+<li><a href="20250115095737-restrizione_di_funzioni_a_sottovarieta_e_loro_differenziale.html#ID-b01a8b37-b23a-43ed-bd69-389a6c7db228">Restrizione di funzioni a sottovarietà e loro differenziale</a></li>
+<li><a href="20250115100507-funzione_propria.html#ID-a4840f18-2fd9-4896-8be2-c585060d26c4">Funzione Propria</a></li>
+<li><a href="20250115100745-compattezza_e_compattezza_per_successioni.html#ID-9c0e57bb-f093-4b30-a705-dbb2db58e8ad">Compattezza e Compattezza per successioni</a></li>
+<li><a href="20250115100954-funzioni_cinfintio_tra_varieta_e_proprie_sono_chiuse.html#ID-1647fae2-5069-404c-8e2d-a202429ec3d8">Funzioni Cinfintio tra varietà e proprie sono chiuse</a></li>
+<li><a href="20250115102602-teoremi_di_whitney.html#ID-d0d06c49-f061-4fd8-901d-cf84463796a1">Teoremi di Whitney</a></li>
+<li><a href="20250115103245-fibrato_tangente.html#ID-04049058-9c35-4d7c-9648-a09cb95b7766">Fibrato tangente</a></li>
+<li><a href="20250115104113-atlante_differenziabile_induce_una_topologia.html#ID-40c799d6-8b57-49f6-9a82-af825278d8d8">Atlante differenziabile induce una topologia</a></li>
+<li><a href="20250115110259-campo_vettoriale_su_una_varieta_differenziabile.html#ID-4b22b2f6-e7df-4e05-a71f-dbed12e0e2ae">Campo vettoriale su una varietà differenziabile</a></li>
+<li><a href="20250115113256-componenti_locali_di_un_campo_vettoriale.html#ID-9cc1bcc8-f9e5-49ca-a5cb-5c4e28f2a27c">Componenti locali di un campo vettoriale</a></li>
+<li><a href="20250115113948-componenti_locali_di_un_campo_vettoriale_sono_cinfinito.html#ID-5074ad6a-2a03-42d4-9296-892784dd39e9">Componenti locali di un campo vettoriale sono Cinfinito</a></li>
+<li><a href="20250115115535-azione_di_un_campo_vettoriale_su_una_funzione.html#ID-6990b60b-57c7-4fdf-a628-ea9dc902d239">Azione di un campo vettoriale su una funzione</a></li>
+<li><a href="20250113144722-funzioni_cinfinito_tra_varieta_differenziabili.html#ID-a9949644-7c08-4dd3-ac5a-ebbd17b42a7f">Funzioni da una varietà ai reali Cinfinito</a></li>
+<li><a href="20250115120103-azione_di_un_campo_vettoriale_su_una_funzione_e_cinfinito.html#ID-88b49d00-ad2e-4503-99ed-c028c3fd2423">Azione di un campo vettoriale su una funzione è Cinfinito</a></li>
+<li><a href="20250115121514-insieme_dei_derivatori_du_una_varieta.html#ID-5f8ed2d2-6e83-4b33-9428-130c29c2983b">Insieme dei derivatori du una varietà</a></li>
+<li><a href="20250115122306-insieme_dei_campi_vettoriali_come_spazio_vettoriale_reale_e_come_modulo.html#ID-cb786dfb-264c-4c2b-8329-ea0fd7e9ca39">Insieme dei campi vettoriali come spazio vettoriale reale e come modulo</a></li>
+<li><a href="20250115124556-push_forward_di_campi_vettoriali.html#ID-9dbf5637-749d-4ad8-bddb-520094517b1b">Push-Forward di campi vettoriali</a></li>
+<li><a href="20250115125404-campi_vettoriali_f_riferiti.html#ID-39ba2944-366b-41bc-a480-0acfef53f46b">Campi vettoriali F-riferiti</a></li>
+<li><a href="20250115144427-differenziale_dell_inclusione_del_fibrato_tangente_ad_una_sottovarieta.html#ID-4b9b5654-d0fc-45c3-b10d-0b5a9907ac86">Differenziale dell&rsquo;inclusione del fibrato tangente ad una sottovarietà</a></li>
+<li><a href="20250115144839-restrizione_di_un_campo_vettoriale_ad_una_sottovarieta.html#ID-3d7b614f-71ad-4301-a9ec-bd35faaa02b9">Restrizione di un campo vettoriale ad una sottovarietà</a></li>
+<li><a href="20250115145035-varieta_differenziabile_pettinabile.html#ID-184f83f1-c683-4429-8893-e6658d48b8af">Varietà Differenziabile Pettinabile</a></li>
+<li><a href="20250115145200-pettinabilita_delle_sfere.html#ID-b094d4ae-43fc-497b-a253-c2ef2611fa3d">Pettinabilità delle sfere</a></li>
+<li><a href="20250115150428-varieta_differenziabile_parallelizzabile.html#ID-cd5f2563-26ab-4d60-9de8-2bc24fe3aada">Varietà Differenziabile Parallelizzabile</a></li>
+<li><a href="20250115150659-parallelizzabilita_delle_sfere.html#ID-baf7587e-248a-4ca9-bdb2-a48900b29c33">Parallelizzabilità delle sfere</a></li>
+<li><a href="20250115151027-bracket_di_campi_vettoriali.html#ID-e980f2d7-504b-414d-abe9-ad94250d5b54">Bracket di campi vettoriali</a></li>
+<li><a href="20250115151900-scrittura_locale_del_bracket_di_campi_vettoriali.html#ID-5f303845-0b64-45d3-8401-d9e228f0444f">Scrittura locale del bracket di campi vettoriali</a></li>
+<li><a href="20250115162927-bracket_di_campi_vettoriali_f_riferiti.html#ID-efa4fdbf-ac2e-4a18-93ae-a9d37d960d7b">Bracket di campi vettoriali F-riferiti</a></li>
+<li><a href="20250115163338-bracket_di_campi_vettoriali_ristretti_a_sottovarieta.html#ID-620523f2-5392-45d6-bdd4-3c41d833bfd3">Bracket di campi vettoriali ristretti a sottovarietà</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

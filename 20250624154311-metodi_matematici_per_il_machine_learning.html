@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Metodi Matematici per il Machine Learning [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Metodi Matematici per il Machine Learning [CORSO]</h1>
+<p>
+EXPORT: <a href="file:///Users/davidepeccioli/Documents/2. Areas/Matematica_LM/Insegnamenti/Machine Learning/Note Personali/main.html">main.org</a>
+</p>
+<div id="outline-container-org86f949c" class="outline-2">
+<h2 id="org86f949c">Introduzione (De Rossi)</h2>
+<div class="outline-text-2" id="text-org86f949c">
+<ul class="org-ul">
+<li><a href="20250624155858-neurone_artificiale.html#ID-f567e1e4-af7b-4e3c-b78b-79637194d3c2">Neurone Artificiale</a></li>
+<li><a href="20250624155858-neurone_artificiale.html#ID-44b3867d-3969-44ff-aad2-8fab83314a25">Funzioni di attivazione</a></li>
+<li><a href="20250624155858-neurone_artificiale.html#ID-a711da1a-cc75-4706-8bed-4bf92c79eb5c">Rete Neurale</a></li>
+<li><a href="20250624155858-neurone_artificiale.html#ID-5f8d0623-180d-430e-af13-8ce5df47fa38">Funzioni Costo (Machine Learning)</a></li>
+<li><a href="20250627110009-training_error_and_test_error.html#ID-1f83d438-357c-46bf-a511-9b5acbda993c">Processo di apprendimento</a></li>
+<li><a href="20250714162717-approssimazione_per_regressione_lineare_machine_learning.html#ID-1c084be3-a5a9-4487-a95f-85f4666e3d09">Approssimazione per Regressione Lineare (Machine Learning)</a></li>
+
+<li><a href="20250625104200-misura_di_baire.html#ID-9012964f-5fa9-491f-bfc0-6e77793fa958">Misura di Baire</a></li>
+<li><a href="20250625110110-funzione_sigmoidale.html#ID-445d70d2-72b9-4e14-a566-84ed3ace55aa">Funzione sigmoidale</a></li>
+<li><a href="20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.html#ID-2b9cbcf8-e605-4a62-91df-b06df1efc705">Funzione discriminatoria per una misura di Baire sul cubo unitario</a></li>
+<li><a href="20250710102223-misura_di_baire_sul_cubo_nulla_se_nulla_su_tutti_i_semispazi.html#ID-7e7f2aab-32bc-41c5-b952-85bc932d8293">Misura di Baire sul cubo nulla se nulla su tutti i semispazi</a></li>
+<li><a href="20250625110457-funzioni_sigmoidali_sono_discriminatorie_per_le_misure_di_baire_sul_cubo_unitario.html#ID-c3e25ca0-3efe-4931-9866-03709f64e593">Funzioni sigmoidali sono discriminatorie per le misure di Baire sul cubo unitario</a></li>
+
+<li><a href="20250627153319-teorema_di_weierstrass.html#ID-bca19115-3c5e-40c0-a0c2-113c0f72f911">Teorema di Weierstrass</a></li>
+<li><a href="20250627153729-condizioni_necessarie_per_l_esistenza_di_un_minimo_di_una_funzione_reale.html#ID-6356155b-27e9-45f2-9454-b53112b159cf">Minimizzazione di una funzione reale</a></li>
+
+<li><a href="20250627131207-curva_di_livello.html#ID-e4c98c5f-a3de-49a7-b58b-2c53350c7699">Curva di livello</a></li>
+<li><a href="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale.html#ID-66d5220c-0f23-4919-9b5b-8db282da50ba">Hessiana e punti stazionari di una funzione reale</a></li>
+<li><a href="20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.html#ID-a96501fa-8c4b-45f0-a1cd-249d69cc0e29">Gradiente è perpendicolare alle curve di livello</a></li>
+<li><a href="20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.html#ID-930d1498-f5e9-4ea0-82c9-da1f689bd504">Esistenza di una curva perpendicolare a tutte le curve di livello</a></li>
+
+<li><a href="20250711122823-algoritmo_di_gradient_descent.html#ID-f270739f-e422-423b-81aa-011f50c73d88">Metodo del Gradient Descent</a></li>
+<li><a href="20250716183256-metodo_dell_hessiana.html#ID-f9efebbc-928c-45b5-9f60-d07af42a9c47">Metodo dell&rsquo;Hessiana</a></li>
+<li><a href="20250716185823-metodo_di_newton.html#ID-ceb36ec7-1a1f-4815-8b95-da51a49ab54c">Metodo di Newton</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4540ad0" class="outline-2">
+<h2 id="org4540ad0">Analisi Matematica (Cordero)</h2>
+<div class="outline-text-2" id="text-org4540ad0">
+<ul class="org-ul">
+<li><a href="20250629105513-teoremi_di_dini_per_la_convergenza_uniforme.html#ID-c282009a-066a-458b-9886-27eed0d3f374">Teoremi di Dini per la convergenza uniforme</a></li>
+
+<li><a href="20250629110306-funzioni_uniformemente_limitate.html#ID-70e7e8ce-6244-4991-bfec-c2270ada6cad">Funzioni uniformemente limitate</a></li>
+<li><a href="20250629113211-famiglia_di_funzioni_equicontinua.html#ID-121218fe-ae59-47bb-9b3e-3a47d197dc06">Famiglia di funzioni equicontinua</a></li>
+<li><a href="20250629120441-teorema_di_ascoli_arzela.html#ID-8f0a6490-092a-4621-9f73-c1a067a3929f">Teorema di Ascoli-Arzelà</a></li>
+<li><a href="20250704170145-esistenza_di_una_funzione_continua_approssimabile_da_una_rete_neurale.html#ID-6a34d8dd-30ef-40d2-9db2-c3300cc71d1d">Rete Neurale può approssimare una funzione continua</a></li>
+
+<li><a href="20250629165520-algebra_di_funzioni_reali.html#ID-278e1357-c183-4ef4-b4d1-0a84a2e16290">Algebra di funzioni reali</a></li>
+<li><a href="20250629151420-algebra_di_funzioni_separa_i_punti.html#ID-2d3565c2-b51d-4adf-9fd8-7206dc42ea0c">Algebra di funzioni separa i punti</a></li>
+<li><a href="20250629165421-teorema_di_stone_weierstrass.html#ID-b427e101-5ae9-4180-b398-fbf44861328d">Teorema di Stone-Weierstrass</a></li>
+<li><a href="20250629165421-teorema_di_stone_weierstrass.html#ID-694616f6-a89d-4450-94ee-523e8597f058">Polinomi sono densi nelle funzioni continue</a></li>
+<li><a href="20250704170145-rete_neurale_che_approssima_funzioni_continue_periodiche.html#ID-b836fcec-5594-4b28-9b36-2063d2639c95">Rete Neurale che approssima funzioni continue periodiche</a></li>
+
+<li>(<a href="20250630103725-funzioni_approssimate_da_una_rete_neurale.html#ID-2c281127-f439-4839-908b-709239bb78b0">Funzioni approssimate da una rete neurale</a>)</li>
+
+<li><a href="20250630121612-wiener_s_tauberian_theorems.html#ID-17d52abf-6bdb-4f7e-98a0-c60daa2e2809">Wiener&rsquo;s Tauberian Theorems</a></li>
+
+<li><a href="20250630155015-ogni_funzione_semplice_e_combinazione_lineare_di_heaviside.html#ID-cb6adcfd-b4bd-4231-bd86-cf5666d0305f">Ogni funzione semplice è combinazione lineare di Heaviside</a></li>
+<li><a href="20250630155015-ogni_funzione_semplice_e_combinazione_lineare_di_heaviside.html#ID-f6432f74-099b-4b3f-bd2d-8ae041d24e1e">Derivata distribuzionale di una funzione costante a tratti</a></li>
+<li><a href="20250630155139-misura_di_dirac_approssimata_da_misure_a_campana.html#ID-9d25759f-fe4c-4db5-b447-bd48858d1b2e">Approssimazione della misura di Dirac</a></li>
+<li><a href="20250630155208-funzione_reale_continua_su_un_compatto_e_uniformemente_continua.html#ID-e04ebca6-9fee-4524-8377-fddde982079e">Funzione reale continua su un compatto è uniformemente continua</a></li>
+
+<li><a href="20250630154418-one_hidden_layer_perceptron_network_impara_funzioni_continue.html#ID-22c2bbe1-607c-4051-94d4-4f2e3080a23d">One Hidden Layer Perceptron Network impara funzioni continue</a> (8.2.1)</li>
+
+<li><a href="20250706121659-one_hidden_layer_sigmoidal_network.html#ID-39b9c04c-349d-4dd8-8219-6be33b40dabf">One Hidden Layer Sigmoid Network impara funzioni continue</a> (8.3.1)</li>
+
+<li><a href="20250706121659-funzioni_continue_approssimate_lineari_a_tratti.html#ID-103f8d2b-c848-4eb7-b00a-2423569179d5">Funzioni continue sono approssimate da funzioni lineari a tratti</a> (8.4.1)</li>
+<li><a href="20250704170145-one_hidden_layer_relu_network_impara_funzioni_continue_unidimensionali.html#ID-b7498fea-b58b-42c8-957c-df1838883df5">One Hidden Layer ReLU Network impara funzioni continue</a> (8.4.3)</li>
+
+<li><a href="20250704170145-one_hidden_layer_softplus_network_impara_funzioni_continue_unidimensionali.html#ID-73b969e1-5229-4e8b-9282-ff5e7a9297b9">Funzione softplus come convoluzione</a> (8.5.1)</li>
+<li><a href="20250704170145-one_hidden_layer_softplus_network_impara_funzioni_continue_unidimensionali.html#ID-60bb3f6d-bd18-4e7f-a13d-5e6a5ea7f735">One Hidden Layer softplus Network impara funzioni continue</a> (8.5.7)</li>
+
+<li><a href="20250630103725-funzioni_approssimate_da_una_rete_neurale.html#ID-2abb619d-abef-4707-9820-b8abeed00049">Approssimazione Universale (Rete Neurale)</a> (9.2)</li>
+<li><a href="20250704104537-spazio_delle_funzioni_misurabili_come_spazio_metrico.html#ID-b539d37f-72d5-40b4-a49c-779b88254745">Spazio delle funzioni misurabili come spazio metrico</a> (9.2.5)</li>
+<li><a href="20250704152055-teorema_di_hahn_banach.html#ID-585c8974-4930-4623-8a63-ad11f7fc91c0">Teorema di Hahn-Banach</a> (Corollario 9.3.2)</li>
+<li><a href="20250706121659-ohldn_f_continue.html#ID-b5e8bf28-85ea-4a25-8300-a17b117f4be4">One Hidden Layer Network impara funzioni continue sul cubo</a> (9.3.3, 9.3.5 &amp; 9.3.6)</li>
+<li><a href="20250706121659-ohdspn_fun_cont.html#ID-ed7a5088-ab49-40c6-b52f-975fe9567def">One Hidden Layer SigmaPi-Network impara funzioni continue sui compatti</a> (9.3.8)</li>
+<li><a href="20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.html#ID-2b9cbcf8-e605-4a62-91df-b06df1efc705">Funzione discriminatoria (Teoria della misura)</a> (9.3.10)</li>
+<li><a href="20250706121659-ohldnl2.html#ID-552523c7-786d-4caf-ae45-966ed794c6c5">One Hidden Layer Discriminatory Network impara funzioni L2 sul cubo</a> (9.3.11)</li>
+<li><a href="20250704154416-funzione_l2_nulla_se_integrale_nullo_su_tutti_i_semispazi.html#ID-fbd85ac0-2e26-4c5a-84fa-77847af1e3f4">Funzione L2 nulla se integrale nullo su tutti i semispazi</a> (9.3.12)</li>
+<li><a href="20250625105528-funzione_discriminatoria_per_una_misura_di_baire_sul_cubo_unitario.html#ID-2b9cbcf8-e605-4a62-91df-b06df1efc705">Funzione discriminatoria (Teoria della misura)</a> (9.3.15 e 9.3.16)</li>
+</ul>
+
+<p>
+Lezione 6:
+</p>
+<ul class="org-ul">
+<li>9.3.17: <a href="20250706121659-ohldnl1.html#ID-13eb59bd-fb2e-4891-92c7-2ea69b43840f">One Hidden Layer Discriminatory Network impara funzioni L1 sul cubo</a></li>
+<li>9.3.20: <a href="20250706105700-caratterizzazione_convergenza_in_misura.html#ID-1df76881-83e9-4981-8ce2-6338618c0724">Caratterizzazione convergenza in misura</a></li>
+<li>9.3.21: <a href="20250706110009-uniforme_convergenza_sui_compatti_implica_convergenza_in_misura.html#ID-47dca573-a6ea-4f1a-a8ec-537b9175f949">Uniforme convergenza sui compatti implica convergenza in misura</a></li>
+<li>9.3.22: <a href="20250706121659-ohlsnfmc.html#ID-b8fbcfd5-198a-495f-8a55-7e38579c9f5e">One Hidden Layer Sigmoidal Network impara funzioni misurabili sui compatti di Rn</a></li>
+<li>9.4: <a href="20250706110508-numero_di_neuroni_di_one_hidden_layer_network_e_accuratezza_dell_approssimazione.html#ID-b6295d6f-a1c7-4fd2-b8c9-459d7c46bba5">Numero di neuroni di One Hidden Layer Network e accuratezza dell&rsquo;approssimazione</a></li>
+<li>9.5.1: <a href="20250706110652-funzioni_continue_a_supporto_compatto_su_rn_sono_dense_in_lq.html#ID-b4b74927-44af-4524-8a58-de4bba147dbe">Funzioni continue a supporto compatto su Rn sono dense in Lq</a></li>
+<li>9.5.2: <a href="20250706110741-funzioni_continue_e_lineari_a_tratti_sono_dense_nelle_funzioni_continue_a_supporto_compatto_su_rn.html#ID-9259751f-b204-4b28-8a75-7b7572874bc3">Funzioni continue e lineari a tratti sono dense nelle funzioni continue a supporto compatto su Rn</a></li>
+<li>9.5.3: <a href="20250706121659-rnaqi.html#ID-24cc1582-5a61-460e-b342-732636cea549">Rete neurale che approssima funzioni Lq</a></li>
+</ul>
+
+<p>
+Lezione 7:
+<a href="20250708122736-exact_learning_machine_learning.html#ID-d9ac8def-ffff-4b62-bca4-d8fa588ef5ce">Exact Learning (Machine Learning)</a>
+</p>
+<ul class="org-ul">
+<li>10.1.1: <a href="20250708121822-one_hidden_layer_relu_network_impara_esattamente_funzioni_a_supporto_finito.html#ID-88c9089f-869a-4d97-bcbe-dd4f81bc045b">One Hidden Layer Perceptron Network impara esattamente funzioni a supporto finito</a></li>
+<li>10.1.2: <a href="20250708121822-one_hidden_layer_relu_network_impara_esattamente_funzioni_a_supporto_finito.html#ID-88c9089f-869a-4d97-bcbe-dd4f81bc045b">One Hidden Layer Perceptron Network impara esattamente funzioni a supporto finito</a></li>
+<li>10.1.3: <a href="20250708121822-one_hidden_layer_relu_network_impara_esattamente_funzioni_a_supporto_finito.html#ID-88c9089f-869a-4d97-bcbe-dd4f81bc045b">One Hidden Layer Perceptron Network impara esattamente funzioni a supporto finito</a></li>
+<li>10.2.1: <a href="20250624155858-neurone_artificiale.html#ID-4905d1de-dc4a-46d8-ad45-bc6f9ea7cee1">Rete Neurale ReLU-feedforward</a></li>
+<li>10.2.1 Representation of maxima: <a href="20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.html#ID-c0152462-7330-4c07-a30b-9b5ed78d0ebb">Rete Neurale ReLU-feedforward impara esattamente la funzione massimo tra N input</a></li>
+<li>10.2.2: <a href="20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.html#ID-c0152462-7330-4c07-a30b-9b5ed78d0ebb">Rete Neurale ReLU-feedforward impara esattamente la funzione massimo tra N input</a></li>
+<li>10.2.4: <a href="20250708122516-rete_neurale_relu_feedforward_impara_esattamente_la_funzione_massimo.html#ID-c0152462-7330-4c07-a30b-9b5ed78d0ebb">Rete Neurale ReLU-feedforward impara esattamente la funzione massimo tra N input</a></li>
+</ul>
+
+<p>
+Lezione 8
+</p>
+<ul class="org-ul">
+<li>10.2.5: <a href="20250709134236-piu_profondita_in_favore_di_meno_larghezza_rete_neurale_relu_feedforward.html#ID-bfb32e8a-d93c-4c2c-addf-214895d3e00e">Più profondità in favore di meno larghezza - Rete Neurale ReLU-feedforward</a></li>
+<li>10.2.6: <a href="20250709134434-rete_neurale_relu_feedforward_ha_funzione_di_input_output_continua_e_lineare_a_tratti.html#ID-a228463d-cf75-44b7-92bb-b8b4ab4eb0bb">Rete Neurale ReLU-feedforward ha funzione di input-output continua e lineare a tratti</a></li>
+<li>10.2.7 e 10.2.8: <a href="20250709134700-rete_neurale_relu_feedforward_rappresenta_esattamente_funzioni_continue_lineari_a_tratti.html#ID-604dc205-1587-4881-b1c5-8a595799b9f4">Rete Neurale ReLU-feedforward rappresenta esattamente funzioni continue lineari a tratti</a></li>
+<li>10.3.1 e 10.3.2: <a href="20250709135034-teorema_di_rappresentazione_di_kolmogorov_arnold.html#ID-a002bec9-0004-4802-90b4-b960a086fff9">Teorema di rappresentazione di Kolmogorov-Arnold</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8b8d557" class="outline-2">
+<h2 id="org8b8d557">Cordero</h2>
+<div class="outline-text-2" id="text-org8b8d557">
+</div>
+<div id="outline-container-org0353338" class="outline-3">
+<h3 id="org0353338">Lezione 1</h3>
+<div class="outline-text-3" id="text-org0353338">
+<ul class="org-ul">
+<li><a href="20250624155858-neurone_artificiale.html#ID-f567e1e4-af7b-4e3c-b78b-79637194d3c2">Neurone Artificiale</a></li>
+<li><a href="20250710102223-percettrone.html#ID-0027b940-6ac9-4c8a-9ab5-bf5b094973d6">Perceptron</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6431e66" class="outline-3">
+<h3 id="org6431e66">Lezione 2</h3>
+<div class="outline-text-3" id="text-org6431e66">
+<ul class="org-ul">
+<li><a href="20250710150636-bias_variance_tradeoff.html#ID-7fea2a0b-b477-4b3d-80d1-16cc4a32f8c8">Bias-Variance Tradeoff</a></li>
+<li><a href="20250710111302-neurone_sigmoidale.html#ID-b69a0999-d5fe-477f-bacd-68446d5639a3">Neurone Sigmoidale</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1392944" class="outline-3">
+<h3 id="org1392944">Lezione 3</h3>
+<div class="outline-text-3" id="text-org1392944">
+<ul class="org-ul">
+<li><a href="20250710102223-percettrone.html#ID-922d5c6a-1011-4209-8e58-52332fe80780">Perceptron Learning Algorithm</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0f6f427" class="outline-3">
+<h3 id="org0f6f427">Lezione 4</h3>
+<div class="outline-text-3" id="text-org0f6f427">
+<ul class="org-ul">
+<li><a href="20250711122025-subderivata.html#ID-20bac766-62d2-4ae6-81ab-4a41a5b6fa14">Subderivata</a></li>
+<li><a href="20250711122025-subderivata.html#ID-a32d1780-8343-45ba-a607-3ec6dc9ab34e">Subdifferenziale</a></li>
+<li><a href="20250711122025-subderivata.html#ID-b11b1b4b-6dea-419a-bc16-7a1d777729ec">Subgradiente</a></li>
+<li><a href="20250711122823-metodo_del_subgradiente.html#ID-9ecfbfda-e6e1-4e0d-8989-d52b53f7d760">Metodo del subgradiente</a></li>
+<li><a href="20250711122823-algoritmo_di_gradient_descent.html#ID-e2a6805f-9264-41f4-bf0c-1f704619db93">Algoritmo di Stochastic Gradient Descent</a></li>
+<li><a href="20250711174144-attesa_condizionata.html#ID-481690ba-589f-44a6-8d49-aeec2126e10e">Attesa condizionata</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8feeaaa" class="outline-3">
+<h3 id="org8feeaaa">Lezione 5</h3>
+<div class="outline-text-3" id="text-org8feeaaa">
+<ul class="org-ul">
+<li><a href="20250710111302-neurone_sigmoidale.html#ID-b69a0999-d5fe-477f-bacd-68446d5639a3">Neurone Sigmoidale</a></li>
+<li><a href="20250711125821-teoria_dell_informazione_shannon.html#ID-73f68e83-3c4a-4bdd-8d24-bb6c2c00bdf1">Teoria dell&rsquo;informazione (Shannon)</a></li>
+<li><a href="20250710111302-neurone_sigmoidale.html#ID-b69a0999-d5fe-477f-bacd-68446d5639a3">Neurone Sigmoidale</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65b51c3" class="outline-3">
+<h3 id="org65b51c3">Lezione 6</h3>
+<div class="outline-text-3" id="text-org65b51c3">
+<ul class="org-ul">
+<li><a href="20250713214832-neurone_ad_input_continuo.html#ID-61e5c3fd-03af-446b-950c-2ebf4d8aef55">Neurone ad input continuo</a></li>
+<li><a href="20250624155858-neurone_artificiale.html#ID-db72ee94-1615-4a75-a3af-9eb07631c96e">Rete Neurale Feedforward</a></li>
+<li><a href="20250714105222-rete_neurale_che_implementa_lo_xor.html#ID-28b27c91-9d1f-40e7-8c5b-a95eaca795f8">Rete Neurale che implementa lo XOR</a></li>
+<li><a href="20250713215224-backpropagation_per_una_rete_neurale.html#ID-e4480762-aa38-483c-85e7-4e09b89eaf4f">Backpropagation per una rete neurale</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge1b7636" class="outline-3">
+<h3 id="orge1b7636">Lezione 7</h3>
+<div class="outline-text-3" id="text-orge1b7636">
+<ul class="org-ul">
+<li><a href="20250713215224-backpropagation_per_una_rete_neurale.html#ID-e4480762-aa38-483c-85e7-4e09b89eaf4f">Backpropagation per una rete neurale</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf0f66b7" class="outline-3">
+<h3 id="orgf0f66b7">Lezione 8</h3>
+<div class="outline-text-3" id="text-orgf0f66b7">
+<ul class="org-ul">
+<li><a href="20250713221021-pooling.html#ID-fe6c75cf-edb5-40c6-8941-5603387788c9">Pooling</a></li>
+<li><a href="20250714162717-sigma_algebra_generata_dal_massimo_di_variabili_aleatorie.html#ID-e459ac08-e6f8-4eeb-a49f-d0826f225a4a">Sigma-algebra generata dal massimo di variabili aleatorie</a></li>
+<li><a href="20250713221345-rete_di_convoluzione.html#ID-9f159bef-97b5-46b1-b7d3-49c177ef2a8e">Rete di Convoluzione</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

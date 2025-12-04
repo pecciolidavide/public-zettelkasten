@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Funtore-Controvariante</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Funtore-Controvariante</h1>
+<div id="outline-container-org36194c0" class="outline-2">
+<h2 id="org36194c0">Definizione</h2>
+<div class="outline-text-2" id="text-org36194c0">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_694190a7e02a045a9128eb73f80aca16d49ffbab.svg" alt="20241204223502-funtore_controvariante_694190a7e02a045a9128eb73f80aca16d49ffbab.svg" class="org-svg" /> due <a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">categorie</a>. Un <b>funtore controvariante</b>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_a38166f47ac76faf2737ff11e89c4537dfb70d7b.svg" alt="20241204223502-funtore_controvariante_a38166f47ac76faf2737ff11e89c4537dfb70d7b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è una funzione tale che
+</p>
+<ol class="org-ol">
+<li>per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_5953683e900be312b87242b1f8154bc5f583ee24.svg" alt="20241204223502-funtore_controvariante_5953683e900be312b87242b1f8154bc5f583ee24.svg" class="org-svg" /> si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_b42295ba78ce8f6840d35fd04c5965a4d49a5d71.svg" alt="20241204223502-funtore_controvariante_b42295ba78ce8f6840d35fd04c5965a4d49a5d71.svg" class="org-svg" />;</li>
+<li><p>
+per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_f94e706bdfde1fb52f81fc1d8eb9d1801eea64fe.svg" alt="20241204223502-funtore_controvariante_f94e706bdfde1fb52f81fc1d8eb9d1801eea64fe.svg" class="org-svg" /> si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_330102dc8535587a25edffe61284eb235f8b9916.svg" alt="20241204223502-funtore_controvariante_330102dc8535587a25edffe61284eb235f8b9916.svg" class="org-svg" />
+</span>
+</div></li>
+</ol>
+
+<p>
+tali che
+</p>
+<ol class="org-ol">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_97a1bbec1f83c51af1f48589561779a1d0eaf480.svg" alt="20241204223502-funtore_controvariante_97a1bbec1f83c51af1f48589561779a1d0eaf480.svg" class="org-svg" /></li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_19bc65ebd7b6b5fa429097eca930b25dff8a3e8c.svg" alt="20241204223502-funtore_controvariante_19bc65ebd7b6b5fa429097eca930b25dff8a3e8c.svg" class="org-svg" /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgb89c2b6" class="outline-2">
+<h2 id="orgb89c2b6">Esempio</h2>
+<div class="outline-text-2" id="text-orgb89c2b6">
+<p>
+Consideriamo il funtore <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_f42439c2d382584ae43fa6bcafd59126ddb8eb63.svg" alt="20241204223502-funtore_controvariante_f42439c2d382584ae43fa6bcafd59126ddb8eb63.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_ad2023eae0bcccc281e4c5ad3726847c88f02af9.svg" alt="20241204223502-funtore_controvariante_ad2023eae0bcccc281e4c5ad3726847c88f02af9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_c8d4190c444c07851723ef04d77baa2aa3348113.svg" alt="20241204223502-funtore_controvariante_c8d4190c444c07851723ef04d77baa2aa3348113.svg" class="org-svg" /> venga mandata in
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_8f147480656d72968d60219d1b09224c0b044e40.svg" alt="20241204223502-funtore_controvariante_8f147480656d72968d60219d1b09224c0b044e40.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Vedi:
+</p>
+<ul class="org-ul">
+<li><a href="20241205115600-categoria_top.html#ID-C3E44197-C5C8-4B21-9BB1-3386703B7A82">Categoria-Top</a></li>
+<li><a href="20241205115727-categoria_vectr.html#ID-B77E8634-1659-4A05-B9E6-7D99E6E119C5">Categoria-VectR</a></li>
+</ul>
+
+
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_37b01ec5b5bc244a935d32ed99a2724c1ff41a8f.svg" alt="20241204223502-funtore_controvariante_37b01ec5b5bc244a935d32ed99a2724c1ff41a8f.svg" class="org-svg" />  è un funtore <b>controvariante</b> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_fefdbda354249ea7f331310c7b7a11a82a6e5de3.svg" alt="20241204223502-funtore_controvariante_fefdbda354249ea7f331310c7b7a11a82a6e5de3.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_02d2cfff6a4faf54cb5781ebee1f87ff273e346d.svg" alt="20241204223502-funtore_controvariante_02d2cfff6a4faf54cb5781ebee1f87ff273e346d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si indica con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_650d3ce53de8e139c61a79aec29be9e78e845537.svg" alt="20241204223502-funtore_controvariante_650d3ce53de8e139c61a79aec29be9e78e845537.svg" class="org-svg" />. <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_f209b26f90fef97e6730b55f0f2a39aafd9ab42b.svg" alt="20241204223502-funtore_controvariante_f209b26f90fef97e6730b55f0f2a39aafd9ab42b.svg" class="org-svg" /> si dice <b>pull back</b> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_4d2cbc1c42f4b1d51728a1a738820e1028d2dc80.svg" alt="20241204223502-funtore_controvariante_4d2cbc1c42f4b1d51728a1a738820e1028d2dc80.svg" class="org-svg" /> tramite <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20241204223502-funtore_controvariante_37b01ec5b5bc244a935d32ed99a2724c1ff41a8f.svg" alt="20241204223502-funtore_controvariante_37b01ec5b5bc244a935d32ed99a2724c1ff41a8f.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

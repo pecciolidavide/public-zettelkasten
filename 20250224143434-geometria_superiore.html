@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Geometria Superiore [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Geometria Superiore [CORSO]</h1>
+<div id="outline-container-org0f621e8" class="outline-2">
+<h2 id="org0f621e8">Prima Parte</h2>
+<div class="outline-text-2" id="text-org0f621e8">
+<ul class="org-ul">
+<li>Introduzione: definizione di varietà differenziabile, funzioni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" alt="20250224143434-geometria_superiore_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" class="org-svg" />, definizione di diffeomorfismo.</li>
+<li>Forme differenziali: algebra delle forme differenziali con il prodotto esterno,  differenziale di una <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250224143434-geometria_superiore_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" />-forma.</li>
+<li>Campo conservativo nel piano e nello spazio.</li>
+<li>Coomologia di De Rham.</li>
+<li>Coomologia di De Rham di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" alt="20250224143434-geometria_superiore_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" class="org-svg" /> (Esempio&nbsp;5.1.3 di (Abate, Marco and Tovena, Francesca, 2011)) e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_28527739e35ddd3cc3d8ba70e5fea5274380eca0.svg" alt="20250224143434-geometria_superiore_28527739e35ddd3cc3d8ba70e5fea5274380eca0.svg" class="org-svg" /> (Corollario&nbsp;5.3.6 di (Abate, Marco and Tovena, Francesca, 2011), <i>non dimostrato</i>).</li>
+<li>Diffeomorfismo induce <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250224143434-geometria_superiore_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" />-esimi gruppi di omologia isomorfi.</li>
+<li>Pullback e proprietà (Definizione&nbsp;4.1.4 e Proposizione&nbsp;4.1.5 di (Abate, Marco and Tovena, Francesca, 2011), <i>non dimostrata</i>).</li>
+<li>Esempio&nbsp;5.1.19 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Definizione&nbsp;5.1.6 di (Abate, Marco and Tovena, Francesca, 2011) e paragrafo precedente.</li>
+<li>Definizione&nbsp;5.1.20 e Osservazione&nbsp;5.1.21 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Definizione di Complesso di Cocatene.</li>
+<li>Definizione di morfismo tra complessi di cocatene.</li>
+<li>Definizione di Successione esatta Corta di complessi di cocatene.</li>
+<li>Teorema&nbsp;5.1.23 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Sezione&nbsp;5.2 di (Abate, Marco and Tovena, Francesca, 2011):
+Teorema&nbsp;5.2.1, Definizione&nbsp;5.2.2, Osservazione&nbsp;5.2.3.</li>
+<li>Sezione&nbsp;26.2 di (Tu, Loring W., 2011) (Coomologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_dfa0695a4b93d21f666eb4e6e082b3a5f36ef9a4.svg" alt="20250224143434-geometria_superiore_dfa0695a4b93d21f666eb4e6e082b3a5f36ef9a4.svg" class="org-svg" />).</li>
+<li>Problema&nbsp;26.2 (pagina 295) di (Tu, Loring W., 2011).</li>
+<li>Esempio&nbsp;5.3.7 di (Abate, Marco and Tovena, Francesca, 2011), (vedi anche Teorema&nbsp;5.3.5 di (Abate, Marco and Tovena, Francesca, 2011), <i>non dimostrato</i>).</li>
+<li>Definizione&nbsp;4.2.6, Osservazione&nbsp;4.2.9 e Proposizione&nbsp;4.2.10 (<i>non dimostrata</i>), Esempio&nbsp;4.2.13 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Definizione&nbsp;4.3.5 di (Abate, Marco and Tovena, Francesca, 2011) (Integrazione di forme differenziali a supporto compatto).</li>
+<li>Ruolo della forma volume nel calcolo di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_a26e674e6553e8cb7d4702eeea30ec23d799f823.svg" alt="20250224143434-geometria_superiore_a26e674e6553e8cb7d4702eeea30ec23d799f823.svg" class="org-svg" /> tramite il Teorema di Stokes (Teorema&nbsp;4.5.12 e Corollario&nbsp;4.5.15(1) di (Abate, Marco and Tovena, Francesca, 2011)).</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_cd64c9331e2db00940f9eec688eab4697f6ee6bd.svg" alt="20250224143434-geometria_superiore_cd64c9331e2db00940f9eec688eab4697f6ee6bd.svg" class="org-svg" /> è isomorfsimo: ultime 7 righe di pagina 259 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Teorema di invarianza omotopica per la coomologia di de Rham: Corollario&nbsp;5.4.7 di (Abate, Marco and Tovena, Francesca, 2011) (<i>non dimostrato</i>).</li>
+<li>Definizione di spazi omotopicamente equivalenti (Definizioni&nbsp;5.4.1 e 5.4.4 di (Abate, Marco and Tovena, Francesca, 2011)).</li>
+<li>Calcolo della coomologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_db0db565571fed7b8f38225b9e70b34502e3cf28.svg" alt="20250224143434-geometria_superiore_db0db565571fed7b8f38225b9e70b34502e3cf28.svg" class="org-svg" />: Esempio&nbsp;5.3.8 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Calcolo della coomologia del Toro: Sezione&nbsp;28.1 di (Tu, Loring W., 2011).</li>
+<li>Esempio 4.2.14 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li><p>
+Ultime 3 righe di pagina 259 di (Abate, Marco and Tovena, Francesca, 2011):
+</p>
+<blockquote>
+<p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_f84f336d4ce4b7325b527b8cf7442f004f0b7696.svg" alt="20250224143434-geometria_superiore_f84f336d4ce4b7325b527b8cf7442f004f0b7696.svg" class="org-svg" /> esatta sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_574c67be5ac0fc291be59d52d056e957fb56dacd.svg" alt="20250224143434-geometria_superiore_574c67be5ac0fc291be59d52d056e957fb56dacd.svg" class="org-svg" />.
+</p>
+</blockquote></li>
+<li><p>
+Per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" alt="20250224143434-geometria_superiore_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" class="org-svg" /> dispari:
+</p>
+<blockquote>
+<p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_64e20ff31d8c6eb5643a77fb04ad8fbd5437d34f.svg" alt="20250224143434-geometria_superiore_64e20ff31d8c6eb5643a77fb04ad8fbd5437d34f.svg" class="org-svg" /> esatta sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_8690526c7668e6ed03198d7383ab10bb917a2621.svg" alt="20250224143434-geometria_superiore_8690526c7668e6ed03198d7383ab10bb917a2621.svg" class="org-svg" />.
+</p>
+</blockquote></li>
+<li>Non esistono campi vettoriali mai nulli su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_f52f208a123b5245ebadd79648f6af7b080c8968.svg" alt="20250224143434-geometria_superiore_f52f208a123b5245ebadd79648f6af7b080c8968.svg" class="org-svg" />, per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" alt="20250224143434-geometria_superiore_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" class="org-svg" /> pari.</li>
+<li>Coomologia del nastro di Moebius: è omotopo a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_803a9f407714f398e0d2d2dfa267bc26faf26a9d.svg" alt="20250224143434-geometria_superiore_803a9f407714f398e0d2d2dfa267bc26faf26a9d.svg" class="org-svg" />.</li>
+<li>Formula di Kunnet: Teorema&nbsp;5.7.5 di (Abate, Marco and Tovena, Francesca, 2011) (<i>non dimostrato</i>).
+<ul class="org-ul">
+<li>calcolo della coomologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_5ebaa7645a6310a736f9fe75132493d7b2cf909a.svg" alt="20250224143434-geometria_superiore_5ebaa7645a6310a736f9fe75132493d7b2cf909a.svg" class="org-svg" />;</li>
+<li>calcolo della coomologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_452016d3b50d02611c67faa7559bfe3de7bebf28.svg" alt="20250224143434-geometria_superiore_452016d3b50d02611c67faa7559bfe3de7bebf28.svg" class="org-svg" />, per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_5eb60a97c71895225fbb7952af82e3ec374afd82.svg" alt="20250224143434-geometria_superiore_5eb60a97c71895225fbb7952af82e3ec374afd82.svg" class="org-svg" />;</li>
+<li>calcolo della coomologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_e0ea4f624fc8b2c0ab44a394ef430309e67a471a.svg" alt="20250224143434-geometria_superiore_e0ea4f624fc8b2c0ab44a394ef430309e67a471a.svg" class="org-svg" />.</li>
+<li><span class="underline">Corollario</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_e76bbac6aed313e86a897b7ca48736ebe7901d28.svg" alt="20250224143434-geometria_superiore_e76bbac6aed313e86a897b7ca48736ebe7901d28.svg" class="org-svg" /> non sono diffeomeorfi.</li>
+</ul></li>
+<li>Definizione&nbsp;5.8.1 di (Abate, Marco and Tovena, Francesca, 2011)</li>
+<li>Teorema <i>non dimostrato</i>: ogni varietà differenziabile ammette un ricoprimento aciclico. (Teorema 5.8.8 di (Abate, Marco and Tovena, Francesca, 2011)).</li>
+<li>Proposizione&nbsp;5.8.3 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Definizione&nbsp;5.5.1, Osservazione&nbsp;5.5.2 e Esempio&nbsp;5.5.3 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li><i>Osservazione/Esercizio</i>: se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_3a3678e7e2728bf29d74a0e906796b82fdf9e607.svg" alt="20250224143434-geometria_superiore_3a3678e7e2728bf29d74a0e906796b82fdf9e607.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_ab02df0104e999cae80d6c924b698388cfbb1911.svg" alt="20250224143434-geometria_superiore_ab02df0104e999cae80d6c924b698388cfbb1911.svg" class="org-svg" /> poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_2b62626bff31ead770395e85156d836d4bd4e2fa.svg" alt="20250224143434-geometria_superiore_2b62626bff31ead770395e85156d836d4bd4e2fa.svg" class="org-svg" />.</li>
+<li><p>
+Esempio di funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" alt="20250224143434-geometria_superiore_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" class="org-svg" /> a supporto compatto sempre non-negativa:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_35967785520bc9658fef64cca7d878323ee9b4e1.svg" alt="20250224143434-geometria_superiore_35967785520bc9658fef64cca7d878323ee9b4e1.svg" class="org-svg" />
+</span>
+</div></li>
+<li>Corollario&nbsp;5.5.12 di (Abate, Marco and Tovena, Francesca, 2011) (<i>non dimostrato</i>).</li>
+<li>Osservazione&nbsp;5.5.13 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li><i>Osservazione</i>: la coomologia a supporto compatto non è invariante per omotopia, come testimoniano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_8c239ebd4e421e57e4b900ad66e134858006ee15.svg" alt="20250224143434-geometria_superiore_8c239ebd4e421e57e4b900ad66e134858006ee15.svg" class="org-svg" />, tutti omotopi tra loro.</li>
+<li>Lemma&nbsp;5.1.22 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Definizione&nbsp;5.5.7, &ldquo;successione di Mayer-Vietoris a supporto compatto&rdquo; e Teorema&nbsp;5.5.8 (<i>dimostrata solo suriettività di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_9ce32edc317fe789a619c29efa8a98662171ac22.svg" alt="20250224143434-geometria_superiore_9ce32edc317fe789a619c29efa8a98662171ac22.svg" class="org-svg" /></i>) di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li><i>Proposizione</i>: se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_50d4479040f82539484d839e8462f61fcf5b0ab0.svg" alt="20250224143434-geometria_superiore_50d4479040f82539484d839e8462f61fcf5b0ab0.svg" class="org-svg" /> sono diffeomorfe, allora hanno coomologia a supporto compatto isomorfe (se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250224143434-geometria_superiore_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è diffeomorfismo allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20250224143434-geometria_superiore_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è propria: vedi Osservazione&nbsp;5.5.6 di (Abate, Marco and Tovena, Francesca, 2011)).</li>
+<li>Corollario&nbsp;5.6.7 e Osservazione&nbsp;5.6.8 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Dualità di Poincaré (da (Abate, Marco and Tovena, Francesca, 2011)):
+<ul class="org-ul">
+<li>Proposizione&nbsp;5.6.2 (<i>non dimostrata</i>);</li>
+<li>Lemma&nbsp;5.6.4 (<i>non dimostrato</i>);</li>
+<li>Dimostrazione per induzione della Dualità di Poincaré (penso diversa dal Teorema&nbsp;5.6.6).</li>
+</ul></li>
+<li>Corollario&nbsp;5.6.9 di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li><p>
+<i>Proposizione</i>: se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250224143434-geometria_superiore_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /> è orientabile, connessa e compatta
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_a2c8e68dead09edc19336284747c87f926053296.svg" alt="20250224143434-geometria_superiore_a2c8e68dead09edc19336284747c87f926053296.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(<i>con dimostrazione</i>).
+</p></li>
+<li>Corollario&nbsp;4.5.15(ii) di (Abate, Marco and Tovena, Francesca, 2011).</li>
+<li>Calcolo delle superfici compatte orientabili <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250224143434-geometria_superiore_19726260fa2c5399335052aa4567acfa94579e25.svg" alt="20250224143434-geometria_superiore_19726260fa2c5399335052aa4567acfa94579e25.svg" class="org-svg" />: (Galluzzi, Federica, 2025) (vedi anche la Sezione&nbsp;28.2 di (Tu, Loring W., 2011)).</li>
+<li>Esercizio&nbsp;5.27 e Esercizio&nbsp;5.28 di (Abate, Marco and Tovena, Francesca, 2011) (risolti in classe, vedi (Galluzzi, Federica, 2025a)).</li>
+</ul>
+
+<p>
+L&rsquo;ultima lezione è un richiamo di Analisi Complessa e un&rsquo;introduzione alla seconda parte del corso.
+</p>
+
+<p>
+Abate, Marco and Tovena, Francesca (2011). <i>Geometria Differenziale</i>, Springer Milan.</p>
+
+<p>
+Galluzzi, Federica (2025). <i>Coomologia Di De Rham Delle Superfici Compatte Orientabili</i>.</p>
+
+<p>
+Galluzzi, Federica (2025a). <i>Grado Di Una Mappa Propria</i>.</p>
+
+<p>
+Tu, Loring W. (2011). <i>An Introduction to Manifolds</i>, Springer New York.</p>
+</div>
+</div>
+<div id="outline-container-org59b5093" class="outline-2">
+<h2 id="org59b5093">Seconda Parte</h2>
+<div class="outline-text-2" id="text-org59b5093">
+</div>
+<div id="outline-container-org978961e" class="outline-3">
+<h3 id="org978961e">Teoria dei Fasci</h3>
+<div class="outline-text-3" id="text-org978961e">
+<ul class="org-ul">
+<li><a href="20250324165349-prefascio.html#ID-5a306964-a8f9-4187-8868-01bd59458f00">Prefascio di gruppi</a></li>
+<li><a href="20250324170250-categoria_degli_aperti_di_uno_spazio_topologico.html#ID-86b57339-728c-4685-b31c-45ee12fb7eff">Categoria degli aperti di uno spazio topologico</a></li>
+<li><a href="20250324175845-esempi_di_prefasci.html#ID-2a55a162-ff79-451a-906d-1d8c0152b53e">Esempi di Prefasci</a></li>
+<li><a href="20250324174728-fascio.html#ID-c606cb88-f96a-43c9-be3a-e28d54c87147">Fascio</a></li>
+<li><a href="20250325192239-fascio_come_funtore.html#ID-da6a5d95-56b2-4c65-abdf-e9fe8e71361b">Fascio come funtore</a></li>
+<li><a href="20250324175851-esempi_di_fasci.html#ID-4163697d-15d3-4bf4-af3d-87f95fb54e1e">Esempi di Fasci</a> *</li>
+<li><a href="20250325150647-sottoprefascio.html#ID-9ddee0eb-d101-4326-983e-84453730d471">Sottoprefascio</a></li>
+<li><a href="20250325153824-funzione_localmente_costante.html#ID-54e384c8-77a0-4529-a46f-99630707b24f">Funzione localmente costante</a></li>
+<li><a href="20250325154046-funzione_localmente_costante_sse_costante_sulle_componenti_connesse.html#ID-d9ee8b76-0977-49eb-be5f-de45a69734f3">Funzione localmente costante sse costante sulle componenti connesse</a></li>
+<li><a href="20250325171002-fascio_di_gruppo_localmente_costante.html#ID-03c60e56-8192-4098-b251-60fc11ff0da2">Fascio di gruppo localmente costante</a></li>
+<li><a href="20250325171249-fascio_grattacielo.html#ID-01d669d5-f91e-4b39-9fcc-63ea3a9f367f">Fascio grattacielo</a></li>
+<li><a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">Morfismo di prefasci</a></li>
+<li><a href="20250325195205-caratterizzazione_morfismo_di_fasci.html#ID-4a3a8a78-5cae-4d2f-9f7a-4cbaa4b97d51">Caratterizzazione morfismo di fasci</a></li>
+<li><a href="20250325183418-esempi_di_morfismi_di_prefasci.html#ID-3f34aece-0c8d-46b8-8bcf-3d7baabd2dd4">Esempi di morfismi di prefasci</a> *</li>
+<li><a href="20250325183434-spiga_di_un_prefascio.html#ID-8c01b9cf-1be1-402b-adfd-9878b76a37be">Spiga di un prefascio</a></li>
+
+<li><a href="20250327114727-esempi_di_spighe.html#ID-48994179-f73d-450d-b588-8ce23129ec2d">Esempi di spighe</a> *</li>
+<li><a href="20250327114817-morfismo_di_fasci_induce_omomorfismo_tra_spighe.html#ID-8dc943bb-de73-44fc-8dbf-0b47f928e426">Morfismo di fasci induce omomorfismo tra spighe</a></li>
+<li><a href="20250327114851-fascio_associato_ad_un_prefascio.html#ID-05a1b276-d73b-45b5-a9bf-81fab02fff81">Fascio associato ad un prefascio</a> *</li>
+<li><a href="20250327114913-fascio_associato_ad_un_sottoprefascio.html#ID-599d0b83-b55b-439a-b2ef-04a2ccecccfe">Fascio associato ad un sottoprefascio</a> *</li>
+<li><a href="20250327114922-fascio_nucleo.html#ID-0d1d590d-d7b7-4ef7-a20b-6e8ad0a18e04">Fascio nucleo</a> *</li>
+<li><a href="20250327114937-fascio_immagine.html#ID-e588b6cb-e484-4a31-8802-a1292e5d2286">Fascio immagine</a> *</li>
+<li><a href="20250327115206-morfismo_di_fasci_iniettivo.html#ID-48609997-1f34-4f69-8150-019f2dc27e59">Morfismo di fasci iniettivo</a> *</li>
+<li><a href="20250327115214-morfismo_di_fasci_suriettivo.html#ID-a7775d77-38fa-46ef-a3a9-3c0d4451869e">Morfismo di fasci suriettivo</a> *</li>
+<li><a href="20250327122142-successione_di_una_categoria.html#ID-10401a02-9c32-4ff9-b578-0715cc975807">Successione di una categoria</a> *</li>
+<li><a href="20250327150404-successione_di_fasci_esatta.html#ID-d8b1f3fc-0cfd-4930-90e2-25063ca6c616">Successione di fasci esatta</a> *</li>
+<li><a href="20250327150529-caratterizzazione_di_successione_esatta_di_fasci_tramite_sezioni.html#ID-8ba93c2b-7a6c-4e5f-b475-4421139a9eaf">Caratterizzazione di successione esatta di fasci tramite sezioni</a> *</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

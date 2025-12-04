@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teoria descrittiva degli insiemi [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Teoria descrittiva degli insiemi [CORSO]</h1>
+<div id="outline-container-orgac17d3a" class="outline-2">
+<h2 id="orgac17d3a">Materiale</h2>
+<div class="outline-text-2" id="text-orgac17d3a">
+<ul class="org-ul">
+<li><a href="20250301192908-spazio_topologico_separabile.html#ID-b58b6c0d-2aab-4f3b-9550-0f96d62de20f">Spazio topologico separabile</a></li>
+<li><a href="20250301193254-spazio_topologico_primo_numerabile.html#ID-af082987-f517-4e8e-9107-7549bca34984">Spazio topologico primo numerabile</a></li>
+<li><a href="20250111142303-spazio_topologico_a_base_numerabile.html#ID-95baddc2-1fe1-405e-8194-95627a964af7">Spazio topologico secondo numerabile</a></li>
+<li><a href="20250301193401-spazio_topologico_metrizzabile.html#ID-5522c9c1-947e-4e36-8f90-704208e7a17e">Spazio topologico metrizzabile</a></li>
+<li><a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">Spazio Polacco</a></li>
+<li><a href="20250303114357-teorema_di_completamento_di_spazi_metrici.html#ID-84b368ea-8564-41c9-9033-c34311a5a7c9">Teorema di completamento di spazi metrici</a></li>
+<li><a href="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.html#ID-7356324e-3e5d-4027-8568-28b8e51b5dcc">Proprietà di chiusura degli Spazi Polacchi</a></li>
+<li><a href="20250310121944-esempi_di_spazi_polacchi.html#ID-aa2df429-6a07-44e3-8202-55600e898399">Esempi di spazi polacchi</a> *</li>
+<li><a href="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.html#ID-ca1bc5ae-b7a9-4b18-ab65-51362a72b668">Sottoinsiemi aperti di spazi polacchi sono polacchi</a></li>
+<li><a href="20250304152026-sottoinsiemi_gdelta_e_fsigma.html#ID-a2035152-35a7-4522-a9f2-c5776c2c5c50">Insiemi Gdelta e Fsigma</a></li>
+<li><a href="20250306135124-intersezione_di_gdelta_densi_e_densa_in_un_polacco.html#ID-a9b774c0-5c21-4353-b90d-f856e04447d1">Intersezione di Gdelta densi è densa in un polacco</a></li>
+<li><a href="20250306142322-chiuso_in_uno_spazio_metrizzabile_e_gdelta.html#ID-1c4480b1-04ca-481f-8233-66112533b71c">Chiuso in uno spazio metrizzabile è Gdelta</a></li>
+<li><a href="20250306134632-caratterizzazione_dei_sottoinsiemi_polacchi_di_uno_spazio_polacco.html#ID-d8583078-e2dc-4cc8-b43f-5b658d116402">Caratterizzazione dei sottoinsiemi polacchi di uno spazio polacco</a></li>
+<li><a href="20250306135302-oscillazione_di_una_funzione_in_uno_spazio_metrico.html#ID-faa7ca4f-5e05-4221-acf9-9aa56d05cf1b">Oscillazione di una funzione in uno spazio metrico</a></li>
+<li><a href="20250306141326-estensione_di_una_funzione_ad_un_dominio_gdelta.html#ID-f62c60e6-0b47-416b-a843-7396e0d3921c">Estensione di una funzione ad un dominio Gdelta</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1d62276" class="outline-2">
+<h2 id="org1d62276"><span class="done DONE">DONE</span> Esercizi</h2>
+<div class="outline-text-2" id="text-org1d62276">
+</div>
+<div id="outline-container-org97ab96b" class="outline-3">
+<h3 id="org97ab96b">Foglio di esercizi 1</h3>
+<div class="outline-text-3" id="text-org97ab96b">
+<ul class="org-ul">
+<li><a href="20250313194245-sottospazi_di_spazi_polacchi_fsigma_densi_e_codensi_non_sono_gdelta.html#ID-288136dd-db5e-4d6b-a706-4e09637c3940">Sottospazi di spazi polacchi Fsigma densi e codensi non sono Gdelta</a></li>
+<li><a href="20250310121944-esempi_di_spazi_polacchi.html#ID-a0fcb036-b325-474e-ba5a-4f3abd4d3ab7">Esempi di spazi polacchi - Esercizi TDI</a></li>
+<li><a href="20250313193059-proprieta_di_base_di_un_ultrametrica.html#ID-df15a129-08b0-4695-904e-1f4a5ca0cb9c">Proprietà di base di un ultrametrica</a></li>
+</ul>
+
+<p>
+OUTPUT: [BROKEN LINK: 41478265-ff20-444c-8a9c-e37fd954d64a]
+</p>
+</div>
+</div>
+<div id="outline-container-orgf9c8b7b" class="outline-3">
+<h3 id="orgf9c8b7b">Foglio di esercizi 2</h3>
+<div class="outline-text-3" id="text-orgf9c8b7b">
+<ul class="org-ul">
+<li><a href="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor.html#ID-7719fa3f-639f-4390-b206-f5db1fc48bf1">Immersione topologica dello spazio di Baire nello spazio di Cantor</a> (Esercizio 1)</li>
+<li><a href="20250327104804-insieme_limitato_dello_spazio_di_baire.html#ID-d274afa9-0a0e-4a5c-9e6a-1a54cada75e5">Insieme limitato dello spazio di Baire</a> (Esercizio 2)</li>
+<li><a href="20250327104743-caratterizzazione_dei_compatti_dello_spazio_di_baire.html#ID-5a743279-a21a-4a18-976d-191dcd2c3c60">Caratterizzazione dei compatti dello spazio di Baire</a> (Esercizio 2)</li>
+<li><a href="20250304152026-sottoinsiemi_gdelta_e_fsigma.html#ID-edc3af26-308c-4f9f-b7aa-820b66943dfa">Insiemi Ksigma</a> (Esercizio 3)</li>
+<li><a href="20250327104804-insieme_limitato_dello_spazio_di_baire.html#ID-aedaa407-e545-4ed8-9a02-655a808981ce">Insieme definitivamente limitato dello spazio di Baire</a> (Esercizio 3)</li>
+<li><a href="20250327105051-caratterizzazione_dei_sigma_compatti_nello_spazio_di_baire.html#ID-fecb14a1-b3db-4feb-9824-98f053b371ca">Caratterizzazione dei sigma-compatti nello spazio di Baire</a> (Esercizio 3)</li>
+<li><a href="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua.html#ID-23d67a11-1043-422f-b3e0-7c680aedd4db">Spazio di Baire si surietta in ogni spazio polacco non vuoto tramite una mappa aperta e continua</a> (Esercizio 4)</li>
+<li><a href="20250403093420-rango_di_cantor_bendixson.html#ID-991b6e0c-5121-44f8-a328-a3c7257ae660">Esempi di spazi polacchi con rango di Cantor-Bendixson arbitrario</a> (Esercizio 5)</li>
+</ul>
+
+<p>
+OUTPUT: [BROKEN LINK: c7293a8f-9247-4c87-a182-c67988d8ae7d]
+</p>
+</div>
+</div>
+<div id="outline-container-org4477523" class="outline-3">
+<h3 id="org4477523">Foglio di esercizi 3</h3>
+<div class="outline-text-3" id="text-org4477523">
+<ul class="org-ul">
+<li><a href="20250417125850-caratterizzazione_insieme_mai_denso.html#ID-77770214-ea9d-4a7d-ad66-26bbad83c0de">Caratterizzazione insieme mai denso</a> (Esercizio 1)</li>
+<li><a href="20250419122215-proprieta_insiemi_magri_comagri_non_magri.html#ID-580facdd-50af-4fbb-902e-3ca4124a02ef">Proprietà insiemi magri, comagri, non magri</a> (Esercizio 2)</li>
+<li><a href="20250419121342-proprieta_della_gerarchia_di_borel.html#ID-2acf7999-42ac-4fd2-b3b3-908806a197cf">Proprietà della gerarchia di Borel</a> (Esercizio 3)</li>
+<li><a href="20250419122543-classi_ambigue_di_un_sottospazio_polacco_nella_gerarchia_di_borel.html#ID-a026f7fd-1edd-408d-a6d8-4027c0c06128">Classi ambigue di un sottospazio polacco nella gerarchia di Borel</a> (Esercizio 4)</li>
+<li><a href="20250419122722-classe_di_borel_dell_insieme_dei_punti_di_derivabilita_di_una_funzione_reale.html#ID-1d5f9270-d163-4e59-b475-a6e67f30ca8c">Classe di Borel dell&rsquo;insieme dei punti di derivabilità di una funzione reale</a> (Esercizio 5)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org01040c1" class="outline-3">
+<h3 id="org01040c1">Foglio di esercizi 4</h3>
+<div class="outline-text-3" id="text-org01040c1">
+<ul class="org-ul">
+<li><a href="20250505103058-caratterizzazione_dei_punti_non_isolati_di_uno_spazio_polacco.html#ID-38fa632b-294a-4b8a-a210-67b93be1a9e1">Caratterizzazione dei punti non isolati di uno spazio polacco</a> (Esercizio 1)</li>
+<li><a href="20250505103212-caratterizzazione_dei_sottoinsiemi_chiusi_ma_non_aperti_di_un_polacco.html#ID-e0c72c0d-c3f0-467c-bb08-9ab23f87fe64">Caratterizzazione dei sottoinsiemi chiusi ma non aperti di un polacco</a> (Esercizio 2)</li>
+<li><a href="20250505103416-esempi_di_sottoinsimi_pi03_completi.html#ID-52897337-a15f-49c9-a85b-eb95dc2cd1cb">Esempi di sottoinsiemi pi03 completi</a> (Esercizio 3)</li>
+<li><a href="20250505103631-esempi_di_sottoinsiemi_sigma02_completi.html#ID-bf0b6a63-315a-4b9b-8576-91ef420e32ed">Esempi di sottoinsiemi sigma02 completi</a> (Esercizio 4)</li>
+<li><a href="20250505103829-esempi_di_sottoinsiemi_analitici.html#ID-15900018-4b48-4132-99df-24117b664247">Esempi di sottoinsiemi analitici</a> (Esercizio 5)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgecd4222" class="outline-3">
+<h3 id="orgecd4222">Foglio di esercizi 5</h3>
+<div class="outline-text-3" id="text-orgecd4222">
+<ul class="org-ul">
+<li><a href="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza.html#ID-dd64a98b-81d9-49fa-81b3-ce6ce4d04b2b">Separazione tramite boreliani di insiemi invarianti per una relazione di equivalenza</a> (Esercizio 1)</li>
+<li><a href="20250521105548-insieme_parzialmente_trasversale_per_una_relazione_di_equivalenza.html#ID-c94b6bc2-4164-4615-8c3e-4b856f7d9439">Insieme parzialmente trasversale per una relazione di equivalenza</a></li>
+<li><a href="20250521105603-insieme_trasversale_per_una_relazione_di_equivalenza.html#ID-e41eb364-b38d-4fa9-bb54-5eecdb2d7050">Insieme trasversale per una relazione di equivalenza</a></li>
+<li><a href="20250521105653-selettore_per_una_relazione_di_equivalenza.html#ID-c2c7b648-c614-4c51-b252-392e586769c5">Selettore per una relazione di equivalenza</a></li>
+<li><a href="20250521110737-proprieta_insieme_parzialmente_trasversale_per_una_relazione_di_equivalenza_in_uno_spazio_polacco.html#ID-3902b8fb-42ed-468a-92e2-1d7f6d08c6ae">Proprietà insieme parzialmente trasversale per una relazione di equivalenza in uno spazio polacco</a> (Esercizio 2)</li>
+<li><a href="20250521110811-proprieta_insieme_trasversale_e_selettore_per_una_relazione_di_equivalenza_in_uno_spazio_polacco.html#ID-1e9db607-6a2f-475d-9bec-18a178d688b9">Proprietà insieme trasversale e selettore per una relazione di equivalenza in uno spazio polacco</a> (Esercizio 3)</li>
+<li><a href="20250521110928-coanalitici_sono_unione_di_omega1_boreliani.html#ID-f94d30ac-89f6-46d9-a7e7-a6b83d07ebfd">Coanalitici sono unione di omega1 boreliani</a> (Esercizio 4)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

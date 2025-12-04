@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Topologia Algebrica [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Topologia Algebrica [CORSO]</h1>
+<div id="outline-container-orgce2cabd" class="outline-2">
+<h2 id="orgce2cabd">Topologia Algebrica (6 cfu)</h2>
+<div class="outline-text-2" id="text-orgce2cabd">
+</div>
+<div id="outline-container-orgbe2ad88" class="outline-3">
+<h3 id="orgbe2ad88">Introduzione: Categorie e Funtori</h3>
+<div class="outline-text-3" id="text-orgbe2ad88">
+<ul class="org-ul">
+<li><a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">Categoria</a> e <a href="20241205113007-categorie_esempi.html#ID-5B6B171E-D347-4872-8C13-0543B78E312E">Categorie-Esempi</a></li>
+<li><a href="20241128141258-inverso_categoriale.html#ID-E71E6CD6-B37D-455F-9D72-F0F0675560E4">Inverso-Categoriale</a></li>
+<li><a href="20241128162125-isomorfismo.html#ID-EE54E46B-6271-4478-84BB-405064453B79">Isomorfismo</a></li>
+<li><a href="20241128162518-unicita_inverso.html#ID-AA9C326B-0001-42A9-8191-1BB16A5A5F11">Unicità-inverso</a></li>
+<li><a href="20241204222455-funtore_covariante.html#ID-9D30859D-14E7-4FF3-B751-05F6907B677B">Funtore-Covariante</a></li>
+<li><a href="20241204223502-funtore_controvariante.html#ID-C96EC940-8B9E-4DFF-B2A1-C9AA857A9FF8">Funtore-Controvariante</a></li>
+<li><a href="20241205131908-funtori_e_isomorfismi.html#ID-82594961-DDB1-4960-82E3-C47443835A08">Funtori-e-isomorfismi</a></li>
+<li><a href="20241205132705-trasformazioni_naturali.html#ID-F15602B0-F8C8-4073-9D6C-9364786857FC">Trasformazioni-Naturali</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5cf3b4a" class="outline-3">
+<h3 id="org5cf3b4a">R Moduli</h3>
+<div class="outline-text-3" id="text-org5cf3b4a">
+<ul class="org-ul">
+<li><a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9">R-Moduli</a></li>
+<li><a href="20241206115416-morfismi_r_moduli.html#ID-CAF891D4-A524-4C5F-BDF6-82186F4B007A">Morfismi-R-Moduli</a></li>
+<li><a href="20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.html#ID-848b4553-a183-4be9-a2d5-1eeb7e671196">Morfismo iniettivo di R-Moduli induce isomorfismo</a></li>
+<li><a href="20241206115740-categoria_degli_r_moduli.html#ID-0F2259CE-0E29-40CC-A8EF-F0881E2CF07B">Categoria-degli-R-Moduli</a></li>
+<li><a href="20241206142802-sottomoduli.html#ID-FC321D2B-B204-4ECB-ADC5-C4A8B86D7359">Sottomoduli</a></li>
+<li><a href="20241212141101-generatori_modulo.html#ID-599C6914-676C-4459-B273-6EFBB0F6E3CC">Generatori-Modulo</a></li>
+<li><a href="20241212142019-insiemi_linearmente_indipendenti.html#ID-8DD9D6E9-DE7C-43A1-BE0A-498CD0B563DD">Insiemi-linearmente-indipendenti</a></li>
+<li><a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">Modulo-Libero</a></li>
+<li><a href="20250121131920-notazione_moduli_liberi.html#ID-f3dc64ce-1a1d-47ed-8983-dd51c6760721">Modulo Libero Generato da un Insieme</a></li>
+<li><a href="20241213100845-modulo_finitamente_generato.html#ID-6ECDCA4F-EF51-4FCB-A25C-F6BB42232284">Modulo-Finitamente-Generato</a></li>
+<li><a href="20250120121333-quoziente_di_modulo_fg_e_fg.html#ID-a3a20676-83e1-4324-aa23-6cfb8dfd70c6">Quoziente di modulo FG è FG</a></li>
+<li><a href="20241213101621-teorema_della_base.html#ID-0BEEEE47-EB06-4347-A49E-52B95D194DCD">Teorema-della-Base</a></li>
+<li><a href="20241213102346-moduli_quoziente_mod_liberi.html#ID-E97B3663-0CBD-4C19-B9DE-339426088345">Moduli-Quoziente-Mod-Liberi</a></li>
+<li><a href="20241213110005-caratterizzazione_moduli_fg.html#ID-42CD6ECA-9C35-4761-82E3-20EB452D6F80">Caratterizzazione-Moduli-FG</a></li>
+<li><a href="20241217101345-scomposizione_modulo_quozienti_liberi.html#ID-CCBD6CBC-1FC3-4488-B8C9-CB6DB74EC8E1">Scomposizione-Modulo-Quozienti-Liberi</a></li>
+<li><a href="20241219112842-pid.html#ID-CFCD9E38-AFEC-4381-A8C6-5AD75E7E43DC">PID</a></li>
+<li><a href="20241219192830-pid_sottomoduli_sono_liberi.html#ID-BC22BB56-1F98-4856-9FA4-6BCE058BBBD6">PID-Sottomoduli-sono-liberi</a></li>
+<li><a href="20241220000402-torsione_moduli.html#ID-7EADFE43-E7EA-46A2-AB08-C47838F0F56C">Torsione-Moduli</a></li>
+<li><a href="20250120102645-torsione_di_moduli_su_un_dominio_di_integrita.html#ID-9f5b1d14-3a24-4a8f-9384-78b366ab8e81">Torsione di moduli su un dominio di integrità</a></li>
+<li><a href="20250120103005-modulo_libero_da_torsione.html#ID-ec5c7c4b-7c70-411e-aac7-293d6fda51b6">Modulo libero da torsione</a></li>
+<li><a href="20250120103129-modulo_di_torsione.html#ID-c7b4746f-3025-425d-a71f-a7debd4e1cdb">Modulo di torsione</a></li>
+<li><a href="20250120103205-modulo_di_torsione_finitamente_generato_e_libero.html#ID-00f55895-2665-49b8-bf36-3a49a82b132c">Modulo libero da torsione finitamente generato è libero</a></li>
+<li><a href="20250120122032-rango_di_un_modulo_fg.html#ID-49943448-15e6-440f-9674-42d8bb3d1f65">Rango di un modulo FG</a></li>
+<li><a href="20250120122601-teorema_fondamentale_dei_moduli_finitamente_generati_su_un_pid.html#ID-aa63d076-3b13-46e9-8503-4dfe43b08ee9">Teorema fondamentale dei moduli finitamente generati su un PID</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org40d955a" class="outline-3">
+<h3 id="org40d955a">Elementi di Algebra Omologica</h3>
+<div class="outline-text-3" id="text-org40d955a">
+<ul class="org-ul">
+<li><a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">Successione di R-Moduli</a></li>
+<li><a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">Successione di R-Moduli ESATTA</a></li>
+<li><a href="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.html#ID-3d0561e0-918c-47c7-9f11-7b332da871ed">Caratterizzazione di alcune successioni esatte di R-Moduli</a></li>
+<li><a href="20250120131527-sec.html#ID-1d599af4-e230-41e1-9c86-ceb19e266737">SEC</a></li>
+<li><a href="20250120131729-teorema_di_spezzamento_sec.html#ID-26aeff44-03c3-428c-9a4c-711fc472f76b">Teorema di Spezzamento SEC</a></li>
+<li><a href="20250120153706-sec_con_modulo_finale_libero.html#ID-3ed0e3d5-ef26-4531-9c7b-703873ace42a">SEC con modulo finale libero</a></li>
+<li><a href="20250120155801-lemma_del_cinque.html#ID-bb3ea80b-7446-4261-9c37-b01776c2c1c0">Lemma del cinque</a></li>
+<li><a href="20250120163114-complesso_di_catene.html#ID-25f7032a-9109-4d42-9df4-127d9d8c0ce9">Complesso di catene</a></li>
+<li><a href="20250120163759-categoria_complessi_di_catene.html#ID-ed9efc00-1558-4fdc-a266-97bf0f42005e">Categoria Complessi di Catene</a></li>
+<li><a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a></li>
+<li><a href="20250120164930-morfismo_tra_complessi_di_catene_induce_morfismo_tra_moduli_di_omologia.html#ID-412f757b-d02d-4625-8911-624d3c2925da">Morfismo tra complessi di catene induce morfismo tra moduli di omologia</a></li>
+<li><a href="20250120165029-funtore_tra_chr_e_rmod.html#ID-d4e6149c-d2bb-45eb-aa8f-57f3282e55ec">Funtore tra ChR e RMod</a></li>
+<li><a href="20250120164938-zig_zag_lemma.html#ID-15c85cfd-d57c-42ce-a111-f9ff5e1409bf">Zig-Zag Lemma</a></li>
+<li><a href="20250121094654-omotopia_tra_funzioni_continue.html#ID-9265b022-4b3e-4d52-88c7-0cd29bf1c14a">Omotopia tra funzioni continue</a></li>
+<li><a href="20250121094935-omotopia_tra_morfismi_di_complessi_di_catene.html#ID-4c7e80d9-6053-4b9f-89e3-770f6da55cf6">Omotopia tra morfismi di complessi di catene</a></li>
+<li><a href="20250121100726-funtore_di_omologia_di_funzioni_omotope.html#ID-af0bea52-5a5f-4e3a-aee6-951f0c60ad59">Funtore di omologia di funzioni omotope</a></li>
+<li><a href="20250121102813-categoria_omotopica_dei_complessi_di_catene.html#ID-707758d8-7321-4562-97dc-8b2ed8cb13e4">Categoria omotopica dei complessi di catene</a></li>
+<li><a href="20250121103544-complessi_di_catene_omotopicamente_equivalenti.html#ID-551d1fb5-2eb8-40cb-8221-1ece6e279811">Complessi di catene omotopicamente equivalenti</a></li>
+<li><a href="20250121104306-complesso_di_catene_aciclico.html#ID-859020ac-24d4-4b07-b8c2-99d95074e57f">Complesso di catene aciclico</a></li>
+<li><a href="20250121104453-complesso_di_catene_contraibile.html#ID-0aacbf8a-7b00-4cfe-a844-8e8d69d99d88">Complesso di catene contraibile</a></li>
+<li><a href="20250121105137-complesso_di_catene_contraibile_e_aciclico.html#ID-cb494352-84f4-4c32-991e-f8288f6b6fe9">Complesso di catene contraibile è aciclico</a></li>
+<li><a href="20250121110644-complesso_di_catene_aciclico_libero_e_contraibile.html#ID-cea9b07a-2e36-4b1d-99bf-c71af0e25c63">Complesso di catene aciclico libero è contraibile</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga9db892" class="outline-3">
+<h3 id="orga9db892">Omologia simpliciale</h3>
+<div class="outline-text-3" id="text-orga9db892">
+<ul class="org-ul">
+<li><a href="20250121121613-indipendenza_affine.html#ID-03293e23-e2cf-47b9-9cab-c9c24a9e890b">Indipendenza Affine</a></li>
+<li><a href="20250121121923-simplessi.html#ID-1be0cf69-b9fc-404c-9f43-67d6518a1af3">Simplessi</a></li>
+<li><a href="20250121122324-simplesso_standard.html#ID-1cc446ce-f2f1-431e-adae-03e0b6d46e32">Simplesso Standard</a></li>
+<li><a href="20250121122621-faccia_di_un_simplesso.html#ID-d03b750d-b74e-4bb5-96d6-e53b8f222513">Faccia di un simplesso</a></li>
+<li><a href="20250121124147-complesso_simpliciale.html#ID-b12e5622-7f92-485a-91a9-896fc2b2dc09">Complesso Simpliciale</a></li>
+<li><a href="20250121124213-sottocomplesso_simpliciale.html#ID-b66da7b2-3bd2-4a77-b106-03fcb6eec820">Sottocomplesso Simpliciale</a></li>
+<li><a href="20250121124230-supporto_di_un_complesso_simpliciale.html#ID-93108471-bee5-4915-a438-de850e90eee4">Supporto di un complesso simpliciale</a></li>
+<li><a href="20250121125446-complesso_simpliciale_generato_da_un_simplesso.html#ID-f0fee488-2f1b-4455-90cc-107d154ad5f4">Complesso Simpliciale generato da un simplesso</a></li>
+<li><a href="20250121124249-topologia_debole_di_un_complesso_simpliciale.html#ID-50f8556c-03fd-4622-bb61-5d85412a0be4">Topologia debole di un complesso simpliciale</a></li>
+<li><a href="20250121124310-scheletro_di_un_complesso_simpliciale.html#ID-498f86b8-5b08-4c10-8b89-f6a7b6d6276c">Scheletro di un complesso simpliciale</a></li>
+<li><a href="20250121131005-complesso_simpliciale_totalmente_ordinato.html#ID-da449998-4b58-46c3-b936-6ade8d09540e">Complesso Simpliciale totalmente ordinato</a></li>
+<li><a href="20250121124410-modulo_delle_catene_simpliciali.html#ID-46a11db8-2d18-4f25-b692-1f50a4bb6156">Modulo delle catene simpliciali</a></li>
+<li><a href="20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.html#ID-d3fa63a2-7a06-41ee-8c1e-efacd0fae50b">Mappe di bordo tra moduli di catene simpliciali</a></li>
+<li><a href="20250121160600-complesso_di_catene_simpliciali.html#ID-2addade4-e68e-4531-a676-7f36323b956d">Complesso di catene simpliciali</a></li>
+<li><a href="20250121160827-omologia_simpliciale.html#ID-7180d7b0-44a6-49a9-8ecf-81e3e6a96032">Omologia Simpliciale</a></li>
+<li><a href="20250122100541-notazione_per_i_simplessi.html#ID-386b53ec-5827-492c-b6d2-efdbbdf6879d">Notazione per i simplessi</a></li>
+<li><a href="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso.html#ID-078f6b4b-bf20-47bf-9307-1f057229b870">Calcolo dell&rsquo;omologia simpliciale per il complesso di catene generato da un 2-simplesso</a></li>
+<li><a href="20250122100507-omologia_simpliciale_per_il_complesso_di_catene_simpliciali_di_un_complesso_simpliciale_generato_da_un_generico_simplesso.html#ID-291f3cba-eb07-469f-972e-60ace891b5b4">Omologia Simpliciale per il complesso di catene simpliciali di un complesso simpliciale generato da un generico simplesso</a></li>
+<li><a href="20250122101105-complesso_augmentato_di_un_complesso_simpliciale.html#ID-270dabcc-427b-4857-97ec-f590b5307e99">Complesso Augmentato di un complesso simpliciale</a></li>
+<li><a href="20250122103014-omologia_ridotta_di_un_complesso_simpliciale.html#ID-12668a29-bcb3-4984-a982-69e6ce827811">Omologia Ridotta di un complesso simpliciale</a></li>
+<li><a href="20250122111953-complesso_di_catene_relative.html#ID-e5b14739-1eb8-49b3-9474-c9261a61d5c2">Complesso di catene relative</a></li>
+<li><a href="20250122112115-omologia_simpliciale_relativa.html#ID-7a32e66e-14be-413a-913d-0eb3891f7488">Omologia Simpliciale Relativa</a></li>
+<li><a href="20250122112244-successione_esatta_di_una_coppia_di_complesso_e_sottocomplesso_in_omologia.html#ID-281c8b7b-7aab-449a-9bb6-d038cbf64a4f">Successione esatta di una coppia di complesso e sottocomplesso in omologia</a></li>
+<li><a href="20250122133125-mappa_simpliciale.html#ID-938207dd-b718-44c4-8969-cb7b9f05151d">Mappa simpliciale</a></li>
+<li><a href="20250122133147-categoria_di_complessi_e_mappe_simpliciali.html#ID-f99045f0-c492-49d1-8519-29f5ffb6a9b4">Categoria di complessi e mappe simpliciali</a></li>
+<li><a href="20250122133308-funtore_diesis_da_complessi_simpliciali_a_complessi_di_catene.html#ID-9dad3c81-5bf6-4ff3-a517-5a3cdebe5d7d">Funtore diesis da complessi simpliciali a complessi di catene</a></li>
+<li><a href="20250122175051-funtore_hn_da_categoria_pl_a_categoria_r_mod.html#ID-0986a41a-c99b-4ea1-adaa-9b07d09bbd61">Funtore di omologia da Categoria-Pl a categoria R-Mod</a></li>
+<li><a href="20250122133348-funtore_da_complessi_simpliciali_a_spazi_topologici.html#ID-06ede34b-b003-40e7-a2f6-4ff4f7435b95">Funtore da complessi simpliciali a spazi topologici</a></li>
+<li><a href="20250122133435-simplesso_singolare.html#ID-076f9a06-2038-48c0-b441-43c3257114d0">Simplesso singolare</a></li>
+<li><a href="20250122133535-operatori_di_facciata_del_simplesso_standard.html#ID-ab10e851-9b31-4dd2-91a6-cada801137cd">Operatori di facciata del simplesso standard</a></li>
+<li><a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">Mappa di bordo tra moduli di catene singolari</a></li>
+<li><a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">Omologia Singolare</a></li>
+<li><a href="20250122154136-funtorialita_dell_omologia_singolare.html#ID-46d013d3-f9ae-4374-ae2f-319ac24e0933">Funtore da Top a ChR</a></li>
+<li><a href="20250123115927-funtore_di_omologia_singolare.html#ID-88dd6cfe-252a-4d15-a6b1-d3aea4a3d421">Funtore di omologia singolare</a></li>
+<li><a href="20250123124404-riassunto_funtori_di_omologia.html#ID-9999b64c-539c-4581-b58b-86827627e1b5">Riassunto funtori di omologia</a></li>
+<li><a href="20250122154153-calcolo_dell_omologia_del_punto.html#ID-1092a2c3-3e62-49b3-b601-06368fdce23e">Calcolo dell&rsquo;omologia del punto</a></li>
+<li><a href="20250122154349-complesso_di_catene_singolare_augmentato.html#ID-fd924527-01cc-47ff-8d33-fbe96cfe6788">Complesso di catene singolare Augmentato</a></li>
+<li><a href="20250122154406-omologia_singolare_ridotta.html#ID-334466b7-76d2-45c6-91ea-ebd93a8c0035">Omologia Singolare Ridotta</a></li>
+<li><a href="20250122154451-spazio_topologico_aciclico.html#ID-f3a0cddf-2ef5-4f77-9f9b-31f95c1830ab">Spazio topologico aciclico</a></li>
+<li><a href="20250122154457-coprodotto.html#ID-1ebfe5f8-e052-4177-881a-852178c0bd37">Coprodotto</a> *</li>
+<li><a href="20250122154543-significato_geometrico_del_modulo_di_omologia_singolare_0.html#ID-8533a384-be00-4d72-9f5d-eaded029199b">Significato geometrico del modulo di omologia singolare 0</a></li>
+<li><a href="20250122154613-insieme_stellato.html#ID-11c5efef-e18b-4314-8f6d-930a94f39c04">Insieme stellato</a></li>
+<li><a href="20250122154711-estensione_di_un_simplesso_singolare_in_uno_spazio_stellato.html#ID-f2f79c4c-3a7c-44c0-95ae-6b29ecd2ff2e">Estensione di un simplesso singolare in uno spazio stellato</a></li>
+<li><a href="20250122154637-insieme_stellato_e_spazio_topologico_aciclico.html#ID-5c728733-3cd8-451e-9ebd-0bb91a30c806">Insieme stellato è spazio topologico aciclico</a></li>
+<li><a href="20250122154728-coppia_topologica.html#ID-fd45b5f4-2925-434c-9031-581abb23572d">Coppia topologica</a></li>
+<li><a href="20250124145633-moduli_di_catene_singolari_per_coppie_topologiche.html#ID-aecd4040-8357-4d87-9734-f4fa89527d59">Moduli di catene singolari per coppie topologiche</a></li>
+<li><a href="20250122154809-complesso_di_catene_singolari_relative.html#ID-1419a5d9-0b0b-4184-99c7-3cb41c45b621">Complesso di catene singolari relative</a></li>
+<li><a href="20250122154903-omologia_singolare_relativa.html#ID-2f34c8d4-79dc-42cb-a50e-06a3dd89bf57">Omologia Singolare Relativa</a></li>
+<li><a href="20250122154927-successione_esatta_di_una_coppia_topologica.html#ID-665d1838-531c-4240-8e28-492c1ea5cc0d">Successione esatta di una coppia topologica</a></li>
+<li><a href="20250122155528-teorema_dell_invarianza_per_omotopia.html#ID-34987aa2-2a91-4a6e-b9fa-daf0a71a893e">Teorema dell&rsquo;invarianza per omotopia</a></li>
+<li><a href="20250122155609-spazi_topologici_omotopicamente_equivalenti_hanno_moduli_di_omologia_singolare_isomorfi.html#ID-f365bd5c-ada7-4287-b887-b80837f17132">Spazi topologici omotopicamente equivalenti hanno moduli di omologia singolare isomorfi</a></li>
+<li><a href="20250122155640-spazio_topologico_contraibile.html#ID-927b5400-2039-4387-a155-d624c231733b">Spazio topologico contraibile</a></li>
+<li><a href="20250122155700-spazio_topologico_contraibile_e_aciclico.html#ID-e5badb60-f189-48a0-8a70-af52ec0e8936">Spazio topologico contraibile è aciclico</a></li>
+<li><a href="20250122155714-retratto_di_uno_spazio_topologico.html#ID-576a45cc-2c62-4ef1-aaf0-180f5101a741">Retratto di uno spazio topologico</a></li>
+<li><a href="20250122155727-retratto_di_deformazione_di_uno_spazio_topologico.html#ID-0ff1d00b-ed33-4ecf-908d-7256143df31d">Retratto di deformazione di uno spazio topologico</a></li>
+<li><a href="20250129112659-retratto_di_deformazione_forte_di_uno_spazio_topologico.html#ID-aec90b5d-e386-4e28-a743-b37f5f72a564">Retratto di deformazione forte di uno spazio topologico</a></li>
+<li><a href="20250122160057-inclusione_di_un_retratto_induce_iniezione_in_omologia_singolare.html#ID-94df6f28-a22d-49e4-bcb0-7c926a0ef8a1">Inclusione di un retratto induce iniezione in omologia singolare</a></li>
+<li><a href="20250122160145-categoria_topp.html#ID-c708a21d-2d5e-47ba-a345-fb008f115827">Categoria-TopP</a></li>
+<li><a href="20250124163705-funtore_da_topp_a_chr_diesis.html#ID-da307f41-62a1-4675-8b0c-e6d8d95ed1ca">Funtore da TopP a ChR - diesis</a></li>
+<li><a href="20250126191208-funtore_da_topp_a_rmod_di_omologia.html#ID-dc26ecee-cda2-4347-b0b0-1928a424e120">Funtore da TopP a RMod - di omologia</a></li>
+<li><a href="20250124163710-diagramma_commutativo_dell_omologia_di_due_coppie_topologiche.html#ID-027f660e-a660-40bb-a725-28d6694a6345">Diagramma commutativo dell&rsquo;omologia di due coppie topologiche</a></li>
+<li><a href="20250126190440-equivalenze_omotopiche_tra_coppie_topologiche_induce_isomorfismo_tra_omologia_singolare_relativa.html#ID-c8bbf396-fb58-46b7-b643-7cd43e5c53bf">Equivalenze omotopiche tra coppie topologiche induce isomorfismo tra omologia singolare relativa</a></li>
+<li><a href="20250127093652-gruppo_abelianizzato.html#ID-caca5549-f957-44ff-b402-86436a68fcd0">Gruppo abelianizzato</a></li>
+<li><a href="20250127093602-ogni_funzione_da_un_gruppo_ad_un_gruppo_abeliano_fattorizza_tramite_il_gruppo_abelianizzato.html#ID-2a15adda-017c-4e6a-a992-fcf269e4744c">Ogni funzione da un gruppo ad un gruppo abeliano fattorizza tramite il gruppo abelianizzato</a></li>
+<li><a href="20250126215428-funtore_da_grp_a_ab.html#ID-a6ab2c25-3ea0-4aa3-908e-2705132d2c39">Funtore da Grp a Ab</a></li>
+<li><a href="20250126215522-funtore_da_ab_a_grp_dimenticante.html#ID-d7100380-5d4d-4537-b415-23a3f47811e5">Funtore da Ab a Grp - dimenticante</a> *</li>
+<li><a href="20250126215534-teorema_di_hurewicz.html#ID-7da2e501-6355-4f50-9081-650d99bc2e0e">Teorema di Hurewicz</a></li>
+<li><a href="20250126223252-mappa_naturale_tra_il_funtore_del_gruppo_di_omotopia_e_il_primo_gruppo_di_omologia.html#ID-e19a23c2-37cc-4b37-beb0-30a61de21cf7">Mappa naturale tra il funtore del gruppo di omotopia e il primo gruppo di omologia</a></li>
+<li><a href="20250128151459-sottocomplesso_di_catene.html#ID-d9bdc15f-480a-462d-a327-81f94069317b">Sottocomplesso di catene</a> *</li>
+<li><a href="20250128151511-quoziente_di_complesso_di_catene_e_sottocomplesso.html#ID-77b7e9e7-c02c-48a8-86e8-2aa5149c533f">Quoziente di complesso di catene e sottocomplesso</a> *</li>
+<li><a href="20250126223310-teorema_di_escissione.html#ID-81a1d073-55f1-411d-b829-95080097d0d3">Teorema di Escissione</a></li>
+<li><a href="20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.html#ID-81ef5b93-84b7-47b5-b307-3e00eb316b0e">Calcolo dell&rsquo;omologia singolare della sfera e dell&rsquo;omologia singolare relativa del disco rispetto alla sfera</a></li>
+<li><a href="20250128131221-complesso_di_catene_singolare_somma.html#ID-95712b08-f4fb-461b-9813-014b2d29eccb">Complesso di catene singolare somma</a></li>
+<li><a href="20250128131232-complesso_di_catene_singolare_intersezione.html#ID-093e7fdf-10fa-49a2-84e3-e6ac04754816">Complesso di catene singolare intersezione</a></li>
+<li><a href="20250128131908-suddivisione_baricentrica.html#ID-b878f2cb-5fbf-4057-acd5-cbf8b09938c7">Suddivisione baricentrica</a></li>
+<li><a href="20250128132040-mappa_di_suddivisione_tra_complessi_di_catene_singolari.html#ID-e188dad3-cb2b-4d6b-b255-3d61bce33e58">Mappa di suddivisione tra complessi di catene singolari</a></li>
+<li><a href="20250128132104-mappa_di_suddivisione_e_omotopa_a_identita.html#ID-1467283b-f643-49a2-8e7b-099626d780d3">Mappa di suddivisione è omotopa a identità</a></li>
+<li><a href="20250128132200-mesh_di_un_elemento_del_modulo_delle_catene_singolari.html#ID-32401ece-cda4-4a70-b074-63615f01c8ec">Mesh di un elemento del modulo delle catene singolari</a></li>
+<li><a href="20250128132613-applicazioni_successive_della_mappa_di_suddivisione_finisce_nel_sottomodulo_del_complesso_singolare_somma.html#ID-555f5078-c944-42eb-818a-0661e3ba014f">Applicazioni successive della mappa di suddivisione finisce nel sottomodulo del complesso singolare somma</a></li>
+<li><a href="20250128132648-teorema_di_mayer_vietoris.html#ID-70a7ed6f-2a1c-47f3-9a7c-89757a07ccc4">Teorema di Mayer-Vietoris</a></li>
+<li><a href="20250128132703-formulazione_differente_del_teorema_di_mayer_vietoris.html#ID-b0db615e-b5b6-44a9-a9ea-81e0624c82e5">Formulazione differente del Teorema di Mayer-Vietoris</a> *</li>
+<li><a href="20250128132743-prodotto_wedge_di_spazi_topologici_puntati.html#ID-16c322a9-87f5-4a04-ac60-28dd970b2575">Prodotto wedge di spazi topologici puntati</a></li>
+<li><a href="20250128132815-calcolo_dell_omologia_singolare_del_punto.html#ID-0945f31a-500f-4ca6-8195-9a17295aa793">Calcolo dell&rsquo;omologia singolare del toro</a></li>
+<li><a href="20250128132830-teorema_del_punto_fisso_di_brower.html#ID-556c83d5-73c1-4fd5-8673-80cf39846b91">Teorema del punto fisso di Brower</a></li>
+<li><a href="20250128132917-omologia_locale.html#ID-aecc70a2-9b11-4a63-a234-a86f46a00f25">Omologia Locale</a></li>
+<li><a href="20250128132928-omologia_locale_di_una_varieta_topologica.html#ID-318efe27-cc90-4d1f-8fca-d1216635625c">Omologia Locale di una varietà topologica</a></li>
+<li><a href="20250128133005-teorema_di_invarianza_della_dimensione.html#ID-a452fe68-9964-4abb-881b-4d489c96368b">Teorema di invarianza della dimensione</a></li>
+<li><a href="20250129170910-grado_di_un_endomorfismo_della_sfera.html#ID-0a2502a5-37a6-4bdd-baa1-4e5f46e92a33">Grado di un endomorfismo della sfera</a></li>
+<li><a href="20250129174315-zig_zag_lemma_per_due_sec_con_funzioni_finali_opposte.html#ID-5c5a6a38-5c2d-4358-a6c6-51e98df1cfcb">Zig-Zag Lemma per due SEC con funzioni finali opposte</a></li>
+<li><a href="20250129174802-grado_di_una_matrice_ortogonale_come_endomorfismo_della_sfera.html#ID-08917332-7584-419d-b51d-18f1893c2d36">Grado di una matrice ortogonale come endomorfismo della sfera</a></li>
+<li><a href="20250129175123-gruppo_ortogonale_speciale_e_connesso_per_archi.html#ID-309e20c1-f5e0-4f14-b7ef-4d482d84d1de">Gruppo ortogonale speciale è connesso per archi</a></li>
+<li><a href="20250129180509-endomorfismo_di_una_sfera_senza_punti_fissi_e_omotopa_alla_mappa_antipodale.html#ID-6c042c2e-25cd-4baf-98c2-413707898048">Endomorfismo di una sfera senza punti fissi è omotopa alla mappa antipodale</a></li>
+<li><a href="20250102154204-teorema_fondamentale_dell_algebra.html#ID-b65a212f-9dbb-406b-862d-10c59e7f45a5">Teorema Fondamentale dell&rsquo;Algebra</a></li>
+<li><a href="20250129183256-coppia_topologica_buona.html#ID-17bf2e98-db39-49da-a5ad-9afc7584ed34">Coppia topologica buona</a></li>
+<li><a href="20250129183516-quoziente_di_una_coppia_topologica_buona.html#ID-9b28d0e3-e69b-4281-8439-a23b5679bb7e">Quoziente di una coppia topologica buona</a> *</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

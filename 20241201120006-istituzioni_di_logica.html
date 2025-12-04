@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Istituzioni di Logica [CORSO]</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Istituzioni di Logica [CORSO]</h1>
+<div id="outline-container-org7d354ea" class="outline-2">
+<h2 id="org7d354ea">Istituzioni di Logica (9 cfu)</h2>
+<div class="outline-text-2" id="text-org7d354ea">
+</div>
+<div id="outline-container-org1756086" class="outline-3">
+<h3 id="org1756086">Fondamenti di Logica</h3>
+<div class="outline-text-3" id="text-org1756086">
+<ul class="org-ul">
+<li><a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">Linguaggio del prim&rsquo;ordine</a></li>
+<li><a href="20250212112324-estensione_di_un_linguaggio_del_prim_ordine.html#ID-944101c5-9c41-4677-9ff5-72821506c55c">Estensione di un linguaggio del prim&rsquo;ordine</a></li>
+<li><a href="20250131103035-struttura_del_prim_ordine.html#ID-fe44aef7-3044-456b-8ca8-71203d50a1e4">Struttura del prim&rsquo;ordine</a></li>
+<li><a href="20250131103053-morfismo_tra_strutture_del_prim_ordine.html#ID-46c931b8-6b7d-4875-9290-6fa31f82abbb">Morfismo tra strutture del prim&rsquo;ordine</a></li>
+<li><a href="20250131103053-morfismo_tra_strutture_del_prim_ordine.html#ID-c2748000-1738-41cb-92c3-18d4a9abb8dd">Immersione elementare</a></li>
+<li><a href="20250131103212-sottostruttura_del_prim_ordine.html#ID-d2be7d14-0d8c-474a-921e-4fa671fb62d1">Sottostruttura del prim&rsquo;ordine</a></li>
+<li><a href="20250212100332-sottostruttura_generata_da_un_insieme.html#ID-d8dbfa51-f6dd-4bfb-a3c3-fe319baf94db">Sottostruttura generata da un insieme</a></li>
+<li><a href="20250130162316-termine_del_prim_ordine.html#ID-8d5e2682-5748-4ba5-ac3f-ad9fd77c72f6">Termine del prim&rsquo;ordine</a></li>
+<li><a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">Formula del prim&rsquo;ordine</a></li>
+<li><a href="20250131103429-variabile_libera_di_una_formula.html#ID-5742aec3-1d2b-4c5e-8b7b-2f91c1a41e08">Variabile libera di una formula</a></li>
+<li><a href="20250131103446-enunciato_del_prim_ordine.html#ID-f20a6b2e-f97a-4188-9210-7da08a750157">Enunciato del prim&rsquo;ordine</a></li>
+<li><a href="20250212102927-enunciato_con_parametri.html#ID-f9a821a8-6c1d-4f71-b75f-62a71e394446">Formula con parametri</a></li>
+<li><a href="20250131103457-chiusura_universale_di_una_formula.html#ID-71ad6683-204d-4ea9-a7e2-34c4400ef260">Chiusura universale di una formula</a></li>
+<li><a href="20250131123530-formula_valida.html#ID-5c1e54c1-3d74-432d-9397-b8eed8940464">Formula valida</a></li>
+<li><a href="20250131123540-formula_soddisfacibile.html#ID-dcf6a77c-3757-49ee-89e9-0fbb0e698c9b">Formula soddisfacibile</a></li>
+<li><a href="20250131123704-sostituzione_di_termini_in_una_formula.html#ID-ac557a67-9d7e-4f16-8ee7-2b2a6eeb598f">Sostituzione di termini in una formula</a></li>
+<li><a href="20250212100302-interpretazione_di_un_termine.html#ID-822935ce-54c5-4bc0-9af7-04776ece5e5d">Interpretazione di un termine</a></li>
+<li><a href="20250131122913-soddisfazione_di_una_formula.html#ID-db5e1eb3-3435-43b0-9570-9d52208653bd">Soddisfazione di una formula</a></li>
+<li><a href="20250212144403-formula_consistente.html#ID-c0388cd0-359d-48e0-9725-9bb7d2bcdb68">Formula consistente</a></li>
+<li><a href="20250131122913-soddisfazione_di_una_formula.html#ID-ae868dde-1313-4124-aee1-10ce5c6bba7f">Insieme definito da una formula del prim&rsquo;ordine</a></li>
+<li><a href="20250210115830-insieme_di_formule_indipendenti.html#ID-4c770aef-1b44-48db-a928-9e0a89232f4e">Insieme di formule indipendenti</a></li>
+<li><a href="20250212164424-tipo_teoria_dei_modelli.html#ID-632eb816-0c81-4f6e-9f84-42b4ad035bf6">Tipo - Teoria dei Modelli</a></li>
+<li><a href="20250131122945-modello_di_un_insieme_di_formule.html#ID-05b14778-2a79-4d6a-8a6e-b0b6f6336f7d">Modello di un insieme di formule</a></li>
+<li><a href="20250131123011-conseguenza_logica.html#ID-e067d6c4-30be-44c7-83cd-3b0c882a2cf9">Conseguenza logica</a></li>
+<li><a href="20250131123033-equivalenza_logica_tra_due_enunciati.html#ID-fe253f98-f34a-4705-b0d7-2732228a6f7e">Equivalenza logica tra due enunciati</a></li>
+<li><a href="20250130114950-teoria_del_prim_ordine.html#ID-cb85cb82-d03d-4728-96ed-a514b7484a0d">Teoria del Prim&rsquo;ordine</a></li>
+<li><a href="20250131123109-insieme_di_assiomi_per_una_teoria.html#ID-713558b5-04cd-4ed8-83c5-19d3ecdf7c5c">Insieme di assiomi per una teoria</a></li>
+<li><a href="20250131123128-teoria_soddisfacibile.html#ID-fc526731-29c9-4229-b007-a5eb2edabd16">Teoria massimamente consistente</a></li>
+<li><a href="20250131123128-teoria_soddisfacibile.html#ID-be61c813-229d-49bd-b437-983e08b198cf">Teoria soddisfacibile</a></li>
+<li><a href="20250131123151-teoria_completa.html#ID-ee6d8c92-3050-4c73-93b3-8a82241d3656">Teoria completa</a></li>
+<li><a href="20250212112537-caratterizzazione_di_teoria_completa.html#ID-614cefbb-c61e-4ad3-b6ce-6bcaa1007bba">Caratterizzazione di teoria completa</a></li>
+<li><a href="20250131123208-teorie_elementarmente_equivalente.html#ID-3cce7d09-b4f6-4c96-8e3f-2aa1dd2bc2d6">Strutture elementarmente equivalenti</a></li>
+<li><a href="20250212102253-sottostruttura_elementare.html#ID-053285fd-9b7c-4dc9-8f9d-a7e859d54c9d">Sottostruttura elementare</a></li>
+<li><a href="20250131123228-teoria_di_una_struttura.html#ID-c1d1faf2-b8c1-411b-8109-2f022e1aea23">Teoria di una struttura</a></li>
+<li><a href="20250212102412-teoria_di_una_struttura_con_parametri.html#ID-987db9c7-80c6-48c8-b1bb-8881312d6a26">Teoria di una struttura con parametri</a></li>
+<li><a href="20250212101432-modello_assiomatizzabile.html#ID-c0053de1-4896-4413-83ef-53bbc40dff43">Modello assiomatizzabile</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org45c0bb9" class="outline-3">
+<h3 id="org45c0bb9">Basic Set Theory</h3>
+<div class="outline-text-3" id="text-org45c0bb9">
+</div>
+<div id="outline-container-org613606f" class="outline-4">
+<h4 id="org613606f">Section 16</h4>
+<div class="outline-text-4" id="text-org613606f">
+<ul class="org-ul">
+<li><a href="20250130104409-paradosso_di_russel.html#ID-e7d9a076-2586-48e7-a00e-405f92d47022">Paradosso di Russel</a></li>
+<li><a href="20250130104245-morse_kelly_set_theory.html#ID-e0be2ce8-fb19-42f5-bbeb-ee803eefd747">Morse Kelly Set Theory</a></li>
+<li><a href="20250206170922-sequenze_e_stringhe.html#ID-868cd6d0-64f7-4ac7-a231-889f0a034230">Sequenze e stringhe</a></li>
+<li><a href="20250131183735-prodotto_cartesiano_di_classi_mk.html#ID-84068881-9041-434f-bb64-838d8f8742ac">Potenza di una classe</a></li>
+<li><a href="20250131183735-prodotto_cartesiano_di_classi_mk.html#ID-9f0a2e20-c4fe-476d-bde1-7bd21c3cdc0a">Prodotto cartesiano generalizzato</a></li>
+<li><a href="20250206171508-axiom_of_choiche.html#ID-cf6e1b4e-26c6-41b1-b2b6-b7306447a3a4">Axiom of Choice</a></li>
+<li><a href="20250203105434-funzione_di_scelta.html#ID-5d939bd4-328f-4bfe-8c50-4d11e1fd7048">Funzione di scelta</a></li>
+<li><a href="20250206171120-operazione_su_una_classe_mk.html#ID-8dbe7e69-6150-4a92-9d05-4c2de8b36eea">Operazione su una classe MK</a></li>
+<li><a href="20250206171704-axiom_of_global_choice.html#ID-02ddd07e-5665-4fc9-aaff-4f1806d9a2cd">Axiom of global Choice</a></li>
+<li><a href="20250207124220-zermelo_franklin_set_theory.html#ID-69996109-a3af-4f83-bc7a-2f6c1dbaa2d9">Zermelo Franklin Set Theory</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7285a32" class="outline-4">
+<h4 id="org7285a32">Section 18</h4>
+<div class="outline-text-4" id="text-org7285a32">
+<ul class="org-ul">
+<li><a href="20250203095749-relazione_left_narrow_mk.html#ID-739c2060-1a70-4d8a-b017-fe1ff00f900b">Relazione left-narrow MK</a></li>
+<li><a href="20250203100901-relazione_well_founded_mk.html#ID-8598b25b-a781-4751-8cde-ece2b154c48a">Relazione well-founded MK</a></li>
+<li><a href="20250203104134-buon_ordine_mk.html#ID-8b77d2e2-1a8f-4a7e-91b6-a62996521c72">Buon ordine MK</a></li>
+<li><a href="20250210104534-ac_e_classi_ben_ordinabili.html#ID-36d3e594-e340-4249-a88c-e68744e03774">Classe ben ordinata ammette una classe-funzione di scelta MK</a></li>
+<li><a href="20250203110714-classe_transitiva.html#ID-b3f84771-1652-4d0b-8e0f-e3621773b4a0">Classe Transitiva</a></li>
+<li><a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e">Ordinali</a></li>
+<li><a href="20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.html#ID-4c5b69aa-9781-42bf-b8e2-43c7352bbff4">Insiemi ben ordinati sono isomorfi ad un ordinale unico</a></li>
+<li><a href="20250203111003-ordinali.html#ID-f350e356-76fd-41df-82d5-ad8dd29cd1b5">Proprietà degli ordinali</a></li>
+<li><a href="20250203161110-numeri_naturali_sono_ordinali.html#ID-741b2f11-96a8-4436-9900-5ebbb9efe11c">Ordinale omega</a></li>
+<li><a href="20250203161132-ordinale_limite.html#ID-cf5b27c8-838f-4417-9527-d11c95f92a4c">Ordinale limite</a></li>
+
+<li><a href="20250203161326-topologia_sugli_ordinali.html#ID-c5787d52-cbba-45af-b828-f0589d9e9569">Topologia sugli ordinali</a></li>
+
+<li><a href="20250205120448-classe_finita_e_infinita_mk.html#ID-b247ed6e-df62-41e9-97c1-a2948a19134d">Classe finita e infinita MK</a></li>
+<li><a href="20250203161431-classe_ben_ordinabile_mk.html#ID-d7df4082-a3e0-44ac-837b-e34f67aab6ea">Classe ben ordinabile MK</a></li>
+
+<li><a href="20250203161341-cardinali.html#ID-16c332be-31c2-4e81-b016-6fbab288954a">Cardinali</a></li>
+<li><a href="20241213101756-cardinalita.html#ID-52D5B0F4-4F1A-4F14-B508-D51011BD1B0F">Cardinalità</a></li>
+<li><a href="20250205150457-teorema_di_cantor_bernstein_schroder.html#ID-86ccbf1b-0e23-4fbc-9a44-ffd37c8bde86">Teorema di Cantor-Bernstein-Schröder</a></li>
+
+<li><a href="20250205152531-numeri_di_hartogs.html#ID-b47a709c-83ef-4c9a-b579-9f85cb555827">Numeri di Hartogs</a></li>
+<li><a href="20250205180824-numero_di_hartogs_di_un_ordinale.html#ID-39fa074b-30a3-4822-92ff-2b8f7b2b5b1b">Numero di Hartogs di un ordinale</a></li>
+
+<li><a href="20250612151505-aritmetica_dei_cardinali.html#ID-d0dfa5db-b04d-45b3-8673-7e6ec8799062">Aritmetica dei cardinali</a></li>
+
+<li><a href="20250206100719-ordine_prodotto_per_classi.html#ID-6828e5b8-1c05-4c5c-8087-52d98d26836a">Ordine prodotto</a></li>
+<li><a href="20250206100734-ordine_lessicografico_per_classi.html#ID-c30ec7f5-7db9-4733-86d4-f088b220e523">Ordine lessicografico</a></li>
+<li><a href="20250205180911-buon_ordine_di_godel_per_ordxord.html#ID-b96344f2-926f-456c-a1d4-65ecc254491a">Buon ordine di Godel per OrdxOrd</a></li>
+
+<li><a href="20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.html#ID-c4183cf4-d00c-422a-b4cb-6616b33ee078">Order Type del prodotto cartesiano di un cardinale è il cardinale stesso</a></li>
+<li><a href="20250205182017-insieme_dei_sottoinsiemi_con_order_type_fissato.html#ID-55460bf8-dc51-4195-b2f2-de0d3fcb0fd8">Insieme dei sottoinsiemi con order type fissato</a></li>
+
+<li><a href="20250205182056-equipotenza_di_insiemi_di_funzioni.html#ID-123c4085-f494-49f4-bee5-9e8723b1b16a">Equipotenza dell&rsquo;insieme delle sequenze finite</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5fff00f" class="outline-4">
+<h4 id="org5fff00f">Section 19</h4>
+<div class="outline-text-4" id="text-org5fff00f">
+<ul class="org-ul">
+<li><a href="20250207104855-funzione_ricorsiva.html#ID-ae4af861-8e1a-4082-af81-0cf154e357bd">Funzione Ricorsiva</a></li>
+<li><a href="20250207121712-teorema_di_ricorsione_caso_speciale.html#ID-92f0ec32-7c26-4fd4-a054-4e40c5e9307d">Teorema di Ricorsione - caso speciale</a></li>
+
+<li><a href="20250207121738-chiusura_transitiva_di_una_relazione_mk.html#ID-3d2c75d4-7603-4f89-8656-27a713436405">Chiusura transitiva di una relazione MK</a></li>
+
+<li><a href="20250207121906-teorema_di_ricorsione.html#ID-61518a3e-cf3d-45ef-afb9-ff47b3fcb3d4">Teorema di Ricorsione</a></li>
+
+<li><a href="20250207122234-rango_di_una_relazione_well_founded.html#ID-355c574f-dd5d-42fe-99a1-6effb98cee53">Rango di una relazione well-founded</a></li>
+<li><a href="20250207122542-collasso_di_mostowski.html#ID-be7b4199-5593-4bfd-8a8e-287f58a8e710">Collasso di Mostowski</a></li>
+<li><a href="20250207122435-relazione_estensionale.html#ID-fe3b7680-ad35-46c0-9563-334a1b0674a4">Relazione estensionale</a></li>
+<li><a href="20250207122453-lemma_del_collasso_di_mostowski.html#ID-d861c0ed-ed55-46cf-9e3b-7b0fefa51ffa">Lemma del collasso di Mostowski</a></li>
+<li><a href="20250207122856-punto_fisso_di_funzioni_continue_e_crescenti_sugli_ordinali.html#ID-856a5d41-0781-41b9-86a3-93e5ca0c05dd">Punto Fisso di funzioni continue e crescenti sugli ordinali</a></li>
+<li><a href="20250207122627-funzione_aleph.html#ID-1d4c676c-855c-4fad-8811-d560f75a6466">Funzione Aleph</a></li>
+<li><a href="20250207123015-aritmentica_per_gli_ordinali.html#ID-4096b4e2-acf4-463e-a024-2ef969162c24">Aritmentica per gli ordinali</a></li>
+<li><a href="20250207123105-rango_di_un_insieme.html#ID-f0dd346e-efaa-4e74-9da7-121e85652c15">Rango di un insieme</a></li>
+<li><a href="20250207123246-gerarchia_di_von_neumann.html#ID-414042fd-dcca-408c-88e5-a6c26ffc672f">Gerarchia di Von Neumann</a></li>
+<li><a href="20250207123526-modelli_di_zfc_nella_gerarchia_di_von_neumann.html#ID-81bf390a-f6ff-43b9-a576-2fe5b4afad7d">Modelli di ZFC nella Gerarchia di Von Neumann</a> *</li>
+<li><a href="20250620163542-complessita_di_una_formula_nel_linguaggio_della_teoria_degli_insiemi.html#ID-9b34ba51-9b5c-4aee-a95f-1b793c555f99">Complessità di una formula nel linguaggio della teoria degli insiemi</a> * -&gt; <a href="20250620163603-complessita_di_una_formula.html#ID-066d3ede-fb2e-41dc-82e9-68285f699100">Complessità di una formula</a></li>
+<li><a href="20250207123940-formula_assoluta.html#ID-0a793c88-09ad-405e-8a9d-60b2dc80f7cd">Formula assoluta</a></li>
+<li><a href="20250620172440-assolutezza_delle_formule_tra_un_insieme_transitivo_e_un_modello_di_mk.html#ID-cc0c38aa-2427-4a83-b860-ca7c340307a1">Assolutezza delle formule tra un insieme transitivo e un modello di MK</a> *</li>
+<li><a href="20250620173236-insieme_transitivo_e_assiomi_di_zf.html#ID-6e925ba4-4149-48da-89ec-4927562ec67c">Insieme transitivo e assiomi di ZFC</a> *</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org278b977" class="outline-4">
+<h4 id="org278b977">Section 20</h4>
+<div class="outline-text-4" id="text-org278b977">
+<ul class="org-ul">
+<li><a href="20250612151505-aritmetica_dei_cardinali.html#ID-b91da962-0016-4bcc-81ad-431dc711cdf2">Cardinal exponentiation</a></li>
+<li><a href="20250210101346-collezione_dei_sottoinsiemi_ben_ordinabili_di_cardinalita_limitata.html#ID-8e6764c7-2519-4fd4-a590-5fe3836e9baf">Collezione dei sottoinsiemi ben ordinabili di cardinalità limitata</a></li>
+<li><a href="20250210103126-classe_funzione_beth.html#ID-6e728541-0f0d-46fe-b988-cb175276c9fe">Classe funzione Beth</a></li>
+<li><a href="20250621113243-cardinalita_dei_reali.html#ID-e31150be-9790-44b9-99ec-2e2d37da7d51">Cardinalità dei reali</a></li>
+<li><a href="20250210103648-ipotesi_del_continuo.html#ID-91dc9036-4576-4bd4-b7a2-6bc75c18cdc5">Ipotesi del continuo</a></li>
+<li><a href="20250210103702-ipotesi_del_continuo_generalizzata.html#ID-50f9f140-e838-4301-be42-202e1bfa7362">Ipotesi del continuo generalizzata</a></li>
+<li><a href="20250210104221-ch_e_gch_sono_indipendenti_dall_assiomatizzazione_della_teoria_degli_insiemi.html#ID-dff6807d-8a6d-4ecd-821f-cba588ff92f7">CH e GCH sono indipendenti dall&rsquo;assiomatizzazione della Teoria degli Insiemi</a></li>
+<li><a href="20250821170414-relazione_tra_reali_e_omega1.html#ID-4a229082-b277-45bd-a78c-6a58cdcfbebf">Relazione tra reali e omega1</a></li>
+<li><a href="20250210104302-forme_deboli_di_ac.html#ID-a6947d50-b889-4c41-8e34-5925c6829021">Forme deboli di AC</a></li>
+<li><a href="20250210104534-ac_e_classi_ben_ordinabili.html#ID-36d3e594-e340-4249-a88c-e68744e03774">Esiste funzione di scelta sse ben ordinabile</a></li>
+<li><a href="20250210104427-assiomi_equivalenti_ad_ac.html#ID-936f9d28-123c-4473-a505-23db8f8e972a">Assiomi equivalenti ad AC</a> *:
+<ul class="org-ul">
+<li><a href="20250210104633-lemma_di_zorn.html#ID-362d229a-45fa-4b7e-acf2-4ae99e0a8beb">Zorn Lemma</a></li>
+<li><a href="20250210104633-lemma_di_zorn.html#ID-b02f8bfa-a19c-4728-bb66-361d4d307445">Weak Zorn Lemma</a></li>
+<li><a href="20250210104707-principio_di_massimalita_di_hausdorff.html#ID-bc73c65f-10d2-43c0-b733-9dfdb3e6641f">MaxHaus</a></li>
+<li><a href="20250621133056-teichmuller_tukey_lemma.html#ID-c487d03b-0f68-4a92-9076-09e86fc79cfe">Teichmüller-Tukey Lemma</a></li>
+<li><a href="20250621133123-axiom_of_multiple_choices.html#ID-e8c87db8-98e2-4e6d-9a3b-a4a68427a8e7">Axiom of Multiple Choices</a></li>
+<li><a href="20250621133254-kurepa_s_maximality_principle.html#ID-dd7b7538-bae3-474e-a3b3-78064d76077b">Kurepa’s maximality principle</a></li>
+</ul></li>
+
+<li><a href="20250622095126-classe_di_equivalenza_di_scott.html#ID-29a12a0b-0512-411e-b519-461d9fd2e227">Classe di equivalenza di Scott</a> *</li>
+<li><a href="20250203133527-insiemi_ben_ordinati_sono_isomorfi_ad_un_ordinale_unico.html#ID-14e058e1-7772-405b-bac9-8a84073e9088">Order type di una classe qualunque</a> *</li>
+<li><a href="20241213101756-cardinalita.html#ID-52D5B0F4-4F1A-4F14-B508-D51011BD1B0F">Cardinalità</a> senza AC</li>
+<li><a href="20250210105502-ac_e_comparabilita_delle_cardinalita.html#ID-7224d56d-203b-4557-b335-1c8344f87c67">AC e comparabilità delle cardinalità</a> *</li>
+<li><a href="20250210104302-forme_deboli_di_ac.html#ID-505a0947-2586-4355-a5a3-86dc3263cf33">Axiom of countable Choice</a> *</li>
+<li><a href="20250210105804-ipotesi_per_cui_omega1_non_e_unione_numerabile_di_insiemi_numerabili.html#ID-c91788c5-28fa-4902-9f69-8ed5e883505b">Unione numerabile di insiemi numerabili è numerabile</a> *</li>
+<li><a href="20250210104302-forme_deboli_di_ac.html#ID-a746f7fc-a1fa-4135-b57f-83a333b5854c">Axiom of dependent Choices</a> *</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb41db10" class="outline-4">
+<h4 id="orgb41db10">Section 21</h4>
+<div class="outline-text-4" id="text-orgb41db10">
+<ul class="org-ul">
+<li><a href="20250612151505-aritmetica_dei_cardinali.html#ID-c28b9e61-1883-484c-8d07-ac38d523ac35">Somma di cardinali</a></li>
+<li><a href="20250612151505-aritmetica_dei_cardinali.html#ID-7b6a5019-d5a9-4a9d-9b8b-7409fc12a1a1">Prodotto di cardinali</a></li>
+<li><a href="20250211145622-proprieta_di_prodotto_e_somma_generalizzata_di_cardinali.html#ID-2b849ed2-674a-4c55-8055-0c104df6cdd8">Proprietà di prodotto e somma generalizzata di cardinali</a></li>
+<li><a href="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali.html#ID-97a5ba7a-3ee0-44dd-bf0a-3142878baac8">Somma generalizzata di cardinali è minore del supremum dei cardinali</a></li>
+<li><a href="20250211104310-cardinalita_dell_unione_di_insiemi_e_minore_del_supremum_della_cardinalita_degli_insiemi_per_la_cardinalita_dell_insieme_degli_indici.html#ID-e98d296f-00b3-4d8e-956b-85a5957b44cf">Cardinalità dell&rsquo;unione di insiemi è minore del supremum della cardinalità degli insiemi per la cardinalità dell&rsquo;insieme degli indici</a></li>
+<li><a href="20250211104106-somma_di_cardinali_e_minore_del_prodotto_di_cardinali.html#ID-fffff7bc-169f-473b-8a1e-453db55996aa">Somma di cardinali è minore del prodotto di cardinali</a></li>
+<li><a href="20250211104356-teorema_di_cantor.html#ID-bb7867eb-4745-488d-9f6f-1f3bc7cedbc7">Teorema di Cantor</a></li>
+<li><a href="20250211104500-funzione_cofinale.html#ID-bdce9b91-b45d-4619-b9b3-befb7cc2a9dc">Funzione cofinale</a> *</li>
+<li><a href="20250211104628-proprieta_di_funzioni_cofinali_e_cofinalita_di_un_ordinale.html#ID-ae97d2af-7620-469e-b705-f93f7fcc28e8">Proprietà di funzioni cofinali e cofinalità di un ordinale</a> *</li>
+<li><a href="20250211104639-ordinale_regolare.html#ID-4f27cb72-0247-47d1-bf27-3f38ad44b4e7">Ordinale regolare</a> *</li>
+<li><a href="20250211104941-cardinali_infiniti_hanno_numero_di_hartogs_regolare.html#ID-9c1f0474-a232-40e5-901c-1592445a6562">Cardinali infiniti hanno numero di Hartogs regolare</a> *</li>
+<li><a href="20250211105023-ogni_cardinale_singolare_e_estremo_superiore_di_una_sequenza_crescente_di_cardinali_regolari.html#ID-233f9b50-d288-44ee-8b1f-c82403b4c547">Ogni cardinale singolare è estremo superiore di una sequenza crescente di cardinali regolari</a> *</li>
+<li><a href="20250211105119-ordinale_elevato_alla_sua_cofinalita_e_maggiore_a_se_stesso.html#ID-74330cb6-fb9a-4153-8bc2-0e51497bebaf">Ordinale elevato alla sua cofinalità è maggiore a se stesso</a> *</li>
+<li><a href="20250211105133-formula_di_hausdorff.html#ID-10d97c8d-4002-4433-8444-11dd0d993b32">Formula di Hausdorff</a> *</li>
+<li><a href="20250211105153-teorema_di_bukovsky_hechler.html#ID-52053622-dfd9-46a3-a797-d4c342c267b1">Teorema di Bukovsky-Hechler</a> *</li>
+<li><a href="20250206171120-operazione_su_una_classe_mk.html#ID-8dbe7e69-6150-4a92-9d05-4c2de8b36eea">Operazione su una classe MK</a> *</li>
+<li><a href="20250211105332-chiusura_rispetto_ad_una_collezione_di_operatori_di_una_sottoclasse.html#ID-92afaf8f-d397-4c66-bb5e-d18483399db9">Chiusura rispetto ad una collezione di operatori di una sottoclasse</a> *</li>
+<li><a href="20250211111630-maggiorazioni_della_cardinalita_della_chiusura_rispetto_ad_una_collezione_di_operatori.html#ID-3b652b1c-ff52-42af-97a7-1d3ee4ac6c55">Maggiorazioni della cardinalità della chiusura rispetto ad una collezione di operatori</a> *</li>
+<li><a href="20250203161326-topologia_sugli_ordinali.html#ID-c5787d52-cbba-45af-b828-f0589d9e9569">Topologia sugli ordinali</a> *</li>
+<li><a href="20250211111723-ordinale_e_compatto_sse_zero_o_successore.html#ID-40999007-15f7-4508-b8ae-18cd13dbeeca">Ordinale è compatto sse zero o successore</a> *</li>
+<li><a href="20250211111812-spazio_topologico_totalmente_disconnesso.html#ID-e802efc6-761f-4037-b8aa-a7f7cdf25496">Spazio topologico totalmente disconnesso</a> *</li>
+<li><a href="20250211112135-spazio_topologico_regolare.html#ID-04c61686-777c-4b04-8e7a-6aa212d4f19c">Spazio topologico regolare</a> *</li>
+<li><a href="20250211112210-spazio_topologico_completamente_regolare.html#ID-c4f5822e-a6c4-4f97-9081-47b0db97c039">Spazio topologico completamente regolare</a> *</li>
+<li><a href="20250211112246-spazio_topologico_completamente_regolare_che_non_surietta_su_r_e_totalmente_disconnesso.html#ID-9619fe2f-68a6-4f67-a141-5acaf09722e7">Spazio topologico completamente regolare che non surietta su R è totalmente disconnesso</a> *</li>
+<li><a href="20250211113036-caratterizzazione_funzioni_continue_e_monotone_da_sottoinsieme_degli_ordinali_agli_ordinali.html#ID-bbb72400-cecf-4b66-9dae-40f070e79426">Caratterizzazione funzioni continue e monotone da sottoinsieme degli ordinali agli ordinali</a> *</li>
+<li><a href="20250211120015-caratterizzazione_di_sottoinsiemi_chiusi_e_illimitati_in_un_cardinale_regolare_o_ord.html#ID-6f878503-8112-4b40-82af-27be888d57be">Caratterizzazione di sottoinsiemi chiusi e illimitati in un cardinale regolare o Ord</a> *</li>
+<li><a href="20250211120127-club_set.html#ID-0db3eeb5-1efa-425c-94d6-73da9b28100a">Club set</a> *</li>
+<li><a href="20250211120146-club_set_di_un_cardinale_e_un_filtro_proprio_del_cardinale.html#ID-ea93e93a-adc8-4e1c-b3ff-5729a083aecb">Club set di un cardinale è un filtro proprio del cardinale</a> *</li>
+<li><a href="20250211121223-filtro_kappa_completo.html#ID-f144db2e-f764-41de-a7b0-b92396b2adeb">Filtro kappa-completo</a> *</li>
+<li><a href="20250211120754-club_set_di_un_cardinale_e_un_filtro_k_completo.html#ID-5b040cd1-ee9b-4d71-977b-00f017f48767">Club set di un cardinale è un filtro k-completo</a> *</li>
+<li><a href="20250211121245-ordinale_chiuso_rispetto_ad_una_operazione.html#ID-eb2de4e3-e4e0-4939-b365-79cd8082ba0b">Ordinale chiuso rispetto ad una operazione</a> *</li>
+<li><a href="20250211121743-insieme_degli_ordinali_chiusi_rispetto_ad_una_operazione_e_sottoinsiemi_di_un_cardinale_chiusi_e_illimitati.html#ID-ced509d4-b88b-4510-bb9a-16752fff824c">Insieme degli ordinali chiusi rispetto ad una operazione e sottoinsiemi di un cardinale chiusi e illimitati</a> *</li>
+<li><a href="20250211121805-intersezione_diagonale_di_una_sequenza.html#ID-7d62ae93-b0e9-426a-a377-11eeb02f5c16">Intersezione diagonale di una sequenza</a> *</li>
+<li><a href="20250211121853-intersezione_diagonale_di_una_sequenza_di_chiusi_e_illimitati_di_un_cardinale_e_un_chiuso_e_illimitato.html#ID-4b4b5915-a180-4e89-84f4-744c41756c9e">Intersezione diagonale di una sequenza di chiusi e illimitati di un cardinale è un chiuso e illimitato</a> *</li>
+<li><a href="20250211121910-sottoinsieme_stazionario_di_un_cardinale.html#ID-033ec4e7-0b2e-4a33-9aaf-37677aaeb1ef">Sottoinsieme stazionario di un cardinale</a> *</li>
+<li><a href="20250211121932-lemma_di_fodor.html#ID-8172df40-d1ee-4076-8804-7627bf7015e5">Lemma di Fodor</a> *</li>
+<li>[BROKEN LINK: c37241a6-6c89-469b-b08c-bfd075ee6737] *</li>
+<li><a href="20250211123155-cardinale_limite_forte.html#ID-e817440d-9f77-411d-85c0-578208a4809a">Cardinale limite forte</a> *</li>
+<li><a href="20250207123526-modelli_di_zfc_nella_gerarchia_di_von_neumann.html#ID-81bf390a-f6ff-43b9-a576-2fe5b4afad7d">Modelli di ZFC nella Gerarchia di Von Neumann</a> *</li>
+<li><a href="20250211123243-universo.html#ID-7eecdd2d-efad-42d9-b942-bca6ca7e611b">Universo</a> *</li>
+<li><a href="20250211123850-universo_se_e_solo_se_nella_gerarchia_di_von_neumann_di_un_cardinale_fortemente_inaccessibile.html#ID-d79c0a1c-792b-4f02-a927-db6406b1a4d4">Universo se e solo se nella gerarchia di Von Neumann di un cardinale fortemente inaccessibile</a> *</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0d85623" class="outline-3">
+<h3 id="org0d85623">Model Theory</h3>
+<div class="outline-text-3" id="text-org0d85623">
+</div>
+<div id="outline-container-org637b44f" class="outline-4">
+<h4 id="org637b44f">Capitolo 1 (1)</h4>
+<div class="outline-text-4" id="text-org637b44f">
+<ul class="org-ul">
+<li>Esercizio 1.17</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org194c754" class="outline-4">
+<h4 id="org194c754">Capitolo 2 (22)</h4>
+<div class="outline-text-4" id="text-org194c754">
+<ul class="org-ul">
+<li><a href="20250131123208-teorie_elementarmente_equivalente.html#ID-3cce7d09-b4f6-4c96-8e3f-2aa1dd2bc2d6">Strutture elementarmente equivalenti su un sottoinsieme</a> (flashcard fatte)</li>
+<li>Esercizi <a href="20250212103145-sottostrutture_sono_elementarmente_equivalenti_su_un_insieme_sse_lo_sono_su_ogni_sottoinsieme_finito.html#ID-ba1dfd6c-18c6-4ecf-a948-78c46b85eeff">2.16</a>, 2.17, 2.18, 2.19 (flashcard fatte)</li>
+<li><a href="20250611111403-analisi_non_standard.html#ID-16e6fa09-4c13-4b46-8de7-feef202679fa">Analisi non-standard</a>  (flashcard fatte)</li>
+<li>Lemma 2.21</li>
+<li>Proposizione 2.22</li>
+<li>Proposizione 2.24</li>
+<li>Esercizi 2.26, 2.29, 2.30, 2.31, 2.32, 2.33, 2.34</li>
+<li><a href="20250612110627-chiusura_logica_di_una_teoria.html#ID-0f1a42d4-0b19-41ae-84aa-28d7517f2025">Chiusura logica di una teoria</a></li>
+<li><a href="20250131123128-teoria_soddisfacibile.html#ID-fc526731-29c9-4229-b007-a5eb2edabd16">Teoria massimamente soddisfacibile</a> (flashcard fatte)</li>
+<li>Esecizi 2.52, 2.53</li>
+<li>Esercizi 2.43, 2.44</li>
+<li><a href="20250212113245-criterio_di_tarski_vaught.html#ID-37e670b4-8d9e-47f8-8c9d-e32d51009635">Lemma 2.54</a></li>
+<li><a href="20251026160523-insieme_delle_formula_del_prim_ordine.html#ID-79511849-e3bb-4471-bca7-c63ab4ff7f17">Cardinalità dell&rsquo;insieme delle formule di un linguaggio del prim&rsquo;ordine</a></li>
+<li><a href="20250212115524-teorema_di_lowenheim_skolem_all_ingiu.html#ID-a9948ccc-331c-4ae6-9152-b86be4ddab7c">Teorema 2.55</a></li>
+<li>Esercizi 2.56, 2.57</li>
+
+<li><a href="20250612143636-notazione_teoria_dei_modelli.html#ID-23ca6fda-d271-42fe-ad95-33bf3184a5c8">Notazione TEORIA DEI MODELLI</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4df5a8e" class="outline-4">
+<h4 id="org4df5a8e">Capitolo 3 (0)</h4>
+<div class="outline-text-4" id="text-org4df5a8e">
+<p>
+Niente
+</p>
+</div>
+</div>
+<div id="outline-container-org05e0367" class="outline-4">
+<h4 id="org05e0367">Capitolo 4 (0)</h4>
+<div class="outline-text-4" id="text-org05e0367">
+<p>
+Niente
+</p>
+</div>
+</div>
+<div id="outline-container-org9b21169" class="outline-4">
+<h4 id="org9b21169">Capitolo 5 (2)</h4>
+<div class="outline-text-4" id="text-org9b21169">
+<ul class="org-ul">
+<li><a href="20250212165712-teorema_di_compattezza.html#ID-b81405e7-d92c-4491-bbd6-ce2a87135550">Teorema di Compattezza</a></li>
+<li><a href="20250212164424-tipo_teoria_dei_modelli.html#ID-632eb816-0c81-4f6e-9f84-42b4ad035bf6">Tipo - Teoria dei Modelli</a></li>
+<li><a href="20250212165544-tipo_finitamente_consistente_e_consistente.html#ID-2253bb50-d4c0-48c6-839a-9ba19dd0addc">Tipo finitamente consistente è consistente</a></li>
+<li>Esercizio 5.9</li>
+<li><a href="20250212185030-immersione_elementare_induce_isomorfismo.html#ID-8ad40e7d-2caf-4d6b-bc85-0abe5c171985">Immersione elementare induce isomorfismo</a></li>
+<li><a href="20250212171043-teorema_di_compattezza_per_tipi.html#ID-f627024f-3751-4caa-ae10-651c3d427eeb">Teorema 5.7</a></li>
+<li><a href="20250212172708-teorema_di_lowenheim_skolem_all_insu.html#ID-73f91cf4-86f5-4fe3-b543-db44746cb3a1">Teorema 5.8</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaca5afa" class="outline-4">
+<h4 id="orgaca5afa">Capitolo 6 (8)</h4>
+<div class="outline-text-4" id="text-orgaca5afa">
+<ul class="org-ul">
+<li><a href="20250214120959-mappe_tra_strutture_del_prim_ordine.html#ID-dbba72b9-9646-46d8-a4ba-4cb6cfdbec71">Mappe parziali tra strutture del prim&rsquo;ordine</a></li>
+<li><a href="20250203101604-ordine.html#ID-bbc6da7f-a674-487a-85ff-c1d731007756">Ordine</a></li>
+<li><a href="20250213104706-lemma_di_estensione_di_un_isomorfismo_parziale_tra_ordini.html#ID-4be75797-a508-47de-8476-3efa8328cc64">Lemma 6.1</a></li>
+<li><a href="20250213111504-teoria_lambda_categorica.html#ID-c621cd22-19bd-427d-8e68-3a2033361520">Teoria lambda-categorica</a></li>
+<li><a href="20250213111842-teoria_degli_ordini_lineari_densi_senza_punto_finale_e_omega_categorica.html#ID-817a3530-d7e6-458e-8e98-e25d3ea28452">Corollario 6.4</a></li>
+<li>Esercizi 6.8, 6.10</li>
+<li><a href="20250213123032-teoria_dei_grafi.html#ID-84458b05-0b76-4967-8276-baf222382c78">Teoria dei grafi</a></li>
+<li><a href="20250213140253-esiste_un_grafo_aleatorio.html#ID-260b2011-025f-47bb-8ccd-1d56bc66f44e">Esiste un grafo aleatorio</a></li>
+<li><a href="20250213140655-teoria_dei_grafi_aleatori_e_omega_categorica.html#ID-7c18994c-a2c8-456c-9bb8-f1831b8fa723">Corollario 6.16</a></li>
+<li>Esercizi 6.18, 6.19, 6.22.(1-&gt;2)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88173f9" class="outline-4">
+<h4 id="org88173f9">Capitolo 7 (5)</h4>
+<div class="outline-text-4" id="text-org88173f9">
+<ul class="org-ul">
+<li><a href="20250213142026-categorie_di_modelli_e_morfismi_parziali.html#ID-9aeb481a-d1f7-467e-9403-d9c7aaeb3c85">Categorie di modelli e morfismi parziali</a></li>
+<li><a href="20250213153736-componente_connessa_di_una_categoria_di_modelli_e_morfismi_parziali.html#ID-6c652fdf-876a-4fc2-8292-4e6f4bf4035d">Componente connessa di una categoria di modelli e morfismi parziali</a></li>
+<li><a href="20250213151902-modello_lambda_ricco.html#ID-ae4968f3-c4b9-428b-957e-72275a97b21c">Modello lambda ricco</a></li>
+<li><a href="20250213151951-modello_lambda_universale.html#ID-89eb4e88-319b-4c3b-a1bb-4ac9aa0408ad">Modello lambda universale</a></li>
+<li>[BROKEN LINK: 47112750-3aa0-48a1-a11c-4860dc95be50]</li>
+<li><a href="20250213162407-caratterizzazione_di_modello_lambda_ricco.html#ID-33c9a1f1-75ce-46fc-b8d9-0c484703542a">Caratterizzazione di modello lambda-ricco</a></li>
+<li><a href="20250214101844-lemma_di_estensione_di_morfismi_tra_modelli_ricchi.html#ID-014d1aa6-f3de-4057-8ae8-2119fa117f0e">Lemma di estensione di morfismi tra modelli ricchi</a></li>
+<li>Teorema <a href="20250213152410-modello_e_ricco_sse_omogeneo_e_universale.html#ID-ba811943-a1ac-4ee0-8bdf-8bd2ce1aaa4c">7.8</a></li>
+<li>Teorema <a href="20250213152449-morfismi_tra_modelli_lambda_ricchi_sono_elementari.html#ID-c98884d9-9e36-4f94-b053-161e72122597">7.11</a></li>
+<li><a href="20250214165749-teoria_con_eliminazione_dei_quantificatori.html#ID-519f0f86-6882-4bc8-b022-b0d40b8ac4a8">Teoria con eliminazione dei quantificatori</a></li>
+<li>Esempio 7.15</li>
+<li>Esercizi 7.16 e 7.17</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7819119" class="outline-4">
+<h4 id="org7819119">Capitolo 8 (10)</h4>
+<div class="outline-text-4" id="text-org7819119">
+<ul class="org-ul">
+<li><a href="20250616135710-teoria_dei_gruppi_abeliani.html#ID-b3e0e3ec-8c17-4c20-bae7-c3ddea608137">Teoria dei gruppi abeliani</a> *</li>
+<li><a href="20250616140010-lemma_di_estensione_di_un_isomorfismo_parziale_tra_gruppi_abeliani.html#ID-41ff64e3-b8c9-4274-982c-dcc079bd39b9">Proposizioni 8.5</a></li>
+
+<li><a href="20250616140201-teoria_dei_gruppi_abeliani_privi_di_torsione.html#ID-6aca64fb-2d0e-4ee8-9d09-88b126b5babd">Teoria dei gruppi abeliani privi di torsione</a> *</li>
+<li>Proposizione 8.7 *</li>
+
+<li><a href="20250616140755-teoria_dei_gruppi_abeliani_divisibili.html#ID-c1aa62f2-4d43-454f-921f-0c5f8e4c3775">Teoria dei gruppi abeliani divisibili</a> *</li>
+<li><a href="20250616140840-lemma_di_estensione_di_un_isomorfismo_parziale_tra_gruppi_abeliani_divisibili.html#ID-68d1c254-4115-403d-9879-1de5f63f947c">Lemma 8.9</a> *</li>
+<li><a href="20250616141222-modelli_lambda_ricchi_nella_categoria_dei_modelli_della_teoria_tfag.html#ID-f1979099-e3f8-4218-bd55-1f559da942df">Corollario 8.10</a> *</li>
+<li><a href="20250616141052-teoria_dei_gruppi_abeliani_privi_di_torsione_e_categorica.html#ID-34752316-ce0b-4346-a80c-27831337d75d">Corollario 8.11</a> *</li>
+
+<li><a href="20250616141738-teoria_dei_domini_di_integrita.html#ID-9f8e4892-fa9f-4031-99b0-152fd0744216">Proposizione 8.18</a> *</li>
+
+<li><a href="20250616152011-teoria_dei_campi.html#ID-89c55615-316e-475c-94e7-90f60bf9c9f4">Teoria dei campi</a></li>
+<li>Lemma 8.20 *</li>
+<li>Corollari 8.21, 8.22, 8.23 *</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org80822a8" class="outline-4">
+<h4 id="org80822a8">Capitolo 9 (10)</h4>
+<div class="outline-text-4" id="text-org80822a8">
+<ul class="org-ul">
+<li><a href="20250617093912-soddisfazione_di_un_tipo_e_mappa_elementare.html#ID-d3d8a6f9-6a6d-4d2c-8a00-e73874dbe835">Soddisfazione di un tipo e mappa elementare</a></li>
+<li><a href="20250617095548-modello_lambda_saturo.html#ID-0fd4eb18-8b61-47b5-9ae8-b8d363085355">Modello lambda saturo</a></li>
+<li><a href="20250617104602-catena_elementare_di_modelli.html#ID-b38e6249-2171-4c02-a415-3a595bc414b7">Catena elementare di modelli</a></li>
+<li><a href="20250617102642-esistenza_di_modelli_saturi_di_cardinalita_fissata.html#ID-a4566371-9b10-4637-ab62-f678ab1e28ae">Teoremi 9.3</a>, <a href="20250617102704-modello_lambda_saturo_sse_lambda_ricco.html#ID-dfed90b3-987c-4483-898b-ebc44ebd06c5">9.5</a></li>
+
+<li><a href="20250617102733-modello_mostro.html#ID-3f826ca0-43fe-4339-bc2d-798e9422cffd">Modello MOSTRO</a></li>
+<li><a href="20250617103021-insieme_definibil_e_automorfismi_in_un_modello_mostro.html#ID-2cc2418b-c0a6-47c6-ad38-cc4e32109490">Osservazione 9.24</a></li>
+<li><a href="20250618103257-gruppo_degli_automorfismi_che_fissano_un_sottoinsieme_e_tipo_di_un_elemento.html#ID-b713923e-29d1-4550-9c60-9b18d8e18810">Gruppo degli automorfismi che fissano un sottoinsieme e tipo di un elemento</a></li>
+
+<li>Esercizi <a href="https://chatgpt.com/s/t_685141178d6c8191ac4da08e216d0200">9.30</a>, <a href="https://chatgpt.com/s/t_685141178d6c8191ac4da08e216d0200">9.28, 9.31, 9.32</a>, <a href="https://chatgpt.com/s/t_685140a157888191802e8c5d31d02b88">9.34, 9.33, 9.35</a> (per il 9.33: <a href="https://math.stackexchange.com/a/4962078/1320017">mathoverflow</a>)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde49bf5" class="outline-4">
+<h4 id="orgde49bf5">Capitolo 10 (0)</h4>
+<div class="outline-text-4" id="text-orgde49bf5">
+<p>
+Niente
+</p>
+</div>
+</div>
+<div id="outline-container-org581b575" class="outline-4">
+<h4 id="org581b575">Capitolo 11 (12)</h4>
+<div class="outline-text-4" id="text-org581b575">
+<ul class="org-ul">
+<li><a href="20250618095344-elementi_algebrici_e_definibili_teoria_dei_modelli.html#ID-7649d705-b281-4ac4-99e6-39e7741489ca">Elementi algebrici e definibili - Teoria dei Modelli</a></li>
+
+<li>Teorema <a href="20250618102057-caratterizzazione_chiusura_definibile_in_un_modello_mostro.html#ID-154bd93b-f03f-451a-ae37-a779f1e17a87">11.2</a>, <a href="20250618101423-caratterizzazione_chiusura_algebrica_in_un_modello_mostro.html#ID-75cde62e-7621-44f4-9fe8-eba43bfd325b">11.3</a></li>
+<li><a href="20250618110012-automorfismo_e_chiusura_algebrica_in_un_modello_mostro.html#ID-4461614d-9f80-47f3-b6d2-b22f037b8d7f">Automorfismo e chiusura algebrica in un modello mostro</a></li>
+<li><a href="20250618153446-struttura_minimale.html#ID-a4bce90f-d379-461c-a55d-dd1ecd6788f8">Struttura minimale</a></li>
+<li>Teorema <a href="20250618155509-principio_dello_scambio_per_chiusura_algebrica_in_un_modello_mostro.html#ID-bc636d6e-dd28-4ed5-b60b-192d4f53ab02">11.17</a></li>
+<li><a href="20250618155810-base_di_un_insieme_dentro_un_modello_mostro.html#ID-95128f9e-c7bd-451a-8c20-1a00583aaaae">Base di un insieme dentro un modello mostro</a></li>
+<li>Teorema <a href="20250618155810-base_di_un_insieme_dentro_un_modello_mostro.html#ID-95128f9e-c7bd-451a-8c20-1a00583aaaae">11.19</a>, <a href="20250618160252-teorema_della_base_dentro_un_modello_mostro.html#ID-532f42a1-aa4d-49fd-85f2-7b962e988b34">11.20</a>, <a href="20250618160625-teoria_fortemente_minimale_e_lambda_categorica.html#ID-9141cfe3-6152-428e-a4e9-8ecc5d699d06">11.23</a></li>
+<li>Esercizi <a href="https://math.stackexchange.com/q/5076471/1320017">11.7</a>, <a href="https://chatgpt.com/s/t_6852a361b3208191a165350effaa4cbd">11.13</a>, 11.14, 11.16, 11.26, 11.27</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc09ed5c" class="outline-3">
+<h3 id="orgc09ed5c">Ricorsione</h3>
+<div class="outline-text-3" id="text-orgc09ed5c">
+</div>
+<div id="outline-container-org4072599" class="outline-4">
+<h4 id="org4072599">Capitolo 1: Cenni di ricorsività</h4>
+<div class="outline-text-4" id="text-org4072599">
+</div>
+<div id="outline-container-org59c6dd4" class="outline-5">
+<h5 id="org59c6dd4">Sezione 1.1: Funzioni ricorsive</h5>
+<div class="outline-text-5" id="text-org59c6dd4">
+<ul class="org-ul">
+<li><a href="20250215141024-funzioni_primitive_ricordive.html#ID-7e2f9bf1-e396-4df3-839d-924cb06dc3fc">Funzioni primitive ricorsive</a> (flascard fatte)</li>
+<li><a href="20250519112500-proprieta_di_chiusura_delle_funzioni_primitive_ricorsive.html#ID-fe1d3079-2b61-4295-869a-185ae34d9dd9">Proprietà di chiusura delle funzioni primitive ricorsive</a> (flascard fatte)</li>
+<li><a href="20250215171731-quoziente_e_resto_sono_funzioni_ricorsive_primitive.html#ID-ef0fb112-669b-420c-82d1-212244ac88b9">Quoziente e resto sono funzioni ricorsive primitive</a>  (flascard fatte)</li>
+<li><a href="20250215151413-biiezione_canonica_tra_n_e_n2.html#ID-065f625f-6660-435a-813b-21889aedf4b5">Biiezione canonica tra N e N2</a> (flascard fatte)</li>
+<li><a href="20250215151440-operatore_di_minimizzazione_non_limitato.html#ID-30cef22f-de96-46db-8823-c88ca419cc26">Operatore di minimizzazione non limitato</a> (flascard fatte)</li>
+<li><a href="20250215151458-funzioni_ricorsive.html#ID-ba6d6707-c627-4e92-804b-f80a2535cb3f">Funzioni ricorsive</a> (flascard fatte)</li>
+<li><a href="20250215151703-inversa_di_una_funzione_totale_iniettiva_e_ricorsiva_e_ricorsiva.html#ID-8395819e-b08a-4d10-b7b5-371cdb8400f1">Inversa di una funzione totale iniettiva e ricorsiva è ricorsiva</a> (flascard fatte)</li>
+<li><a href="20250215151720-tesi_di_church.html#ID-2ab3def5-20fe-4ca5-8a3e-3ba3ee7cf59d">Tesi di Church</a> (flascard fatte)</li>
+<li><a href="20250216162850-funzioni_ricorsive_in_piu_dimensioni.html#ID-315ccb58-4936-42fa-b860-27d8d7c20b0d">Funzioni ricorsive in più dimensioni</a> (flascard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org705414a" class="outline-5">
+<h5 id="org705414a">Sezione 1.2</h5>
+<div class="outline-text-5" id="text-org705414a">
+<ul class="org-ul">
+<li><a href="20250216173925-insieme_ricorsivo.html#ID-f1412b9c-24c7-4554-a2dd-0f9acc05a208">Insieme ricorsivo</a> (flascard fatte)</li>
+<li><a href="20250216174510-insieme_ricorsivo_primitivo.html#ID-a289f0d6-5720-4d3c-86d0-522a7a191cae">Insieme ricorsivo primitivo</a> (flascard fatte)</li>
+<li><a href="20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.html#ID-0cd7b90f-d043-4cdc-a33a-684419cfb2f0">Proprietà di chiusura degli insiemi ricorsivi</a> (flascard fatte)</li>
+<li><a href="20250520101337-funzioni_ricorsive_definite_per_casi.html#ID-0191782a-0ecd-4dce-98cf-19359fe8c397">Funzioni ricorsive definite per casi</a> (flascard fatte)</li>
+<li><a href="20250520101418-funzioni_ricorsive_per_minimizzazione_su_un_predicato.html#ID-b731b990-2c07-432c-b5e5-27c23bbfd138">Funzioni ricorsive per minimizzazione su un predicato</a> (flascard fatte)</li>
+<li><a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-5f06c425-9c0f-4ae3-8c32-1473d488889b">Grafico di una funzione ricorsiva è ricorsiva</a> (flascard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga2a6de6" class="outline-5">
+<h5 id="orga2a6de6">Sezione 1.3: Insiemi semiricorsivi</h5>
+<div class="outline-text-5" id="text-orga2a6de6">
+<ul class="org-ul">
+<li><a href="20250520113238-insieme_semiricorsivo.html#ID-cf3413b4-ee63-46af-bcd2-0252eab30002">Insieme semiricorsivo</a> (flascard fatte)</li>
+<li><a href="20250520113316-proprieta_di_chiusura_degli_insiemi_semiricorsivi.html#ID-45be8330-a10a-49a3-8c51-e68029f3df78">Proprietà di chiusura degli insiemi semiricorsivi</a> (flascard fatte)</li>
+<li><a href="20250520113349-teorema_di_post.html#ID-8f5413eb-3b80-43e4-b9cd-3d0483f9a666">Teorema di Post</a> (flascard fatte)</li>
+<li><a href="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive.html#ID-32e7790f-99fd-4ea1-870a-fa900c04817f">Insieme semiricorsivo come range di funzioni ricorsive</a> (flascard fatte)</li>
+<li><a href="20250520143216-insieme_ricorsivo_come_range_di_funzione_ricorsiva_totale_crescente.html#ID-20cbb05d-ad5e-4e18-88a5-2c56179478ad">Insieme ricorsivo come range di funzione ricorsiva totale crescente</a> (flascard fatte)</li>
+<li><a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-77fe8066-6edd-4d7b-84a2-14f22d92b349">Funzioni parziali con grafico semiricorsivo sono ricorsive</a> (flascard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1dc3b0a" class="outline-5">
+<h5 id="org1dc3b0a">Sezione 1.4: Ricorsività su altri insiemi e codifiche</h5>
+<div class="outline-text-5" id="text-org1dc3b0a">
+<ul class="org-ul">
+<li><a href="20250531104048-codifica_di_un_insieme_numerabile.html#ID-9c4a9814-aac9-4ab8-9628-bc5616aa76d5">Codifica di un insieme numerabile</a> (flashcard fatte)</li>
+<li><a href="20250531105333-insiemi_ricorsivi_tramite_codifica.html#ID-2ecabfd0-cf93-4d91-95f2-8754b6e57fab">Insiemi ricorsivi tramite codifica</a> (flashcard fatte)</li>
+<li><a href="20250531110714-teorema_cinese_dei_resti.html#ID-32c78b88-9971-45b9-917d-a7a7227c6bc7">Teorema Cinese dei resti</a> (flashcard fatte)</li>
+<li><a href="20250531110725-funzione_beta_di_godel.html#ID-ba942140-f41d-4894-b347-b9a633f0f52e">Funzione beta di Godel</a> (flashcard fatte)</li>
+<li><a href="20250531110737-codifica_delle_sequenze_finite_tramite_beta_di_godel.html#ID-f42caa0a-04c3-473d-8650-7b40cddd3e9e">Codifica delle sequenze finite tramite beta di Godel</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge46441d" class="outline-5">
+<h5 id="orge46441d">Sezione 1.5: Alcune applicazioni della codifica di sequenze</h5>
+<div class="outline-text-5" id="text-orge46441d">
+<ul class="org-ul">
+<li><a href="20250601160026-funzione_memoria.html#ID-ffe5f40c-d231-4a9c-8332-e552f6c5847b">Funzione memoria</a> (flashcard fatte)</li>
+<li><a href="20250601161456-generalizzazione_schema_di_ricorsione.html#ID-65264ee8-b48c-42cd-8cc6-f56a8995f85a">Generalizzazione schema di Ricorsione</a> (flashcard fatte)</li>
+<li><a href="20250601162102-teorema_di_forma_normale_di_kleene.html#ID-f81a74d4-6b8b-41e1-8026-155dcaa0b6a3">Teorema di Forma Normale di Kleene</a> (flashcard fatte)</li>
+<li><a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-06bffcc0-d5dd-4aaf-bf68-abb0ca37ec18">Grafico di una funzione ricorsiva parziale è semiricorsivo</a> (flashcard fatte)</li>
+<li><a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-063e5a65-4859-46e6-923f-eaf89415c92c">Funzione ricorsiva sse il suo grafico è semiricorsivo</a> (flashcard fatte)</li>
+<li><a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-8df28119-a59f-47bb-bcea-29ebe1fe5f51">Caratterizzazione funzioni ricorsive tramite grafico</a> (flashcard fatte)</li>
+<li><a href="20250601171055-insieme_semiricorsivo_come_monio_di_funzione_ricorsiva_parziale.html#ID-9b6b9c46-00e6-4002-bd46-f69215395024">Insieme semiricorsivo come dominio di funzione ricorsiva parziale</a> (flashcard fatte)</li>
+<li><a href="20250601171113-funzione_ricorsiva_parziale_con_dominio_ricorsivo_e_restrizione_di_funzione_ricorsiva_totale.html#ID-e8a5f6ef-d0c7-41be-862c-2f7f6aa82392">Funzione ricorsiva parziale con dominio ricorsivo è restrizione di funzione ricorsiva totale</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0ff143d" class="outline-5">
+<h5 id="org0ff143d">Sezione 1.6: Gerarchia aritmetica</h5>
+<div class="outline-text-5" id="text-org0ff143d">
+<ul class="org-ul">
+<li>[BROKEN LINK: a6dd5cae-c225-49d4-8945-602100951278] (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc70e0a8" class="outline-4">
+<h4 id="orgc70e0a8">Capitolo 2: Definibilità nel modello standard</h4>
+<div class="outline-text-4" id="text-orgc70e0a8">
+</div>
+<div id="outline-container-org57d2f5a" class="outline-5">
+<h5 id="org57d2f5a">Sezione 2.1: Complessità delle definizioni</h5>
+<div class="outline-text-5" id="text-org57d2f5a">
+<ul class="org-ul">
+<li><a href="20250603170559-complessita_di_una_formula_del_modello_standard.html#ID-224a9f67-b90d-4349-85a0-f29e42a26f46">Complessità di una formula del modello standard</a> (flashcard fatte)</li>
+<li><a href="20250606095019-modello_standard_dell_artimetica.html#ID-9e274901-a217-4a9e-826c-7b11b901c4d1">Modello standard dell&rsquo;artimetica</a> (flashcard fatte)</li>
+<li><a href="20250603170634-insieme_definibile_nel_modello_standard.html#ID-69513e00-2d60-465f-8eef-effe98eaaf08">Insieme definibile nel modello standard</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org850d572" class="outline-5">
+<h5 id="org850d572">Sezione 2.2: Ricorsività vs definibilità</h5>
+<div class="outline-text-5" id="text-org850d572">
+<ul class="org-ul">
+<li><a href="20250215151458-funzioni_ricorsive.html#ID-a71e834f-bdd4-4381-96c4-2cd74b012a06">Definizione equivalente di funzioni ricorsive</a> (flashcard fatte)</li>
+<li><a href="20250603171922-funzioni_ricorsive_vs_definibili.html#ID-752b728b-9cc8-4a71-bc64-b145901dfcd0">Funzioni ricorsive vs definibili</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbb15f3f" class="outline-4">
+<h4 id="orgbb15f3f">Capitolo 3: Teorie formali dell&rsquo;aritmetica</h4>
+<div class="outline-text-4" id="text-orgbb15f3f">
+</div>
+<div id="outline-container-org6f2162a" class="outline-5">
+<h5 id="org6f2162a">Sezione 3.1: Aritmetica di Peano del second&rsquo;ordine</h5>
+<div class="outline-text-5" id="text-org6f2162a">
+<ul class="org-ul">
+<li><a href="20250608093535-aritmetica_di_peano_del_second_ordine.html#ID-f00ff04a-c434-4e65-a481-a3d651583bce">Aritmetica di Peano del second&rsquo;ordine</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga79a46d" class="outline-5">
+<h5 id="orga79a46d">Sezione 3.2: Aritmetica di Robinson e aritmetica di Peano del prim&rsquo;ordine</h5>
+<div class="outline-text-5" id="text-orga79a46d">
+<ul class="org-ul">
+<li><a href="20250608093604-aritmetica.html#ID-04414220-9f76-4a6a-8978-bd6b251b38db">Aritmetica di Robinson</a> (flashcard fatte)</li>
+<li><a href="20250608093604-aritmetica.html#ID-3ef25a59-1d54-4410-8cec-60d5c5684679">Aritmetica di Peano del prim&rsquo;ordine</a> (flashcard fatte)</li>
+<li><a href="20250608093604-aritmetica.html#ID-77a26ebf-9d40-4c8e-899a-8ffc24952d94">Numerali</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6c0a243" class="outline-5">
+<h5 id="org6c0a243">Sezione 3.3: Rappresentabilità delle funzioni ricorsive in Q</h5>
+<div class="outline-text-5" id="text-org6c0a243">
+<ul class="org-ul">
+<li><a href="20250608094213-insieme_rappresentato_da_una_formula.html#ID-c9c4b0b6-b384-4b11-9076-8bab8f117987">Insieme rappresentato da una formula</a> (flashcard fatte)</li>
+<li><a href="20250608094553-aritmetica_di_robinson_rappresenta_funzioni_ricorsive_totali_e_predicati_ricorsivi.html#ID-7db6e766-3b1e-4eda-8558-0e3a2d1cc67c">Aritmetica di Robinson rappresenta funzioni ricorsive totali e predicati ricorsivi</a> (flashcard fatte)</li>
+<li><a href="20250608165649-descrizione_modelli_dell_aritmetica_di_robinson.html#ID-464037b0-62a1-4d9e-b532-6dd6855d0d2c">Descrizione modelli dell&rsquo;aritmetica di Robinson</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc36527c" class="outline-4">
+<h4 id="orgc36527c">Capitolo 4: Incompletezza e indecidibilità</h4>
+<div class="outline-text-4" id="text-orgc36527c">
+</div>
+<div id="outline-container-orgeae6408" class="outline-5">
+<h5 id="orgeae6408">Sezione 4.1: Aritmetizzazione della sintassi</h5>
+<div class="outline-text-5" id="text-orgeae6408">
+<ul class="org-ul">
+<li><a href="20250609104647-buona_codifica_di_un_linguaggio.html#ID-faa15dcd-89b1-4502-9bf4-9a3ad71e852d">Buona codifica di un linguaggio</a> (flashcard fatte)</li>
+<li><a href="20250609135250-teoria_ricorsivamente_assiomatizzabile.html#ID-b15d66f2-f33b-4fd9-b4c5-060d7ee6cfa8">Teoria ricorsivamente assiomatizzabile</a> (flashcard fatte)</li>
+<li><a href="20250609135524-codifica_delle_dimostrazioni_a_partire_dagli_assiomi.html#ID-f98cf0ff-91ad-4315-9244-534ee910a830">Codifica delle dimostrazioni a partire dagli assiomi</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org617d829" class="outline-5">
+<h5 id="org617d829">Sezione 4.2: Primo teorema di incompletezza di Godel</h5>
+<div class="outline-text-5" id="text-org617d829">
+<ul class="org-ul">
+<li><a href="20250609162617-primo_teorema_di_incompletezza_di_godel.html#ID-d63517e0-06d6-4ee3-9ef3-44a7bc5c5666">Primo Teorema di Incompletezza di Gödel</a> (flashcard fatte)</li>
+<li><a href="20250609162657-teoria_coerente.html#ID-74ed787c-f236-4589-a0a7-3cf3c4f79dd0">Teoria Coerente</a> (flashcard fatte)</li>
+<li><a href="20250609162711-teoria_omega_coerente.html#ID-3e1865fa-8043-4af5-978a-f7428e44edd0">Teoria omega-coerente</a> (flashcard fatte)</li>
+<li><a href="20250131123151-teoria_completa.html#ID-ee6d8c92-3050-4c73-93b3-8a82241d3656">Teoria completa</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe948df" class="outline-5">
+<h5 id="orgbe948df">Sezione 4.3: Decidibilità</h5>
+<div class="outline-text-5" id="text-orgbe948df">
+<ul class="org-ul">
+<li><a href="20250610134232-teoria_decidibile.html#ID-fddf6cd3-9102-4fc9-91bd-6189c8521459">Teoria decidibile</a> (flashcard fatte)</li>
+<li><a href="20250610135033-teoria_completa_e_ricorsivamente_assiomatizzabile_e_decidibile.html#ID-024d9e95-13be-4a3d-8a3c-d2cf448b84be">Teoria completa e ricorsivamente assiomatizzabile è decidibile</a> (flashcard fatte)</li>
+<li><a href="20250610135104-estensione_finita_di_una_teoria_decidibile_e_decidibile.html#ID-68167edc-4f41-450c-b215-768f5f9e3d47">Estensione finita di una teoria decidibile è decidibile</a> (flashcard fatte)</li>
+<li><a href="20250610135350-aritmetica_di_robinson_e_essenzialmente_indecidibile.html#ID-d9352e26-4e08-4b8b-b89d-5bee6f411d30">Aritmetica di Robinson è essenzialmente indecidibile</a> (flashcard fatte)</li>
+<li><a href="20250610135416-teoria_decidibile_e_coerente_ha_estesione_decidibile_coerente_e_completa.html#ID-5d90d698-6958-46f2-919d-24061e123d86">Teoria decidibile e coerente ha estesione decidibile coerente e completa</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1d24a87" class="outline-5">
+<h5 id="org1d24a87">Sezione 4.4: Teorema di Tarski e Teorema di Church</h5>
+<div class="outline-text-5" id="text-org1d24a87">
+<ul class="org-ul">
+<li><a href="20250610145135-teorema_dell_indefinibilita_della_verita.html#ID-0c0b3432-1904-4762-8acd-c507cac8952b">Teorema dell&rsquo;indefinibilità della verità</a> (flashcard fatte)</li>
+<li><a href="20250610145208-teorema_di_church.html#ID-1e4caaf5-75ef-4f0f-a767-38e9bb3f5db4">Teorema di Church</a> (flashcard fatte)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
