@@ -510,27 +510,66 @@ dl dd {
 }
 
 /* Theorem */
-.theorem {
+.thm {
   counter-increment: theorem;
   display: block;
   margin: 12px 0;
   font-style: italic;
 }
-.theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
+.thm::before {
+  content: 'Teorema ' counter(theorem) '. ';
   font-weight: bold;
   font-style: normal;
 }
 
 /* Lemma */
-.lemma {
+.lem {
   counter-increment: theorem;
   display: block;
   margin: 12px 0;
   font-style: italic;
 }
-.lemma::before {
+.lem::before {
   content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proposizione */
+.prop {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.prop::before {
+  content: 'Proposizione ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollario */
+.cor {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.cor::before {
+  content: 'Corollario ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Esempio */
+.esempio {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.esempio::before {
+  content: 'Esempio ' counter(theorem) '. ';
   font-weight: bold;
   font-style: normal;
 }
@@ -555,16 +594,28 @@ dl dd {
 }
 
 /* Definition */
-.definition {
-  counter-increment: definition;
+.definizione {
+  counter-increment: theorem;
   display: block;
   margin: 12px 0;
   font-style: normal;
 }
-.definition::before {
-  content: 'Definition ' counter(definition) '. ';
+.definizione::before {
+  content: 'Definizione ' counter(theorem) '. ';
   font-weight: bold;
   font-style: normal;
+}
+
+/* Osservazione */
+.oss {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+.oss::before {
+  content: 'Osservazione. ' attr(title);
+  font-style: italic;
 }
 
 /* Center align author name, use small caps and add vertical spacing  */
