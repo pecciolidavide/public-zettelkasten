@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org2a08c0b" class="outline-2">
+<h2 id="org2a08c0b">Pooling</h2>
+<div class="outline-text-2" id="text-org2a08c0b">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" alt="20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" class="org-svg" /> una funzione continua, e sia
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_0bd21586087f532c22f8b53e90520fa2b21ade79.svg" alt="20250713221021-pooling_0bd21586087f532c22f8b53e90520fa2b21ade79.svg" class="org-svg" />
+</span>
+</div>
+<p>
+la partizione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_92960208aac220be0d902997acc7bdd02ce5c8bd.svg" alt="20250713221021-pooling_92960208aac220be0d902997acc7bdd02ce5c8bd.svg" class="org-svg" /> di ampiezza <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_df052ca096af98ece4f6b1aa16eac23d98c4a121.svg" alt="20250713221021-pooling_df052ca096af98ece4f6b1aa16eac23d98c4a121.svg" class="org-svg" />.
+</p>
+
+<div class="definizione" id="org6197bde">
+<p>
+Il <span class="underline">max-pooling</span> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è la <a href="20250630171950-funzione_semplice.html#ID-68f71c78-2b5e-42ec-9caf-46b850c2aeb4">funzione semplice</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_840fc54ec86b91de8b4e7dff10e8bafd134ae83b.svg" alt="20250713221021-pooling_840fc54ec86b91de8b4e7dff10e8bafd134ae83b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_8ae109188d9420fa617f4a710a799ca4c2c249a7.svg" alt="20250713221021-pooling_8ae109188d9420fa617f4a710a799ca4c2c249a7.svg" class="org-svg" />.
+</p>
+
+</div>
+
+<div class="definizione" id="org17fdfca">
+<p>
+Il <span class="underline">min-pooling</span> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è la <a href="20250630171950-funzione_semplice.html#ID-68f71c78-2b5e-42ec-9caf-46b850c2aeb4">funzione semplice</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b4e85fb1cf3031824dd973c84eb7cf1a63bc7fc8.svg" alt="20250713221021-pooling_b4e85fb1cf3031824dd973c84eb7cf1a63bc7fc8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_8df5537a8e2f4e9d419b1797d4c6e19c9470e331.svg" alt="20250713221021-pooling_8df5537a8e2f4e9d419b1797d4c6e19c9470e331.svg" class="org-svg" />.
+</p>
+
+</div>
+
+<div class="definizione" id="orga1368e1">
+<p>
+L&rsquo;<span class="underline">average-pooling</span> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è la <a href="20250630171950-funzione_semplice.html#ID-68f71c78-2b5e-42ec-9caf-46b850c2aeb4">funzione semplice</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_336a4dcbc6f3bb522c39fecf2c93303c42ba7b5c.svg" alt="20250713221021-pooling_336a4dcbc6f3bb522c39fecf2c93303c42ba7b5c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_107e0c4e36c9d2c832f0daf223078b484f89df81.svg" alt="20250713221021-pooling_107e0c4e36c9d2c832f0daf223078b484f89df81.svg" class="org-svg" />.
+</p>
+
+</div>
+</div>
+<div class="outline-text-2" id="text-org2a08c0b">
+<div class="thm" id="orgd638e1c">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" alt="20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" class="org-svg" /> è <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continua</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_43909e926172c691bd0646976460cc2535cd4415.svg" alt="20250713221021-pooling_43909e926172c691bd0646976460cc2535cd4415.svg" class="org-svg" /> <a href="20250629105745-convergenza_uniforme.html#ID-fdde9e23-3257-4d64-980d-cdda328c25b0">convergono uniformemente</a> ad <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250713221021-pooling_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_92960208aac220be0d902997acc7bdd02ce5c8bd.svg" alt="20250713221021-pooling_92960208aac220be0d902997acc7bdd02ce5c8bd.svg" class="org-svg" /> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_83c65d6cbca978b23ef2d4ece37a9a490a6f81ea.svg" alt="20250713221021-pooling_83c65d6cbca978b23ef2d4ece37a9a490a6f81ea.svg" class="org-svg" />.
+</p>
+
+</div>
+</div>
+<div class="outline-text-2" id="text-org2a08c0b">
+<p>
+Si denoti ora con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_688be0a81a12afa4120a4fea6de2da7a83722c4b.svg" alt="20250713221021-pooling_688be0a81a12afa4120a4fea6de2da7a83722c4b.svg" class="org-svg" /> l&rsquo;operatore che a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_a8f3c2b846797c34d925746c410ae18ed82a7447.svg" alt="20250713221021-pooling_a8f3c2b846797c34d925746c410ae18ed82a7447.svg" class="org-svg" /> associa il corrispondente max/min/avg pooling: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_803c8cb0a0e5f1b0147f5fb92638c8665bf959e1.svg" alt="20250713221021-pooling_803c8cb0a0e5f1b0147f5fb92638c8665bf959e1.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_e2275cea7402caa021b980d92d6d0c9bc598d04b.svg" alt="20250713221021-pooling_e2275cea7402caa021b980d92d6d0c9bc598d04b.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_c4e7cdf221d256607f47df4901aa4c0eaea49848.svg" alt="20250713221021-pooling_c4e7cdf221d256607f47df4901aa4c0eaea49848.svg" class="org-svg" />; sia
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_22bcb28f625ac0a1910c8907a15950afd262dce1.svg" alt="20250713221021-pooling_22bcb28f625ac0a1910c8907a15950afd262dce1.svg" class="org-svg" />
+</span>
+</div>
+
+<div class="prop" id="orgd2deb75">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" alt="20250713221021-pooling_58929f73fefb9cc7efd6d0576c530a5312fce580.svg" class="org-svg" /> è continua, allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b7cd3a305bdeaed9129671b440409ee386564acf.svg" alt="20250713221021-pooling_b7cd3a305bdeaed9129671b440409ee386564acf.svg" class="org-svg" /> ed esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_f99ce3f3304e803b08da9db98b759166fa869e6d.svg" alt="20250713221021-pooling_f99ce3f3304e803b08da9db98b759166fa869e6d.svg" class="org-svg" /> tali che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_2b4c304fbf65f28baa15e432096ad636e74565cf.svg" alt="20250713221021-pooling_2b4c304fbf65f28baa15e432096ad636e74565cf.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+
+<p>
+The previous property provides stability of the pooling under small input variations.
+</p>
+</div>
+<div id="outline-container-org81e0562" class="outline-3">
+<h3 id="org81e0562">Pooling Layer in una rete neurale</h3>
+<div class="outline-text-3" id="text-org81e0562">
+<div class="definizione" id="orgb8a9d8b">
+<p>
+Si consideri una <a href="20250624155858-neurone_artificiale.html#ID-a711da1a-cc75-4706-8bed-4bf92c79eb5c">rete neurale</a> <a href="20250624155858-neurone_artificiale.html#ID-db72ee94-1615-4a75-a3af-9eb07631c96e">feedforward</a>. Il layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" /> è detto <span class="underline">di pooling</span> se:
+</p>
+<ol class="org-ol">
+<li>il layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" alt="20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" class="org-svg" /> è diviso in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" alt="20250713221021-pooling_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" class="org-svg" /> gruppi;</li>
+<li>i neuroni del layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" alt="20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" class="org-svg" /> che appartengono alla stessa classe sono collegati ad un unico neurone nel layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" />;</li>
+<li>ci sono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" alt="20250713221021-pooling_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" class="org-svg" /> neuroni nel layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" />, ciascuno dei quali ha funzione di attivazione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_bb019f00020db530fe820df0b000267ce36d16f7.svg" alt="20250713221021-pooling_bb019f00020db530fe820df0b000267ce36d16f7.svg" class="org-svg" />.</li>
+</ol>
+
+</div>
+
+<div class="figure" id="orga61954d">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_4352b8cdfa491fd9c04614ba735683606c5adb1a.svg" alt="20250713221021-pooling_4352b8cdfa491fd9c04614ba735683606c5adb1a.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+
+<p>
+Si vuole studiare l&rsquo;<a href="20250714154153-sigma_algebra_come_campo_di_informazione.html#ID-59f7bf86-2d36-4d7b-b575-a43103840567">informazione contenuta nel Layer di Pooling</a>. Se i neuroni del layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" alt="20250713221021-pooling_b17e5c1382538d5427ec6a6e37052f6dc8370f73.svg" class="org-svg" /> producono come output delle <a href="20250711175937-variabile_aleatoria.html#ID-a9465011-2e54-467d-ab03-467433c67f57">variabili aleatorie</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_8dc0661fd887aac60a98eac4e9bf581b9262bc7c.svg" alt="20250713221021-pooling_8dc0661fd887aac60a98eac4e9bf581b9262bc7c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(si è supposto senza perdita di generalità che ogni gruppo contenga lo stesso numero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" alt="20250713221021-pooling_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" class="org-svg" /> di neuroni), allora i neuroni del layer di pooling producono
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_b6e4aed9f7b27591c39dd91877c2761a89d0caf0.svg" alt="20250713221021-pooling_b6e4aed9f7b27591c39dd91877c2761a89d0caf0.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+L&rsquo;informazione contenuta nel layer <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250713221021-pooling_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" /> è<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_a0aee1f7d73c676a34de1edce7b4ca11dcd0fc64.svg" alt="20250713221021-pooling_a0aee1f7d73c676a34de1edce7b4ca11dcd0fc64.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Siccome <a href="20250714162717-sigma_algebra_generata_dal_massimo_di_variabili_aleatorie.html#ID-e459ac08-e6f8-4eeb-a49f-d0826f225a4a">si è dimostrato</a> che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_7161dffdc0eb45a00dfe92a30f942a9192fc61e5.svg" alt="20250713221021-pooling_7161dffdc0eb45a00dfe92a30f942a9192fc61e5.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_84f72b5f0a71a12586be94a333bdd9c2147b9556.svg" alt="20250713221021-pooling_84f72b5f0a71a12586be94a333bdd9c2147b9556.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Dunque, se per ciascun gruppo del <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_6448813140fe65287330771afa3958f4c713f0d5.svg" alt="20250713221021-pooling_6448813140fe65287330771afa3958f4c713f0d5.svg" class="org-svg" />-layer prendo un neurone qualsiasi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_07cab24db25f5fba7eb232d26517a8acde3b3e8c.svg" alt="20250713221021-pooling_07cab24db25f5fba7eb232d26517a8acde3b3e8c.svg" class="org-svg" />, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_2083eaf10a418d8e1d42a3c0f95042f4f3e656d0.svg" alt="20250713221021-pooling_2083eaf10a418d8e1d42a3c0f95042f4f3e656d0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+La cosa è significativa, poiché consente di eliminare dei neuroni superflui ogni qualvolta che si presenta un layer di pooling.
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_ffbb213f05b9aaceb6ff9005559cc6ab3f265b9e.svg" alt="20250713221021-pooling_ffbb213f05b9aaceb6ff9005559cc6ab3f265b9e.svg" class="org-svg" /> si intende la <a href="20250714154501-sigma_algebra_generata_da_una_variabile_aleatoria.html#ID-8bbe289f-1d91-4047-bb90-fe437b59cc1a"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_008462492d9320409c17f857109b3dc5964144fc.svg" alt="20250713221021-pooling_008462492d9320409c17f857109b3dc5964144fc.svg" class="org-svg" />-algebra generata da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250713221021-pooling_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250713221021-pooling_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /></a>.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

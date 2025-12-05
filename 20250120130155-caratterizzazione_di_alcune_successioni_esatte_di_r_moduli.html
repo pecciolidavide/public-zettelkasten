@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Caratterizzazione di alcune successioni esatte di R-Moduli</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Caratterizzazione di alcune successioni esatte di R-Moduli</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> un <a href="20241205141119-anello.html#ID-B459F753-3F43-49BD-9C8A-601EAF8EF155">anello</a> commutativo con unità, e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_34a3b42ebb98a5fa0a1ad436b697d0cd7f7dd463.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_34a3b42ebb98a5fa0a1ad436b697d0cd7f7dd463.svg" class="org-svg" /> degli <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />-moduli</a>, e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_c4df9aaf5cb6c3aba64b6761e29e72bb52d68002.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_c4df9aaf5cb6c3aba64b6761e29e72bb52d68002.svg" class="org-svg" /> dei <a href="20241206115416-morfismi_r_moduli.html#ID-CAF891D4-A524-4C5F-BDF6-82186F4B007A">morfismi</a>.
+</p>
+<div id="outline-container-orgbff4e0d" class="outline-2">
+<h2 id="orgbff4e0d">Primo teorema di caratterizzazione</h2>
+<div class="outline-text-2" id="text-orgbff4e0d">
+<p>
+La <a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">successione</a>
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_9181c9189d52f4b25877196a676837e2ffe7ce31.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_9181c9189d52f4b25877196a676837e2ffe7ce31.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+è <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">esatta</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">iniettiva</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbbbf4e6" class="outline-2">
+<h2 id="orgbbbf4e6">Secondo teorema di caratterizzazione</h2>
+<div class="outline-text-2" id="text-orgbbbf4e6">
+<p>
+La <a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">successione</a>
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_866b63e91b295eddae853ce3831333477bfbad94.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_866b63e91b295eddae853ce3831333477bfbad94.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+è <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">esatta</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20241213105600-funzione_suriettiva.html#ID-EDACF156-28A8-4006-B619-24DA1D4E70B4">suriettiva</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org331294f" class="outline-2">
+<h2 id="org331294f">Terzo teorema di caratterizzazione</h2>
+<div class="outline-text-2" id="text-org331294f">
+<p>
+La <a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">successione</a>
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_a817c828881d02f65e8ec6c9a262e665f3d93a02.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_a817c828881d02f65e8ec6c9a262e665f3d93a02.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+è <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">esatta</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20250104111707-funzione_biunivoca.html#ID-bc2ec820-d050-4c81-a7c9-833d186b7e35">biiettiva</a> (ovvero è un <a href="20241206115416-morfismi_r_moduli.html#ID-4114db34-c233-4c95-8964-ef64e880d184">isomorfismo</a>; vedi anche <a href="20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.html#ID-848b4553-a183-4be9-a2d5-1eeb7e671196">Morfismo iniettivo di R-Moduli induce isomorfismo</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org0769850" class="outline-2">
+<h2 id="org0769850">Quarto teorema di caratterizzazione</h2>
+<div class="outline-text-2" id="text-org0769850">
+<p>
+La <a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">successione</a>
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_a28295efd9cdd844ba6cfdd1e405063b3c8f1244.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_a28295efd9cdd844ba6cfdd1e405063b3c8f1244.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+è <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">esatta</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">iniettiva</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_57dacd516ede634b1133455b8522f0d032638d7a.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_57dacd516ede634b1133455b8522f0d032638d7a.svg" class="org-svg" /> (vedi <a href="20241206115416-morfismi_r_moduli.html#ID-CAF891D4-A524-4C5F-BDF6-82186F4B007A">Morfismi-R-Moduli</a> e <a href="20250120155457-morfismo_iniettivo_di_r_moduli_induce_isomorfismo.html#ID-848b4553-a183-4be9-a2d5-1eeb7e671196">Morfismo iniettivo di R-Moduli induce isomorfismo</a>) se e solo se, per il <a href="20241213105036-primo_teorema_di_isomorfismo.html#ID-6B5446E7-F382-4F15-81C9-9892B09DF79B">primo teorema di isomorfismo</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_e0acf3e57cc9e25c8533d8ef8872ecdeba8cf819.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_e0acf3e57cc9e25c8533d8ef8872ecdeba8cf819.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(vedi <a href="20241206145529-quoziente.html#ID-57BA396C-8A1B-4E04-AC63-2751B2E8EFF0">Quoziente di Moduli</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-orge9e4591" class="outline-2">
+<h2 id="orge9e4591">Quinto teorema di carattererizzazione</h2>
+<div class="outline-text-2" id="text-orge9e4591">
+<p>
+La <a href="20250120125644-successione_di_r_moduli.html#ID-3340b374-4879-4b2d-b47b-44f5b9f3c2b9">successione</a>
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_e390cd343e8941e4eb336bd3bf1042fdd0b4a3af.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_e390cd343e8941e4eb336bd3bf1042fdd0b4a3af.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+è <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">esatta</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_408fa40b5f1e042b85a0b273eb534f5769754e25.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_408fa40b5f1e042b85a0b273eb534f5769754e25.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> <a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">iniettiva</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_4daf38467fe16134a186de6ad2bb55113f01c077.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_4daf38467fe16134a186de6ad2bb55113f01c077.svg" class="org-svg" /> <a href="20241213105600-funzione_suriettiva.html#ID-EDACF156-28A8-4006-B619-24DA1D4E70B4">suriettiva</a>, se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_55d19a1ec5e87d1e364c33f6bc1a588c611b2502.svg" alt="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli_55d19a1ec5e87d1e364c33f6bc1a588c611b2502.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
