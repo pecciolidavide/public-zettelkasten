@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Complessità di un insieme definibile nel modello standard</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Complessità di un insieme definibile nel modello standard</h1>
+<div id="outline-container-org2ddd87c" class="outline-2">
+<h2 id="org2ddd87c">Notazione</h2>
+<div class="outline-text-2" id="text-org2ddd87c">
+<p>
+Si consideri il linguaggio del prim&rsquo;ordine <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_14719c66a31cff62fe8d64e6fa30c775e710488d.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_14719c66a31cff62fe8d64e6fa30c775e710488d.svg" class="org-svg" />. Si definiscono le seguenti pseudoformule (ovvero abbreviazioni):
+</p>
+<ul class="org-ul">
+<li><p>
+relazione d&rsquo;ordine: &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_59ca17baa37377c73beb5882fa3f9dcfda7a1d65.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_59ca17baa37377c73beb5882fa3f9dcfda7a1d65.svg" class="org-svg" />&rdquo; sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_49978d5bf2e061559dcf46f8e1585d2a03b1c202.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_49978d5bf2e061559dcf46f8e1585d2a03b1c202.svg" class="org-svg" /> dove
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_4f7ace7f00a759b3bbf9d69fd4013d78cd5e6425.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_4f7ace7f00a759b3bbf9d69fd4013d78cd5e6425.svg" class="org-svg" />
+</span>
+</div></li>
+<li>numero zero: &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_063abece3994fe4f8aa5016215938a4b55109a09.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_063abece3994fe4f8aa5016215938a4b55109a09.svg" class="org-svg" />&rdquo; sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_614c47cb01f9ed9d700b83aa407d88a11904419b.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_614c47cb01f9ed9d700b83aa407d88a11904419b.svg" class="org-svg" />;</li>
+<li>numero uno: &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_f90cd920a126ef4512ab82428fc6f580cc761962.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_f90cd920a126ef4512ab82428fc6f580cc761962.svg" class="org-svg" />&rdquo; sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_a6e0d7b24bca09eb2907826e7ebedcaed6c2c7d0.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_a6e0d7b24bca09eb2907826e7ebedcaed6c2c7d0.svg" class="org-svg" />;</li>
+<li>la funzione successore: &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_0e3571bd00f2de9da0b0d7fa79247235fd9dda18.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_0e3571bd00f2de9da0b0d7fa79247235fd9dda18.svg" class="org-svg" />&rdquo; sse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_37a2e4b980ec9c20ef52a341d13d57a79659dc0e.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_37a2e4b980ec9c20ef52a341d13d57a79659dc0e.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Inoltre, per ogni linguaggio <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_d6d0b77b42181b8cd6ab3e2ebe5df22f4aa97c2f.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_d6d0b77b42181b8cd6ab3e2ebe5df22f4aa97c2f.svg" class="org-svg" /> e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_36033457f0e9935b5877197bdb2c853e0190c06d.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_36033457f0e9935b5877197bdb2c853e0190c06d.svg" class="org-svg" />-formula <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" class="org-svg" /> si useranno le seguenti quantificazioni limitate: si scriverà
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_a1ce9e18a9dbf45b53f8ddc19f385e6bd841aef7.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_a1ce9e18a9dbf45b53f8ddc19f385e6bd841aef7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+in luogo di
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_4712bb2ced7f2659ec3bf2b55f2062ece73d8b2f.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_4712bb2ced7f2659ec3bf2b55f2062ece73d8b2f.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb6484ab" class="outline-2">
+<h2 id="orgb6484ab">Definizione</h2>
+<div class="outline-text-2" id="text-orgb6484ab">
+<ul class="org-ul">
+<li><p>
+Un <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-fdc86b04-828f-4f24-8cdf-948211d93a95">sottoinsieme</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" class="org-svg" /> si dice <span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-definibile</span> (dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" /> è uno tra le <a href="20250603170559-complessita_di_una_formula_del_modello_standard.html#ID-224a9f67-b90d-4349-85a0-f29e42a26f46">classi di complessità</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" class="org-svg" />) se esiste una <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-<a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">formula</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_a5c65e07d08d26cd8dc22ad1341dea27136f1fc8.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_a5c65e07d08d26cd8dc22ad1341dea27136f1fc8.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_b3cc340bf81fa00939fd37d3bafb43dd53af30dc.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_b3cc340bf81fa00939fd37d3bafb43dd53af30dc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_d6c3fadca65f1ffe569f220703699e8bf322b692.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_d6c3fadca65f1ffe569f220703699e8bf322b692.svg" class="org-svg" /> è il <a href="20250606095019-modello_standard_dell_artimetica.html#ID-9e274901-a217-4a9e-826c-7b11b901c4d1">modello standard dell&rsquo;aritmetica</a>.
+</p></li>
+<li>Un <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-fdc86b04-828f-4f24-8cdf-948211d93a95">sottoinsieme</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" class="org-svg" /> si dice <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_f1f7bcea826b7a875f30c0d83d74ad109f7d7343.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_f1f7bcea826b7a875f30c0d83d74ad109f7d7343.svg" class="org-svg" />-definibile se è sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_07f5394e387afdf085180574bae3d1cd163e8f51.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_07f5394e387afdf085180574bae3d1cd163e8f51.svg" class="org-svg" />-definibile che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_2d6d61896100c2f1fa3c84097005210d998f8327.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_2d6d61896100c2f1fa3c84097005210d998f8327.svg" class="org-svg" />-definibile.</li>
+<li>Un sottoinsieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_62a5d80e50355389b4344558ec86f45e4bb21170.svg" class="org-svg" /> si dice <span class="underline">definibile</span> se è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-definibile per qualche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" /> scelto tra <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" class="org-svg" />.</li>
+<li>Una funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_3857629765edc8809d925bedffa491a37f5ed5a2.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_3857629765edc8809d925bedffa491a37f5ed5a2.svg" class="org-svg" /> si dice <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-definibile (dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" /> è uno tra le <a href="20250603170559-complessita_di_una_formula_del_modello_standard.html#ID-224a9f67-b90d-4349-85a0-f29e42a26f46">classi di complessità</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_dca20e8ee0dd90c53323b0bb56943a890fa8c5c5.svg" class="org-svg" />) se il suo <a href="20250104112443-grafico_di_una_funzione.html#ID-cfa16e89-6a78-4944-9714-898e7cc376b4">grafico</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_d74518f303f14ef3cb0985a7c1bbf3bd8e3e7f96.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_d74518f303f14ef3cb0985a7c1bbf3bd8e3e7f96.svg" class="org-svg" /> è un sottoinsieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-definibile.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1568c77" class="outline-2">
+<h2 id="org1568c77">Esempi di predicati Delta0 definibili</h2>
+<div class="outline-text-2" id="text-org1568c77">
+<p>
+In questa sezione si identificano i <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-fdc86b04-828f-4f24-8cdf-948211d93a95">sottoinsiemi</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_80235d0f732a12ee10427082d10242ab54b2b858.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_80235d0f732a12ee10427082d10242ab54b2b858.svg" class="org-svg" /> (vedi <a href="20250202130045-insieme_dei_numeri_naturali_mk.html#ID-7a6d92bf-1346-4c3e-96ec-d660c22f425b">Insieme dei numeri naturali MK</a>) con i <a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">predicati</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" />-ari (ovvero con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> <a href="20250131103429-variabile_libera_di_una_formula.html#ID-5742aec3-1d2b-4c5e-8b7b-2f91c1a41e08">variabili libere</a>), per mezzo degli <a href="20250131122913-soddisfazione_di_una_formula.html#ID-d292fbf8-e1c9-421b-99fd-30a642f5d9d5">insiemi di verità</a>.
+</p>
+
+<p>
+Scriveremo indifferentemente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_22de5944f756b5c7cc1b7caacf94ca7e02351415.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_22de5944f756b5c7cc1b7caacf94ca7e02351415.svg" class="org-svg" /> oppure <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_e68969c4da52cd335d4084b01f425779f0eb4c92.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_e68969c4da52cd335d4084b01f425779f0eb4c92.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li>L&rsquo;insieme vuoto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_125478fb38dc077c307becd566baba0595e65d5c.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_125478fb38dc077c307becd566baba0595e65d5c.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile, dalla formula <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_19473336e0a4a353bc87a4f7035754f3f9219c41.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_19473336e0a4a353bc87a4f7035754f3f9219c41.svg" class="org-svg" />.</li>
+<li><p>
+I predicati &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_063abece3994fe4f8aa5016215938a4b55109a09.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_063abece3994fe4f8aa5016215938a4b55109a09.svg" class="org-svg" />&rdquo; e &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_f90cd920a126ef4512ab82428fc6f580cc761962.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_f90cd920a126ef4512ab82428fc6f580cc761962.svg" class="org-svg" />&rdquo; sono chiaramente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" /> definibili. Inoltre, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_fe9226e1250f25c79433a226ac2c9a9f8aa6cd84.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_fe9226e1250f25c79433a226ac2c9a9f8aa6cd84.svg" class="org-svg" />, il predicato &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_9678b9244d2c6ea11d80549427301b81b44f1b65.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_9678b9244d2c6ea11d80549427301b81b44f1b65.svg" class="org-svg" />&rdquo; (ovvero l&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c52f15a633f0e3a7033e146b689f1281a825d0a1.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c52f15a633f0e3a7033e146b689f1281a825d0a1.svg" class="org-svg" />) è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile, poiché
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c6eb2ec798256e2952c836073f7b8ff708a959af.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c6eb2ec798256e2952c836073f7b8ff708a959af.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Di conseguenza, ogni insieme finito <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_6303d85e5bffa320732b164fa309e4973ffdf37c.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_6303d85e5bffa320732b164fa309e4973ffdf37c.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile dalla formula
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_91bdc14d9c5708406119ba2d891659c0fefee394.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_91bdc14d9c5708406119ba2d891659c0fefee394.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+La relazione d&rsquo;ordine <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_a85b8a309d217444a1ed7f76da8b16493b91edcb.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_a85b8a309d217444a1ed7f76da8b16493b91edcb.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile, in quanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_6dc317bce98c1426fcbf7271c3d08e0b04783b48.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_6dc317bce98c1426fcbf7271c3d08e0b04783b48.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+<span class="underline">Nota</span>: questa definizione non è circolare, perché semplicemente si è richiesto che le classi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" /> siano chiuse per quantificazione limitata, che è definita essere <b>così</b>.
+</p></li>
+<li><p>
+La <a href="20250202124648-successore_di_un_insieme_mk.html#ID-528f7357-13e6-41ea-bcee-98fcec066a81">funzione successore</a> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile, poiché
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_93cf2dd07cf9e8c43bb467783cd3aff6549ff942.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_93cf2dd07cf9e8c43bb467783cd3aff6549ff942.svg" class="org-svg" />
+</span>
+</div></li>
+
+<li>Il predicato &ldquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" /> è un numero primo&rdquo; è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_c96871a1c691fff65b4efd0262e26f2104533993.svg" class="org-svg" />-definibile.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaa4704b" class="outline-2">
+<h2 id="orgaa4704b">Proprietà di chiusura delle classi degli insiemi definibili</h2>
+<div class="outline-text-2" id="text-orgaa4704b">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" /> una tra <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_92e8a2b0e06ee77d84bf6024a573e954d654cf31.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_92e8a2b0e06ee77d84bf6024a573e954d654cf31.svg" class="org-svg" />. La collezione degli insiemi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_cfde17ef02a3ba34f1d77e44525c507791f7929a.svg" class="org-svg" />-definibili è chiusa per
+</p>
+<ul class="org-ul">
+<li>intersezioni</li>
+<li>unioni</li>
+<li>quantificazioni limitate.</li>
+</ul>
+
+<p>
+Inoltre la collezione dei <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_2d6d61896100c2f1fa3c84097005210d998f8327.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_2d6d61896100c2f1fa3c84097005210d998f8327.svg" class="org-svg" />-definibili è chiusa per proiezioni, mentre la collezione dei <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250603170634-insieme_definibile_nel_modello_standard_f1f7bcea826b7a875f30c0d83d74ad109f7d7343.svg" alt="20250603170634-insieme_definibile_nel_modello_standard_f1f7bcea826b7a875f30c0d83d74ad109f7d7343.svg" class="org-svg" />-definibili è chiusa per complementi.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ordini</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ordini</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_b824e00954247b1876f9af8a9fdc74f8b3a80340.svg" alt="20250203101604-ordine_b824e00954247b1876f9af8a9fdc74f8b3a80340.svg" class="org-svg" /> un <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">linguaggio del prim&rsquo;ordine</a> composto da un <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">simbolo di relazione</a> <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">binaria</a>, ed <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250203101604-ordine_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /> una <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_c140c2942583cac605b981da2fc71914b9953178.svg" alt="20250203101604-ordine_c140c2942583cac605b981da2fc71914b9953178.svg" class="org-svg" />-<a href="20250131103035-struttura_del_prim_ordine.html#ID-fe44aef7-3044-456b-8ca8-71203d50a1e4">struttura</a>.
+</p>
+
+<p>
+Oppure, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250203101604-ordine_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /> una <a href="20250130104320-classe_mk.html#ID-3c774b2c-95e7-461f-9bd7-ed32ab666cd5">classe</a> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_488c80e43778119863735a80f3c39353e2b21b0a.svg" alt="20250203101604-ordine_488c80e43778119863735a80f3c39353e2b21b0a.svg" class="org-svg" /> una <a href="20250202170607-classe_relazione_binaria.html#ID-68966d6c-919e-463a-a463-6c52a1fed253">relazione binaria</a>.
+</p>
+<div id="outline-container-org5ee2dfb" class="outline-2">
+<h2 id="org5ee2dfb">Ordine</h2>
+<div class="outline-text-2" id="text-org5ee2dfb">
+<p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" alt="20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" class="org-svg" /> è un <span class="underline">ordine</span> (o <span class="underline">ordine parziale</span>) se
+</p>
+<ul class="org-ul">
+<li><span class="underline">riflessivo</span>:  <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_36db1987d7d0788ddd0c361e93ecfcba80a65f24.svg" alt="20250203101604-ordine_36db1987d7d0788ddd0c361e93ecfcba80a65f24.svg" class="org-svg" />;</li>
+<li><span class="underline">transitivo</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_634b0224b7ad28233cda8686ae51e2029aaa4853.svg" alt="20250203101604-ordine_634b0224b7ad28233cda8686ae51e2029aaa4853.svg" class="org-svg" />;</li>
+<li><span class="underline">antisimmetrico</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_35708a2f1af666af9fd0bd7061116605d474c9e3.svg" alt="20250203101604-ordine_35708a2f1af666af9fd0bd7061116605d474c9e3.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Dunque un ordine è una <a href="20250202170607-classe_relazione_binaria.html#ID-406c6be1-9a6f-46cd-98a9-98681a035c87">relazione binaria</a> <a href="20250619161501-caratteristiche_delle_relazioni_binarie.html#ID-160a7fd6-4b53-4dc1-a7b7-03a6d4c79105">riflessiva</a>, transitiva e antisimmetrica.
+</p>
+</div>
+</div>
+<div id="outline-container-org05bb37d" class="outline-2">
+<h2 id="org05bb37d">Ordine stretto</h2>
+<div class="outline-text-2" id="text-org05bb37d">
+<p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" alt="20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" class="org-svg" /> è un <span class="underline">ordine stretto</span> se
+</p>
+<ul class="org-ul">
+<li><span class="underline">irriflessivo</span>:  <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_0116ab97e1c9443f08f991bde6d13afa0af8240f.svg" alt="20250203101604-ordine_0116ab97e1c9443f08f991bde6d13afa0af8240f.svg" class="org-svg" />;</li>
+<li><span class="underline">transitivo</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_634b0224b7ad28233cda8686ae51e2029aaa4853.svg" alt="20250203101604-ordine_634b0224b7ad28233cda8686ae51e2029aaa4853.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Dunque un ordine stretto è una relazione binaria irriflessiva, transitiva.
+</p>
+
+<p>
+Da questi segue:
+</p>
+<ul class="org-ul">
+<li><span class="underline">antisimmetrico</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_35708a2f1af666af9fd0bd7061116605d474c9e3.svg" alt="20250203101604-ordine_35708a2f1af666af9fd0bd7061116605d474c9e3.svg" class="org-svg" />.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org537d933" class="outline-2">
+<h2 id="org537d933">Ordine lineare</h2>
+<div class="outline-text-2" id="text-org537d933">
+<p>
+Un ordine, o ordine stretto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" alt="20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" class="org-svg" />, si dice <span class="underline">lineare</span> se:
+</p>
+<ul class="org-ul">
+<li><span class="underline">lineare</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_344522b39d8fe0f97fc2e9a3d5ad0c1247b79a94.svg" alt="20250203101604-ordine_344522b39d8fe0f97fc2e9a3d5ad0c1247b79a94.svg" class="org-svg" />.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8933fdc" class="outline-2">
+<h2 id="org8933fdc">Ordine denso</h2>
+<div class="outline-text-2" id="text-org8933fdc">
+<p>
+Un ordine, o ordine stretto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" alt="20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" class="org-svg" />, si dice <span class="underline">denso</span> se:
+</p>
+<ul class="org-ul">
+<li><span class="underline">non banale</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_ea469f16c69b4fccd07dc0ddf8220531334d1f8d.svg" alt="20250203101604-ordine_ea469f16c69b4fccd07dc0ddf8220531334d1f8d.svg" class="org-svg" /></li>
+<li><span class="underline">denso</span>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_84bc4cd988d31eafea83399ea002ca0427984588.svg" alt="20250203101604-ordine_84bc4cd988d31eafea83399ea002ca0427984588.svg" class="org-svg" /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2262725" class="outline-2">
+<h2 id="org2262725">Ordine senza punto finale</h2>
+<div class="outline-text-2" id="text-org2262725">
+<p>
+Un ordine, o ordine stretto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" alt="20250203101604-ordine_932e0a01ccc422e9080b66141414298f6cc829f5.svg" class="org-svg" />, si dice <span class="underline">senza punto finale</span> se:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_223e576145b43cfdb8f95eaf2f929d7683a8f720.svg" alt="20250203101604-ordine_223e576145b43cfdb8f95eaf2f929d7683a8f720.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org7b9a8f9" class="outline-2">
+<h2 id="org7b9a8f9">Teoria degli ordini stretti lineare</h2>
+<div class="outline-text-2" id="text-org7b9a8f9">
+<p>
+Si indica con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_97947723cfe483833a8803193d7044b09462aed3.svg" alt="20250203101604-ordine_97947723cfe483833a8803193d7044b09462aed3.svg" class="org-svg" /> la <a href="20250130114950-teoria_del_prim_ordine.html#ID-cb85cb82-d03d-4728-96ed-a514b7484a0d">teoria</a> degli ordini stretti, lineari.
+Questa è una <a href="20250131123128-teoria_soddisfacibile.html#ID-be61c813-229d-49bd-b437-983e08b198cf">teoria soddisfacibile</a>, in quanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_2a30c9e2ca8939e87c98a76af34c996f65df7292.svg" alt="20250203101604-ordine_2a30c9e2ca8939e87c98a76af34c996f65df7292.svg" class="org-svg" /> (vedi <a href="20250131122913-soddisfazione_di_una_formula.html#ID-db5e1eb3-3435-43b0-9570-9d52208653bd">Soddisfazione di una formula</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-org496ed47" class="outline-2">
+<h2 id="org496ed47">Teoria degli ordini lineari densi senza punto finale</h2>
+<div class="outline-text-2" id="text-org496ed47">
+<p>
+Si indica con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_a86beb44c2f8043b74d5025e4c25c9ac9a117ed1.svg" alt="20250203101604-ordine_a86beb44c2f8043b74d5025e4c25c9ac9a117ed1.svg" class="org-svg" /> la <a href="20250130114950-teoria_del_prim_ordine.html#ID-cb85cb82-d03d-4728-96ed-a514b7484a0d">teoria</a> degli ordini stretti, densi, lineari e senza punti finali.
+Questa è una <a href="20250131123128-teoria_soddisfacibile.html#ID-be61c813-229d-49bd-b437-983e08b198cf">teoria soddisfacibile</a>, in quanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203101604-ordine_69303a686553c48feefa88503330fef4e0759ba9.svg" alt="20250203101604-ordine_69303a686553c48feefa88503330fef4e0759ba9.svg" class="org-svg" /> (vedi <a href="20250131122913-soddisfazione_di_una_formula.html#ID-db5e1eb3-3435-43b0-9570-9d52208653bd">Soddisfazione di una formula</a>)
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

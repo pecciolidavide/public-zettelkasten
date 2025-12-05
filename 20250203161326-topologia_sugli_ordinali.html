@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Topologia sugli ordinali</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Topologia sugli ordinali</h1>
+<p>
+<b><b><span class="underline">NOTA</span>: quando si parla di <span class="underline">classi</span>, se ne parla nell&rsquo;ambito della <a href="20250130104245-morse_kelly_set_theory.html#ID-e0be2ce8-fb19-42f5-bbeb-ee803eefd747">Morse Kelly Set Theory</a>; quando si parla di insiemi, il discorso ha validità più generale.</b></b>
+</p>
+<div id="outline-container-org0f5e557" class="outline-2">
+<h2 id="org0f5e557">Ordinale</h2>
+<div class="outline-text-2" id="text-org0f5e557">
+<p>
+Ogni <a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e">ordinale</a> può essere visto come uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a>, con la <a href="20250620092953-order_topology.html#ID-764c6727-72b2-4590-9dd6-a5273d98d4ab">topologia indotta dall&rsquo;ordine totale</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org2683e75" class="outline-2">
+<h2 id="org2683e75">Classe degli ordinali</h2>
+<div class="outline-text-2" id="text-org2683e75">
+<p>
+Sia <a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_466ad8ea59ff7dfc6651cc6770e971ed221057b0.svg" alt="20250203161326-topologia_sugli_ordinali_466ad8ea59ff7dfc6651cc6770e971ed221057b0.svg" class="org-svg" /></a>. Una classe <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_2bc6add4cf374ffdb3786447e15bed313a312245.svg" alt="20250203161326-topologia_sugli_ordinali_2bc6add4cf374ffdb3786447e15bed313a312245.svg" class="org-svg" /> è detta <span class="underline">aperta</span> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" alt="20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" class="org-svg" /> se
+</p>
+<ul class="org-ul">
+<li><p>
+per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_8c397f6bb2ea1d30e6a4959c548bea9163b96785.svg" alt="20250203161326-topologia_sugli_ordinali_8c397f6bb2ea1d30e6a4959c548bea9163b96785.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_0c96bb23de0b10f206b8930907f51404054bc88a.svg" alt="20250203161326-topologia_sugli_ordinali_0c96bb23de0b10f206b8930907f51404054bc88a.svg" class="org-svg" /> esistono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_9322f49503880dee1bffc5bc49ac8b15dcbfc9a1.svg" alt="20250203161326-topologia_sugli_ordinali_9322f49503880dee1bffc5bc49ac8b15dcbfc9a1.svg" class="org-svg" /> tali che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_8b64556800fd71319b5dc7e31783ac4ed856af52.svg" alt="20250203161326-topologia_sugli_ordinali_8b64556800fd71319b5dc7e31783ac4ed856af52.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_b3b7a5de1d18150d0508efea6662f37bea9f5495.svg" alt="20250203161326-topologia_sugli_ordinali_b3b7a5de1d18150d0508efea6662f37bea9f5495.svg" class="org-svg" />;
+</p></li>
+<li><p>
+se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_0189ddb859609ec96fe9656513742211dd35de11.svg" alt="20250203161326-topologia_sugli_ordinali_0189ddb859609ec96fe9656513742211dd35de11.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_4d887fd879ce185c586674802d00c284e49a6bdc.svg" alt="20250203161326-topologia_sugli_ordinali_4d887fd879ce185c586674802d00c284e49a6bdc.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_5aa3776c7e018a4aaef37004ce3f9be30f66ffb9.svg" alt="20250203161326-topologia_sugli_ordinali_5aa3776c7e018a4aaef37004ce3f9be30f66ffb9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_5bb15b8941e4b620a92938f06289ba943b700aac.svg" alt="20250203161326-topologia_sugli_ordinali_5bb15b8941e4b620a92938f06289ba943b700aac.svg" class="org-svg" />.
+</p></li>
+</ul>
+
+<p>
+Una classe <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_c162929d31eb4aad1b64ae786e77a510ee584084.svg" alt="20250203161326-topologia_sugli_ordinali_c162929d31eb4aad1b64ae786e77a510ee584084.svg" class="org-svg" /> è detta <span class="underline">chiusa</span> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" alt="20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" class="org-svg" /> se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_4d41bd78c8a0d6d460edef59b8ba2dbdd399494d.svg" alt="20250203161326-topologia_sugli_ordinali_4d41bd78c8a0d6d460edef59b8ba2dbdd399494d.svg" class="org-svg" /> è aperto o, equivalentemente, se
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_e7c666c3f44178d7e24e6a290c235c3c0fb23af5.svg" alt="20250203161326-topologia_sugli_ordinali_e7c666c3f44178d7e24e6a290c235c3c0fb23af5.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" alt="20250203161326-topologia_sugli_ordinali_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" class="org-svg" /> e tutti <a href="20250203161132-ordinale_limite.html#ID-0f1b17a4-8c23-4952-9c2f-b50c705078ab">ordinali successori</a> sono <a href="20250403131856-punto_isolato.html#ID-0140c3b7-d824-479f-ae94-d0a59da89e96">punti isolati</a> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" alt="20250203161326-topologia_sugli_ordinali_6d9b98ab07c366d5602c7ccf755b9c64f5eca0ab.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-orgecb6d4f" class="outline-2">
+<h2 id="orgecb6d4f">Funzioni continue tra classi di ordinali</h2>
+<div class="outline-text-2" id="text-orgecb6d4f">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_8a951a4ed4874fff4bd11e00a0a35c46e6c2a1ae.svg" alt="20250203161326-topologia_sugli_ordinali_8a951a4ed4874fff4bd11e00a0a35c46e6c2a1ae.svg" class="org-svg" /> una <a href="20250202170607-classe_relazione_binaria.html#ID-3d32a0c5-4b10-4170-947d-d18578917ac4">classe funzione</a>, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_3f31233bca8c2d75c9c64aa1c60e5229e47cfa10.svg" alt="20250203161326-topologia_sugli_ordinali_3f31233bca8c2d75c9c64aa1c60e5229e47cfa10.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li>Poiché tutti gli ordinali successori sono punti isolati, la continuità lì non è un problema.</li>
+<li>Si supponga invece che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_c67cf1426501695596485c5178bb8d55ae00734f.svg" alt="20250203161326-topologia_sugli_ordinali_c67cf1426501695596485c5178bb8d55ae00734f.svg" class="org-svg" /> sia limite.
+<ul class="org-ul">
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_3dd076a299498cebbdcb8c9b3cac1f92c9975986.svg" alt="20250203161326-topologia_sugli_ordinali_3dd076a299498cebbdcb8c9b3cac1f92c9975986.svg" class="org-svg" /> è un ordinale successore, allora sarà definitivamente costante prima <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250203161326-topologia_sugli_ordinali_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" />.</li>
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_3dd076a299498cebbdcb8c9b3cac1f92c9975986.svg" alt="20250203161326-topologia_sugli_ordinali_3dd076a299498cebbdcb8c9b3cac1f92c9975986.svg" class="org-svg" /> è limite, allora per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_7e2c135a6f1451dc6dde92245da2bf5a4763d48f.svg" alt="20250203161326-topologia_sugli_ordinali_7e2c135a6f1451dc6dde92245da2bf5a4763d48f.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_4f16d4413f424392ad0b1a62fc74387238588052.svg" alt="20250203161326-topologia_sugli_ordinali_4f16d4413f424392ad0b1a62fc74387238588052.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_18a0212a60ef0fb354ac374fb0eefa43075df8e6.svg" alt="20250203161326-topologia_sugli_ordinali_18a0212a60ef0fb354ac374fb0eefa43075df8e6.svg" class="org-svg" /> è mappato da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_d324c297b7c6bd0376dbb4fe905d613be42dc14e.svg" alt="20250203161326-topologia_sugli_ordinali_d324c297b7c6bd0376dbb4fe905d613be42dc14e.svg" class="org-svg" />.</li>
+</ul></li>
+</ul>
+
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_8a951a4ed4874fff4bd11e00a0a35c46e6c2a1ae.svg" alt="20250203161326-topologia_sugli_ordinali_8a951a4ed4874fff4bd11e00a0a35c46e6c2a1ae.svg" class="org-svg" /> è monotona, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è continua se e solo se per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_f5279602d9e5ced991e7142be81dd7af20dfdc90.svg" alt="20250203161326-topologia_sugli_ordinali_f5279602d9e5ced991e7142be81dd7af20dfdc90.svg" class="org-svg" /> limite:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_e7d6db7a4ddc7bf458e6e43a2212d34e6ad2095d.svg" alt="20250203161326-topologia_sugli_ordinali_e7d6db7a4ddc7bf458e6e43a2212d34e6ad2095d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Inoltre, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250203161326-topologia_sugli_ordinali_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è crescente allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250203161326-topologia_sugli_ordinali_ab00698315c94748eb9d3af3867930291c7fdb80.svg" alt="20250203161326-topologia_sugli_ordinali_ab00698315c94748eb9d3af3867930291c7fdb80.svg" class="org-svg" /> è un ordinale limite.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ogni chiuso di uno spazio metrico secondo numerabile ammette un ricoprimento numerabile di diametro arbitrariamente piccolo</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Ogni chiuso di uno spazio metrico secondo numerabile ammette un ricoprimento numerabile di diametro arbitrariamente piccolo</h1>
+<div id="outline-container-org8650f12" class="outline-2">
+<h2 id="org8650f12">Proposizione</h2>
+<div class="outline-text-2" id="text-org8650f12">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è uno <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">spazio metrico</a> <a href="20250111142303-spazio_topologico_a_base_numerabile.html#ID-95baddc2-1fe1-405e-8194-95627a964af7">secondo numerabile</a>, allora per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a> e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a6f39e9ada5a87d5366e36e1e5788d922d9ae94f.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a6f39e9ada5a87d5366e36e1e5788d922d9ae94f.svg" class="org-svg" />, esiste un <a href="20250103164252-ricoprimento.html#ID-bd4ef9e9-48ef-441e-a244-b9440823313b">ricoprimento</a> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a> <a href="20250111143651-insieme_numerabile.html#ID-43e8fa42-e06f-40fa-871f-cbc9b2387484">numerabile</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" class="org-svg" /> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_483af6fb9744c3086c249c1eed0d4c2fc5b92ea1.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_483af6fb9744c3086c249c1eed0d4c2fc5b92ea1.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_71e9d6d3c533cbb60218db1c3c2f0867c2b7fcf1.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_71e9d6d3c533cbb60218db1c3c2f0867c2b7fcf1.svg" class="org-svg" />, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org33b3e51" class="outline-3">
+<h3 id="org33b3e51">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org33b3e51">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" class="org-svg" /> lo <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">spazio metrico</a> in considerazione. Si denotino con
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3a5e1de9cb593d575cd807d06fae88449a00dc02.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3a5e1de9cb593d575cd807d06fae88449a00dc02.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è secondo numerabile <a href="20250331095811-spazio_topologico_secondo_numerabile_implica_separabile.html#ID-e4c3b1bb-b1ac-4652-b172-d7092ef0d46e">allora</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è <a href="20250301192908-spazio_topologico_separabile.html#ID-b58b6c0d-2aab-4f3b-9550-0f96d62de20f">separabile</a>, e <a href="20250301192908-spazio_topologico_separabile.html#ID-c82eef1c-b75f-4427-a26b-74f40da2d9d7">pertanto</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> è <a href="20250301192908-spazio_topologico_separabile.html#ID-b58b6c0d-2aab-4f3b-9550-0f96d62de20f">separabile</a>. Sia quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> sottoinsieme <a href="20250301193045-sottoinsieme_denso.html#ID-bdd1abc5-a371-4507-a7ca-ee9709a0ea55">denso</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" class="org-svg" />, numerabile. Allora, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4954f8887baf172ddd4b561ec3d239e0619b3202.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4954f8887baf172ddd4b561ec3d239e0619b3202.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8259195650c3c4d7eb9d7c79dfc667dcfc52301f.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8259195650c3c4d7eb9d7c79dfc667dcfc52301f.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a78b68224b59674700a821e0d2bd4d10bdefea49.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a78b68224b59674700a821e0d2bd4d10bdefea49.svg" class="org-svg" />, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" class="org-svg" /> aperto <a href="20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.html#ID-96081881-2377-4665-9923-1d0280f8aed4">e quindi</a> intorno di ogni suo punto. In particolare, si richiede che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_f9b670ab7e744ad2f90804601d8ea94ca63e4b27.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_f9b670ab7e744ad2f90804601d8ea94ca63e4b27.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si consideri quindi:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_80759a842ba63a893f692de94785b893d311abc7.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_80759a842ba63a893f692de94785b893d311abc7.svg" class="org-svg" />
+</span>
+</div>
+<ul class="org-ul">
+<li><p>
+Sia ora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4954f8887baf172ddd4b561ec3d239e0619b3202.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4954f8887baf172ddd4b561ec3d239e0619b3202.svg" class="org-svg" /> fissato, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_26810110df653de18154632e5384442dc56c7ebf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_26810110df653de18154632e5384442dc56c7ebf.svg" class="org-svg" /> <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">convergente</a> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" />. Allora, siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8db0869d56e5127302a9ad77ea6ded693a70283e.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8db0869d56e5127302a9ad77ea6ded693a70283e.svg" class="org-svg" /> <a href="20250304141512-proprieta_vere_definitivamente.html#ID-4fbb39d8-0d77-4a4e-a3dd-50e2187cb16e">definitivamente</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_01f79c9d82351697c8372d8e66eee4f7847ef221.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_01f79c9d82351697c8372d8e66eee4f7847ef221.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_e9afe0780072e2093d231a25faa7e71c603dacec.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_e9afe0780072e2093d231a25faa7e71c603dacec.svg" class="org-svg" />. Quindi, per la <a href="20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.html#ID-883b01f5-2009-499b-9217-2e7cb088d8d2">caratterizzazione della chiusura per successioni</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd042acb043e08e1746bb0be58ee2178347bad83.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_cd042acb043e08e1746bb0be58ee2178347bad83.svg" class="org-svg" />.
+</p></li>
+<li><p>
+Infine, si ha che <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-442d8883-3956-46c1-be9e-478b754c2645">l&rsquo;unione</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_470e6aa8d2db0014b22cea9f6c8792e487fd8837.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_470e6aa8d2db0014b22cea9f6c8792e487fd8837.svg" class="org-svg" />. Infatti, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8a74d324d10a1681ee064851bd3065661b886247.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_8a74d324d10a1681ee064851bd3065661b886247.svg" class="org-svg" /> allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6537358317840d49318019c82265dbaa9fd89c59.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6537358317840d49318019c82265dbaa9fd89c59.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_e6ecefaff008e948f1981cc75d3e548e15c43eb0.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_e6ecefaff008e948f1981cc75d3e548e15c43eb0.svg" class="org-svg" />. In particolare, esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_25a29f96c9dd5b214dc779cf8a610d0aa0d944fd.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_25a29f96c9dd5b214dc779cf8a610d0aa0d944fd.svg" class="org-svg" /> (poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> è denso in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" class="org-svg" />). Si ha quindi che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a4f1c2b6b383b219ec7fe9bfa994db4eca61cf15.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a4f1c2b6b383b219ec7fe9bfa994db4eca61cf15.svg" class="org-svg" />: infatti, se per assurdo esistesse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3b8b29c95681d7b07a27d1a1940f31106294b07b.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3b8b29c95681d7b07a27d1a1940f31106294b07b.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ae7eba43d7f94c2bfb7d2df62eeea97283d03867.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ae7eba43d7f94c2bfb7d2df62eeea97283d03867.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_21621f2e9d77fc045b8c3ee340b757baaeacfdcf.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_21621f2e9d77fc045b8c3ee340b757baaeacfdcf.svg" class="org-svg" />. Assurdo.
+</p>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_573cdb64504869a9d3fa59753e8fa6b8c2294a66.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_573cdb64504869a9d3fa59753e8fa6b8c2294a66.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_b2a52cd85c5649dd73e435cde9bd870f81dc86eb.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_b2a52cd85c5649dd73e435cde9bd870f81dc86eb.svg" class="org-svg" />, e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3d335bf3484a707dec55ed3067213151bcceefc9.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3d335bf3484a707dec55ed3067213151bcceefc9.svg" class="org-svg" /> per massimalità. Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_68d3b3c2e12a590883c56de21fbaab2d2059485f.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_68d3b3c2e12a590883c56de21fbaab2d2059485f.svg" class="org-svg" />, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6579d72a099309c20b7a5c6784242369ce8d3a25.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6579d72a099309c20b7a5c6784242369ce8d3a25.svg" class="org-svg" />.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge5b3dd1" class="outline-2">
+<h2 id="orge5b3dd1">NON Proposizione</h2>
+<div class="outline-text-2" id="text-orge5b3dd1">
+<p>
+If <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" class="org-svg" /> is a <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">metric space</a>, then for every <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">open</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" class="org-svg" /> and every <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_85802d14e6955ea6bd064bb63d3f68f8d03297cc.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_85802d14e6955ea6bd064bb63d3f68f8d03297cc.svg" class="org-svg" /> there is a <a href="20250111143651-insieme_numerabile.html#ID-43e8fa42-e06f-40fa-871f-cbc9b2387484">countable</a> <a href="20250103164252-ricoprimento.html#ID-bd4ef9e9-48ef-441e-a244-b9440823313b">covering</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_45e0ae09218341afc15cd57d2a02862d6f922d9b.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_45e0ae09218341afc15cd57d2a02862d6f922d9b.svg" class="org-svg" /> of <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" class="org-svg" /> such that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_d23029349a01ce6259d7006fc9f0165ecfaff522.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_d23029349a01ce6259d7006fc9f0165ecfaff522.svg" class="org-svg" /> (vedi <a href="20250103144944-chiusura_topologica.html#ID-c2639f9f-22f5-4616-af4b-9bfb2c146b82">Chiusura Topologica</a>) and <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_df231cc1286b8e3f048632a481a32b6a86bee6c3.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_df231cc1286b8e3f048632a481a32b6a86bee6c3.svg" class="org-svg" /> (vedi <a href="20250327131547-diametro_di_un_insieme.html#ID-8bff569c-e3f5-4383-b8bf-b39176ef6f57">Diametro di un insieme</a>), for all <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ce8161a80d934af363a78a6f979aab91c60996f4.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ce8161a80d934af363a78a6f979aab91c60996f4.svg" class="org-svg" />
+</p>
+</div>
+<div id="outline-container-org79b7a9e" class="outline-3">
+<h3 id="org79b7a9e">Controesempio</h3>
+<div class="outline-text-3" id="text-org79b7a9e">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4dfdedc6c2ef8a019678a7be0c03ab9db767f1bd.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4dfdedc6c2ef8a019678a7be0c03ab9db767f1bd.svg" class="org-svg" />, dotato della <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">distanza</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_47def21fdc3bea32598ed0bad7d6a57b55b0c58a.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_47def21fdc3bea32598ed0bad7d6a57b55b0c58a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+La funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" /> è realmente una distanza: per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_0b5342fed887e296061c2349773364f16b0c9b1f.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_0b5342fed887e296061c2349773364f16b0c9b1f.svg" class="org-svg" />
+</p>
+<ol class="org-ol">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6969ed45df59814a480f527e1fd4e9e03ee586b7.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6969ed45df59814a480f527e1fd4e9e03ee586b7.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_7355fdd39a650f8ce5308928fd60dd2b9f8d8c60.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_7355fdd39a650f8ce5308928fd60dd2b9f8d8c60.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_9dc3d49d15fa2bb92b4b75710e189e1a36fe684b.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_9dc3d49d15fa2bb92b4b75710e189e1a36fe684b.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_391c8a75446422562f5b58999002477f8f57e8c9.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_391c8a75446422562f5b58999002477f8f57e8c9.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_28e80a73249b6b64cda7b9cc58721eb70c634395.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_28e80a73249b6b64cda7b9cc58721eb70c634395.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_84a94bca17ad30713f26d7b61d8cabee240f7310.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_84a94bca17ad30713f26d7b61d8cabee240f7310.svg" class="org-svg" />;</li>
+<li><p>
+la <a href="20250306115949-disuguaglianza_triangolare.html#ID-1c61099e-343b-4e65-91b2-963b67be3f38">disuguaglianza triangolare</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ee4c1fb8e4da36a0e013272c873dc72c0bcc26c8.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ee4c1fb8e4da36a0e013272c873dc72c0bcc26c8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+per casi:
+</p>
+<ul class="org-ul">
+<li><p>
+se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_bf7092c0a402d1c42b63814632045ad43aa3f4cd.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_bf7092c0a402d1c42b63814632045ad43aa3f4cd.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_53c8ffcf679fb3d16fcd57f0024032303cf9a439.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_53c8ffcf679fb3d16fcd57f0024032303cf9a439.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_baff5c667452e155527248acefaeffb50fb139c7.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_baff5c667452e155527248acefaeffb50fb139c7.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ddbe1e5e2939147bc38b3381c90a9351ba3067c7.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ddbe1e5e2939147bc38b3381c90a9351ba3067c7.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_dc25e10c84e2eed36033a4366f209167943b9b63.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_dc25e10c84e2eed36033a4366f209167943b9b63.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi si ha la tesi;
+</p></li>
+<li><p>
+se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3b9c7c7d2dd83308227eee7eaf97e60a82959af1.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3b9c7c7d2dd83308227eee7eaf97e60a82959af1.svg" class="org-svg" /> oppure <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_bc630f95ede8c4232cc53778c931a7f91e16cf20.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_bc630f95ede8c4232cc53778c931a7f91e16cf20.svg" class="org-svg" /> (solo il primo per simmetria):
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_fdb634b1ee594cf17414298b6439f49ffaf3c59a.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_fdb634b1ee594cf17414298b6439f49ffaf3c59a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6d1fede2e4fa1ce508988c7f2963870c1a16f7ee.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6d1fede2e4fa1ce508988c7f2963870c1a16f7ee.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ee133afa2e4bdb328baff634633505a34f09f153.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ee133afa2e4bdb328baff634633505a34f09f153.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_28cb1b072ab6cfbfa74acefdc5528813d032d96e.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_28cb1b072ab6cfbfa74acefdc5528813d032d96e.svg" class="org-svg" />
+</span>
+</div></li>
+</ul></li>
+</ol>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_d7a99cec06ff9562ad63e2bae11d8c1a62d803e9.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_d7a99cec06ff9562ad63e2bae11d8c1a62d803e9.svg" class="org-svg" /> è uno <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">spazio metrico</a>.
+</p>
+
+<p>
+L&rsquo;aperto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a462bb9e42c0b88c4be896810d1e8f75762b3915.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a462bb9e42c0b88c4be896810d1e8f75762b3915.svg" class="org-svg" /> non ammette alcun <a href="20250103164252-ricoprimento.html#ID-bd4ef9e9-48ef-441e-a244-b9440823313b">ricoprimento</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" class="org-svg" /> tale che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_dfb9ed63b21eee002f8686cafebc94cd2f34dcae.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_dfb9ed63b21eee002f8686cafebc94cd2f34dcae.svg" class="org-svg" />. Si supponga per assurdo che esista.
+</p>
+
+<p>
+Fissato <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec28c075957d095ac339674aacabbe13358f2de0.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ec28c075957d095ac339674aacabbe13358f2de0.svg" class="org-svg" />: per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3ea09568985664c6f55b4678735bdaaf5b6cd4ef.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_3ea09568985664c6f55b4678735bdaaf5b6cd4ef.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6926395f943c02d6ea089d979dadc94b30d07429.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_6926395f943c02d6ea089d979dadc94b30d07429.svg" class="org-svg" />, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_9dc3d49d15fa2bb92b4b75710e189e1a36fe684b.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_9dc3d49d15fa2bb92b4b75710e189e1a36fe684b.svg" class="org-svg" />. Pertanto esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_5f7323746cdd8ed460fb5882294688360f87a4e2.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_5f7323746cdd8ed460fb5882294688360f87a4e2.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ebe96effe4dab5b0f92e8f02f47bbf74162c92b2.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_ebe96effe4dab5b0f92e8f02f47bbf74162c92b2.svg" class="org-svg" />.
+</p>
+
+<p>
+Si ha quindi che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a4378550041f35a9139eb461ed46cb007a7e89b6.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_a4378550041f35a9139eb461ed46cb007a7e89b6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" alt="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo_4904f9f42eec080932ef4932de647142b7c8d5be.svg" class="org-svg" /> non è un ricoprimento. Assurdo.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

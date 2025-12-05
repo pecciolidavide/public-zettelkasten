@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tipo - Teoria dei Modelli</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Tipo - Teoria dei Modelli</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" alt="20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" class="org-svg" /> un <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">linguaggio del prim&rsquo;ordine</a>. Si utilizzerà la <a href="20250612143636-notazione_teoria_dei_modelli.html#ID-23ca6fda-d271-42fe-ad95-33bf3184a5c8">Notazione TEORIA DEI MODELLI</a>.
+</p>
+
+<p>
+Un <b>tipo</b> è un insieme di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" alt="20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" class="org-svg" />-<a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">formule</a>. Si denota con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" />, dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20250212164424-tipo_teoria_dei_modelli_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" /> indicano le <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">variabili</a> che potrebbero <a href="20250131103429-variabile_libera_di_una_formula.html#ID-5742aec3-1d2b-4c5e-8b7b-2f91c1a41e08">occorrere</a> tra le formule.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /> una <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" alt="20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" class="org-svg" />-<a href="20250131103035-struttura_del_prim_ordine.html#ID-fe44aef7-3044-456b-8ca8-71203d50a1e4">struttura</a>.
+</p>
+<div id="outline-container-org02d7ec2" class="outline-2">
+<h2 id="org02d7ec2">Soddisfazione di un tipo</h2>
+<div class="outline-text-2" id="text-org02d7ec2">
+<p>
+Se per qualche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e823234d5210e667c02a7afa5b17c035e94f7dfd.svg" alt="20250212164424-tipo_teoria_dei_modelli_e823234d5210e667c02a7afa5b17c035e94f7dfd.svg" class="org-svg" /> si ha che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_f1419651075817028019cde392bba7c06cb5e225.svg" alt="20250212164424-tipo_teoria_dei_modelli_f1419651075817028019cde392bba7c06cb5e225.svg" class="org-svg" /> vale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_9417cbb4629621453c0446f0170ad5e2e22b7209.svg" alt="20250212164424-tipo_teoria_dei_modelli_9417cbb4629621453c0446f0170ad5e2e22b7209.svg" class="org-svg" /> (vedi <a href="20250131122913-soddisfazione_di_una_formula.html#ID-db5e1eb3-3435-43b0-9570-9d52208653bd">Soddisfazione di una formula</a>) si scive una delle seguenti:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_6fe6d446e9d87d8acfb80b449d683f3bfc905a11.svg" alt="20250212164424-tipo_teoria_dei_modelli_6fe6d446e9d87d8acfb80b449d683f3bfc905a11.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Diremo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" alt="20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" class="org-svg" /> è una <span class="underline">soluzione</span> o una <span class="underline">realizzazione</span> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-orgad521f5" class="outline-2">
+<h2 id="orgad521f5">Tipo soddisfacibile</h2>
+<div class="outline-text-2" id="text-orgad521f5">
+<ul class="org-ul">
+<li>Diremo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> è <span class="underline">soddisfacibile in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /></span> (consistente in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" />) se ha una soluzione in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" />.</li>
+<li>Diremo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> è <span class="underline">soddisfacibile</span> (consistente) se è realizzato per qualche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" alt="20250212164424-tipo_teoria_dei_modelli_c140c2942583cac605b981da2fc71914b9953178.svg" class="org-svg" />-struttura</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org15ff5c0" class="outline-2">
+<h2 id="org15ff5c0">Tipo finitamente soddisfacibile</h2>
+<div class="outline-text-2" id="text-org15ff5c0">
+<ul class="org-ul">
+<li>Diremo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> è <span class="underline">finitamente soddisfacibile in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /></span> (o finitamente consistente) se tutti i sottoinsiemi finiti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c63a9cf9db8c5ef01fc9f8e20fe726fb75b275aa.svg" alt="20250212164424-tipo_teoria_dei_modelli_c63a9cf9db8c5ef01fc9f8e20fe726fb75b275aa.svg" class="org-svg" /> sono soddisfacibili in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /> (o, equivalentemente, se la congiunzione arbitraria di formule di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> sono <a href="20250131123540-formula_soddisfacibile.html#ID-dcf6a77c-3757-49ee-89e9-0fbb0e698c9b">soddisfacibili in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /></a>).</li>
+
+<li>Diremo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> è <span class="underline">finitamente soddisfacibile</span> se tutti i sottoinsiemi finiti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c63a9cf9db8c5ef01fc9f8e20fe726fb75b275aa.svg" alt="20250212164424-tipo_teoria_dei_modelli_c63a9cf9db8c5ef01fc9f8e20fe726fb75b275aa.svg" class="org-svg" /> sono soddisfacibili.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org677830b" class="outline-2">
+<h2 id="org677830b">Tipo di un elemento di una struttura</h2>
+<div class="outline-text-2" id="text-org677830b">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_66cc99954fe5e4c338ac54854b0010a09e561d47.svg" alt="20250212164424-tipo_teoria_dei_modelli_66cc99954fe5e4c338ac54854b0010a09e561d47.svg" class="org-svg" /> per qualche <a href="20250203161341-cardinali.html#ID-16c332be-31c2-4e81-b016-6fbab288954a">cardinale</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_a6b197542683edd20de2d648c3326cceef5cd9bd.svg" alt="20250212164424-tipo_teoria_dei_modelli_a6b197542683edd20de2d648c3326cceef5cd9bd.svg" class="org-svg" />, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20250212164424-tipo_teoria_dei_modelli_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" /> una variabile di lunghezza <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_a6b197542683edd20de2d648c3326cceef5cd9bd.svg" alt="20250212164424-tipo_teoria_dei_modelli_a6b197542683edd20de2d648c3326cceef5cd9bd.svg" class="org-svg" />.
+</p>
+
+<p>
+Si definisce il <span class="underline">tipo di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" alt="20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /></span> come
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_550bb7f9f17b463499711ae14e6082c85ddba291.svg" alt="20250212164424-tipo_teoria_dei_modelli_550bb7f9f17b463499711ae14e6082c85ddba291.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(vedi <a href="20250131122913-soddisfazione_di_una_formula.html#ID-db5e1eb3-3435-43b0-9570-9d52208653bd">Soddisfazione di una formula</a>)
+</p>
+
+<p>
+Generalizzando, si scrive <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_1e84d91b3051dff662817f309879dd907b2a87de.svg" alt="20250212164424-tipo_teoria_dei_modelli_1e84d91b3051dff662817f309879dd907b2a87de.svg" class="org-svg" />, per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_7ee852d4f5e66d3f2bd051da5fcaef02329dda35.svg" alt="20250212164424-tipo_teoria_dei_modelli_7ee852d4f5e66d3f2bd051da5fcaef02329dda35.svg" class="org-svg" /> come
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_4b334e97e3b88527dae3df9407fe3912223f9ac7.svg" alt="20250212164424-tipo_teoria_dei_modelli_4b334e97e3b88527dae3df9407fe3912223f9ac7.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" alt="20250212164424-tipo_teoria_dei_modelli_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" class="org-svg" /> è un insieme di formule (chiuso per sostituzione di variabili) si definisce il <span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" alt="20250212164424-tipo_teoria_dei_modelli_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" class="org-svg" />-tipo di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" alt="20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" /></span> come
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_7ade174cea52c164af848b7b30594f722218e352.svg" alt="20250212164424-tipo_teoria_dei_modelli_7ade174cea52c164af848b7b30594f722218e352.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org7438b8b" class="outline-3">
+<h3 id="org7438b8b">Tuple elementarmente equivalenti su un insieme di parametri</h3>
+<div class="outline-text-3" id="text-org7438b8b">
+<div class="definizione" id="org4a81491">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_151acfa9cba7c80b2cb2f4c820dae9258690c27b.svg" alt="20250212164424-tipo_teoria_dei_modelli_151acfa9cba7c80b2cb2f4c820dae9258690c27b.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_7ee852d4f5e66d3f2bd051da5fcaef02329dda35.svg" alt="20250212164424-tipo_teoria_dei_modelli_7ee852d4f5e66d3f2bd051da5fcaef02329dda35.svg" class="org-svg" />, si scrive
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_a043f397ff05920b7354bde32e145a2ef0261463.svg" alt="20250212164424-tipo_teoria_dei_modelli_a043f397ff05920b7354bde32e145a2ef0261463.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(e si dice che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" alt="20250212164424-tipo_teoria_dei_modelli_06c9031652e24b78771d41b0d940d2229b309054.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" alt="20250212164424-tipo_teoria_dei_modelli_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" class="org-svg" /> sono equivalenti su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250212164424-tipo_teoria_dei_modelli_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" />) se
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_61ace63f3e135500efa01a752dee5fd98e915805.svg" alt="20250212164424-tipo_teoria_dei_modelli_61ace63f3e135500efa01a752dee5fd98e915805.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org223a1c9" class="outline-2">
+<h2 id="org223a1c9">Insieme definito da un tipo</h2>
+<div class="outline-text-2" id="text-org223a1c9">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" alt="20250212164424-tipo_teoria_dei_modelli_e472a4e66b1cc404db1803294449ba12fbd540a8.svg" class="org-svg" /> un tipo, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_b9bb5089e436fce1d55e9a33136c54d7f011c177.svg" alt="20250212164424-tipo_teoria_dei_modelli_b9bb5089e436fce1d55e9a33136c54d7f011c177.svg" class="org-svg" />.
+</p>
+
+<p>
+L&rsquo;insieme definito da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" alt="20250212164424-tipo_teoria_dei_modelli_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250212164424-tipo_teoria_dei_modelli_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" />, denotato con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_8e93b6a00e9c0196179be6fdef3f93a5fa691872.svg" alt="20250212164424-tipo_teoria_dei_modelli_8e93b6a00e9c0196179be6fdef3f93a5fa691872.svg" class="org-svg" /> è
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_c7f866a6e7103c87df777bd72342a1fd98e9500a.svg" alt="20250212164424-tipo_teoria_dei_modelli_c7f866a6e7103c87df777bd72342a1fd98e9500a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_2c03bdcfafaf0e6bb6d8f5912bb5b22855889543.svg" alt="20250212164424-tipo_teoria_dei_modelli_2c03bdcfafaf0e6bb6d8f5912bb5b22855889543.svg" class="org-svg" /> è l&rsquo;<a href="20250131122913-soddisfazione_di_una_formula.html#ID-d292fbf8-e1c9-421b-99fd-30a642f5d9d5">insieme definito</a> da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_0f2bb9dca9f7659731468a30c475b34954ddec4b.svg" alt="20250212164424-tipo_teoria_dei_modelli_0f2bb9dca9f7659731468a30c475b34954ddec4b.svg" class="org-svg" />.
+</p>
+
+<p>
+L&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250212164424-tipo_teoria_dei_modelli_8e93b6a00e9c0196179be6fdef3f93a5fa691872.svg" alt="20250212164424-tipo_teoria_dei_modelli_8e93b6a00e9c0196179be6fdef3f93a5fa691872.svg" class="org-svg" /> viene detto <span class="underline">tipo-definibile</span>.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

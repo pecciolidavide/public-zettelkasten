@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-orgcf1ee6c" class="outline-2">
+<h2 id="orgcf1ee6c">Teorema di Hales-Jewett</h2>
+<div class="outline-text-2" id="text-orgcf1ee6c">
+<div class="thm" id="org62e5b4d">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_2eedfd2b92de17547cf1255a5a34d809054e1b24.svg" alt="20251111145841-teorema_di_hales_jewett_2eedfd2b92de17547cf1255a5a34d809054e1b24.svg" class="org-svg" /> un <a href="20251104163738-semigruppo.html#ID-fad7de1d-7671-493a-a1ee-7d7cb1eaa75d">semigruppo</a> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_fd3beca66606c29ae71fc968fff0a0c996736e68.svg" alt="20251111145841-teorema_di_hales_jewett_fd3beca66606c29ae71fc968fff0a0c996736e68.svg" class="org-svg" /> un sotto-semigruppo tale che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_302c4e49dcaf5fc355c244d093751203ec9a5d4a.svg" alt="20251111145841-teorema_di_hales_jewett_302c4e49dcaf5fc355c244d093751203ec9a5d4a.svg" class="org-svg" /> si ha <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_dfcb638b19f311d63c44261205bd85de37b39735.svg" alt="20251111145841-teorema_di_hales_jewett_dfcb638b19f311d63c44261205bd85de37b39735.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_17cba1037bfad27dac51c24e7c42168cfef6ef26.svg" alt="20251111145841-teorema_di_hales_jewett_17cba1037bfad27dac51c24e7c42168cfef6ef26.svg" class="org-svg" /><sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+</p>
+
+<p>
+Dato <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_bc437368385ec2572edf2cbed83b6adc530ff959.svg" alt="20251111145841-teorema_di_hales_jewett_bc437368385ec2572edf2cbed83b6adc530ff959.svg" class="org-svg" /> sia<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_32a6bf6cf38e86326cfddfb43e2a8ebc6755f7cf.svg" alt="20251111145841-teorema_di_hales_jewett_32a6bf6cf38e86326cfddfb43e2a8ebc6755f7cf.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per ogni <a href="20251111150142-colorazione.html#ID-7c110443-571f-407a-8a10-26884e509093">colorazione</a> finita di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20251111145841-teorema_di_hales_jewett_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_02cd5d215428a36d8135c0c4876ef5ec0bedce25.svg" alt="20251111145841-teorema_di_hales_jewett_02cd5d215428a36d8135c0c4876ef5ec0bedce25.svg" class="org-svg" /> tale che
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_ddf05b790b43aba4d2c033228df4cfadbfe81ba5.svg" alt="20251111145841-teorema_di_hales_jewett_ddf05b790b43aba4d2c033228df4cfadbfe81ba5.svg" class="org-svg" />
+è <a href="20251111150142-colorazione.html#ID-f1a17e06-91d4-4f47-93ba-b7e94aaa0a07">monocromatico</a>.
+</p>
+
+</div>
+
+<p>
+Una dimostrazione di questo può essere prodotta utilizzando gli strumenti della <a href="20250612143636-notazione_teoria_dei_modelli.html#ID-23ca6fda-d271-42fe-ad95-33bf3184a5c8">Teoria dei Modelli</a>, sfruttando il <a href="20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.html#ID-cd8dd88d-eb71-40cd-9cc5-8eda6bfffe50">Semigruppo di Ellis</a>. Se ne lascia qui una traccia:
+</p>
+
+<div class="proof" id="orgb0a560c">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_dea334a98d9f8c257c8e93c249c2e0052482c1c0.svg" alt="20251111145841-teorema_di_hales_jewett_dea334a98d9f8c257c8e93c249c2e0052482c1c0.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_b35c3a7da579b0b66e1a7e7758a1e7ab327aecb7.svg" alt="20251111145841-teorema_di_hales_jewett_b35c3a7da579b0b66e1a7e7758a1e7ab327aecb7.svg" class="org-svg" /> <a href="20250617102733-modello_mostro.html#ID-3f826ca0-43fe-4339-bc2d-798e9422cffd">modello mostro</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_0fc2e7fc656cd109fde7a6c24006967dcdc5fc26.svg" alt="20251111145841-teorema_di_hales_jewett_0fc2e7fc656cd109fde7a6c24006967dcdc5fc26.svg" class="org-svg" />, dove
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_b759e572d071b91492c0fde749d1f848e2b15b24.svg" alt="20251111145841-teorema_di_hales_jewett_b759e572d071b91492c0fde749d1f848e2b15b24.svg" class="org-svg" />
+</span>
+</div>
+<ul class="org-ul">
+<li>Dal momento che la proprietà <i>nice</i> è esprimibile al prim&rsquo;ordine, anche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_8729930c1650d62a8c18cfe82f0bbc170b907718.svg" alt="20251111145841-teorema_di_hales_jewett_8729930c1650d62a8c18cfe82f0bbc170b907718.svg" class="org-svg" /> è <i>nice</i>. Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_94a725084e07689047962e4f0140a7b33dcdccee.svg" alt="20251111145841-teorema_di_hales_jewett_94a725084e07689047962e4f0140a7b33dcdccee.svg" class="org-svg" /> è ideale sinistro.</li>
+<li>Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_64cbc65ea50be2ae17581ebabe64c00d716e957b.svg" alt="20251111145841-teorema_di_hales_jewett_64cbc65ea50be2ae17581ebabe64c00d716e957b.svg" class="org-svg" /> ideale sinistro <a href="20250203102516-massimo_e_minimo.html#ID-2ca0b3d3-dc69-4457-87b8-7c2ccec6c4d3">minimale</a> <a href="20250212164424-tipo_teoria_dei_modelli.html#ID-118133d2-9d98-4674-813a-74d9718bb8a7">tipo-definibile</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_baee1c2cfd5e452cd9cb99a0a9a7f3c37c8e37ea.svg" alt="20251111145841-teorema_di_hales_jewett_baee1c2cfd5e452cd9cb99a0a9a7f3c37c8e37ea.svg" class="org-svg" /> ideale sinistro di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" alt="20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" class="org-svg" /> minimale tipo-definibile.</li>
+<li>Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_7d65f12370ed0d8b840f552642998abeb3c169e0.svg" alt="20251111145841-teorema_di_hales_jewett_7d65f12370ed0d8b840f552642998abeb3c169e0.svg" class="org-svg" /> idempotente, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_2226cc09f3a00b0f82d53938478e142980122795.svg" alt="20251111145841-teorema_di_hales_jewett_2226cc09f3a00b0f82d53938478e142980122795.svg" class="org-svg" /> idempotente.</li>
+<li><p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5a47250f1eca20a6b152138dd262732278e34145.svg" alt="20251111145841-teorema_di_hales_jewett_5a47250f1eca20a6b152138dd262732278e34145.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_f2adcc0b4a7549f624ded284c8d815f3c7a31952.svg" alt="20251111145841-teorema_di_hales_jewett_f2adcc0b4a7549f624ded284c8d815f3c7a31952.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+1
+</span>
+</div>
+<p>
+con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_f84d023d665f0da6cc2c73376bb861c7817899d8.svg" alt="20251111145841-teorema_di_hales_jewett_f84d023d665f0da6cc2c73376bb861c7817899d8.svg" class="org-svg" /> idempotente.
+</p></li>
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_9bd0f2edf6d0d21d3dc08ba5740c88f757f8cbb5.svg" alt="20251111145841-teorema_di_hales_jewett_9bd0f2edf6d0d21d3dc08ba5740c88f757f8cbb5.svg" class="org-svg" /> è ideale sinistro di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" alt="20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" class="org-svg" />, in quanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_008462492d9320409c17f857109b3dc5964144fc.svg" alt="20251111145841-teorema_di_hales_jewett_008462492d9320409c17f857109b3dc5964144fc.svg" class="org-svg" /> è l&rsquo;identità su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" alt="20251111145841-teorema_di_hales_jewett_5086dd43c5ce9e14aa4d8cd75284ff17b4f1389b.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_138f2fb0561a475818947eec9932a5c5ad9c6203.svg" alt="20251111145841-teorema_di_hales_jewett_138f2fb0561a475818947eec9932a5c5ad9c6203.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_3e3a7b6e4fd3b3be8b335efff4a64d87be4e7fc9.svg" alt="20251111145841-teorema_di_hales_jewett_3e3a7b6e4fd3b3be8b335efff4a64d87be4e7fc9.svg" class="org-svg" /> e per minimalità di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" alt="20251111145841-teorema_di_hales_jewett_b2f4a7dc2d25720293ab04acad99ee94dd69f557.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5835fb42c0cf48eba4283146bd7da7090ded9255.svg" alt="20251111145841-teorema_di_hales_jewett_5835fb42c0cf48eba4283146bd7da7090ded9255.svg" class="org-svg" />
+</span>
+</div></li>
+<li>Applicando alla&nbsp;: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_8ae72e31458a3deabe3326c758a3c33562cab4fa.svg" alt="20251111145841-teorema_di_hales_jewett_8ae72e31458a3deabe3326c758a3c33562cab4fa.svg" class="org-svg" />, ma per un lemma già visto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_7d9a00aa53c444ec88cea8d4be10af83ccb63bc0.svg" alt="20251111145841-teorema_di_hales_jewett_7d9a00aa53c444ec88cea8d4be10af83ccb63bc0.svg" class="org-svg" /> è un gruppo con identità <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" alt="20251111145841-teorema_di_hales_jewett_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" class="org-svg" />, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_2dd1e38a0547929687926b92e664d39670844741.svg" alt="20251111145841-teorema_di_hales_jewett_2dd1e38a0547929687926b92e664d39670844741.svg" class="org-svg" /> per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_5a47250f1eca20a6b152138dd262732278e34145.svg" alt="20251111145841-teorema_di_hales_jewett_5a47250f1eca20a6b152138dd262732278e34145.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_6a91bde02d9c458f28030f65d4206e727508b780.svg" alt="20251111145841-teorema_di_hales_jewett_6a91bde02d9c458f28030f65d4206e727508b780.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto vale anche per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251111145841-teorema_di_hales_jewett_2eedfd2b92de17547cf1255a5a34d809054e1b24.svg" alt="20251111145841-teorema_di_hales_jewett_2eedfd2b92de17547cf1255a5a34d809054e1b24.svg" class="org-svg" />.
+</p>
+
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Diremo che il sottosemigruppo è <i>nice</i>.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20251104163738-semigruppo.html#ID-ea87f151-0555-4395-877f-8cce67544035">Omomorfismo di semigruppi</a>&rdquo;
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

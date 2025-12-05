@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calcolo dell'omologia simpliciale per il complesso di catene generato da un 2-simplesso</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Calcolo dell&rsquo;omologia simpliciale per il complesso di catene generato da un 2-simplesso</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_eaf82a7faaa3484159acea91cbc57901a6cb5e4e.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_eaf82a7faaa3484159acea91cbc57901a6cb5e4e.svg" class="org-svg" /> un 2-<a href="20250121121923-simplessi.html#ID-1be0cf69-b9fc-404c-9f43-67d6518a1af3">simplesso</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_dc8ee51346a435f494f49c09037193d5faaf5c47.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_dc8ee51346a435f494f49c09037193d5faaf5c47.svg" class="org-svg" /> il <a href="20250120163114-complesso_di_catene.html#ID-25f7032a-9109-4d42-9df4-127d9d8c0ce9">complesso simpliciale</a> <a href="20250121125446-complesso_simpliciale_generato_da_un_simplesso.html#ID-f0fee488-2f1b-4455-90cc-107d154ad5f4">generato</a> da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_008462492d9320409c17f857109b3dc5964144fc.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_008462492d9320409c17f857109b3dc5964144fc.svg" class="org-svg" />.
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> un <a href="20241219112842-pid.html#ID-CFCD9E38-AFEC-4381-A8C6-5AD75E7E43DC">PID</a>.
+</p>
+
+<p>
+Denotando con
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_9cf6cc5b58e0a094f99d8868d80b80f4f9e6fdec.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_9cf6cc5b58e0a094f99d8868d80b80f4f9e6fdec.svg" class="org-svg" />
+</span>
+</div>
+<p>
+si ha che i <a href="20250121160600-complesso_di_catene_simpliciali.html#ID-2addade4-e68e-4531-a676-7f36323b956d">complessi di catene simpliciali</a> sono (vedi <a href="20250121131920-notazione_moduli_liberi.html#ID-f3dc64ce-1a1d-47ed-8983-dd51c6760721">Modulo Libero Generato da un insieme</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6ca60d7aeedb44ce31bbc6f011a49bfaced39c00.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6ca60d7aeedb44ce31bbc6f011a49bfaced39c00.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Le <a href="20250121132856-mappe_di_bordo_tra_moduli_di_catene_simpliciali.html#ID-d3fa63a2-7a06-41ee-8c1e-efacd0fae50b">mappe di bordo</a> sono le seguenti:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_c2d7a971c910da20ece1993c13feb76a20f66479.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_c2d7a971c910da20ece1993c13feb76a20f66479.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si vogliono calcolare i <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9">moduli</a> di <a href="20250121160827-omologia_simpliciale.html#ID-7180d7b0-44a6-49a9-8ecf-81e3e6a96032">omologia</a>.
+</p>
+<div id="outline-container-org02e5d19" class="outline-2">
+<h2 id="org02e5d19">Modulo di omologia 2</h2>
+<div class="outline-text-2" id="text-org02e5d19">
+<p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_932d65b6f9e6ed41609fdd8787431fde99635bc2.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_932d65b6f9e6ed41609fdd8787431fde99635bc2.svg" class="org-svg" /> è una mappa iniettiva<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_a2103fc2e83b69186998d5c093a8d22885939d2c.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_a2103fc2e83b69186998d5c093a8d22885939d2c.svg" class="org-svg" />. Inoltre, ovviamente, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e7954d90e8a7f9062758f9295ea4b15a0396803d.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e7954d90e8a7f9062758f9295ea4b15a0396803d.svg" class="org-svg" />, e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_43cea41a5f2542503405cf832ef70a67ddc6a5bf.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_43cea41a5f2542503405cf832ef70a67ddc6a5bf.svg" class="org-svg" />.
+Dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6a6263fc3abc3d9a1d7f6aeca81a2000e0287ab4.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6a6263fc3abc3d9a1d7f6aeca81a2000e0287ab4.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org7a6e7e8" class="outline-2">
+<h2 id="org7a6e7e8">Modulo di omologia 1</h2>
+<div class="outline-text-2" id="text-org7a6e7e8">
+<p>
+Per quanto riguarda <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_fb02b9ca8ef7d20887d06dc208e98a12f0396420.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_fb02b9ca8ef7d20887d06dc208e98a12f0396420.svg" class="org-svg" />, questo è semplicemente il sottomodulo generato da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_c70b09f82fc3485e8b2df4fe32682967f2e2530a.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_c70b09f82fc3485e8b2df4fe32682967f2e2530a.svg" class="org-svg" />,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_8a766888e7f7203c4cee71bb2ebcb9479d6f1337.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_8a766888e7f7203c4cee71bb2ebcb9479d6f1337.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Consideriamo invece un generico elemento di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6532a12fbcb0d07190e428259bb2dc94e690fae9.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6532a12fbcb0d07190e428259bb2dc94e690fae9.svg" class="org-svg" />, ovvero, fissati <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bd8ec8c2e14037bed733137fca49aec2f33acb79.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bd8ec8c2e14037bed733137fca49aec2f33acb79.svg" class="org-svg" />,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_4591e67de5fa92a982bdbcea07b38f29ac7ac6f8.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_4591e67de5fa92a982bdbcea07b38f29ac7ac6f8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per calcolare il <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_7bdda796cf44c99c61ee85b4f49ae614f5f00f21.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_7bdda796cf44c99c61ee85b4f49ae614f5f00f21.svg" class="org-svg" /> imponiamo
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_11c5ec5c486f0e07d1b4f14bef463529a1464766.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_11c5ec5c486f0e07d1b4f14bef463529a1464766.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Questa uguaglianza è vera se e solo se
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_558962bdc0da66dbb9adb86f5f55c510a56b8697.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_558962bdc0da66dbb9adb86f5f55c510a56b8697.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(-&gt;) Infatti, i moduli <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e526aa6cefd151c6cc23e9a389e8cf83c1956783.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e526aa6cefd151c6cc23e9a389e8cf83c1956783.svg" class="org-svg" /> sono moduli liberi, e in particolare <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bfe8cce8ddbbf517285b03c9f350f860a717a1ca.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bfe8cce8ddbbf517285b03c9f350f860a717a1ca.svg" class="org-svg" /> è una <a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">base</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e2c0983be03c5dd07f0585b38333a7f92c15404b.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e2c0983be03c5dd07f0585b38333a7f92c15404b.svg" class="org-svg" />, e quindi è un <a href="20241212142019-insiemi_linearmente_indipendenti.html#ID-8DD9D6E9-DE7C-43A1-BE0A-498CD0B563DD">insieme linearmente indipendente</a>. Il viceversa (&lt;-) vale perche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_17653dfb93dcdfe951f2e439e93b16c6b70d14d5.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_17653dfb93dcdfe951f2e439e93b16c6b70d14d5.svg" class="org-svg" /> per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_1bab84e4ec815010fdc8212dfacde647d67e312e.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_1bab84e4ec815010fdc8212dfacde647d67e312e.svg" class="org-svg" /> (vedi <a href="20241220000402-torsione_moduli.html#ID-7EADFE43-E7EA-46A2-AB08-C47838F0F56C">Annullatore-Moduli</a>).
+</p>
+
+<p>
+Dunque, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_adf160c86fc7ad2b701a4989b3ec6100f9a74098.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_adf160c86fc7ad2b701a4989b3ec6100f9a74098.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_ed0bb6ad1cf72d10dd65a89937afb889432bbb81.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_ed0bb6ad1cf72d10dd65a89937afb889432bbb81.svg" class="org-svg" /> e dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_4e7e1021ec8bd8afb3b8fe96bd1265a360406f08.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_4e7e1021ec8bd8afb3b8fe96bd1265a360406f08.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e8a6d79aa112ea877fe0011f8927fb89869ebdd6.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e8a6d79aa112ea877fe0011f8927fb89869ebdd6.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org6b26bc5" class="outline-2">
+<h2 id="org6b26bc5">Modulo di omologia 0</h2>
+<div class="outline-text-2" id="text-org6b26bc5">
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_a85ab0ddb1e567f05fd923be24f7e27ab726e6ef.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_a85ab0ddb1e567f05fd923be24f7e27ab726e6ef.svg" class="org-svg" />, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_55a195c9f9a07e085a7b5e17da71e54595151e9e.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_55a195c9f9a07e085a7b5e17da71e54595151e9e.svg" class="org-svg" />.
+Viceversa, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_77e193b6eef84700adce0422eb3cf63b301a5045.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_77e193b6eef84700adce0422eb3cf63b301a5045.svg" class="org-svg" />, e dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bec48c342d1380034600f404b393c339282f7379.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_bec48c342d1380034600f404b393c339282f7379.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+: La mappa <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_932d65b6f9e6ed41609fdd8787431fde99635bc2.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_932d65b6f9e6ed41609fdd8787431fde99635bc2.svg" class="org-svg" /> è iniettiva. siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_ae3f5899c8700a5a230d6cdb606bacb6aad26a5a.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_ae3f5899c8700a5a230d6cdb606bacb6aad26a5a.svg" class="org-svg" /> tali che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_02947bd4a73158f7570ad094c71f44df9db4997e.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_02947bd4a73158f7570ad094c71f44df9db4997e.svg" class="org-svg" />
+</span>
+</div>
+<p class="footpara">
+Allora si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_7875ab93280fe073b266c58e937c8f5cc7ea0cc0.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_7875ab93280fe073b266c58e937c8f5cc7ea0cc0.svg" class="org-svg" />
+</span>
+</div>
+<p class="footpara">
+ma, siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6532a12fbcb0d07190e428259bb2dc94e690fae9.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_6532a12fbcb0d07190e428259bb2dc94e690fae9.svg" class="org-svg" /> è un <a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">modulo libero</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_26cfd7a832fbf0257e69d495022fef527feb68a7.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_26cfd7a832fbf0257e69d495022fef527feb68a7.svg" class="org-svg" /> è una <a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">base</a> (e quindi <a href="20241212142019-insiemi_linearmente_indipendenti.html#ID-8DD9D6E9-DE7C-43A1-BE0A-498CD0B563DD">insieme linearmente indipendente</a>), si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_11322a87c2c6fea58cacbb852b7956642ff44ddd.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_11322a87c2c6fea58cacbb852b7956642ff44ddd.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_1340a47097bb3fb3277035363a7e810381f17fb3.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_1340a47097bb3fb3277035363a7e810381f17fb3.svg" class="org-svg" />, ovvero
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e347d61e2f916e42b5cf9151c738f73c63ff7a65.svg" alt="20250121162333-calcolo_dell_omologia_simpliciale_per_il_complesso_di_catene_generato_da_un_2_simplesso_e347d61e2f916e42b5cf9151c738f73c63ff7a65.svg" class="org-svg" />
+</span>
+</div></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

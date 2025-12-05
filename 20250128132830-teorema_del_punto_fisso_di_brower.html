@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teorema del punto fisso di brower</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Teorema del punto fisso di brower</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_1a8330063784d2bdffe93731cec2acfbcdc5ef6f.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_1a8330063784d2bdffe93731cec2acfbcdc5ef6f.svg" class="org-svg" /> il disco <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_71aa001aa3cfe4dc4d4ede816f465cb2dc788a54.svg" class="org-svg" />-dimensionale.
+</p>
+<div id="outline-container-org2594a64" class="outline-2">
+<h2 id="org2594a64">Teorema</h2>
+<div class="outline-text-2" id="text-org2594a64">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_e2382775384f01a9590dd5805e6709f517d5cdf9.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_e2382775384f01a9590dd5805e6709f517d5cdf9.svg" class="org-svg" /> è una <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzione continua</a>, allora ammette un <a href="20250129160423-punto_fisso.html#ID-61cef1fe-a1e5-4b52-9c72-3baa233e6993">punto fisso</a>, ovvero esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_362a9b8be22d091c3d2f106c8d87d06095e6fead.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_362a9b8be22d091c3d2f106c8d87d06095e6fead.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_f32e9351691dc9ae4db918a539e67e78dcfacdf1.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_f32e9351691dc9ae4db918a539e67e78dcfacdf1.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-orgf0898f2" class="outline-3">
+<h3 id="orgf0898f2">Dimostrazione</h3>
+<div class="outline-text-3" id="text-orgf0898f2">
+<p>
+Supponiamo per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_10fcf20f19e4ebf1adf051659f28499fe0786a5e.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_10fcf20f19e4ebf1adf051659f28499fe0786a5e.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_003759e13ceb8edcfe87a6d2f1b5346ad76069a5.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_003759e13ceb8edcfe87a6d2f1b5346ad76069a5.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_c23d8dcb2207a6c0f487fe1561802b1a86b87e95.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_c23d8dcb2207a6c0f487fe1561802b1a86b87e95.svg" class="org-svg" />, dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_85675cc6c3802cc4c11f89e6f0e54b93d43f0a1d.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_85675cc6c3802cc4c11f89e6f0e54b93d43f0a1d.svg" class="org-svg" /> è il <a href="20250129161026-bordo.html#ID-57fcc171-c2b3-425c-aabf-4bb81c52e807">bordo</a>, (vedi <a href="20250115150754-sfera_n_dimensionale.html#ID-84660a1b-868d-41d6-b079-eb6b40fa3342">Sfera n-dimensionale</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_1a3057e8da0891f884aa23283815e3b256f8488b.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_1a3057e8da0891f884aa23283815e3b256f8488b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+che a ciascun punto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" class="org-svg" /> associa il punto di intersezione per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_7a875a297cc0270c7ff455ee0df2fa653c803529.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_7a875a297cc0270c7ff455ee0df2fa653c803529.svg" class="org-svg" /> tra la retta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_e22495a6a637de2cf0cf1a54ecbd329c07937fd2.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_e22495a6a637de2cf0cf1a54ecbd329c07937fd2.svg" class="org-svg" /> e il bordo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_4a63d6609fca279b4d73bc49ab62e7e70f3385ee.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_4a63d6609fca279b4d73bc49ab62e7e70f3385ee.svg" class="org-svg" />.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_e6f31f6d31e5f80829649308eb883c51240de962.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_e6f31f6d31e5f80829649308eb883c51240de962.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ben definita poiché per ipotesi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_311a42f226176cc42da8731fd7e68fb6d68994cf.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_311a42f226176cc42da8731fd7e68fb6d68994cf.svg" class="org-svg" />.
+</p>
+
+<p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_4daf38467fe16134a186de6ad2bb55113f01c077.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_4daf38467fe16134a186de6ad2bb55113f01c077.svg" class="org-svg" /> è una funzione continua e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_456a160ceabbb3c9e26c3263d7088a8c60f4aa03.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_456a160ceabbb3c9e26c3263d7088a8c60f4aa03.svg" class="org-svg" />
+</p>
+
+<p>
+Sia inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_0d78a7a421c13a737a34f32f45c0097de988b261.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_0d78a7a421c13a737a34f32f45c0097de988b261.svg" class="org-svg" /> l&rsquo;inclusione.
+</p>
+
+<p>
+Applicando il <a href="20241205131958-funtore.html#ID-E23C463B-1AE5-4B15-8DE2-D0887E4BA998">funtore</a> <a href="20250123115927-funtore_di_omologia_singolare.html#ID-88dd6cfe-252a-4d15-a6b1-d3aea4a3d421">di omologia singolare</a> al seguente diagramma (vedi <a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">Omologia Singolare</a>), ricordando che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_1a8330063784d2bdffe93731cec2acfbcdc5ef6f.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_1a8330063784d2bdffe93731cec2acfbcdc5ef6f.svg" class="org-svg" /> è <a href="20250122154613-insieme_stellato.html#ID-11c5efef-e18b-4314-8f6d-930a94f39c04">stellato</a> e <a href="20250122154637-insieme_stellato_e_spazio_topologico_aciclico.html#ID-5c728733-3cd8-451e-9ebd-0bb91a30c806">quindi</a> <a href="20250122154451-spazio_topologico_aciclico.html#ID-f3a0cddf-2ef5-4f77-9f9b-31f95c1830ab">aciclico</a> (e ricordando l&rsquo;<a href="20250127162702-calcolo_dell_omologia_singolare_della_sfera_e_dell_omologia_singolare_relativa_del_disco_rispetto_alla_sfera.html#ID-81ef5b93-84b7-47b5-b307-3e00eb316b0e">omologia della sfera</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_62a698811d42c3bcfd883a2277544d3ba46574e4.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_62a698811d42c3bcfd883a2277544d3ba46574e4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+si ottiene  che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_4bf155a20415c3205d18456f2b3fefd6c0c5ff98.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_4bf155a20415c3205d18456f2b3fefd6c0c5ff98.svg" class="org-svg" /> e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_23dbf83fbdd593e50afd4f436f224d2fe3a38fb9.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_23dbf83fbdd593e50afd4f436f224d2fe3a38fb9.svg" class="org-svg" /> e quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132830-teorema_del_punto_fisso_di_brower_75a063947337974f7d7148c890df6ef8b149cfde.svg" alt="20250128132830-teorema_del_punto_fisso_di_brower_75a063947337974f7d7148c890df6ef8b149cfde.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Assurdo.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

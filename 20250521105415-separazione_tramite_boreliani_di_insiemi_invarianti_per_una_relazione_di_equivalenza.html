@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Separazione tramite boreliani di insiemi invarianti per una relazione di equivalenza su un Polacco</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Separazione tramite boreliani di insiemi invarianti per una relazione di equivalenza su un Polacco</h1>
+<div id="outline-container-org4dea32d" class="outline-2">
+<h2 id="org4dea32d">Esercizio 1</h2>
+<div class="outline-text-2" id="text-org4dea32d">
+<p>
+Let <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" /> be an equivalence relation on a Polish space <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />. A set <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e00f4181154c47b3b86bd4090ef475715472c9b9.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e00f4181154c47b3b86bd4090ef475715472c9b9.svg" class="org-svg" /> is called <b><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariant</b> if <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_486090c628c6d91df345d1cbaedd46f4ad4652c9.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_486090c628c6d91df345d1cbaedd46f4ad4652c9.svg" class="org-svg" /> and <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bbf56dd9c490307a21d41accc91f38e648ca786a.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bbf56dd9c490307a21d41accc91f38e648ca786a.svg" class="org-svg" /> implies <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dd74b3e2130c6fe89739239817bf3b29dfd2f152.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dd74b3e2130c6fe89739239817bf3b29dfd2f152.svg" class="org-svg" />, for all <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_9190a2463457e6e2342f7977382f9c8601f09c5e.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_9190a2463457e6e2342f7977382f9c8601f09c5e.svg" class="org-svg" />. Suppose that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" /> is analytic, that is, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_43b0e8dce033a3ecfe8ecb8c0d45395e4959b6b0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_43b0e8dce033a3ecfe8ecb8c0d45395e4959b6b0.svg" class="org-svg" />. Show that if <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_60ef59d1da5c9199f66c53c98a43fc48cbf8eb72.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_60ef59d1da5c9199f66c53c98a43fc48cbf8eb72.svg" class="org-svg" /> are disjoint analytic <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariant sets, then there is a Borel <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariant set <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4a2d252a2bfd6c063bbd5a148cb9ffbee938fe7d.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4a2d252a2bfd6c063bbd5a148cb9ffbee938fe7d.svg" class="org-svg" /> separating <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> from <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" class="org-svg" />, that is, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_1c952c31d6e7bb910dfa3fafa0e879eb9ab5cc97.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_1c952c31d6e7bb910dfa3fafa0e879eb9ab5cc97.svg" class="org-svg" /> and <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e0662eef7b03ca59684ad137fa88d39b4424111b.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e0662eef7b03ca59684ad137fa88d39b4424111b.svg" class="org-svg" />.
+</p>
+
+<p>
+<i>Hint</i>: Recursively define sets <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_ddfcb44bc50845d50bf1dbf107ec43222544beac.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_ddfcb44bc50845d50bf1dbf107ec43222544beac.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_686887dc07a095bd26b33122eb01237195c2ad93.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_686887dc07a095bd26b33122eb01237195c2ad93.svg" class="org-svg" /> so that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_96079fddaf74632eb2c0c17bc2cd8ef7259b7139.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_96079fddaf74632eb2c0c17bc2cd8ef7259b7139.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5c0dd7bc3671b2284b25bd4e61cb4dad800b90fa.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5c0dd7bc3671b2284b25bd4e61cb4dad800b90fa.svg" class="org-svg" /> is a Borel set separating <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_ddfcb44bc50845d50bf1dbf107ec43222544beac.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_ddfcb44bc50845d50bf1dbf107ec43222544beac.svg" class="org-svg" /> from <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" class="org-svg" />, and <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_fefc5fb100b8b38c418bec6c4e3a0db0e9218b50.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_fefc5fb100b8b38c418bec6c4e3a0db0e9218b50.svg" class="org-svg" /> is <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariant, analytic, and disjoint from <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org9992a7a" class="outline-3">
+<h3 id="org9992a7a">Soluzione</h3>
+<div class="outline-text-3" id="text-org9992a7a">
+<p>
+<span class="underline">Claim</span>: Esistono due famiglie <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5a71cee99d3182fd30208b25379c7a7005dfde46.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5a71cee99d3182fd30208b25379c7a7005dfde46.svg" class="org-svg" /> di sottoinsiemi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, tali che
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e757a8c3faa0738de5af1207267de7e300953c48.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e757a8c3faa0738de5af1207267de7e300953c48.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c171b5a47a4cc49f591a25a5dbca147748908a39.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c171b5a47a4cc49f591a25a5dbca147748908a39.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4ffa3e182bb73fdf1d08b3068301833095eefb3f.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4ffa3e182bb73fdf1d08b3068301833095eefb3f.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c171b5a47a4cc49f591a25a5dbca147748908a39.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c171b5a47a4cc49f591a25a5dbca147748908a39.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8c9cef80f148b0da9f72c15f6bc3c07b8489b124.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8c9cef80f148b0da9f72c15f6bc3c07b8489b124.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_f6382450878df627c42ceaa2cd0170896b8b9662.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_f6382450878df627c42ceaa2cd0170896b8b9662.svg" class="org-svg" /></li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_14aa74427e8146b62050fc1763a7c88f8b2b295f.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_14aa74427e8146b62050fc1763a7c88f8b2b295f.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c4e7cdf221d256607f47df4901aa4c0eaea49848.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c4e7cdf221d256607f47df4901aa4c0eaea49848.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante, analitico.</li>
+</ul>
+
+<p>
+Se tali famiglie esistono, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4b91fc4bae70f5ffaf07db40541adf461401d5e8.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4b91fc4bae70f5ffaf07db40541adf461401d5e8.svg" class="org-svg" />.
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante. Infatti, siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_754866b05176279ff008cd055e0430d62fb6ce24.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_754866b05176279ff008cd055e0430d62fb6ce24.svg" class="org-svg" />, con  <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_fc333337a91f0a90aadcd9247aca2509bffcf292.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_fc333337a91f0a90aadcd9247aca2509bffcf292.svg" class="org-svg" />. Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8136d23128ee3f474d4b32d59eade7d5874e2945.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8136d23128ee3f474d4b32d59eade7d5874e2945.svg" class="org-svg" />, allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_a90365f216df8a317bf5300d844661dc4c9e0879.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_a90365f216df8a317bf5300d844661dc4c9e0879.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5d88480d6fb9c767a556a468816acef7825001aa.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5d88480d6fb9c767a556a468816acef7825001aa.svg" class="org-svg" />; poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_84d8805234b8e516fef482aa7c586b84a9dfd47e.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_84d8805234b8e516fef482aa7c586b84a9dfd47e.svg" class="org-svg" />, e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e50ff5cc414a3aee65ae52ddf02bd621f86e00d2.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e50ff5cc414a3aee65ae52ddf02bd621f86e00d2.svg" class="org-svg" />.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b58b3c3e880d3b884da1c9fb34b1f42280f40cd3.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b58b3c3e880d3b884da1c9fb34b1f42280f40cd3.svg" class="org-svg" />, poiché unione numerabile di Boreliani.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_1c952c31d6e7bb910dfa3fafa0e879eb9ab5cc97.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_1c952c31d6e7bb910dfa3fafa0e879eb9ab5cc97.svg" class="org-svg" />; infatti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bca3c65f6b6b82a2653553c1772cd1ae45793639.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bca3c65f6b6b82a2653553c1772cd1ae45793639.svg" class="org-svg" />.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_45fae70bbe38e24467c68a2a63c9c16fb7dc70db.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_45fae70bbe38e24467c68a2a63c9c16fb7dc70db.svg" class="org-svg" />, poiché ciascun <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" class="org-svg" /> è disgiunto ta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+<span class="underline">Dimostazione del claim</span>: si procede per induzione.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20e87ca4dea1f3871bf79b29f8c9f14be41637ed.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20e87ca4dea1f3871bf79b29f8c9f14be41637ed.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante e analitico. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_01dd510780a085d8bb0b2ffb1ca608d1a69aac03.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_01dd510780a085d8bb0b2ffb1ca608d1a69aac03.svg" class="org-svg" /> sono due insiemi analitici disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b98d4de13f29efbecab90c599cf771ce8787d6e4.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b98d4de13f29efbecab90c599cf771ce8787d6e4.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6e177a4012db238036619d62d70c678559c29b60.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6e177a4012db238036619d62d70c678559c29b60.svg" class="org-svg" />
+</span>
+</div></li>
+
+<li><p>
+Per il passo induttivo, si supponga di aver costruito <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_626f0b2eb656d7502647d16dbe986257d0d194b9.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_626f0b2eb656d7502647d16dbe986257d0d194b9.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b21ce83f6b0c953715fd37f689a5d39175c2b35d.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b21ce83f6b0c953715fd37f689a5d39175c2b35d.svg" class="org-svg" />. Si costruiscono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4e6a7c33bd40c3d4bbddfea26a7fbde048b636e2.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4e6a7c33bd40c3d4bbddfea26a7fbde048b636e2.svg" class="org-svg" />.
+</p>
+
+<p>
+<span class="underline">L&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" class="org-svg" /></span> è definito chiudendo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" class="org-svg" /> rispetto alla relazione di equivalenza <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />, ovvero
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b8cd80ba291ffb4c11c95c5c72814c23ad0da2c8.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b8cd80ba291ffb4c11c95c5c72814c23ad0da2c8.svg" class="org-svg" />
+</span>
+</div>
+<ul class="org-ul">
+<li>Ovviamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4ffa3e182bb73fdf1d08b3068301833095eefb3f.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4ffa3e182bb73fdf1d08b3068301833095eefb3f.svg" class="org-svg" />, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" /> è riflessiva.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante per definizione, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" /> è transitiva e simmetrica.</li>
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" class="org-svg" /> è analitico, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bd6f103bc08fbb6ce65d283d8aa5697c03899619.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bd6f103bc08fbb6ce65d283d8aa5697c03899619.svg" class="org-svg" /> è analitico, e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b6b3cb3f7f53edb25cbdf7f31b7a4cdb65704ca0.svg" class="org-svg" /> è
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6be3251b747b3c81b84e1017804c3db1e3c0bcd8.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6be3251b747b3c81b84e1017804c3db1e3c0bcd8.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_365b70987370e41d4e2f8c84d133c455badd7721.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_365b70987370e41d4e2f8c84d133c455badd7721.svg" class="org-svg" /> è la proiezione sul primo fattore (per la proposizione 3.1.5).
+</p>
+
+<p>
+L&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bd6f103bc08fbb6ce65d283d8aa5697c03899619.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_bd6f103bc08fbb6ce65d283d8aa5697c03899619.svg" class="org-svg" /> è analitico
+poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6c9245ecf12134b748ab9b53c9e449ea58a17fc0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6c9245ecf12134b748ab9b53c9e449ea58a17fc0.svg" class="org-svg" /> è chiusa per intersezioni finite e:
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" /> è analitico per ipotesi;</li>
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_7624a360d828753399fbcdc3d4fc34d5e0d26b9d.svg" class="org-svg" /> è Boreliano per ipotesi, dunque analitico, e, detta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e264f40a97b8d213787e4f135032da41b847c7be.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_e264f40a97b8d213787e4f135032da41b847c7be.svg" class="org-svg" /> la proiezione sul secondo fattore,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b4f6feed7287b75376e3a9144e8c14004709c5f4.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_b4f6feed7287b75376e3a9144e8c14004709c5f4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6c9245ecf12134b748ab9b53c9e449ea58a17fc0.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_6c9245ecf12134b748ab9b53c9e449ea58a17fc0.svg" class="org-svg" /> è chiusa per retroimmagini continue, anche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_891b10227708fd036d3d314ee5e5b4902a0d9202.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_891b10227708fd036d3d314ee5e5b4902a0d9202.svg" class="org-svg" /> è analitico.
+</p></li>
+</ul></li>
+<li><p>
+Si nota che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c928fa29c165e261b52680ed98d0c08f6b01625a.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_c928fa29c165e261b52680ed98d0c08f6b01625a.svg" class="org-svg" /> poiché, se per assurdo esistesse <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_33c7a593dab1ab613e22b0accf9f2276fdf03eac.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_33c7a593dab1ab613e22b0accf9f2276fdf03eac.svg" class="org-svg" /> allora ci sarebbe <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5ea1d155804ed32d45dbd593b78968fc89776451.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_5ea1d155804ed32d45dbd593b78968fc89776451.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_af11443c234cfee0ca1146d9e9515f98e458fb63.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_af11443c234cfee0ca1146d9e9515f98e458fb63.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_dbb71d8fe4da81245dc77dcff26268cbf4f6eabe.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_20132ccae1b5185a162ac3ad03464e769b4e8c12.svg" class="org-svg" />-invariante, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_44fa334e2f7d2faf4d7560b6a3028ddf74a1cf24.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_44fa334e2f7d2faf4d7560b6a3028ddf74a1cf24.svg" class="org-svg" />. Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_9e8042a14ab33e50ace84600f7973391ca67b76a.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_9e8042a14ab33e50ace84600f7973391ca67b76a.svg" class="org-svg" />. Assurdo.
+</p></li>
+</ul>
+
+<p>
+Dunque gli insiemi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8299d37016e518517a93e968b2395fb5d40a8650.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_8299d37016e518517a93e968b2395fb5d40a8650.svg" class="org-svg" /> sono analitici e disgiunti, e pertanto esiste, per il Teorema 3.2.1, un Boreliano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_aecc7df698962f6ab50bbde1767b0c47b643831c.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_aecc7df698962f6ab50bbde1767b0c47b643831c.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4adbd9b22c6acdc8d7bcfb1bd67bafbddb2b5e79.svg" alt="20250521105415-separazione_tramite_boreliani_di_insiemi_invarianti_per_una_relazione_di_equivalenza_4adbd9b22c6acdc8d7bcfb1bd67bafbddb2b5e79.svg" class="org-svg" />
+</span>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
