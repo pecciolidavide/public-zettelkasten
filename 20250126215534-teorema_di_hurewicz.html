@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teorema di Hurewicz</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Teorema di Hurewicz</h1>
+<div id="outline-container-orgf7f26e5" class="outline-2">
+<h2 id="orgf7f26e5">Teorema</h2>
+<div class="outline-text-2" id="text-orgf7f26e5">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> <a href="20250113103025-spazio_topologico_connesso_per_archi.html#ID-8b1b995a-88c6-4891-9451-e7d8e6daf9bd">connesso per archi</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_35ac1f8ed5dc32bbf714e024dee4d122e67bcc79.svg" alt="20250126215534-teorema_di_hurewicz_35ac1f8ed5dc32bbf714e024dee4d122e67bcc79.svg" class="org-svg" /> (ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e16bdb54a4434ca2cec6f2b4806fc7dbc030374a.svg" alt="20250126215534-teorema_di_hurewicz_e16bdb54a4434ca2cec6f2b4806fc7dbc030374a.svg" class="org-svg" /> è <a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">oggetto</a> della <a href="20241205115614-categoria_top.html#ID-6A153D27-1B1E-4240-A1F8-DEAC5A1C7508">categoria degli spazi topologici puntati</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_945823569a46eed11f8cd79fa64d2cda86a5407f.svg" alt="20250126215534-teorema_di_hurewicz_945823569a46eed11f8cd79fa64d2cda86a5407f.svg" class="org-svg" />).
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" alt="20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" class="org-svg" /> il <a href="20241204223712-gruppo_fondamentale.html#ID-CBB296C2-F611-4C27-949D-C07542C6BE5A">gruppo fondamentale</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e16bdb54a4434ca2cec6f2b4806fc7dbc030374a.svg" alt="20250126215534-teorema_di_hurewicz_e16bdb54a4434ca2cec6f2b4806fc7dbc030374a.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" alt="20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" class="org-svg" /> lo <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" alt="20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" class="org-svg" />-modulo</a> di <a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">omologia singolare</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> (ovvero un <a href="20250127093245-gruppo_abeliano.html#ID-1d5b3369-1820-4240-aa72-c177dc397f33">gruppo abeliano</a>).
+Allora esiste un <a href="20241206115531-morfismo_di_gruppi.html#ID-7A817C55-080E-434E-AABC-6AE0BC4D7E7F">morfismo</a>, detto Mappa di Hurewicz
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e97cb31b218308c4b97cde726fd19990a88bba98.svg" alt="20250126215534-teorema_di_hurewicz_e97cb31b218308c4b97cde726fd19990a88bba98.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20241213105600-funzione_suriettiva.html#ID-EDACF156-28A8-4006-B619-24DA1D4E70B4">suriettivo</a> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1a5b764c7d77e16b177d95810837472b201b2acb.svg" alt="20250126215534-teorema_di_hurewicz_1a5b764c7d77e16b177d95810837472b201b2acb.svg" class="org-svg" /> (vedi <a href="20241213105201-kernel.html#ID-AE61EB48-5CC6-4D0D-85A6-20EDABBF48A2">Kernel</a>) sia l&rsquo;<a href="20250127093652-gruppo_abelianizzato.html#ID-caca5549-f957-44ff-b402-86436a68fcd0">abelianizzato</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" alt="20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a7fea812e5a2180183435ab1ff3b3c91f1d67325.svg" alt="20250126215534-teorema_di_hurewicz_a7fea812e5a2180183435ab1ff3b3c91f1d67325.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org0402199" class="outline-3">
+<h3 id="org0402199">Corollario</h3>
+<div class="outline-text-3" id="text-org0402199">
+<p>
+Per il <a href="20241213105036-primo_teorema_di_isomorfismo.html#ID-6B5446E7-F382-4F15-81C9-9892B09DF79B">primo teorema di isomorfismo</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_73759ed9488485e0f34686c84429960592a5ad63.svg" alt="20250126215534-teorema_di_hurewicz_73759ed9488485e0f34686c84429960592a5ad63.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org0c98c8d" class="outline-3">
+<h3 id="org0c98c8d">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org0c98c8d">
+<p>
+In tutta la dimostrazione, si indicherà con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4741feaed12ad942885cb955a8bb95bbd575ef99.svg" alt="20250126215534-teorema_di_hurewicz_4741feaed12ad942885cb955a8bb95bbd575ef99.svg" class="org-svg" /> gli elementi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" alt="20250126215534-teorema_di_hurewicz_53756e31c7a9462c9d18b14c1c19754ec4694b5a.svg" class="org-svg" /> e con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a422c263486d45bc035b533897215bdffe798c9c.svg" alt="20250126215534-teorema_di_hurewicz_a422c263486d45bc035b533897215bdffe798c9c.svg" class="org-svg" /> gli elementi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" alt="20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org78f9f9c" class="outline-4">
+<h4 id="org78f9f9c">Costruzione della funzione</h4>
+<div class="outline-text-4" id="text-org78f9f9c">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b63c8946cfd08bd7f7ab093b3b8d90def7f1f83c.svg" alt="20250126215534-teorema_di_hurewicz_b63c8946cfd08bd7f7ab093b3b8d90def7f1f83c.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250126215534-teorema_di_hurewicz_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> è un cammino chiuso, ovvero una <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzione continua</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_0c571ca311c942208e459bf0d49c201d0cb19abc.svg" alt="20250126215534-teorema_di_hurewicz_0c571ca311c942208e459bf0d49c201d0cb19abc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_04caa3311ebc946c1c29b852654e0f6fd718af56.svg" alt="20250126215534-teorema_di_hurewicz_04caa3311ebc946c1c29b852654e0f6fd718af56.svg" class="org-svg" />.
+</p>
+
+<p>
+Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_35ce50160048c5e9909e91bc273b4d48bbd5c0e5.svg" alt="20250126215534-teorema_di_hurewicz_35ce50160048c5e9909e91bc273b4d48bbd5c0e5.svg" class="org-svg" /> (vedi <a href="20250121122324-simplesso_standard.html#ID-1cc446ce-f2f1-431e-adae-03e0b6d46e32">Simplesso Standard</a>), <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e6e1977af19eaa62e9107c9a16bd180ef60a2a57.svg" alt="20250126215534-teorema_di_hurewicz_e6e1977af19eaa62e9107c9a16bd180ef60a2a57.svg" class="org-svg" /> (vedi <a href="20250122133435-simplesso_singolare.html#ID-076f9a06-2038-48c0-b441-43c3257114d0">Simplesso singolare</a>) e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4c2968979be7de91e28af3cbfaf7b84cbf799bd4.svg" alt="20250126215534-teorema_di_hurewicz_4c2968979be7de91e28af3cbfaf7b84cbf799bd4.svg" class="org-svg" /> (vedi <a href="20250122133435-simplesso_singolare.html#ID-f197d1be-d28d-4620-8f7a-7192b69600e5">Modulo della catene singolari</a>)
+Inoltre, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c48f255d5a129c9647e9e4d6d327c7e207914a40.svg" alt="20250126215534-teorema_di_hurewicz_c48f255d5a129c9647e9e4d6d327c7e207914a40.svg" class="org-svg" /> è la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo tra catene singolari</a>,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4ed9d635069766ffdc24cc6d7ca85bab865cc505.svg" alt="20250126215534-teorema_di_hurewicz_4ed9d635069766ffdc24cc6d7ca85bab865cc505.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ad35ea1320825e193d55caced716b2033c0cfa10.svg" alt="20250126215534-teorema_di_hurewicz_ad35ea1320825e193d55caced716b2033c0cfa10.svg" class="org-svg" /> è il complesso di catene singolari, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b6d0e005aa0a0df8838a93c67797dc5192b871ee.svg" alt="20250126215534-teorema_di_hurewicz_b6d0e005aa0a0df8838a93c67797dc5192b871ee.svg" class="org-svg" /> (vedi <a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a>).
+Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_800e91dc505d491deefcb5afbf6213ab518db4ff.svg" alt="20250126215534-teorema_di_hurewicz_800e91dc505d491deefcb5afbf6213ab518db4ff.svg" class="org-svg" />.
+</p>
+
+<p>
+Costruiamo la mappa
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_29cb9ae01c962bbdb2f14df43c318e825918c6bd.svg" alt="20250126215534-teorema_di_hurewicz_29cb9ae01c962bbdb2f14df43c318e825918c6bd.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org706cfe7" class="outline-4">
+<h4 id="org706cfe7">Buona definzione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h4>
+<div class="outline-text-4" id="text-org706cfe7">
+<p>
+Supponiamo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a2e16429084eed2eddd18985043a30d3f7da7845.svg" alt="20250126215534-teorema_di_hurewicz_a2e16429084eed2eddd18985043a30d3f7da7845.svg" class="org-svg" />. Allora per definizione sono <a href="20250121094654-omotopia_tra_funzioni_continue.html#ID-9265b022-4b3e-4d52-88c7-0cd29bf1c14a">omotope</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_662f17783693c742c5df5474f1ba22cc9536880e.svg" alt="20250126215534-teorema_di_hurewicz_662f17783693c742c5df5474f1ba22cc9536880e.svg" class="org-svg" />, e dunque esiste
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_41f92f197da66ecf433855b449c7718fe6734a46.svg" alt="20250126215534-teorema_di_hurewicz_41f92f197da66ecf433855b449c7718fe6734a46.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continua</a> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2416596fad722e90a2615f0019961d9227cee8e2.svg" alt="20250126215534-teorema_di_hurewicz_2416596fad722e90a2615f0019961d9227cee8e2.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org7836742" class="outline-5">
+<h5 id="org7836742">Costruzione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3b43d1d497b793c731d63a1dc6116b3c0d496ed7.svg" alt="20250126215534-teorema_di_hurewicz_3b43d1d497b793c731d63a1dc6116b3c0d496ed7.svg" class="org-svg" /></h5>
+<div class="outline-text-5" id="text-org7836742">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_8f2096ab6c2f67d5df1f6c9b42e937dbe32ede1e.svg" alt="20250126215534-teorema_di_hurewicz_8f2096ab6c2f67d5df1f6c9b42e937dbe32ede1e.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f0667a311776d40188f39fbebc47c53f6fd6f18a.svg" alt="20250126215534-teorema_di_hurewicz_f0667a311776d40188f39fbebc47c53f6fd6f18a.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2f249c4b744f2584e291e8178e5a180c3fd0c0e3.svg" alt="20250126215534-teorema_di_hurewicz_2f249c4b744f2584e291e8178e5a180c3fd0c0e3.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f61acadbccd54290cc6bdfa65a49ca6f00b505aa.svg" alt="20250126215534-teorema_di_hurewicz_f61acadbccd54290cc6bdfa65a49ca6f00b505aa.svg" class="org-svg" /> (vedi <a href="20250122133435-simplesso_singolare.html#ID-076f9a06-2038-48c0-b441-43c3257114d0">Simplesso singolare</a> e <a href="20250122133435-simplesso_singolare.html#ID-f197d1be-d28d-4620-8f7a-7192b69600e5">Modulo della catene singolari</a>.) Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7270e3cb9eec3c06ee6c9849780c55df8ba3884e.svg" alt="20250126215534-teorema_di_hurewicz_7270e3cb9eec3c06ee6c9849780c55df8ba3884e.svg" class="org-svg" /> è la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo</a> si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_0d5e8fbb12d3aeec55c72ddc728a93d382c04538.svg" alt="20250126215534-teorema_di_hurewicz_0d5e8fbb12d3aeec55c72ddc728a93d382c04538.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3fb30b4a8e5a94869cddc5b00c112e9acb54385f.svg" alt="20250126215534-teorema_di_hurewicz_3fb30b4a8e5a94869cddc5b00c112e9acb54385f.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_dc0f567b924af5cfc21b0db31ce943a4d2d40add.svg" alt="20250126215534-teorema_di_hurewicz_dc0f567b924af5cfc21b0db31ce943a4d2d40add.svg" class="org-svg" /> (vedi <a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a> e <a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">Omologia Singolare</a>).
+</p>
+</div>
+</div>
+<div id="outline-container-orgca2f402" class="outline-5">
+<h5 id="orgca2f402">Diagramma commutativo</h5>
+<div class="outline-text-5" id="text-orgca2f402">
+<p>
+Esistono uniche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ced5e2607a745ea7be9e4d8d3aa3807c4d82f6a6.svg" alt="20250126215534-teorema_di_hurewicz_ced5e2607a745ea7be9e4d8d3aa3807c4d82f6a6.svg" class="org-svg" /> funzioni continue tali che il seguente diagramma commuti:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b8eea9e78bde3c18ea69fd18d705d66443669944.svg" alt="20250126215534-teorema_di_hurewicz_b8eea9e78bde3c18ea69fd18d705d66443669944.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org804fe17" class="outline-5">
+<h5 id="org804fe17">Funtore diesis</h5>
+<div class="outline-text-5" id="text-org804fe17">
+<p>
+Inoltre, applicando il <a href="20250122154136-funtorialita_dell_omologia_singolare.html#ID-46d013d3-f9ae-4374-ae2f-319ac24e0933">funtore <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_dc4c455a3a11652211fcb97595d1c80c93fec09c.svg" alt="20250126215534-teorema_di_hurewicz_dc4c455a3a11652211fcb97595d1c80c93fec09c.svg" class="org-svg" /></a> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ced5e2607a745ea7be9e4d8d3aa3807c4d82f6a6.svg" alt="20250126215534-teorema_di_hurewicz_ced5e2607a745ea7be9e4d8d3aa3807c4d82f6a6.svg" class="org-svg" /> si ottengono, <a href="20241213094625-modulo_libero.html#ID-ba5e4e95-3529-4e78-9f81-15f8e282888e">definite</a> sugli elementi della <a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">base</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ad7055b90a7dd501e3ceb09ba9dc53411d5b5714.svg" alt="20250126215534-teorema_di_hurewicz_ad7055b90a7dd501e3ceb09ba9dc53411d5b5714.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f45dd10e03581ca041154abf5e01e0b0921b3688.svg" alt="20250126215534-teorema_di_hurewicz_f45dd10e03581ca041154abf5e01e0b0921b3688.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_d7e72525c53d7b48121153f811f6576d62bd0cfa.svg" alt="20250126215534-teorema_di_hurewicz_d7e72525c53d7b48121153f811f6576d62bd0cfa.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b57394c8da022854097e9eb61ab71a408d535442.svg" alt="20250126215534-teorema_di_hurewicz_b57394c8da022854097e9eb61ab71a408d535442.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfeae577" class="outline-5">
+<h5 id="orgfeae577">Funtore di omologia</h5>
+<div class="outline-text-5" id="text-orgfeae577">
+<p>
+Applicando invece il <a href="20250120165029-funtore_tra_chr_e_rmod.html#ID-d4e6149c-d2bb-45eb-aa8f-57f3282e55ec">funtore di omologia</a>, si ottengono
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_9cfba9f66b7a6099ed1c01c50e67fa6e0e11ea63.svg" alt="20250126215534-teorema_di_hurewicz_9cfba9f66b7a6099ed1c01c50e67fa6e0e11ea63.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org7f3d412" class="outline-5">
+<h5 id="org7f3d412">Scrittura tramite mappe funtoriali</h5>
+<div class="outline-text-5" id="text-org7f3d412">
+<p>
+Utilizzando queste mappe, si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_9d93d8bcb2d9275c0f27e16c3da9336b26e827f9.svg" alt="20250126215534-teorema_di_hurewicz_9d93d8bcb2d9275c0f27e16c3da9336b26e827f9.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org711da53" class="outline-5">
+<h5 id="org711da53">Omotopia tra <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b94e45f37aaee1f691bb34f3663272587c25990d.svg" alt="20250126215534-teorema_di_hurewicz_b94e45f37aaee1f691bb34f3663272587c25990d.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_98b0e9cc8e778fbe812bdc5c5f48cdf661b5b713.svg" alt="20250126215534-teorema_di_hurewicz_98b0e9cc8e778fbe812bdc5c5f48cdf661b5b713.svg" class="org-svg" />.</h5>
+<div class="outline-text-5" id="text-org711da53">
+<p>
+Costruiamo esplicitamente una omotopia
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_d3f5f82e5c7babf4a3cc65a7d6bf5450d4bcf8ca.svg" alt="20250126215534-teorema_di_hurewicz_d3f5f82e5c7babf4a3cc65a7d6bf5450d4bcf8ca.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Innanzitutto, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3bbd32d5be2c67600cfbafbef1c75ff1758da5f4.svg" alt="20250126215534-teorema_di_hurewicz_3bbd32d5be2c67600cfbafbef1c75ff1758da5f4.svg" class="org-svg" /> esiste un unico <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1eae9b9d077ba16ff2d18d60effca2c5b234e48a.svg" alt="20250126215534-teorema_di_hurewicz_1eae9b9d077ba16ff2d18d60effca2c5b234e48a.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_fe9da14787ca7d7754501c38ad30385eaabd4a21.svg" alt="20250126215534-teorema_di_hurewicz_fe9da14787ca7d7754501c38ad30385eaabd4a21.svg" class="org-svg" />. Dunque si pone
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_01e19ff757c837ec61f30d5f2662bed5c2d46ef1.svg" alt="20250126215534-teorema_di_hurewicz_01e19ff757c837ec61f30d5f2662bed5c2d46ef1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Il seguente diagramma mostra la situazione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_d66fc14f49e7a0885f4e5ce5f3a550dfd4082bb4.svg" alt="20250126215534-teorema_di_hurewicz_d66fc14f49e7a0885f4e5ce5f3a550dfd4082bb4.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Inoltre si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_dfc6d3df3db2318d9e0ce1eab7728d9c8f2e0492.svg" alt="20250126215534-teorema_di_hurewicz_dfc6d3df3db2318d9e0ce1eab7728d9c8f2e0492.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto sono omotope:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_eda9e5709afaa07e433d92dafce8dde28b04b4b3.svg" alt="20250126215534-teorema_di_hurewicz_eda9e5709afaa07e433d92dafce8dde28b04b4b3.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org1d7c1c3" class="outline-5">
+<h5 id="org1d7c1c3">Applicazione del teorema</h5>
+<div class="outline-text-5" id="text-org1d7c1c3">
+<p>
+Applicando il <a href="20250126223252-mappa_naturale_tra_il_funtore_del_gruppo_di_omotopia_e_il_primo_gruppo_di_omologia.html#ID-e19a23c2-37cc-4b37-beb0-30a61de21cf7">corollario</a> del teorema di invarianza per omotopia, si ottiene che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_bca170791e2670363275e2ed1b86584ca020526a.svg" alt="20250126215534-teorema_di_hurewicz_bca170791e2670363275e2ed1b86584ca020526a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto, siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_132bee2024862c0b1fbb822b2b5b20f064135fae.svg" alt="20250126215534-teorema_di_hurewicz_132bee2024862c0b1fbb822b2b5b20f064135fae.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_6b0e6bd2edd58937aa412867467edcdff622e9b7.svg" alt="20250126215534-teorema_di_hurewicz_6b0e6bd2edd58937aa412867467edcdff622e9b7.svg" class="org-svg" /> si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b5beef7775b3f41cd31dfa56844c444cab32ff2e.svg" alt="20250126215534-teorema_di_hurewicz_b5beef7775b3f41cd31dfa56844c444cab32ff2e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e dunque la funzione è ben definita.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a2ab26" class="outline-4">
+<h4 id="org1a2ab26">La mappa è un morfismo di gruppi&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h4>
+<div class="outline-text-4" id="text-org1a2ab26">
+<p>
+Per dimostrare che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" /> sia un <a href="20241206115531-morfismo_di_gruppi.html#ID-7A817C55-080E-434E-AABC-6AE0BC4D7E7F">morfismo di gruppi</a>, si deve dimostrare che
+</p>
+<ol class="org-ol">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3dc8ea2e8dd6f125b2fc62a21acba33e7aeb5c3c.svg" alt="20250126215534-teorema_di_hurewicz_3dc8ea2e8dd6f125b2fc62a21acba33e7aeb5c3c.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_6bab6ec8f243c6a53697ab249ed76f7c7fe2c196.svg" alt="20250126215534-teorema_di_hurewicz_6bab6ec8f243c6a53697ab249ed76f7c7fe2c196.svg" class="org-svg" /> (<a href="20250121094654-omotopia_tra_funzioni_continue.html#ID-9265b022-4b3e-4d52-88c7-0cd29bf1c14a">omotopa</a> al cammino costante <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4b32a37507113c8eaa02d120cdaa7558bde921f1.svg" alt="20250126215534-teorema_di_hurewicz_4b32a37507113c8eaa02d120cdaa7558bde921f1.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1942f99e254ff22441bf713f717232c306f75b69.svg" alt="20250126215534-teorema_di_hurewicz_1942f99e254ff22441bf713f717232c306f75b69.svg" class="org-svg" />).</li>
+<li><p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3df06a89b65ae40dc9a0509a77d76f8b62835214.svg" alt="20250126215534-teorema_di_hurewicz_3df06a89b65ae40dc9a0509a77d76f8b62835214.svg" class="org-svg" />,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_deaeaa1e91203d6ffab3c821f44e4b99da4d078b.svg" alt="20250126215534-teorema_di_hurewicz_deaeaa1e91203d6ffab3c821f44e4b99da4d078b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f0e2249155f20513fc00888ef2d6ec048aa9f7e3.svg" alt="20250126215534-teorema_di_hurewicz_f0e2249155f20513fc00888ef2d6ec048aa9f7e3.svg" class="org-svg" /> è la <a href="20250127115631-giustapposizione_di_cammini.html#ID-00658a57-0ce9-40b5-b018-eae5e2c0d876">giustapposizione di cammini</a>.
+</p></li>
+</ol>
+</div>
+<div id="outline-container-org260d5ff" class="outline-5">
+<h5 id="org260d5ff">Parte 1</h5>
+<div class="outline-text-5" id="text-org260d5ff">
+</div>
+<div id="outline-container-orgae5a858" class="outline-6">
+<h6 id="orgae5a858"><span class="todo TODO">TODO</span> Dimostrazione -&gt;&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span></span></h6>
+<div class="outline-text-6" id="text-orgae5a858">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_0c1167bc5a768d1313b0d63fa9ee3977d6016bf8.svg" alt="20250126215534-teorema_di_hurewicz_0c1167bc5a768d1313b0d63fa9ee3977d6016bf8.svg" class="org-svg" />, allora
+</p>
+</div>
+</div>
+<div id="outline-container-org43ef62e" class="outline-6">
+<h6 id="org43ef62e">Dimostrazione &lt;-</h6>
+<div class="outline-text-6" id="text-org43ef62e">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_6bab6ec8f243c6a53697ab249ed76f7c7fe2c196.svg" alt="20250126215534-teorema_di_hurewicz_6bab6ec8f243c6a53697ab249ed76f7c7fe2c196.svg" class="org-svg" />, per il punto precedente, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a713a2882c1ea6eed509c762c590fb75c3e38030.svg" alt="20250126215534-teorema_di_hurewicz_a713a2882c1ea6eed509c762c590fb75c3e38030.svg" class="org-svg" />. Si dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_62c1c634713cf802249283b3b0eab3cdeb1bdc24.svg" alt="20250126215534-teorema_di_hurewicz_62c1c634713cf802249283b3b0eab3cdeb1bdc24.svg" class="org-svg" />.
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3c45df0f3881131a0fd9852b43a185d6fad2d2ac.svg" alt="20250126215534-teorema_di_hurewicz_3c45df0f3881131a0fd9852b43a185d6fad2d2ac.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_9caeb72113fa50d61e82c9724b2329c979e640c7.svg" alt="20250126215534-teorema_di_hurewicz_9caeb72113fa50d61e82c9724b2329c979e640c7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Allora, considerati gli <a href="20250122133535-operatori_di_facciata_del_simplesso_standard.html#ID-ab10e851-9b31-4dd2-91a6-cada801137cd">operatori di facciata</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_85c522b25cae96dc9f7a8a1acb38b92c85fa98b6.svg" alt="20250126215534-teorema_di_hurewicz_85c522b25cae96dc9f7a8a1acb38b92c85fa98b6.svg" class="org-svg" />, e considerata la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" alt="20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7153aa5a330950c8bbdab7be23d7c4b780649060.svg" alt="20250126215534-teorema_di_hurewicz_7153aa5a330950c8bbdab7be23d7c4b780649060.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4b68727d35a287a5b138148a4cf10a937ec12579.svg" alt="20250126215534-teorema_di_hurewicz_4b68727d35a287a5b138148a4cf10a937ec12579.svg" class="org-svg" /> (vedi <a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a>) e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c750fc6ddde2b1aabf8d696ce4d1318566c7b211.svg" alt="20250126215534-teorema_di_hurewicz_c750fc6ddde2b1aabf8d696ce4d1318566c7b211.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga4c71d7" class="outline-5">
+<h5 id="orga4c71d7">Parte 2</h5>
+<div class="outline-text-5" id="text-orga4c71d7">
+</div>
+<div id="outline-container-orge76c542" class="outline-6">
+<h6 id="orge76c542">In generale</h6>
+<div class="outline-text-6" id="text-orge76c542">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_232630dbb2746d0ab087c758515e6828404d22f8.svg" alt="20250126215534-teorema_di_hurewicz_232630dbb2746d0ab087c758515e6828404d22f8.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2f283064a56045ee2f95f923718b1401099f8a81.svg" alt="20250126215534-teorema_di_hurewicz_2f283064a56045ee2f95f923718b1401099f8a81.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7f6757bad69684fdada69d56ecf50f22374b3391.svg" alt="20250126215534-teorema_di_hurewicz_7f6757bad69684fdada69d56ecf50f22374b3391.svg" class="org-svg" />
+Si definisce la seguente <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzione continua</a> (per il <a href="20250127144302-lemma_di_incollamento.html#ID-cb581a81-31c9-4e90-a83e-51851c8eb758">Lemma di incollamento</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3f2ed389549afe22febfd492daffe8b08f11860f.svg" alt="20250126215534-teorema_di_hurewicz_3f2ed389549afe22febfd492daffe8b08f11860f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Considerati gli <a href="20250122133535-operatori_di_facciata_del_simplesso_standard.html#ID-ab10e851-9b31-4dd2-91a6-cada801137cd">operatori di facciata</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_aff5c00a9906ef4f0f1903240a6761feaf5116fa.svg" alt="20250126215534-teorema_di_hurewicz_aff5c00a9906ef4f0f1903240a6761feaf5116fa.svg" class="org-svg" />, e considerata la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" alt="20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_97855945fe1d600650c9ecc3918710368cb3b5eb.svg" alt="20250126215534-teorema_di_hurewicz_97855945fe1d600650c9ecc3918710368cb3b5eb.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Con il seguente disegno si mostrano gli operatori di facciata sul 2-<a href="20250121122324-simplesso_standard.html#ID-1cc446ce-f2f1-431e-adae-03e0b6d46e32">simplesso standard</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ad87fbf47d101e473380c16506c44b7866dadf94.svg" alt="20250126215534-teorema_di_hurewicz_ad87fbf47d101e473380c16506c44b7866dadf94.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Pertanto si ha che:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_79f4da6b67478eb66c66388ad7074383a2b386f2.svg" alt="20250126215534-teorema_di_hurewicz_79f4da6b67478eb66c66388ad7074383a2b386f2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7c94121c08e57e1ba9054deae730673b751859ce.svg" alt="20250126215534-teorema_di_hurewicz_7c94121c08e57e1ba9054deae730673b751859ce.svg" class="org-svg" /> è il <a href="20250127125010-cammino_inverso.html#ID-39d1509b-0f14-4718-8773-b0ebd71db6fd">cammino inverso</a>.
+Dunque per <a href="20250127115631-giustapposizione_di_cammini.html#ID-00658a57-0ce9-40b5-b018-eae5e2c0d876">definizione</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ab4bbe879f8de471df8946e09e0528fa8a4e6215.svg" alt="20250126215534-teorema_di_hurewicz_ab4bbe879f8de471df8946e09e0528fa8a4e6215.svg" class="org-svg" />, e quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_8593eaf274cfe57b736db5884ed0a5aee2f9fc00.svg" alt="20250126215534-teorema_di_hurewicz_8593eaf274cfe57b736db5884ed0a5aee2f9fc00.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_6b4a88e46a3b1f2da3719b8580ee469499cd3ba4.svg" alt="20250126215534-teorema_di_hurewicz_6b4a88e46a3b1f2da3719b8580ee469499cd3ba4.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd6ec0ef" class="outline-6">
+<h6 id="orgd6ec0ef">Gruppo Fondamentale</h6>
+<div class="outline-text-6" id="text-orgd6ec0ef">
+<p>
+Pertanto, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3df06a89b65ae40dc9a0509a77d76f8b62835214.svg" alt="20250126215534-teorema_di_hurewicz_3df06a89b65ae40dc9a0509a77d76f8b62835214.svg" class="org-svg" /> allora  <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b9f060ae5f619e900b9963c7270c42c418771142.svg" alt="20250126215534-teorema_di_hurewicz_b9f060ae5f619e900b9963c7270c42c418771142.svg" class="org-svg" /> (vedi <a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a>) e quindi ha senso scrivere:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ab07ae8f94d180b8543dd0c660e7c5876c81eeee.svg" alt="20250126215534-teorema_di_hurewicz_ab07ae8f94d180b8543dd0c660e7c5876c81eeee.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ponendo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c3258718935a5abbbfb05dbe08cf9b8140ab8c1e.svg" alt="20250126215534-teorema_di_hurewicz_c3258718935a5abbbfb05dbe08cf9b8140ab8c1e.svg" class="org-svg" /> il cammino costante, si ottiene che, per il punto precedente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_cc59fc18c894d371a59016f43974689c87206119.svg" alt="20250126215534-teorema_di_hurewicz_cc59fc18c894d371a59016f43974689c87206119.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_78e5ae6515d04ba1afe3aecd55909a49471c9af3.svg" alt="20250126215534-teorema_di_hurewicz_78e5ae6515d04ba1afe3aecd55909a49471c9af3.svg" class="org-svg" /> e pertanto, per la buona definizione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1f18c799c818f993d337d94c51bdb84b060af316.svg" alt="20250126215534-teorema_di_hurewicz_1f18c799c818f993d337d94c51bdb84b060af316.svg" class="org-svg" /> e quindi, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4b9142dc434cf10fa1097671bf90baab15f28b82.svg" alt="20250126215534-teorema_di_hurewicz_4b9142dc434cf10fa1097671bf90baab15f28b82.svg" class="org-svg" />, si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_530de6293236daed63b8fc931e4c79a40ab81e5d.svg" alt="20250126215534-teorema_di_hurewicz_530de6293236daed63b8fc931e4c79a40ab81e5d.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si ottiene quindi la tesi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_6a572d1789def1b1d4fcfd7ce796c2ffcb0f81af.svg" alt="20250126215534-teorema_di_hurewicz_6a572d1789def1b1d4fcfd7ce796c2ffcb0f81af.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8cbf3de" class="outline-4">
+<h4 id="org8cbf3de">La mappa è suriettiva&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h4>
+<div class="outline-text-4" id="text-org8cbf3de">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_5a4d283ae1bdcdbca2a7a4e5aecbc8c5c28f83bd.svg" alt="20250126215534-teorema_di_hurewicz_5a4d283ae1bdcdbca2a7a4e5aecbc8c5c28f83bd.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_424e9113b07e3e5e6684e4f943e0af8a9c3e97bb.svg" alt="20250126215534-teorema_di_hurewicz_424e9113b07e3e5e6684e4f943e0af8a9c3e97bb.svg" class="org-svg" /> tale che, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_50844302535883c2369a4a11afea2a57a8c77441.svg" alt="20250126215534-teorema_di_hurewicz_50844302535883c2369a4a11afea2a57a8c77441.svg" class="org-svg" /> è la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo</a>, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7c60ef5261f47472285254f3ad6a4845bc246325.svg" alt="20250126215534-teorema_di_hurewicz_7c60ef5261f47472285254f3ad6a4845bc246325.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Si definisce
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_141e8b4bff93aec8c866fa515deeaa9be9078d47.svg" alt="20250126215534-teorema_di_hurewicz_141e8b4bff93aec8c866fa515deeaa9be9078d47.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_91d0dacef3775f5a0d99b5baef1fd77a10cd82cd.svg" alt="20250126215534-teorema_di_hurewicz_91d0dacef3775f5a0d99b5baef1fd77a10cd82cd.svg" class="org-svg" /> sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1ca4b75ff599831f5bc2ffcb008a581068b5f944.svg" alt="20250126215534-teorema_di_hurewicz_1ca4b75ff599831f5bc2ffcb008a581068b5f944.svg" class="org-svg" /> <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">funzione continua</a> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2135ba95ab0e7cc8a31b0caa442d2b3b5a5eb583.svg" alt="20250126215534-teorema_di_hurewicz_2135ba95ab0e7cc8a31b0caa442d2b3b5a5eb583.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_0ac6429adbb94a965e30e318f2faddf6ef07fba3.svg" alt="20250126215534-teorema_di_hurewicz_0ac6429adbb94a965e30e318f2faddf6ef07fba3.svg" class="org-svg" /> (tale cammino esiste poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250126215534-teorema_di_hurewicz_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è cpa).
+</p>
+
+<p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" alt="20250126215534-teorema_di_hurewicz_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" class="org-svg" /> definisco
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ed648e8a7d2b0ea0d335d81088a5baae81e324a1.svg" alt="20250126215534-teorema_di_hurewicz_ed648e8a7d2b0ea0d335d81088a5baae81e324a1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f0e2249155f20513fc00888ef2d6ec048aa9f7e3.svg" alt="20250126215534-teorema_di_hurewicz_f0e2249155f20513fc00888ef2d6ec048aa9f7e3.svg" class="org-svg" /> è la <a href="20250127115631-giustapposizione_di_cammini.html#ID-00658a57-0ce9-40b5-b018-eae5e2c0d876">giustapposizione di cammini</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_355cc2d26fb117c64aacf441493c3148fa97bf82.svg" alt="20250126215534-teorema_di_hurewicz_355cc2d26fb117c64aacf441493c3148fa97bf82.svg" class="org-svg" /> è il <a href="20250127125010-cammino_inverso.html#ID-39d1509b-0f14-4718-8773-b0ebd71db6fd">cammino inverso</a>. Evidentemente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_363e156f2552ba2234a3094722e6b1cab0e8ed6c.svg" alt="20250126215534-teorema_di_hurewicz_363e156f2552ba2234a3094722e6b1cab0e8ed6c.svg" class="org-svg" /> ed inoltre<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_40089dcbd186a9471cdbc910fd77a884919171f3.svg" alt="20250126215534-teorema_di_hurewicz_40089dcbd186a9471cdbc910fd77a884919171f3.svg" class="org-svg" />, con
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4e107ee9146a3adb7eed30fecabbe431ebf61710.svg" alt="20250126215534-teorema_di_hurewicz_4e107ee9146a3adb7eed30fecabbe431ebf61710.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Dunque, considerando <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_09e9eca03959a8648660985139c8add3e231a0b6.svg" alt="20250126215534-teorema_di_hurewicz_09e9eca03959a8648660985139c8add3e231a0b6.svg" class="org-svg" />, si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_7ce118f08d9fdbc8403a0db50f5e9f3bfc428c64.svg" alt="20250126215534-teorema_di_hurewicz_7ce118f08d9fdbc8403a0db50f5e9f3bfc428c64.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_09e9eca03959a8648660985139c8add3e231a0b6.svg" alt="20250126215534-teorema_di_hurewicz_09e9eca03959a8648660985139c8add3e231a0b6.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_61204b8241fa54101c28180513500913b22661f2.svg" alt="20250126215534-teorema_di_hurewicz_61204b8241fa54101c28180513500913b22661f2.svg" class="org-svg" /> è una <a href="20241213094625-modulo_libero.html#ID-CED8DA30-A3CE-413A-92A0-DC17C5B5BB1F">base</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4959b95037b5a369c612ad45d7469ee8cc64795b.svg" alt="20250126215534-teorema_di_hurewicz_4959b95037b5a369c612ad45d7469ee8cc64795b.svg" class="org-svg" /> (vedi <a href="20250121131920-notazione_moduli_liberi.html#ID-f3dc64ce-1a1d-47ed-8983-dd51c6760721">Modulo Libero Generato da un insieme</a>), allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_9fbb11f9c5a9e2555e21204b4316a6db6d4dce48.svg" alt="20250126215534-teorema_di_hurewicz_9fbb11f9c5a9e2555e21204b4316a6db6d4dce48.svg" class="org-svg" /> è un <a href="20241212142019-insiemi_linearmente_indipendenti.html#ID-8DD9D6E9-DE7C-43A1-BE0A-498CD0B563DD">insieme linearmente indipendente</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b32aa4ff564bf55b3420641e0e97f4582289ebb5.svg" alt="20250126215534-teorema_di_hurewicz_b32aa4ff564bf55b3420641e0e97f4582289ebb5.svg" class="org-svg" />, e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_658d0ca20410edaad108d4ddd15f8f4dd321ec81.svg" alt="20250126215534-teorema_di_hurewicz_658d0ca20410edaad108d4ddd15f8f4dd321ec81.svg" class="org-svg" />.
+</p>
+
+<p>
+Pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_479a04655c3d49dbec9be38b44403269601259e0.svg" alt="20250126215534-teorema_di_hurewicz_479a04655c3d49dbec9be38b44403269601259e0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2b31f88e40c90efbd5f4cdfdea5cfd71364356d9.svg" alt="20250126215534-teorema_di_hurewicz_2b31f88e40c90efbd5f4cdfdea5cfd71364356d9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Siccome
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_90da245b4050055555c4347299051889845cff74.svg" alt="20250126215534-teorema_di_hurewicz_90da245b4050055555c4347299051889845cff74.svg" class="org-svg" />
+</span>
+</div>
+<p>
+allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ffe4fa571d4f1911054cbfa7941fb3873d958311.svg" alt="20250126215534-teorema_di_hurewicz_ffe4fa571d4f1911054cbfa7941fb3873d958311.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_bd46b94acc6b4f40a58c59b189f01a5459901472.svg" alt="20250126215534-teorema_di_hurewicz_bd46b94acc6b4f40a58c59b189f01a5459901472.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org6546b67" class="outline-4">
+<h4 id="org6546b67">Il nucleo della mappa è l&rsquo;abelianizzatore del gruppo fondamentale&#xa0;&#xa0;&#xa0;<span class="tag"><span class="top_alg">top_alg</span>&#xa0;<span class="matematica_lm">matematica_lm</span></span></h4>
+<div class="outline-text-4" id="text-org6546b67">
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20250126215534-teorema_di_hurewicz_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" /> è suriettiva, allora per il <a href="20241213105036-primo_teorema_di_isomorfismo.html#ID-6B5446E7-F382-4F15-81C9-9892B09DF79B">primo teorema di isomorfismo</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e2411d259520c21c6e03d755a7cdf7bcee8dab92.svg" alt="20250126215534-teorema_di_hurewicz_e2411d259520c21c6e03d755a7cdf7bcee8dab92.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" alt="20250126215534-teorema_di_hurewicz_32a79312ad844dc10abb219b4f4c2ae1630a82b2.svg" class="org-svg" /> è uno <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" alt="20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" class="org-svg" />-modulo</a>, allora è un <a href="20250127093245-gruppo_abeliano.html#ID-1d5b3369-1820-4240-aa72-c177dc397f33">gruppo abeliano</a>, e <a href="20250127093729-commutatore_di_un_gruppo.html#ID-bbd0dd27-a31f-49b8-aeaa-0147175bedb1">pertanto</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_e99f76dc7d1f5138f9b8aff3b7412ad7a2459c79.svg" alt="20250126215534-teorema_di_hurewicz_e99f76dc7d1f5138f9b8aff3b7412ad7a2459c79.svg" class="org-svg" />.
+</p>
+
+<p>
+Viceversa, si dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_2fd647c0ceb37e61f9262c6588c1bd0ae035ad04.svg" alt="20250126215534-teorema_di_hurewicz_2fd647c0ceb37e61f9262c6588c1bd0ae035ad04.svg" class="org-svg" />.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4959d68b72f6492bec549cae06f6ced694c61672.svg" alt="20250126215534-teorema_di_hurewicz_4959d68b72f6492bec549cae06f6ced694c61672.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_dd332328abd0af15b55d479fad32212e72249d62.svg" alt="20250126215534-teorema_di_hurewicz_dd332328abd0af15b55d479fad32212e72249d62.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_534c789ff6c5300141366135e927ba4671e18a25.svg" alt="20250126215534-teorema_di_hurewicz_534c789ff6c5300141366135e927ba4671e18a25.svg" class="org-svg" /> sia una generica curva da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20250126215534-teorema_di_hurewicz_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" /> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" alt="20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" class="org-svg" />.
+Si definisce <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_1d7b7c8e4141d9a0c6aa7161953e8c4f13d86100.svg" alt="20250126215534-teorema_di_hurewicz_1d7b7c8e4141d9a0c6aa7161953e8c4f13d86100.svg" class="org-svg" /> come <a href="20250127093819-quoziente_di_gruppo_e_sottogruppo.html#ID-8a22e4af-f1bb-4f3c-a661-18b049fa4364">la classe di equivalenza</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_90c34a0417ae0d2c87ebc731ea447f89d09f7f36.svg" alt="20250126215534-teorema_di_hurewicz_90c34a0417ae0d2c87ebc731ea447f89d09f7f36.svg" class="org-svg" />
+</span>
+</div>
+<p>
+sui membri della base <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_fd7c27f6be936577fe1ef951a81ba50351453ab7.svg" alt="20250126215534-teorema_di_hurewicz_fd7c27f6be936577fe1ef951a81ba50351453ab7.svg" class="org-svg" />. (Questo infatti è un <a href="20241206115416-morfismi_r_moduli.html#ID-CAF891D4-A524-4C5F-BDF6-82186F4B007A">morfismo</a> tra <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" alt="20250126215534-teorema_di_hurewicz_29ae6b63fc04c7430f87dafedcdff87b57eeb305.svg" class="org-svg" />-moduli</a>, <a href="20250127093245-gruppo_abeliano.html#ID-1d5b3369-1820-4240-aa72-c177dc397f33">gruppi abeliani</a> <a href="20250127093729-commutatore_di_un_gruppo.html#ID-bbd0dd27-a31f-49b8-aeaa-0147175bedb1">poiché</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c227defe7670f4626c86a5c8e6f6bf19ea77074f.svg" alt="20250126215534-teorema_di_hurewicz_c227defe7670f4626c86a5c8e6f6bf19ea77074f.svg" class="org-svg" /> è abeliano)
+</p>
+</div>
+<div id="outline-container-orgab8c5fb" class="outline-5">
+<h5 id="orgab8c5fb">Parte I</h5>
+<div class="outline-text-5" id="text-orgab8c5fb">
+<p>
+Supponiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_008462492d9320409c17f857109b3dc5964144fc.svg" alt="20250126215534-teorema_di_hurewicz_008462492d9320409c17f857109b3dc5964144fc.svg" class="org-svg" /> cappio in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" alt="20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_4e714f4d38027cc95fcc1d5a29d89d401490f6f0.svg" alt="20250126215534-teorema_di_hurewicz_4e714f4d38027cc95fcc1d5a29d89d401490f6f0.svg" class="org-svg" /> e dunque8
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c30fe508bd471cdbadc75df17a48de1e9674d986.svg" alt="20250126215534-teorema_di_hurewicz_c30fe508bd471cdbadc75df17a48de1e9674d986.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org0239b44" class="outline-5">
+<h5 id="org0239b44">Parte II</h5>
+<div class="outline-text-5" id="text-org0239b44">
+<p>
+Sia ora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_9dbd53f9ea0b5206e2511f9479be52cb491f6c72.svg" alt="20250126215534-teorema_di_hurewicz_9dbd53f9ea0b5206e2511f9479be52cb491f6c72.svg" class="org-svg" />, e supponiamo che, detta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" alt="20250126215534-teorema_di_hurewicz_70fa249e47ebd61c0c7be3dd89e90039223dd80e.svg" class="org-svg" /> la <a href="20250122133614-mappa_di_bordo_tra_moduli_di_catene_singolari.html#ID-1f928c84-3c4e-489c-81dd-1cca23c65392">mappa di bordo</a>, sia
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_566e718cc63789102fde41ff4132fa40c4f52282.svg" alt="20250126215534-teorema_di_hurewicz_566e718cc63789102fde41ff4132fa40c4f52282.svg" class="org-svg" />
+</span>
+</div>
+<p>
+In particolare si avrà che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_69fa75c819534ecbb9b4271edbab8d860c5e3604.svg" alt="20250126215534-teorema_di_hurewicz_69fa75c819534ecbb9b4271edbab8d860c5e3604.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_c4d979b5c4c8fa75f472cea129dcad3abe5db00e.svg" alt="20250126215534-teorema_di_hurewicz_c4d979b5c4c8fa75f472cea129dcad3abe5db00e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_dbdfc312d03bda954964aa848d6a019bf380b796.svg" alt="20250126215534-teorema_di_hurewicz_dbdfc312d03bda954964aa848d6a019bf380b796.svg" class="org-svg" /> è <a href="20250121094654-omotopia_tra_funzioni_continue.html#ID-9265b022-4b3e-4d52-88c7-0cd29bf1c14a">omotopo</a> al cammino costante in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" alt="20250126215534-teorema_di_hurewicz_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" class="org-svg" />, in quanto è un cammino contenuto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_565c8593d49e6a6ebb56d614a32846e9827ba90a.svg" alt="20250126215534-teorema_di_hurewicz_565c8593d49e6a6ebb56d614a32846e9827ba90a.svg" class="org-svg" /> <a href="20250113100451-spazio_topologico_semplicemente_connesso.html#ID-546ba7a9-6740-4316-9202-b83560d0c5a4">semplicemente connesso</a> (<a href="20250128111617-immagine_continua_di_spazio_semplicemente_connesso_e_semplicemente_connesso.html#ID-427323c8-7321-4f29-b91c-b00460071438">Immagine continua di spazio semplicemente connesso è semplicemente connesso</a>) e dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_5d762027021dec5b7912b5bf749459672c773590.svg" alt="20250126215534-teorema_di_hurewicz_5d762027021dec5b7912b5bf749459672c773590.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Pertanto, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_f37e0f981351c2ee2660fd44bf6696c0d408e46a.svg" alt="20250126215534-teorema_di_hurewicz_f37e0f981351c2ee2660fd44bf6696c0d408e46a.svg" class="org-svg" />, si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a5260da5137e552c150db690a8f390718ba048fa.svg" alt="20250126215534-teorema_di_hurewicz_a5260da5137e552c150db690a8f390718ba048fa.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdcd2655" class="outline-5">
+<h5 id="orgdcd2655">Conclusione</h5>
+<div class="outline-text-5" id="text-orgdcd2655">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_cf1148519f5ccd3b7f92af2469882ae35db4e1a8.svg" alt="20250126215534-teorema_di_hurewicz_cf1148519f5ccd3b7f92af2469882ae35db4e1a8.svg" class="org-svg" />,
+</p>
+<ol class="org-ol">
+<li>allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_0c1167bc5a768d1313b0d63fa9ee3977d6016bf8.svg" alt="20250126215534-teorema_di_hurewicz_0c1167bc5a768d1313b0d63fa9ee3977d6016bf8.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b2afb5e49772bb57a3736a91f1a97de5e2569213.svg" alt="20250126215534-teorema_di_hurewicz_b2afb5e49772bb57a3736a91f1a97de5e2569213.svg" class="org-svg" />, e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_3a0c348f96b37a1747afc4e894551d128a87cf4f.svg" alt="20250126215534-teorema_di_hurewicz_3a0c348f96b37a1747afc4e894551d128a87cf4f.svg" class="org-svg" /></li>
+<li>allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_b63c8946cfd08bd7f7ab093b3b8d90def7f1f83c.svg" alt="20250126215534-teorema_di_hurewicz_b63c8946cfd08bd7f7ab093b3b8d90def7f1f83c.svg" class="org-svg" />, e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250126215534-teorema_di_hurewicz_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> è un cappio in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" alt="20250126215534-teorema_di_hurewicz_a484c71e46112936d2b91d504b399344956b81dc.svg" class="org-svg" />, e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_475d93fadaf3dca642e61a4dd8e6b2f32426ca52.svg" alt="20250126215534-teorema_di_hurewicz_475d93fadaf3dca642e61a4dd8e6b2f32426ca52.svg" class="org-svg" /></li>
+</ol>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_724423b6ae5280774087b2644e41a398adb8cb6a.svg" alt="20250126215534-teorema_di_hurewicz_724423b6ae5280774087b2644e41a398adb8cb6a.svg" class="org-svg" />, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250126215534-teorema_di_hurewicz_72afba2f186aa493f64b9549a8f6a6f164a35d2e.svg" alt="20250126215534-teorema_di_hurewicz_72afba2f186aa493f64b9549a8f6a6f164a35d2e.svg" class="org-svg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Perché???
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

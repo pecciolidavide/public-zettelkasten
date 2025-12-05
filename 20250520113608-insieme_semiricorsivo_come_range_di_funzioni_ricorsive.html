@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Insieme semiricorsivo come range di funzioni ricorsive</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Insieme semiricorsivo come range di funzioni ricorsive</h1>
+<p>
+In questa sezione si identificano i <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-fdc86b04-828f-4f24-8cdf-948211d93a95">sottinsiemi</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_80235d0f732a12ee10427082d10242ab54b2b858.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_80235d0f732a12ee10427082d10242ab54b2b858.svg" class="org-svg" /> (vedi <a href="20250202130045-insieme_dei_numeri_naturali_mk.html#ID-7a6d92bf-1346-4c3e-96ec-d660c22f425b">Insieme dei numeri naturali MK</a>) con i <a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">predicati</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" />-ari (ovvero con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> <a href="20250131103429-variabile_libera_di_una_formula.html#ID-5742aec3-1d2b-4c5e-8b7b-2f91c1a41e08">variabili libere</a>), per mezzo degli <a href="20250131122913-soddisfazione_di_una_formula.html#ID-d292fbf8-e1c9-421b-99fd-30a642f5d9d5">insiemi di verità</a>.
+</p>
+
+<p>
+Scriveremo indifferentemente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_22de5944f756b5c7cc1b7caacf94ca7e02351415.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_22de5944f756b5c7cc1b7caacf94ca7e02351415.svg" class="org-svg" /> oppure <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_e68969c4da52cd335d4084b01f425779f0eb4c92.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_e68969c4da52cd335d4084b01f425779f0eb4c92.svg" class="org-svg" /> per dire che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_9d899c0db85aef351bc504ad7a5ed53281bec791.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_9d899c0db85aef351bc504ad7a5ed53281bec791.svg" class="org-svg" />.
+</p>
+<div id="outline-container-orgd5817c8" class="outline-2">
+<h2 id="orgd5817c8">Proposizione</h2>
+<div class="outline-text-2" id="text-orgd5817c8">
+<p>
+Un insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_5e0dd60968ad7d15918e025269a3d132c0da3f0e.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_5e0dd60968ad7d15918e025269a3d132c0da3f0e.svg" class="org-svg" /> è <a href="20250520113238-insieme_semiricorsivo.html#ID-cf3413b4-ee63-46af-bcd2-0252eab30002">semiricorsivo</a> se e solo se <a href="20250131161811-insieme_vuoto_mk.html#ID-259b30b8-3c7e-407f-a372-95199bd724fa">vuoto</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_0f17bae9038d4b2604146b4bed477553fd966463.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_0f17bae9038d4b2604146b4bed477553fd966463.svg" class="org-svg" /> oppure se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_df551aa81dec8fddc62868abf31faeeb8eae2bec.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_df551aa81dec8fddc62868abf31faeeb8eae2bec.svg" class="org-svg" /> <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> per qualche funzione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_b8f5d464b284a77e5a303895bc4f0c4166d4181f.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_b8f5d464b284a77e5a303895bc4f0c4166d4181f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+<a href="20250207104855-funzione_ricorsiva.html#ID-ae4af861-8e1a-4082-af81-0cf154e357bd">ricorsiva</a> <span class="underline"><a href="20250213105339-funzione_parziale.html#ID-0b129ba3-4ed9-4d57-9a84-d4d62ab5e88c">totale</a></span>.
+</p>
+</div>
+<div id="outline-container-org888caeb" class="outline-3">
+<h3 id="org888caeb">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org888caeb">
+<p>
+Senza perdita di generalità, si può assumere <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_452073c4aa3a507fc6acceff928fbd498425b10a.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_452073c4aa3a507fc6acceff928fbd498425b10a.svg" class="org-svg" />, poiché questo è ricorsivo <a href="20250520113238-insieme_semiricorsivo.html#ID-6e468c8a-3bb2-49c2-b01c-a7fa4b0912f4">e dunque</a> semiricorsivo.
+</p>
+
+<p>
+(<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_88c0bb10a9537cf33fe75a3e2c7c00d07723cc65.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_88c0bb10a9537cf33fe75a3e2c7c00d07723cc65.svg" class="org-svg" />): Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_462e44febcad2a9de63cadee2dc09c9b5fa286d8.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_462e44febcad2a9de63cadee2dc09c9b5fa286d8.svg" class="org-svg" /> è semiricorsivo allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_403d7c7735ecf220ac6a3ead817ff491a5a4af7e.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_403d7c7735ecf220ac6a3ead817ff491a5a4af7e.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_5f22dce993e83d9a5320d3d7e14884fd526b2093.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_5f22dce993e83d9a5320d3d7e14884fd526b2093.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_d93ff3b88df83d4ea9093002b7905b0bef82b8e2.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_d93ff3b88df83d4ea9093002b7905b0bef82b8e2.svg" class="org-svg" /> definita come segue: sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_8c1180aca32f0e1c45b7a6a34b86bd94032083ff.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_8c1180aca32f0e1c45b7a6a34b86bd94032083ff.svg" class="org-svg" /> fissato, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_d1746ed013597ba3c07c7a61eaecf1d19c65538d.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_d1746ed013597ba3c07c7a61eaecf1d19c65538d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questa è <a href="20250213105339-funzione_parziale.html#ID-0b129ba3-4ed9-4d57-9a84-d4d62ab5e88c">totale</a>, tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_0a60b3182b52fda0dcfea2f3376349972802ab69.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_0a60b3182b52fda0dcfea2f3376349972802ab69.svg" class="org-svg" />, e inoltre è ricorsiva, poiché <a href="20250520101337-funzioni_ricorsive_definite_per_casi.html#ID-0191782a-0ecd-4dce-98cf-19359fe8c397">definita per casi</a> su un insieme ricorsivo <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<p>
+(<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_425171e9fd7ee4b5a09cf2e93ae73b3e5269bb9e.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_425171e9fd7ee4b5a09cf2e93ae73b3e5269bb9e.svg" class="org-svg" />): Si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_172dad2eb5c9464bafacf31b7d7e6490d5caae18.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_172dad2eb5c9464bafacf31b7d7e6490d5caae18.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove il <a href="20250104112443-grafico_di_una_funzione.html#ID-cfa16e89-6a78-4944-9714-898e7cc376b4">grafico</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20250216173925-insieme_ricorsivo.html#ID-f1412b9c-24c7-4554-a2dd-0f9acc05a208">ricorsivo</a> <a href="20250601162421-funzioni_ricorsive_e_loro_grafico.html#ID-5f06c425-9c0f-4ae3-8c32-1473d488889b">poiché</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250520113608-insieme_semiricorsivo_come_range_di_funzioni_ricorsive_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20250213105339-funzione_parziale.html#ID-0b129ba3-4ed9-4d57-9a84-d4d62ab5e88c">totale</a> e <a href="20250207104855-funzione_ricorsiva.html#ID-ae4af861-8e1a-4082-af81-0cf154e357bd">ricorsiva</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250202173528-dominio_range_e_campo_di_una_classe_relazione.html#ID-65c613be-1af6-4700-9b4c-145837158bfa">Dominio, Range e Campo di una Classe Relazione</a>&rdquo;
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250519112917-proprieta_di_chiusura_degli_insiemi_ricorsivi.html#ID-0cd7b90f-d043-4cdc-a33a-684419cfb2f0">Proprietà di chiusura degli insiemi ricorsivi</a>&rdquo; e &ldquo;<a href="20250215151413-biiezione_canonica_tra_n_e_n2.html#ID-065f625f-6660-435a-813b-21889aedf4b5">Biiezione canonica tra N e prodotti cartesiani di N</a>&rdquo;
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-orgbacd72e" class="outline-2">
+<h2 id="orgbacd72e">phi-formula su un insieme</h2>
+<div class="outline-text-2" id="text-orgbacd72e">
+<p>
+Si utilizza la <a href="20250612143636-notazione_teoria_dei_modelli.html#ID-23ca6fda-d271-42fe-ad95-33bf3184a5c8">Notazione della TEORIA DEI MODELLI</a>
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_5e7d529931b9bbc7359eaaa82efe832035161aa1.svg" alt="20251026161720-phi_formula_su_un_insieme_5e7d529931b9bbc7359eaaa82efe832035161aa1.svg" class="org-svg" /> un <a href="20250130162057-linguaggio_del_prim_ordine.html#ID-2f5e20ce-ce16-49b2-9e30-15fd852dea66">linguaggio</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_4484fa4077d8c0032157944ab2b48177cac431c5.svg" alt="20251026161720-phi_formula_su_un_insieme_4484fa4077d8c0032157944ab2b48177cac431c5.svg" class="org-svg" /> una <a href="20250130114950-teoria_del_prim_ordine.html#ID-cb85cb82-d03d-4728-96ed-a514b7484a0d">teoria</a> <a href="20250131123151-teoria_completa.html#ID-ee6d8c92-3050-4c73-93b3-8a82241d3656">completa</a> senza <a href="20250131122945-modello_di_un_insieme_di_formule.html#ID-05b14778-2a79-4d6a-8a6e-b0b6f6336f7d">modelli</a> finiti e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" alt="20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" class="org-svg" /> un <a href="20250617095548-modello_lambda_saturo.html#ID-cae8612f-f307-4861-9b79-924ea9503407">modello saturo</a> di <a href="20241213101756-cardinalita.html#ID-52D5B0F4-4F1A-4F14-B508-D51011BD1B0F">cardinalità</a> <a href="20250211123155-cardinale_limite_forte.html#ID-e817440d-9f77-411d-85c0-578208a4809a">inaccessibile</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_f7d1b0f3f7dd87c7c869f499eac1f43455bb44d2.svg" alt="20251026161720-phi_formula_su_un_insieme_f7d1b0f3f7dd87c7c869f499eac1f43455bb44d2.svg" class="org-svg" />. <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" alt="20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" class="org-svg" /> è un <a href="20250617102733-modello_mostro.html#ID-3f826ca0-43fe-4339-bc2d-798e9422cffd">modello mostro</a>.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_83cabd61a7a1e8ce96e02cade5d2af076a355c8d.svg" alt="20251026161720-phi_formula_su_un_insieme_83cabd61a7a1e8ce96e02cade5d2af076a355c8d.svg" class="org-svg" /> piccolo.
+</p>
+
+<div class="definizione" id="org3888ec6">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_756c91ddcb2a1a4e558de6bb5a5dd1992758ede1.svg" alt="20251026161720-phi_formula_su_un_insieme_756c91ddcb2a1a4e558de6bb5a5dd1992758ede1.svg" class="org-svg" /> una <a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">formula</a>. Una <span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-formula</span> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> è<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_1bd6b59aa904ed4039bb7fe4af95c12db7854624.svg" alt="20251026161720-phi_formula_su_un_insieme_1bd6b59aa904ed4039bb7fe4af95c12db7854624.svg" class="org-svg" />
+</span>
+</div>
+<p>
+tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" alt="20251026161720-phi_formula_su_un_insieme_7265293a4d003dcf847e9bb7ff9677cc6535a8d3.svg" class="org-svg" /> sia <a href="20251026161128-formula_invariante_su_un_insieme.html#ID-389e13aa-38a8-440c-850f-a6703eacb242">invariante su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /></a>.
+</p>
+
+<p>
+Con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_795901ed0c52720f67d2c6780af110586575c216.svg" alt="20251026161720-phi_formula_su_un_insieme_795901ed0c52720f67d2c6780af110586575c216.svg" class="org-svg" /> si intende l&rsquo;insieme delle <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-formule su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251026161720-phi_formula_su_un_insieme_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" />.
+</p>
+
+</div>
+</div>
+<div id="outline-container-orga7e8b76" class="outline-3">
+<h3 id="orga7e8b76">phi-tipo su un insieme</h3>
+<div class="outline-text-3" id="text-orga7e8b76">
+<div class="definizione" id="org7a7f4b0">
+<p>
+Un <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-tipo è un insieme di <a href="#orgbacd72e"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-formule</a>.
+</p>
+
+<p>
+Un <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-tipo <span class="underline">globale</span> è un insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_8fe409a5432b8b4571c1a5bb1b179446e3b74c5d.svg" alt="20251026161720-phi_formula_su_un_insieme_8fe409a5432b8b4571c1a5bb1b179446e3b74c5d.svg" class="org-svg" />-<a href="20250203102516-massimo_e_minimo.html#ID-798e4657-b252-4c74-beea-f04dd6e120a1">massimale</a> <a href="20250212164424-tipo_teoria_dei_modelli.html#ID-f84ff7ff-3fa4-4aa7-9c20-4d2ebb4beeac">finitamente consistent</a>e di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-formule su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" alt="20251026161720-phi_formula_su_un_insieme_435477cf05aab3242ddecd426cb198450f35fa21.svg" class="org-svg" />.
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_75f3b106e8090384cc1d33bf888ef5fc8281d70e.svg" alt="20251026161720-phi_formula_su_un_insieme_75f3b106e8090384cc1d33bf888ef5fc8281d70e.svg" class="org-svg" /> è l&rsquo;insieme di tutti i <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" alt="20251026161720-phi_formula_su_un_insieme_27b6261684f1d4794b4ec4d32890b56fd9d3ae82.svg" class="org-svg" />-tipi globali.
+</p>
+
+</div>
+
+<div class="oss" id="org77bc0e6">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_bf16a8544b93beb7f491c4da8596507d1cb37b36.svg" alt="20251026161720-phi_formula_su_un_insieme_bf16a8544b93beb7f491c4da8596507d1cb37b36.svg" class="org-svg" /> allora a meno di equivalenza
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_b3fb713e5dc8551855b52dba1ffe44d44d49dfdf.svg" alt="20251026161720-phi_formula_su_un_insieme_b3fb713e5dc8551855b52dba1ffe44d44d49dfdf.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+<a href="20250515141706-da_finire.html#ID-59173645-f84c-43ec-9dfb-06838e2a4596">DA FINIRE</a>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Con questa notazione (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_586d270601fca1c3dac50b9e4bc2b6d5b2ea33a5.svg" alt="20251026161720-phi_formula_su_un_insieme_586d270601fca1c3dac50b9e4bc2b6d5b2ea33a5.svg" class="org-svg" />) si indica la <a href="20251021120818-chiusura_di_un_insieme_di_formule_rispetto_a_connettivi_logici.html#ID-e22b0567-9d55-473a-bb94-0fbcd72b565b">chiusura di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" alt="20251026161720-phi_formula_su_un_insieme_9caf66d798a40bd0818fabfd6622e8c33a683b7c.svg" class="org-svg" /></a> rispetto a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251026161720-phi_formula_su_un_insieme_ab9cbc0fe1c8f1957f4dce31adea66a35af1b8fc.svg" alt="20251026161720-phi_formula_su_un_insieme_ab9cbc0fe1c8f1957f4dce31adea66a35af1b8fc.svg" class="org-svg" />
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

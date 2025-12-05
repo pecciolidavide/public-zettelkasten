@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Numeri di Hartogs</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Numeri di Hartogs</h1>
+<p>
+Contesto: <a href="20250130104245-morse_kelly_set_theory.html#ID-e0be2ce8-fb19-42f5-bbeb-ee803eefd747">Morse Kelly Set Theory</a>
+</p>
+<div id="outline-container-orgdf0b057" class="outline-2">
+<h2 id="orgdf0b057">Costruzione del numero di Hartogs</h2>
+<div class="outline-text-2" id="text-orgdf0b057">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> un insieme qualsiasi, e sia<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_948822c09bd990d222d84aea4ccef9affe147240.svg" alt="20250205152531-numeri_di_hartogs_948822c09bd990d222d84aea4ccef9affe147240.svg" class="org-svg" />
+</span>
+</div>
+
+<ul class="org-ul">
+<li><p>
+Si consideri la funzione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_8305d71b5471311e0e5d7aacb4267f1678e612db.svg" alt="20250205152531-numeri_di_hartogs_8305d71b5471311e0e5d7aacb4267f1678e612db.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_1da259fcbb0df24eb42eb32b04ac272162428e26.svg" alt="20250205152531-numeri_di_hartogs_1da259fcbb0df24eb42eb32b04ac272162428e26.svg" class="org-svg" /> è il buon ordine indotto su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_ec45f3e307fc50d1661283309385f642a9064601.svg" alt="20250205152531-numeri_di_hartogs_ec45f3e307fc50d1661283309385f642a9064601.svg" class="org-svg" /> da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250205152531-numeri_di_hartogs_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_39cd3aeeeb737f46268cbb8d4058f850d1bdde6c.svg" alt="20250205152531-numeri_di_hartogs_39cd3aeeeb737f46268cbb8d4058f850d1bdde6c.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250205152531-numeri_di_hartogs_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è un isomorfismo tra ordini: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_7a1fcb7e3a8f14e063f26a88a3faa10652dc285b.svg" alt="20250205152531-numeri_di_hartogs_7a1fcb7e3a8f14e063f26a88a3faa10652dc285b.svg" class="org-svg" />.
+</p></li>
+<li><p>
+<span class="underline"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_050d65c4fc0d3586bdfa56dfc7e9d38275760439.svg" alt="20250205152531-numeri_di_hartogs_050d65c4fc0d3586bdfa56dfc7e9d38275760439.svg" class="org-svg" /> è iniettiva</span>: infatti, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_4e28710dd9876324eb9ba724341f719d5b524abd.svg" alt="20250205152531-numeri_di_hartogs_4e28710dd9876324eb9ba724341f719d5b524abd.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_f003fef66388a27eb5390186420735a3ecd5eaa1.svg" alt="20250205152531-numeri_di_hartogs_f003fef66388a27eb5390186420735a3ecd5eaa1.svg" class="org-svg" /> e quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_c3a9c7f00d6b4ae277b1acf30b0eff5bceaebb4d.svg" alt="20250205152531-numeri_di_hartogs_c3a9c7f00d6b4ae277b1acf30b0eff5bceaebb4d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è un isomorfismo. <a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e">Dunque</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_28e130be16cc6c84d1d81f56c5b506383e8f4129.svg" alt="20250205152531-numeri_di_hartogs_28e130be16cc6c84d1d81f56c5b506383e8f4129.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_d0f8460a9f2e677a4df61e07069915f0809ef892.svg" alt="20250205152531-numeri_di_hartogs_d0f8460a9f2e677a4df61e07069915f0809ef892.svg" class="org-svg" />.
+</p></li>
+</ul>
+
+<p>
+Dunque si definisce
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_21e16af3bc04a3164cff0ddf5d74746edaf8b6a9.svg" alt="20250205152531-numeri_di_hartogs_21e16af3bc04a3164cff0ddf5d74746edaf8b6a9.svg" class="org-svg" />
+</span>
+</div>
+<ul class="org-ul">
+<li><p>
+Innanzitutto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> è un ordinale: se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_0e2235e982605afcd05e7cecdb1113dddf5b4969.svg" alt="20250205152531-numeri_di_hartogs_0e2235e982605afcd05e7cecdb1113dddf5b4969.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_ab32bfcdb446d5e71617f982a9ed6172d46ee1f6.svg" alt="20250205152531-numeri_di_hartogs_ab32bfcdb446d5e71617f982a9ed6172d46ee1f6.svg" class="org-svg" /> e si ha
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_e3f037889db325983c1666a6f3348bfce14eab2e.svg" alt="20250205152531-numeri_di_hartogs_e3f037889db325983c1666a6f3348bfce14eab2e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_7ecbd74bf24410a659c8262db12a4118fd4927d5.svg" alt="20250205152531-numeri_di_hartogs_7ecbd74bf24410a659c8262db12a4118fd4927d5.svg" class="org-svg" /> è testimone di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_13f6744e732a24dbc6fb5e2c4846fe7ee2b63170.svg" alt="20250205152531-numeri_di_hartogs_13f6744e732a24dbc6fb5e2c4846fe7ee2b63170.svg" class="org-svg" />. Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> è transitivo.
+</p></li>
+<li>Inoltre, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> è il più piccolo ordinale che non si inietta in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />:
+<ul class="org-ul">
+<li>Ovviamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> non si inietta in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, poiché altrimenti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_675c47f5c84fa0e6ed37054eed34208abdb1d7dd.svg" alt="20250205152531-numeri_di_hartogs_675c47f5c84fa0e6ed37054eed34208abdb1d7dd.svg" class="org-svg" />. <a href="20250131180704-nessun_insieme_appartiene_a_se_stesso.html#ID-5b304720-5b66-45b6-9f45-3f6d3315d20a">Assurdo</a>.</li>
+<li><p>
+Inoltre, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_e170c7bd6aafbc78cb7f4f2dfacebe17553b1b25.svg" alt="20250205152531-numeri_di_hartogs_e170c7bd6aafbc78cb7f4f2dfacebe17553b1b25.svg" class="org-svg" /> non si inietta in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, allora per definizione non esiste alcuna <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_c2e2cd9b57526c96df2494f8d63f4ca0dbee0b2d.svg" alt="20250205152531-numeri_di_hartogs_c2e2cd9b57526c96df2494f8d63f4ca0dbee0b2d.svg" class="org-svg" /> iniettiva, e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_d8158066c216981b9342ae668246da3623823490.svg" alt="20250205152531-numeri_di_hartogs_d8158066c216981b9342ae668246da3623823490.svg" class="org-svg" />. Dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_b9a82c09105fb32db32e4b016694933b950c02ff.svg" alt="20250205152531-numeri_di_hartogs_b9a82c09105fb32db32e4b016694933b950c02ff.svg" class="org-svg" />
+</span>
+</div></li>
+</ul></li>
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> è un cardinale. Se per assurdo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_a7e2d5c67476a7e982ff245cfb746efa950fd5ef.svg" alt="20250205152531-numeri_di_hartogs_a7e2d5c67476a7e982ff245cfb746efa950fd5ef.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_416b7f8a146a76d5cf3e5c65b815537ef4228d89.svg" alt="20250205152531-numeri_di_hartogs_416b7f8a146a76d5cf3e5c65b815537ef4228d89.svg" class="org-svg" /> e dunque (per definizione)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_adbcf09850e58283527203185d6a301ce2e50f3b.svg" alt="20250205152531-numeri_di_hartogs_adbcf09850e58283527203185d6a301ce2e50f3b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_a6e2faef3585662d55df8a387bb78c6414b93d24.svg" alt="20250205152531-numeri_di_hartogs_a6e2faef3585662d55df8a387bb78c6414b93d24.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_675c47f5c84fa0e6ed37054eed34208abdb1d7dd.svg" alt="20250205152531-numeri_di_hartogs_675c47f5c84fa0e6ed37054eed34208abdb1d7dd.svg" class="org-svg" />. Assurdo.
+</p></li>
+</ul>
+
+<p>
+La suriezione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_990cabaeae101b44b80dc5245483a22260137858.svg" alt="20250205152531-numeri_di_hartogs_990cabaeae101b44b80dc5245483a22260137858.svg" class="org-svg" /> è data da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_fcacbccf179c488cde999c85a626b15f1d1981e2.svg" alt="20250205152531-numeri_di_hartogs_fcacbccf179c488cde999c85a626b15f1d1981e2.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org3741529" class="outline-2">
+<h2 id="org3741529">Teorema</h2>
+<div class="outline-text-2" id="text-org3741529">
+<p>
+Per ogni <a href="20250130104331-insieme_mk.html#ID-76c41141-40b1-420e-89bc-6da6d94d2509">insieme</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> è il <a href="20250203111003-ordinali.html#ID-9ff8cb5d-6051-4db0-8a00-0ebb41bd39e2">più piccolo</a> <a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e">ordinale</a> che non <a href="20241219101956-funzione_iniettiva.html#ID-fe3d1aa5-623e-42a2-8beb-2ee9923d72e5">si inietta</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250205152531-numeri_di_hartogs_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, ed è un <a href="20250203161341-cardinali.html#ID-16c332be-31c2-4e81-b016-6fbab288954a">cardinale</a>.
+</p>
+
+<p>
+Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_da4554b841f83b0625433d1e8d8f6df9652af9fc.svg" alt="20250205152531-numeri_di_hartogs_da4554b841f83b0625433d1e8d8f6df9652af9fc.svg" class="org-svg" /> si <a href="20241213105600-funzione_suriettiva.html#ID-EDACF156-28A8-4006-B619-24DA1D4E70B4">surietta</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" alt="20250205152531-numeri_di_hartogs_10c01dc89067207bb1c108a0516f64331cc27696.svg" class="org-svg" /> (vedi <a href="20250130104245-morse_kelly_set_theory.html#ID-2ce7977e-8053-4fcd-87e7-031b6a8492ec">Insieme delle parti MK</a>)
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">Funzione iniettiva</a>&rdquo;
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

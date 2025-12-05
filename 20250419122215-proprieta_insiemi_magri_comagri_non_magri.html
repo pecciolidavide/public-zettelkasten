@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proprietà insiemi magri, comagri, non magri</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Proprietà insiemi magri, comagri, non magri</h1>
+<div id="outline-container-org5e42337" class="outline-2">
+<h2 id="org5e42337">Proposizione</h2>
+<div class="outline-text-2" id="text-org5e42337">
+<p>
+Prove that for every topological space <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" class="org-svg" />, the following are equivalent:
+</p>
+<ol class="org-ol">
+<li>Every nonempty open subset of <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" class="org-svg" /> is non-meager.</li>
+<li>Every comeager set in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> is dense.</li>
+<li>The intersection of countably many dense open subsets of <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" class="org-svg" /> is dense.</li>
+</ol>
+</div>
+<div id="outline-container-org8cc5146" class="outline-3">
+<h3 id="org8cc5146">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org8cc5146">
+</div>
+<div id="outline-container-org0055f3c" class="outline-4">
+<h4 id="org0055f3c">a. implica b.</h4>
+<div class="outline-text-4" id="text-org0055f3c">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_e00f4181154c47b3b86bd4090ef475715472c9b9.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_e00f4181154c47b3b86bd4090ef475715472c9b9.svg" class="org-svg" /> un insieme comagro: pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_32c948255f6c368eb4bdf5774da002230d10ce7c.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_32c948255f6c368eb4bdf5774da002230d10ce7c.svg" class="org-svg" /> è magro. Se per assurdo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> non è denso, allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_d0555e91c2ff3674836e5588273209f303fcf1d0.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_d0555e91c2ff3674836e5588273209f303fcf1d0.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_d4032eff43fc49859ef29d7c29a6c5bddba4c195.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_d4032eff43fc49859ef29d7c29a6c5bddba4c195.svg" class="org-svg" />.
+</p>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_ec7ebe2b327cc22bb11f440dbf0ebe13ddaafebf.svg" class="org-svg" /> è sottoinsieme di un magro, e pertanto è magro. Assurdo.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaba54fb" class="outline-4">
+<h4 id="orgaba54fb">b. implica c.</h4>
+<div class="outline-text-4" id="text-orgaba54fb">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_19d6f72a454c61b782064a6dae084a45b1fe8157.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_19d6f72a454c61b782064a6dae084a45b1fe8157.svg" class="org-svg" /> una collezione di aperti densi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />, e sia, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_a90365f216df8a317bf5300d844661dc4c9e0879.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_a90365f216df8a317bf5300d844661dc4c9e0879.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_c00139a4f05390dd2abc3125fc460d768dfe1b5b.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_c00139a4f05390dd2abc3125fc460d768dfe1b5b.svg" class="org-svg" />.
+</p>
+
+<p>
+Per la caratterizzazione di cui sopra, gli <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_7f316b25d61703e6b7cba3ccf36bc04d33201b66.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_7f316b25d61703e6b7cba3ccf36bc04d33201b66.svg" class="org-svg" /> sono mai densi, e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_77c048f042e4948c5f6a3273db8d3e139b5f6d93.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_77c048f042e4948c5f6a3273db8d3e139b5f6d93.svg" class="org-svg" /> è magro per definizione
+</p>
+
+<p>
+Siccome
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_96e2af13f46cd960d69569afb4e27a671e01387e.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_96e2af13f46cd960d69569afb4e27a671e01387e.svg" class="org-svg" />
+allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_27514a2a871e7009703e416ede93d4d4183b2061.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_27514a2a871e7009703e416ede93d4d4183b2061.svg" class="org-svg" /> è comagro, e quindi è denso.
+</p>
+</div>
+</div>
+<div id="outline-container-orge4d43d3" class="outline-4">
+<h4 id="orge4d43d3">c. implica a.</h4>
+<div class="outline-text-4" id="text-orge4d43d3">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto, magro. Per definizione, allora, esistono, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_a90365f216df8a317bf5300d844661dc4c9e0879.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_a90365f216df8a317bf5300d844661dc4c9e0879.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_e595ce3c45b59e37b69cc113df31d2d925047ec4.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_e595ce3c45b59e37b69cc113df31d2d925047ec4.svg" class="org-svg" /> mai densi tali che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_a63c87244a3157cbc128e42c0bf00e378a4a5fe0.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_a63c87244a3157cbc128e42c0bf00e378a4a5fe0.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_c5f33b1b738f6694b35eb03e789a9d9a7164f29d.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_c5f33b1b738f6694b35eb03e789a9d9a7164f29d.svg" class="org-svg" />: questo è aperto poiché complementare di un chiuso, ed è denso, in quanto il suo complementare ha interno vuoto (per la caratterizzazione dell&rsquo;esercizio precedente).
+</p>
+
+<p>
+Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_3be9de6b9023ebe0f73a6ded42941b549f734d15.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_3be9de6b9023ebe0f73a6ded42941b549f734d15.svg" class="org-svg" /> è denso. Inoltre
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_2e0c945d732010c12bd4d4bbf14b8e7c4e348519.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_2e0c945d732010c12bd4d4bbf14b8e7c4e348519.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_2759a201310361245cbdd1d2773fabf3da01a14e.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_2759a201310361245cbdd1d2773fabf3da01a14e.svg" class="org-svg" />. Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_97c0bc9d7115ca61157233bd524696ec2145040e.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_97c0bc9d7115ca61157233bd524696ec2145040e.svg" class="org-svg" /> è denso, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_742217d96187815a1c2279e211e57ee13ef663b6.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_742217d96187815a1c2279e211e57ee13ef663b6.svg" class="org-svg" />.
+</p>
+
+<p>
+Segie che ogni aperto non vuoto di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250419122215-proprieta_insiemi_magri_comagri_non_magri_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è non magro.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

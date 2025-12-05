@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div class="prop" id="org4e3c142">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_4b9ea5178b65087f03383f40edbf79dd577cb812.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_4b9ea5178b65087f03383f40edbf79dd577cb812.svg" class="org-svg" /> aperto e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_25c2d6ab9527d926a0fc2782d214cc4141e72e47.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_25c2d6ab9527d926a0fc2782d214cc4141e72e47.svg" class="org-svg" /><sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" /> un <a href="20250702101346-punto_critico_di_una_funzione_reale.html#ID-330b1aaf-7ad5-4f7a-b256-e386f2a62817">punto critico</a> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" class="org-svg" /> l&rsquo;<a href="20250627161731-matrice_hessiana.html#ID-d11fefb7-6282-4409-8b04-7b99a8c30122">Hessiana</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> calcolata nel punto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" />.
+</p>
+<ul class="org-ul">
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" class="org-svg" /> è <a href="20250702102213-matrice_definita_positiva.html#ID-16e9e920-f912-40c8-8f61-6af12fe2dd42">definita positiva</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" /> è un punto di <a href="20250627153543-massimo_e_minimo_di_una_funzione_reale.html#ID-9acf3073-9f99-45ee-9d77-cdac3303067b">minimo locale forte</a>.</li>
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" class="org-svg" /> è <a href="20250702102213-matrice_definita_positiva.html#ID-658a575e-0619-4a30-88a2-8150483c4e7c">definita negativa</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" /> è un punto di <a href="20250627153543-massimo_e_minimo_di_una_funzione_reale.html#ID-9acf3073-9f99-45ee-9d77-cdac3303067b">massimo locale forte</a>.</li>
+<li>Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" class="org-svg" /> è <a href="20250702102213-matrice_definita_positiva.html#ID-09eae863-45d7-4573-857b-32a167f63876">indefinita</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" /> è un punto di <a href="20250702102107-punto_di_sella.html#ID-1f3f5776-507b-43ba-ad78-913f298e0719">sella</a>.</li>
+</ul>
+
+</div>
+
+<div class="proof" id="org28ee0d4">
+<p>
+Si dimostra che se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a9a1d8251cffd3c2c8095e1d7b6170e389e29873.svg" class="org-svg" /> è definita positiva, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_98d5e5bac978af121942f6d97a940c1df85f97df.svg" class="org-svg" /> è un punto di minimo locale.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_9ac061f081d3e051b02bc84418d4dad526314440.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_9ac061f081d3e051b02bc84418d4dad526314440.svg" class="org-svg" /> una curva di classe <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_f6b6ee277de57f0b831e83ff30bc5377fec1a4be.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_f6b6ee277de57f0b831e83ff30bc5377fec1a4be.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_f02aed59df6cc9028fccc60fd1d93cbedd32ed8a.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_f02aed59df6cc9028fccc60fd1d93cbedd32ed8a.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_c1f16a8a962a8edcacc9aa8aa166d87240746bbb.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_c1f16a8a962a8edcacc9aa8aa166d87240746bbb.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a754d0157d02bf1a235bb9cc05504db6d632f390.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_a754d0157d02bf1a235bb9cc05504db6d632f390.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_053197583c3031568d9434fc79a4b8f21c0a1172.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_053197583c3031568d9434fc79a4b8f21c0a1172.svg" class="org-svg" />.
+</p>
+<ul class="org-ul">
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_db486489e986f9130a4fa861fb04f29261cc430b.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_db486489e986f9130a4fa861fb04f29261cc430b.svg" class="org-svg" />. Infatti, applicando la <a href="20250702114407-chain_rule.html#ID-24a095d2-f421-4435-99c4-18ac537339d7">chain rule</a>:<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_274fc6047dfa6758267d2e4c1562b0a0e85afa81.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_274fc6047dfa6758267d2e4c1562b0a0e85afa81.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_2a0e32b1b82ef540a93c32abec4f849329621a1e.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_2a0e32b1b82ef540a93c32abec4f849329621a1e.svg" class="org-svg" />. Infatti, si noti che<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_b10c250a0c144ac0617470feb6772dd9ed0a4210.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_b10c250a0c144ac0617470feb6772dd9ed0a4210.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Inoltre, siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è differenziabile, si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_6e1c7922ef1355538415e6aaf0d865c589ad3ca8.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_6e1c7922ef1355538415e6aaf0d865c589ad3ca8.svg" class="org-svg" />.
+</p>
+
+<p>
+Anche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_812b4e81ed4d429aa918dfaec976c9ffb15b8691.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_812b4e81ed4d429aa918dfaec976c9ffb15b8691.svg" class="org-svg" /> è differenziabile, e pertanto &lt;
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_7b9ba7fc0b7e3bf3b793f1cfe8461a56c526186e.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_7b9ba7fc0b7e3bf3b793f1cfe8461a56c526186e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ma
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_dee83d7798f13c2cad612eb3128c73d72f449fea.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_dee83d7798f13c2cad612eb3128c73d72f449fea.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_4ca5078c03dbc819188b889c94bf56a8fa7866da.svg" alt="20250627161722-hessiana_e_punti_stazionari_di_una_funzione_reale_4ca5078c03dbc819188b889c94bf56a8fa7866da.svg" class="org-svg" />.
+</p></li>
+</ul>
+
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250113125602-classe_c_di_una_funzione.html#ID-e2559378-0574-4470-88c5-e2a16ef3ffdd">Funzione di classe Ck</a>&rdquo;
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250624171244-gradiente_di_una_funzione.html#ID-b39d165c-f1f2-4610-8e2a-95f28ca5ad1d">Gradiente di una funzione</a>&rdquo;
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250702114642-derivata_direzionale.html#ID-0a7ce95f-5937-4315-bcfe-1e554f412987">Derivata direzionale</a>&rdquo;
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

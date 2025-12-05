@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlante differenziabile induce una topologia</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Atlante differenziabile induce una topologia</h1>
+<div id="outline-container-org7c6402a" class="outline-2">
+<h2 id="org7c6402a">Teorema.</h2>
+<div class="outline-text-2" id="text-org7c6402a">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> un insieme, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_c491792a74e5a8eb1f6353087a8531c0ff82958a.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_c491792a74e5a8eb1f6353087a8531c0ff82958a.svg" class="org-svg" /> una famiglia in cui <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_04d21c65ab1fc03fee1a0082d6f3dcf4f0459e61.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_04d21c65ab1fc03fee1a0082d6f3dcf4f0459e61.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_3555819d3f95b507dbf592399c018c0ac0486539.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_3555819d3f95b507dbf592399c018c0ac0486539.svg" class="org-svg" /> <a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">iniettiva</a> tale che
+</p>
+<ol class="org-ol">
+<li><p>
+per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_902fc451b880e47c5f76004a4130ab0f62c70e24.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_902fc451b880e47c5f76004a4130ab0f62c70e24.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_386a23add84c1914e0740b6c581fb75095a3ecaa.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_386a23add84c1914e0740b6c581fb75095a3ecaa.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_6b69b81b126a1a6f595596184e117c12bb308d86.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_6b69b81b126a1a6f595596184e117c12bb308d86.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_86b65e81bfc1b6ab2103fb259d8201a0176cf648.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_86b65e81bfc1b6ab2103fb259d8201a0176cf648.svg" class="org-svg" /> e la funzione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_02aaaaad45fc876ba3f7ae11cce2709839c84490.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_02aaaaad45fc876ba3f7ae11cce2709839c84490.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è una <a href="20250113125602-classe_c_di_una_funzione.html#ID-e2559378-0574-4470-88c5-e2a16ef3ffdd">funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_1823ba2270b17bb8c8c3e501d2cd31e973f71f20.svg" class="org-svg" /> tra aperti di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_86b65e81bfc1b6ab2103fb259d8201a0176cf648.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_86b65e81bfc1b6ab2103fb259d8201a0176cf648.svg" class="org-svg" /></a>;
+</p></li>
+
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_1f5526f5cf10ae59f85dcb2739c1f3381bac44da.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_1f5526f5cf10ae59f85dcb2739c1f3381bac44da.svg" class="org-svg" /> è un <a href="20250103164252-ricoprimento.html#ID-bd4ef9e9-48ef-441e-a244-b9440823313b">ricoprimento</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> e ammette un sottoricoprimento <a href="20250111143651-insieme_numerabile.html#ID-43e8fa42-e06f-40fa-871f-cbc9b2387484">numerabile</a>;</li>
+<li>per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_de0193f053fb94370f959411e157963c95f5707a.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_de0193f053fb94370f959411e157963c95f5707a.svg" class="org-svg" /> vale una delle seguenti:
+<ul class="org-ul">
+<li>esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_edc6aa49975cbd2a1fedd3e6a5311a72e76176c0.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_edc6aa49975cbd2a1fedd3e6a5311a72e76176c0.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_5a5d7ae05e1d932f76125f8b621e41ff9b37a87b.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_5a5d7ae05e1d932f76125f8b621e41ff9b37a87b.svg" class="org-svg" />;</li>
+<li>esistono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_c02f7d039890e5610dd73f682199dadc4cba9b20.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_c02f7d039890e5610dd73f682199dadc4cba9b20.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_a6d83f4f82d08ad15caba83e6882d69240483ee1.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_a6d83f4f82d08ad15caba83e6882d69240483ee1.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_1ff7d7fa880b7325ad61fc6c2e602f0c8ed7e167.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_1ff7d7fa880b7325ad61fc6c2e602f0c8ed7e167.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_dd833fb853b627e901bedb0b52be11e676aa5335.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_dd833fb853b627e901bedb0b52be11e676aa5335.svg" class="org-svg" />.</li>
+</ul></li>
+</ol>
+
+<p>
+Allora esiste una <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">topologia</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> <a href="20250109155715-spazio_topologico_di_hausdorff.html#ID-4b266bd6-84ae-452e-a3e9-7dda45cdda84">T2</a> e <a href="20250111142303-spazio_topologico_a_base_numerabile.html#ID-95baddc2-1fe1-405e-8194-95627a964af7">a base numerabile</a> rispetto alla quale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250115104113-atlante_differenziabile_induce_una_topologia_c491792a74e5a8eb1f6353087a8531c0ff82958a.svg" alt="20250115104113-atlante_differenziabile_induce_una_topologia_c491792a74e5a8eb1f6353087a8531c0ff82958a.svg" class="org-svg" /> è un <a href="20250113103136-atlante_topologico_differenziabile.html#ID-9e693307-2609-4c65-82b8-d231066cf281">atlante differenziabile</a>.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

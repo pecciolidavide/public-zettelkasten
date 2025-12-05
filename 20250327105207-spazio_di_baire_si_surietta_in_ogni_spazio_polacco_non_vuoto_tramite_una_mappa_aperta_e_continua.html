@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spazio di Baire si surietta in ogni spazio polacco non vuoto tramite una mappa aperta e continua</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Spazio di Baire si surietta in ogni spazio polacco non vuoto tramite una mappa aperta e continua</h1>
+<div id="outline-container-org3f348bc" class="outline-2">
+<h2 id="org3f348bc">Proposizione</h2>
+<div class="outline-text-2" id="text-org3f348bc">
+<p>
+Show that for every nonempty <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">Polish space</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" class="org-svg" /> there is a <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continuous</a> <a href="20250104114559-funzione_chiusa.html#ID-fdc2f384-b7cf-43ed-8fa2-d3b42628778d">open</a> <a href="20241213105600-funzione_suriettiva.html#ID-EDACF156-28A8-4006-B619-24DA1D4E70B4">surjection</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_0fb799bb07b3cd851a01bc053ec67661c6185db7.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_0fb799bb07b3cd851a01bc053ec67661c6185db7.svg" class="org-svg" />.
+</p>
+
+<p>
+[Hint. First show that if <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_175cf9095d531a83917fc1b329ffc6a60b8919cd.svg" class="org-svg" /> is a <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">metric space</a>, then <a href="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo.html#ID-80f328a4-40fe-48ce-b4a5-2ddbe6360aeb">for every open <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" class="org-svg" /> and every <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_85802d14e6955ea6bd064bb63d3f68f8d03297cc.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_85802d14e6955ea6bd064bb63d3f68f8d03297cc.svg" class="org-svg" /> there is a countable covering <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_45e0ae09218341afc15cd57d2a02862d6f922d9b.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_45e0ae09218341afc15cd57d2a02862d6f922d9b.svg" class="org-svg" /> of <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4fddd8835c472d7afcd3e95801c8807950e7f99a.svg" class="org-svg" /> such that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_d23029349a01ce6259d7006fc9f0165ecfaff522.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_d23029349a01ce6259d7006fc9f0165ecfaff522.svg" class="org-svg" /> and <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_df231cc1286b8e3f048632a481a32b6a86bee6c3.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_df231cc1286b8e3f048632a481a32b6a86bee6c3.svg" class="org-svg" />, for all <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ce8161a80d934af363a78a6f979aab91c60996f4.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ce8161a80d934af363a78a6f979aab91c60996f4.svg" class="org-svg" /></a>. Use this to build an appropriate $&omega;$-scheme inducing the function <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_d5e01a3c738a0aebdf6d8d6656912c8836784c7a.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_d5e01a3c738a0aebdf6d8d6656912c8836784c7a.svg" class="org-svg" />.]
+</p>
+</div>
+<div id="outline-container-orgf27097a" class="outline-3">
+<h3 id="orgf27097a">Soluzione</h3>
+<div class="outline-text-3" id="text-orgf27097a">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" /> una <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">metrica</a> <a href="20250301194153-spazio_metrico_completo.html#ID-769be75d-d3df-4b0f-a738-00f54e291057">completa</a> fissata su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />.
+</p>
+
+<p>
+Si costruisce per induzione su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4e28b4af5bac19eb7cc40e498442b8963dbd3c3e.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4e28b4af5bac19eb7cc40e498442b8963dbd3c3e.svg" class="org-svg" /> un <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_508bca4f99da0959381c22c9ce348e2bc086b8d8.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_508bca4f99da0959381c22c9ce348e2bc086b8d8.svg" class="org-svg" />-schema <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_359ed27adc829479219684d6965a6b47c6a1fe70.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_359ed27adc829479219684d6965a6b47c6a1fe70.svg" class="org-svg" /> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_842fda6e441fd85c7b1a4be3aee4d0a2def4dd9f.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_842fda6e441fd85c7b1a4be3aee4d0a2def4dd9f.svg" class="org-svg" />.
+</p>
+
+<p>
+Sia ora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" class="org-svg" /> tale per cui <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_160f0585b2041cbde91819553e75554b69bdf976.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_160f0585b2041cbde91819553e75554b69bdf976.svg" class="org-svg" /> è definito. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4904f9f42eec080932ef4932de647142b7c8d5be.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_4904f9f42eec080932ef4932de647142b7c8d5be.svg" class="org-svg" /> il <a href="20250103164252-ricoprimento.html#ID-bd4ef9e9-48ef-441e-a244-b9440823313b">ricoprimento</a> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a> <a href="20250111143651-insieme_numerabile.html#ID-43e8fa42-e06f-40fa-871f-cbc9b2387484">numerabile</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_160f0585b2041cbde91819553e75554b69bdf976.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_160f0585b2041cbde91819553e75554b69bdf976.svg" class="org-svg" /> che esiste per il <a href="20250327132216-ogni_aperto_di_uno_spazio_metrico_ammette_un_ricoprimento_numerabile_di_diametro_arbitrariamente_piccolo.html#ID-80f328a4-40fe-48ce-b4a5-2ddbe6360aeb">claim</a>. Questo è tale che:
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_0b427b5246e89e64b5754f6648db1c51d9110a91.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_0b427b5246e89e64b5754f6648db1c51d9110a91.svg" class="org-svg" /></li>
+<li>gli <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ec28c075957d095ac339674aacabbe13358f2de0.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ec28c075957d095ac339674aacabbe13358f2de0.svg" class="org-svg" /> sono aperti, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_1686f3d5f44f4eef4b2ce79703850404d71d4af0.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_1686f3d5f44f4eef4b2ce79703850404d71d4af0.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_8839a9d77a1928f6c3147d1c4eff93d199d583a4.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_8839a9d77a1928f6c3147d1c4eff93d199d583a4.svg" class="org-svg" />;</li>
+<li>senza perdità di generalità, e possibile supporre che ciascun <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_b8cca35f5f7b327fa7734924a7b1b8a4e7979ca3.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_b8cca35f5f7b327fa7734924a7b1b8a4e7979ca3.svg" class="org-svg" /> (si sostituisce nel ricoprimento a ciascun <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_a387e0e2f908f0c4783eb130c1a8f28e6012165b.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_a387e0e2f908f0c4783eb130c1a8f28e6012165b.svg" class="org-svg" /> il primo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ca5f51ee42e6e76481ea4d29e2b2e3776df18a4a.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_ca5f51ee42e6e76481ea4d29e2b2e3776df18a4a.svg" class="org-svg" />);</li>
+</ul>
+<p>
+Si pone quindi, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_48b5657407f370689ac9ecac1afa6b65520e07e3.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_48b5657407f370689ac9ecac1afa6b65520e07e3.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_dd2e14f4c83bfbeba8ab5a07db7f73eb8af7ff41.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_dd2e14f4c83bfbeba8ab5a07db7f73eb8af7ff41.svg" class="org-svg" />.
+</p>
+
+<p>
+Si è in questo modo definito un <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_508bca4f99da0959381c22c9ce348e2bc086b8d8.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_508bca4f99da0959381c22c9ce348e2bc086b8d8.svg" class="org-svg" />-schema su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> che induce una funzione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_686849165e2b2c6c07a01c7f616311acbe1627ef.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_686849165e2b2c6c07a01c7f616311acbe1627ef.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per il lemma 1.3.6, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è tale che
+</p>
+<ol class="org-ol">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è continua per il punto (a);</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è suriettiva per il punto (d);</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_f7c6cfdd0766bb0bb7eaf3710f839bdb0d580ec7.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_f7c6cfdd0766bb0bb7eaf3710f839bdb0d580ec7.svg" class="org-svg" /> per il punto (e);</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327105207-spazio_di_baire_si_surietta_in_ogni_spazio_polacco_non_vuoto_tramite_una_mappa_aperta_e_continua_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è aperta per il punto (d).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

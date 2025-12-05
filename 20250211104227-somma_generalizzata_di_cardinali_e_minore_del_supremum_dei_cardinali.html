@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org804fee8" class="outline-2">
+<h2 id="org804fee8">Somma generalizzata di cardinali è minore del supremum dei cardinali</h2>
+<div class="outline-text-2" id="text-org804fee8">
+<p>
+Contesto: <a href="20250130104245-morse_kelly_set_theory.html#ID-e0be2ce8-fb19-42f5-bbeb-ee803eefd747">Morse Kelly Set Theory</a>
+</p>
+</div>
+<div class="outline-text-2" id="text-org804fee8">
+<div class="prop" id="org3a0a680">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" /> un <a href="20250130104331-insieme_mk.html#ID-76c41141-40b1-420e-89bc-6da6d94d2509">insieme</a> <a href="20250203161431-classe_ben_ordinabile_mk.html#ID-d7df4082-a3e0-44ac-837b-e34f67aab6ea">ben ordinabile</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_34cbbb89098bc5b4b2b55b5307e7b984cf3f98f6.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_34cbbb89098bc5b4b2b55b5307e7b984cf3f98f6.svg" class="org-svg" /> una <a href="20250206170922-sequenze_e_stringhe.html#ID-868cd6d0-64f7-4ac7-a231-889f0a034230">sequenza</a> di <a href="20250203161341-cardinali.html#ID-16c332be-31c2-4e81-b016-6fbab288954a">cardinali</a> tali che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_13d9e1f134b5ebf3f14e0b99461e3107efdde351.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_13d9e1f134b5ebf3f14e0b99461e3107efdde351.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_478e1f575c741e4161962ebf6ad64e3fa2c99539.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_478e1f575c741e4161962ebf6ad64e3fa2c99539.svg" class="org-svg" /> (vedi <a href="20250203111003-ordinali.html#ID-9ff8cb5d-6051-4db0-8a00-0ebb41bd39e2">Relazione d&rsquo;ordine sugli ordinali</a>). Allora la <a href="20250612151505-aritmetica_dei_cardinali.html#ID-c28b9e61-1883-484c-8d07-ac38d523ac35">somma</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_d59e4a645053556372543d5fc8e3444d70050836.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_d59e4a645053556372543d5fc8e3444d70050836.svg" class="org-svg" />
+</span>
+</div>
+<p>
+(vedi <a href="20250612151505-aritmetica_dei_cardinali.html#ID-7b6a5019-d5a9-4a9d-9b8b-7409fc12a1a1">Prodotto di cardinali</a>, <a href="20241213101756-cardinalita.html#ID-52D5B0F4-4F1A-4F14-B508-D51011BD1B0F">Cardinalità</a> e <a href="20250203102516-massimo_e_minimo.html#ID-c785716d-f40a-4a2d-809b-7dcc8919fe9a">Infimum e supremum</a> e <a href="20250203161341-cardinali.html#ID-b98799f7-776a-49aa-ad8c-32813ed75b51">Supremum di un insieme di cardinali è un cardinale</a>)
+</p>
+
+<p>
+Inoltre se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_d7524181005d6464bdd6dc4acfff74c0ced00e1a.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_d7524181005d6464bdd6dc4acfff74c0ced00e1a.svg" class="org-svg" /> (vedi <a href="20250203161110-numeri_naturali_sono_ordinali.html#ID-741b2f11-96a8-4436-9900-5ebbb9efe11c">Ordinale omega</a>) allora vale l&rsquo;uguaglianza.
+</p>
+
+</div>
+</div>
+<div class="outline-text-2" id="text-org804fee8">
+<div class="proof" id="org6cd4a8b">
+<p>
+L&rsquo;inclusione (vedi <a href="20241219101956-funzione_iniettiva.html#ID-fe3d1aa5-623e-42a2-8beb-2ee9923d72e5">Classe si inietta MK</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_3bf4bae0f74583762af6c34a97fddd2b25f4df1b.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_3bf4bae0f74583762af6c34a97fddd2b25f4df1b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+prova la disuguaglianza<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. (vedi <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-442d8883-3956-46c1-be9e-478b754c2645">Classe Unione Generalizzata</a>)
+</p>
+
+<p>
+Per l&rsquo;uguaglianza, si fissi un buon ordine <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_957aac0dfb0a34ed10681d4c5059dc58be321609.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_957aac0dfb0a34ed10681d4c5059dc58be321609.svg" class="org-svg" /> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" /> (in quanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" /> ben ordinabile).
+</p>
+
+<p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_9c4e785b77f7f9fc2a4c753a3cd3750523cb4e06.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_9c4e785b77f7f9fc2a4c753a3cd3750523cb4e06.svg" class="org-svg" /> (vedi <a href="20250203111003-ordinali.html#ID-e0253fc0-e32c-4463-bf75-7cfabea3691e">Ordinali</a>) sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_2604e617adf53ca580468f75b7de01cf8be736ba.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_2604e617adf53ca580468f75b7de01cf8be736ba.svg" class="org-svg" /> l&rsquo;elemento <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_957aac0dfb0a34ed10681d4c5059dc58be321609.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_957aac0dfb0a34ed10681d4c5059dc58be321609.svg" class="org-svg" />-<a href="20250203102516-massimo_e_minimo.html#ID-2ca0b3d3-dc69-4457-87b8-7c2ccec6c4d3">minimale</a> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_b7229f4a19765cef328b4415189bb6640ae17e8c.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_b7229f4a19765cef328b4415189bb6640ae17e8c.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+La funzione
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_47e720dd06864f0d557e5a1707cef821f9f91f4d.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_47e720dd06864f0d557e5a1707cef821f9f91f4d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è iniettiva, e <a href="20241213101756-cardinalita.html#ID-356342fc-58e8-419c-97df-f97ffff0cb67">pertanto</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_0ba9b8a5c55f4b9c67f4f4e52362713c6c303850.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_0ba9b8a5c55f4b9c67f4f4e52362713c6c303850.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per <a href="20250211145622-proprieta_di_prodotto_e_somma_generalizzata_di_cardinali.html#ID-2b849ed2-674a-4c55-8055-0c104df6cdd8">monotonia</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_96b0c6924eacb7c21e592c3c230ee0dc870b581d.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_96b0c6924eacb7c21e592c3c230ee0dc870b581d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e <a href="20241213101756-cardinalita.html#ID-356342fc-58e8-419c-97df-f97ffff0cb67">quindi</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_f9d89e4983a376a531daa95b6aad2fa596ffcff5.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_f9d89e4983a376a531daa95b6aad2fa596ffcff5.svg" class="org-svg" />. Pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_73a0b24290745d6c29f5f8e640ca173b02d100d0.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_73a0b24290745d6c29f5f8e640ca173b02d100d0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Pertanto si ha la seguente catena:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_edddc58fcd6edbcfee4e7108baeb952e2bc4c8ae.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_edddc58fcd6edbcfee4e7108baeb952e2bc4c8ae.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ma se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_07397d6ea0ece085bbba62d3eef22e6821afeb1f.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_07397d6ea0ece085bbba62d3eef22e6821afeb1f.svg" class="org-svg" /> <a href="20250205181254-order_type_del_prodotto_cartesiano_di_un_cardinale_e_il_cardinale_stesso.html#ID-c4183cf4-d00c-422a-b4cb-6616b33ee078">allora</a> (vedi <a href="20250205120448-classe_finita_e_infinita_mk.html#ID-b247ed6e-df62-41e9-97c1-a2948a19134d">Classe finita e infinita MK</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_f2803ee91acfaeffe721b0fc8c6fd2b4e07f15fe.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_f2803ee91acfaeffe721b0fc8c6fd2b4e07f15fe.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_8f6cd15b7e1901b52551ff574dd4bc23b467afdb.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_8f6cd15b7e1901b52551ff574dd4bc23b467afdb.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi <a href="20241213101756-cardinalita.html#ID-356342fc-58e8-419c-97df-f97ffff0cb67">Proprietà della cardinalità</a>, <a href="20250612151505-aritmetica_dei_cardinali.html#ID-7b6a5019-d5a9-4a9d-9b8b-7409fc12a1a1">Prodotto di cardinali</a>. Vale in particolare perché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_a0de1156ea504712e93945a28579a6aad5e8b872.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_a0de1156ea504712e93945a28579a6aad5e8b872.svg" class="org-svg" /> (vedi <a href="20250619101109-classi_equipotenti.html#ID-5a4568d6-517d-48ea-a1d4-1bd36b3f4975">Classi equipotenti MK</a>) e dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_0f72fa8dbb342c2926dd9201c86ad48c9ecf8ec4.svg" alt="20250211104227-somma_generalizzata_di_cardinali_e_minore_del_supremum_dei_cardinali_0f72fa8dbb342c2926dd9201c86ad48c9ecf8ec4.svg" class="org-svg" />
+</span>
+</div>
+<p class="footpara">
+Vedi anche <a href="20250203111003-ordinali.html#ID-f350e356-76fd-41df-82d5-ad8dd29cd1b5">Proprietà degli ordinali</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

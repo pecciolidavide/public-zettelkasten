@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prova</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Prova</h1>
+<div id="outline-container-org4144b10" class="outline-2">
+<h2 id="org4144b10">Lezione 30 - <span class="timestamp-wrapper"><span class="timestamp">&lt;2025-12-02 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org4144b10">
+</div>
+<div id="outline-container-org7dc037e" class="outline-3">
+<h3 id="org7dc037e">Criterio di Buchberger</h3>
+<div class="outline-text-3" id="text-org7dc037e">
+<p>
+Fissiamo un <i>term order</i>. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_fe4c13dbf6063700721887021d70dc0e8e434ac2.svg" alt="prova_fe4c13dbf6063700721887021d70dc0e8e434ac2.svg" class="org-svg" /> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ae86d90ca7efc9841ad7596e937fa292744d7d2e.svg" alt="prova_ae86d90ca7efc9841ad7596e937fa292744d7d2e.svg" class="org-svg" /> l&rsquo;ideale generato da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" />.
+</p>
+
+<div class="thm" id="org5ab871b">
+<p>
+(Criterio di Buchberger).
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una Base di Gröbner (GB) di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" /> se e solo se:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_5916c9c4b6eb748050598322819a75a360c7505d.svg" alt="prova_5916c9c4b6eb748050598322819a75a360c7505d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ovvero, il resto della divisione degli S-polinomi rispetto a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è zero.
+</p>
+
+</div>
+
+<div class="proof" id="org02b62c0">
+<p>
+(<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_88c0bb10a9537cf33fe75a3e2c7c00d07723cc65.svg" alt="prova_88c0bb10a9537cf33fe75a3e2c7c00d07723cc65.svg" class="org-svg" />):
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una GB di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" />, sappiamo che per definizione gli S-polinomi appartengono all&rsquo;ideale:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_31b95f0b63485c6115ea028bd5ced23ebb8a163b.svg" alt="prova_31b95f0b63485c6115ea028bd5ced23ebb8a163b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una GB, il resto della divisione di qualsiasi elemento di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" /> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è unico e deve essere 0. Pertanto:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_1b888c5479fdba94bb378701b5318952af90f8e1.svg" alt="prova_1b888c5479fdba94bb378701b5318952af90f8e1.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+
+<p>
+Per dimostrare l&rsquo;altra impliaczione è necessario un lemma:
+</p>
+<div class="lem" id="org4de6e2f">
+<p>
+Fissiamo un term order. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_466e55fa020ab7bae4781974d8b51692773ecac2.svg" alt="prova_466e55fa020ab7bae4781974d8b51692773ecac2.svg" class="org-svg" /> un insieme di polinomi con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ff9594801761c8a082a2f916d8da304de1a551eb.svg" alt="prova_ff9594801761c8a082a2f916d8da304de1a551eb.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_7e136a91d7a19bfda996e19ab972c7998a37102d.svg" alt="prova_7e136a91d7a19bfda996e19ab972c7998a37102d.svg" class="org-svg" /> per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" alt="prova_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" class="org-svg" />.
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6b51a266ebb9eeb2ea6318b25a929713a8bc53de.svg" alt="prova_6b51a266ebb9eeb2ea6318b25a929713a8bc53de.svg" class="org-svg" /> con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_b1c6ae3b9e401315957c4c8189b9cdc00a5cdd0d.svg" alt="prova_b1c6ae3b9e401315957c4c8189b9cdc00a5cdd0d.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" alt="prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" class="org-svg" />.
+Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è una combinazione lineare degli S-polinomi:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_abb8fd6c4c15bf5b1ebffa3ec53eda213fe5ccc7.svg" alt="prova_abb8fd6c4c15bf5b1ebffa3ec53eda213fe5ccc7.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+<div class="proof" id="org985eec8">
+<p>
+Consideriamo l&rsquo;S-polinomio tra <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_128f3d741b13eaaf4898f3f64aa2e0e59d6a62e1.svg" alt="prova_128f3d741b13eaaf4898f3f64aa2e0e59d6a62e1.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_1fa4b5fb7a446606fd8fc5d486b6d775a5bd6385.svg" alt="prova_1fa4b5fb7a446606fd8fc5d486b6d775a5bd6385.svg" class="org-svg" />. Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_7b9a4621b149e98f885a7c9d5cc3af38c3c5cf47.svg" alt="prova_7b9a4621b149e98f885a7c9d5cc3af38c3c5cf47.svg" class="org-svg" />, il minimo comune multiplo è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" />.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d7c1e2887c41c93cb7a9b5f28b1ce99cab350568.svg" alt="prova_d7c1e2887c41c93cb7a9b5f28b1ce99cab350568.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Scriviamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_02cb06b0fc939e20bbdb1d931fd5ee981fccb29b.svg" alt="prova_02cb06b0fc939e20bbdb1d931fd5ee981fccb29b.svg" class="org-svg" />, dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_5ea3e5154e25157ba7d33d7c77374aa99071cc49.svg" alt="prova_5ea3e5154e25157ba7d33d7c77374aa99071cc49.svg" class="org-svg" />.
+Per ipotesi, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ba7a62534fd0e9ed21cb5281353bb1f0bcffbba2.svg" alt="prova_ba7a62534fd0e9ed21cb5281353bb1f0bcffbba2.svg" class="org-svg" />. Questo implica che il termine di grado <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" /> si cancella nella somma, ovvero:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6cf79091879421320ab8cee398c461058b92e27d.svg" alt="prova_6cf79091879421320ab8cee398c461058b92e27d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Definiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d4d007ad785974e591858df1ae2f1fd099d67493.svg" alt="prova_d4d007ad785974e591858df1ae2f1fd099d67493.svg" class="org-svg" />. Notiamo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f99fda62cc4f260d71c2b4d379d10224c558f346.svg" alt="prova_f99fda62cc4f260d71c2b4d379d10224c558f346.svg" class="org-svg" />.
+Riscriviamo la combinazione lineare usando una somma telescopica:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e768ea521388add0b6ecb9916d151aa75fb6bd04.svg" alt="prova_e768ea521388add0b6ecb9916d151aa75fb6bd04.svg" class="org-svg" />
+</span>
+</div>
+<p>
+L&rsquo;ultimo termine è nullo perché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_96caa14edec2a8d1d58f3a9122608a7179f3e003.svg" alt="prova_96caa14edec2a8d1d58f3a9122608a7179f3e003.svg" class="org-svg" />.
+Quindi abbiamo riscritto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> come combinazione lineare di termini del tipo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_2424bb22e4c2bf99dbf2d7718eb78dfde00d4d2c.svg" alt="prova_2424bb22e4c2bf99dbf2d7718eb78dfde00d4d2c.svg" class="org-svg" />, che sono multipli scalari di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_81fec211cd23db54d3b6f7879d1d304e3a2ed67e.svg" alt="prova_81fec211cd23db54d3b6f7879d1d304e3a2ed67e.svg" class="org-svg" />. Inoltre, poiché i termini di testa si cancellano in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_bc82a23e4dd5559fbdc058796e426165b94a2593.svg" alt="prova_bc82a23e4dd5559fbdc058796e426165b94a2593.svg" class="org-svg" />, vale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_2e9c5936444cc18aff4a92e43dc58be64f14c4b0.svg" alt="prova_2e9c5936444cc18aff4a92e43dc58be64f14c4b0.svg" class="org-svg" />.
+</p>
+
+</div>
+
+<div class="proof" id="orgc61c165">
+<p>
+(del Teorema, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_425171e9fd7ee4b5a09cf2e93ae73b3e5269bb9e.svg" alt="prova_425171e9fd7ee4b5a09cf2e93ae73b3e5269bb9e.svg" class="org-svg" />).
+</p>
+
+<p>
+<i>Ipotesi:</i> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_fe4c13dbf6063700721887021d70dc0e8e434ac2.svg" alt="prova_fe4c13dbf6063700721887021d70dc0e8e434ac2.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_537a408286268451c4c46168c81e1db356139e0f.svg" alt="prova_537a408286268451c4c46168c81e1db356139e0f.svg" class="org-svg" />. Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_c2de2a507a16d8c742ea65ba4869a66443f11f48.svg" alt="prova_c2de2a507a16d8c742ea65ba4869a66443f11f48.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_bc9489786184c65d5ab28ada3686d4ecf8823999.svg" alt="prova_bc9489786184c65d5ab28ada3686d4ecf8823999.svg" class="org-svg" />.
+</p>
+
+<p>
+<i>Tesi:</i> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una GB di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_a3f6eba90a304fbd6b66ee32c7f9ce9add147d57.svg" alt="prova_a3f6eba90a304fbd6b66ee32c7f9ce9add147d57.svg" class="org-svg" />.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6dcf6d4c8635b4218b7e94a559220ff12268c9ce.svg" alt="prova_6dcf6d4c8635b4218b7e94a559220ff12268c9ce.svg" class="org-svg" />. Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> genera <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" alt="prova_ea13caa722de80d7d5f8ba3ae4732465da8be62a.svg" class="org-svg" />, possiamo scrivere:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_0185568eec20a4580c9cfd7c81e32aaef03027c0.svg" alt="prova_0185568eec20a4580c9cfd7c81e32aaef03027c0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Consideriamo il termine massimo in questa rappresentazione: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6d5a1acc32908616e940cfe31202aa2e93e6c263.svg" alt="prova_6d5a1acc32908616e940cfe31202aa2e93e6c263.svg" class="org-svg" />.
+Certamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f5e3be4171d1d3d38ca54d1d2e2b25c462b15433.svg" alt="prova_f5e3be4171d1d3d38ca54d1d2e2b25c462b15433.svg" class="org-svg" />.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Caso 1: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_50e1f352ab14e3faf3ee84547dfc6a57aa0812b8.svg" alt="prova_50e1f352ab14e3faf3ee84547dfc6a57aa0812b8.svg" class="org-svg" />.
+</p>
+
+<p>
+Allora esiste un indice <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="prova_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_4e1ce4abd91a06844e45fa95396856b3cef312d8.svg" alt="prova_4e1ce4abd91a06844e45fa95396856b3cef312d8.svg" class="org-svg" />. Questo implica che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d121e4ba26573a8476809ec318694188c076fd04.svg" alt="prova_d121e4ba26573a8476809ec318694188c076fd04.svg" class="org-svg" /> è divisibile per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_586e26d455e173bf6a32ae7b4ae8d1c0ca6f3b75.svg" alt="prova_586e26d455e173bf6a32ae7b4ae8d1c0ca6f3b75.svg" class="org-svg" />, quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_b524d6f33b11cc75c18f7f02b770feace262183c.svg" alt="prova_b524d6f33b11cc75c18f7f02b770feace262183c.svg" class="org-svg" />, e la condizione di GB è soddisfatta.
+</p></li>
+
+<li><p>
+Caso 2: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_24d10feec3ced6feda0c4e59e488268e6a73091e.svg" alt="prova_24d10feec3ced6feda0c4e59e488268e6a73091e.svg" class="org-svg" />.
+</p>
+
+<p>
+Questo significa che i termini di testa nella somma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_dd55a86c9c261cc793014401fb82fb1bfef6e125.svg" alt="prova_dd55a86c9c261cc793014401fb82fb1bfef6e125.svg" class="org-svg" /> si cancellano.
+Scegliamo una rappresentazione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f9778b7f89888a42d3fb5d2edd1db3a9a682b4a9.svg" alt="prova_f9778b7f89888a42d3fb5d2edd1db3a9a682b4a9.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6793cdff71c5c3e7c225729e46590abb8b6d2e91.svg" alt="prova_6793cdff71c5c3e7c225729e46590abb8b6d2e91.svg" class="org-svg" /> sia .
+Chiamiamo questo massimo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" />. Per assurdo, supponiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" alt="prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" class="org-svg" />.
+</p>
+
+<p>
+Isoliamo i termini che hanno grado <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_1537c2c7d184ce1347c89606ed50560df495479d.svg" alt="prova_1537c2c7d184ce1347c89606ed50560df495479d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Consideriamo la prima parte. Possiamo scrivere <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_52c63548a87ea8723869bf4c030f61f8057ff580.svg" alt="prova_52c63548a87ea8723869bf4c030f61f8057ff580.svg" class="org-svg" />.
+La somma dei termini di testa deve annullarsi (perché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" alt="prova_67de3f5443ea5d1ab283f6913d87cf7f0f8b163f.svg" class="org-svg" />):
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e5052c93c05d287413ec62464230085d556d43f4.svg" alt="prova_e5052c93c05d287413ec62464230085d556d43f4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questa è una combinazione lineare di termini <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_a3493037f1a74ff221eb878250697b59c816390f.svg" alt="prova_a3493037f1a74ff221eb878250697b59c816390f.svg" class="org-svg" /> (dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_cc823a4b20e9939c35d15e79eb571b76a0a9ba46.svg" alt="prova_cc823a4b20e9939c35d15e79eb571b76a0a9ba46.svg" class="org-svg" /> sono monomi) che hanno tutti lo stesso <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d1f2b23b6afa344dd381ec9967611cb298fb378b.svg" alt="prova_d1f2b23b6afa344dd381ec9967611cb298fb378b.svg" class="org-svg" />.
+Per il dimostrato sopra, questa somma può essere riscritta come combinazione lineare degli S-polinomi di questi termini <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_96bf6ceeeae27a2446e28f7f3f7f98e5a7c52d1f.svg" alt="prova_96bf6ceeeae27a2446e28f7f3f7f98e5a7c52d1f.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_a56b86d1d1fa2253e44ef6ba8e2c83913fce513b.svg" alt="prova_a56b86d1d1fa2253e44ef6ba8e2c83913fce513b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Nota: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_95b5b752865473811452cee29792d39de7490f6e.svg" alt="prova_95b5b752865473811452cee29792d39de7490f6e.svg" class="org-svg" /> dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ba82b46dd8d8397908ba45471060ac7777ef87d4.svg" alt="prova_ba82b46dd8d8397908ba45471060ac7777ef87d4.svg" class="org-svg" />.
+</p>
+
+<p>
+Per ipotesi, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_323cd8c9c7388ad2a0cdcc3e060609d321f3f187.svg" alt="prova_323cd8c9c7388ad2a0cdcc3e060609d321f3f187.svg" class="org-svg" />, il che significa che l&rsquo;algoritmo di divisione ci dà:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_275dfeab48d4a4a72389f0006b4b4d85d12e9d63.svg" alt="prova_275dfeab48d4a4a72389f0006b4b4d85d12e9d63.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Sostituendo queste espressioni nella somma originale, otteniamo una nuova scrittura per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="prova_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_9db65450a341467038a7cb3ad9136721bf7ee8d3.svg" alt="prova_9db65450a341467038a7cb3ad9136721bf7ee8d3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove tutti i termini hanno grado strettamente minore di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" />.
+Questo contraddice la di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" alt="prova_418cad912ef670cd2e052b61d8d60c085d6cc0c0.svg" class="org-svg" /> che avevamo assunto.
+Quindi il caso <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_2ab582cee1009c88e0f7bc85efa145ac60dffa7f.svg" alt="prova_2ab582cee1009c88e0f7bc85efa145ac60dffa7f.svg" class="org-svg" /> non può verificarsi con la scelta minimale. Deve valere <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_bfbdac21019983da5ed1a93c8026c87e52847162.svg" alt="prova_bfbdac21019983da5ed1a93c8026c87e52847162.svg" class="org-svg" />, il che implica che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una Base di Gröbner.
+</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org66c08e2" class="outline-3">
+<h3 id="org66c08e2">Esempi</h3>
+<div class="outline-text-3" id="text-org66c08e2">
+<div class="esempio" id="orgcb468ff">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_059fd45d6f0fb2007bf3afba8ba8db66103614cf.svg" alt="prova_059fd45d6f0fb2007bf3afba8ba8db66103614cf.svg" class="org-svg" /> con term order Lex <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d55d40db24ac4fa7aadf42798896ac671aad6998.svg" alt="prova_d55d40db24ac4fa7aadf42798896ac671aad6998.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f466fe24b0d363fcf5a405f1e40ac57bbf516d08.svg" alt="prova_f466fe24b0d363fcf5a405f1e40ac57bbf516d08.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_044bcc4e19ade0fc7eb8cb337c31295e7e591f53.svg" alt="prova_044bcc4e19ade0fc7eb8cb337c31295e7e591f53.svg" class="org-svg" /></li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_7e3dff8c550c165a41757f517f115752836c9c6c.svg" alt="prova_7e3dff8c550c165a41757f517f115752836c9c6c.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_3f44d3ec5e23ea24f458d4aa99044d6841086251.svg" alt="prova_3f44d3ec5e23ea24f458d4aa99044d6841086251.svg" class="org-svg" /></li>
+</ul>
+
+<p>
+Calcoliamo l&rsquo;S-polinomio:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e94ec7b9566bcb30d3b3118ba6855863d5ff44c5.svg" alt="prova_e94ec7b9566bcb30d3b3118ba6855863d5ff44c5.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Ordiniamo il risultato: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e36fb079e398393325f52f25d425c53970d86ef3.svg" alt="prova_e36fb079e398393325f52f25d425c53970d86ef3.svg" class="org-svg" />. Dividiamo per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" />:
+</p>
+
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f783bb5a712d828e013f2565ed495b60b0f221db.svg" alt="prova_f783bb5a712d828e013f2565ed495b60b0f221db.svg" class="org-svg" /> è divisibile per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_dff281a93bb0042c1a9d5f7a2b4326c552c48f21.svg" alt="prova_dff281a93bb0042c1a9d5f7a2b4326c552c48f21.svg" class="org-svg" />? Sì. <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_66f463af3a533c6e2558e5a98a21673e2e3221bd.svg" alt="prova_66f463af3a533c6e2558e5a98a21673e2e3221bd.svg" class="org-svg" />.</li>
+<li>Sottraiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_2fe313dc14ea1619e31226577cab7a9c6d388185.svg" alt="prova_2fe313dc14ea1619e31226577cab7a9c6d388185.svg" class="org-svg" />.</li>
+<li>Resto parziale: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_5a732bbc07365c53c69cf6b76d60d12ed3d9614f.svg" alt="prova_5a732bbc07365c53c69cf6b76d60d12ed3d9614f.svg" class="org-svg" />.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_2e8490e46bbc80fba1a6e2193bd3008027745de9.svg" alt="prova_2e8490e46bbc80fba1a6e2193bd3008027745de9.svg" class="org-svg" /> è divisibile per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_671a6fd2d8352616e08f427b3a5dc63136f9b9ff.svg" alt="prova_671a6fd2d8352616e08f427b3a5dc63136f9b9ff.svg" class="org-svg" />? Sì.</li>
+<li>Sottraiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ef473c7bcd211d652de58aa28958c4030461825f.svg" alt="prova_ef473c7bcd211d652de58aa28958c4030461825f.svg" class="org-svg" />.</li>
+<li>Resto: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_12d2a722f2bec7a1f6b362d147949fba1f1dfa9d.svg" alt="prova_12d2a722f2bec7a1f6b362d147949fba1f1dfa9d.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_d6d5ce15df51e7185db921f22a9da86a15d15e18.svg" alt="prova_d6d5ce15df51e7185db921f22a9da86a15d15e18.svg" class="org-svg" />, per il criterio di Buchberger, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> è una GB.
+</p>
+
+</div>
+
+<div class="esempio" id="org7a86186">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_af31d8363fa24d28537dca42567e4a9cf6b3398f.svg" alt="prova_af31d8363fa24d28537dca42567e4a9cf6b3398f.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_0c8eebc3b5019142f730d09533fe8f61e5c236f3.svg" alt="prova_0c8eebc3b5019142f730d09533fe8f61e5c236f3.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_9b869b14c7a268ad4eabbc25fc978db40be54706.svg" alt="prova_9b869b14c7a268ad4eabbc25fc978db40be54706.svg" class="org-svg" /> con ordine DegLex <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_57845d56b101b27c8569098ac98f8d5b5f8b031e.svg" alt="prova_57845d56b101b27c8569098ac98f8d5b5f8b031e.svg" class="org-svg" />.
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_820c4100c26a152c7e8f990abb14b8aaa8372d74.svg" alt="prova_820c4100c26a152c7e8f990abb14b8aaa8372d74.svg" class="org-svg" />. È una GB?
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_6b04504cbe19458a3cd9f2f791b4476d1a84bee0.svg" alt="prova_6b04504cbe19458a3cd9f2f791b4476d1a84bee0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Il resto della divisione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_8eb4c81d9d758f402f44e4fc41a5c6fff1b8838d.svg" alt="prova_8eb4c81d9d758f402f44e4fc41a5c6fff1b8838d.svg" class="org-svg" /> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_0614f430285a2a5d04289aeac95a56ccac69776c.svg" alt="prova_0614f430285a2a5d04289aeac95a56ccac69776c.svg" class="org-svg" /> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_8eb4c81d9d758f402f44e4fc41a5c6fff1b8838d.svg" alt="prova_8eb4c81d9d758f402f44e4fc41a5c6fff1b8838d.svg" class="org-svg" /> (nessun LT divide <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e15a2ac53337b5f5b3d190d253e4518cac6e3351.svg" alt="prova_e15a2ac53337b5f5b3d190d253e4518cac6e3351.svg" class="org-svg" />).
+Poiché il resto è non nullo, aggiungiamo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_8794f6773670934e2e23542900cb5b9784f4787f.svg" alt="prova_8794f6773670934e2e23542900cb5b9784f4787f.svg" class="org-svg" /> (o meglio <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_e15a2ac53337b5f5b3d190d253e4518cac6e3351.svg" alt="prova_e15a2ac53337b5f5b3d190d253e4518cac6e3351.svg" class="org-svg" />) a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="prova_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" />.
+Nuovo insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_b702e378c2588560d36e5e94c23e9ad083505f79.svg" alt="prova_b702e378c2588560d36e5e94c23e9ad083505f79.svg" class="org-svg" />.
+Bisogna iterare calcolando <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_f3676993751f79e94a59895c89f2f07c01dea213.svg" alt="prova_f3676993751f79e94a59895c89f2f07c01dea213.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_ed46506a923a94a306faedf323101f99ed92d53d.svg" alt="prova_ed46506a923a94a306faedf323101f99ed92d53d.svg" class="org-svg" /> finché tutti gli S-polinomi riducono a zero.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org0d989f4" class="outline-3">
+<h3 id="org0d989f4">Algoritmo di Buchberger</h3>
+<div class="outline-text-3" id="text-org0d989f4">
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_4e477cb08e3a449d8368b112399a156cc0e2159e.svg" alt="prova_4e477cb08e3a449d8368b112399a156cc0e2159e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+L&rsquo;algoritmo termina sempre perché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_a87e2a409b2d182564af317c6e66eb116f228d7d.svg" alt="prova_a87e2a409b2d182564af317c6e66eb116f228d7d.svg" class="org-svg" /> è noetheriano (Teorema della base di Hilbert), quindi la catena ascendente degli ideali generati dai termini di testa deve stabilizzarsi (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/prova_73604eb86c5de9c2227d858a07cdfdf35ef60e3d.svg" alt="prova_73604eb86c5de9c2227d858a07cdfdf35ef60e3d.svg" class="org-svg" />).
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

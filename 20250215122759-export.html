@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EXPORT</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">EXPORT</h1>
+<div class="thm" id="org4180cb0">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_713911a223aea1b65b0108e42fa199c4f57f3b19.svg" alt="20250215122759-export_713911a223aea1b65b0108e42fa199c4f57f3b19.svg" class="org-svg" /> due <a href="20250130104320-classe_mk.html#ID-3c774b2c-95e7-461f-9bd7-ed32ab666cd5">classi</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1bd75191aa31fd5e3b6178c65b7c086980223737.svg" alt="20250215122759-export_1bd75191aa31fd5e3b6178c65b7c086980223737.svg" class="org-svg" /> una <a href="20250202170607-classe_relazione_binaria.html#ID-68966d6c-919e-463a-a463-6c52a1fed253">relazione</a> <a href="20250619161501-caratteristiche_delle_relazioni_binarie.html#ID-160a7fd6-4b53-4dc1-a7b7-03a6d4c79105">irriflessiva</a>, <a href="20250203095749-relazione_left_narrow_mk.html#ID-739c2060-1a70-4d8a-b017-fe1ff00f900b">regolare</a> e <a href="20250203100901-relazione_well_founded_mk.html#ID-8598b25b-a781-4751-8cde-ece2b154c48a">ben fondata</a>. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1b54e49442ac0231ebfa17ccb8d0e60141fe3507.svg" alt="20250215122759-export_1b54e49442ac0231ebfa17ccb8d0e60141fe3507.svg" class="org-svg" /> la <a href="20250203104513-classe_totale.html#ID-86b92eec-f77b-4c11-a3f9-c6ed4b5b8c56">classe di tutti gli insiemi</a>. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_d6d3d9618518028a4c0d1407b007c63341c7e307.svg" alt="20250215122759-export_d6d3d9618518028a4c0d1407b007c63341c7e307.svg" class="org-svg" />.
+</p>
+
+<p>
+Allora vi è un&rsquo;unica <a href="20250202170607-classe_relazione_binaria.html#ID-3d32a0c5-4b10-4170-947d-d18578917ac4">classe-funzione</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1808acffe41c893e8a9253f6c2c47a283e73a26b.svg" alt="20250215122759-export_1808acffe41c893e8a9253f6c2c47a283e73a26b.svg" class="org-svg" /> tale che per ogni <a href="20250131162451-coppia_ordinata_mk.html#ID-623c11af-cab7-42a8-be33-df6a269537a7">coppia</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_95db0c3938f1bdc7d3c21da2c284829cfff56ecf.svg" alt="20250215122759-export_95db0c3938f1bdc7d3c21da2c284829cfff56ecf.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_8a3e85d60ca649e35ac51ecf8ca3e5d12cf97a3a.svg" alt="20250215122759-export_8a3e85d60ca649e35ac51ecf8ca3e5d12cf97a3a.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+<div class="oss" id="orgefbb7fb">
+<p>
+Per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_3aa8e3186ca3280fafc05bee84bcc57989052861.svg" alt="20250215122759-export_3aa8e3186ca3280fafc05bee84bcc57989052861.svg" class="org-svg" /> fissati,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_e0914baa71c15838d09f285774c75565de52d50d.svg" alt="20250215122759-export_e0914baa71c15838d09f285774c75565de52d50d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+per l&rsquo;Axiom of Replacement, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> è left-narrow <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_6a0807fd455723e06def5c04dcba6ba8857d6ecf.svg" alt="20250215122759-export_6a0807fd455723e06def5c04dcba6ba8857d6ecf.svg" class="org-svg" /> e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_d999b7a30c8e124fe80958e195edb91a36f9fa1b.svg" alt="20250215122759-export_d999b7a30c8e124fe80958e195edb91a36f9fa1b.svg" class="org-svg" /> si può scrivere come l&rsquo;<a href="20250202190147-immagine_punto_a_punto_di_due_classi.html#ID-47cefab3-0060-4b5f-9e14-c59788ecffbd">immagine punto a punto</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_4d993ac0a638a323d0229e0fed78a3f38d617730.svg" alt="20250215122759-export_4d993ac0a638a323d0229e0fed78a3f38d617730.svg" class="org-svg" /> tramite qualche <a href="20250202170607-classe_relazione_binaria.html#ID-3d32a0c5-4b10-4170-947d-d18578917ac4">classe-funzione</a>.
+</p>
+
+</div>
+<div id="outline-container-org62cc2dc" class="outline-2">
+<h2 id="org62cc2dc">Dimostrazione del Teorema</h2>
+<div class="outline-text-2" id="text-org62cc2dc">
+</div>
+<div id="outline-container-org1e07efe" class="outline-3">
+<h3 id="org1e07efe">Unicità della classe funzione</h3>
+<div class="outline-text-3" id="text-org1e07efe">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_2c610d3b3f1e750cce4d6594f1d8de9bce82b49b.svg" alt="20250215122759-export_2c610d3b3f1e750cce4d6594f1d8de9bce82b49b.svg" class="org-svg" /> che soddisfano la tesi del teorema, e tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_731507001374f58cf98baf4d771134ba0ac34df0.svg" alt="20250215122759-export_731507001374f58cf98baf4d771134ba0ac34df0.svg" class="org-svg" />.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" alt="20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" class="org-svg" /> fissato tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_4fa129450432079cf8d8ca16715fd8669da94444.svg" alt="20250215122759-export_4fa129450432079cf8d8ca16715fd8669da94444.svg" class="org-svg" />
+</span>
+</div>
+<p>
+In particolare, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_74f619797753073ac092b2f88e1b6644caa50a8e.svg" alt="20250215122759-export_74f619797753073ac092b2f88e1b6644caa50a8e.svg" class="org-svg" />, e dunque, per la buona fondazione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />, esiste un elemento <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />-minimale di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_761c265b415d63a05394122cd1c887fd97d46f4e.svg" alt="20250215122759-export_761c265b415d63a05394122cd1c887fd97d46f4e.svg" class="org-svg" />. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1109cfb233173e6390fa65ba3d412f50c3af54b9.svg" alt="20250215122759-export_1109cfb233173e6390fa65ba3d412f50c3af54b9.svg" class="org-svg" />.
+</p>
+
+<p>
+Allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_e18e86fd1af5e938271fbe30b1cc2ee64a484977.svg" alt="20250215122759-export_e18e86fd1af5e938271fbe30b1cc2ee64a484977.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> è left-narrow, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_36c356d18181ed050e0be51b2c1adfc1111cc0cb.svg" alt="20250215122759-export_36c356d18181ed050e0be51b2c1adfc1111cc0cb.svg" class="org-svg" /> è un <a href="20250130104331-insieme_mk.html#ID-76c41141-40b1-420e-89bc-6da6d94d2509">insieme</a> (per l&rsquo;osservazione). Dunque ha senso scrivere
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_ddc1a01627cbfb3b1c996c6055159ab6a3d0bff9.svg" alt="20250215122759-export_ddc1a01627cbfb3b1c996c6055159ab6a3d0bff9.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Assurdo.
+</p>
+</div>
+</div>
+<div id="outline-container-org9b46d97" class="outline-3">
+<h3 id="org9b46d97">Esistenza</h3>
+<div class="outline-text-3" id="text-org9b46d97">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_a1170ed545ed2c457fda51b9ecd5496482e9a4ba.svg" alt="20250215122759-export_a1170ed545ed2c457fda51b9ecd5496482e9a4ba.svg" class="org-svg" /> la classe di tutte le funzioni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" alt="20250215122759-export_59bc3f1fafc978b87c6f17e2f27de134d6e58765.svg" class="org-svg" /> tali che
+</p>
+
+<ol class="org-ol">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_8a8a8ea63ed53a9ae37e5ce7b07bc49ca778fbb9.svg" alt="20250215122759-export_8a8a8ea63ed53a9ae37e5ce7b07bc49ca778fbb9.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_00012f38b59f52eeebaf0950228f4227f44acac8.svg" alt="20250215122759-export_00012f38b59f52eeebaf0950228f4227f44acac8.svg" class="org-svg" />.</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_40402dc838fb081264ee410465aadc78b5e58296.svg" alt="20250215122759-export_40402dc838fb081264ee410465aadc78b5e58296.svg" class="org-svg" /></li>
+</ol>
+
+<p>
+Inoltre, 2. è equivalente alla seguente 2&rsquo;.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_2637364dcd82e2aebf92fac9781f6ebeb1ce2f8d.svg" alt="20250215122759-export_2637364dcd82e2aebf92fac9781f6ebeb1ce2f8d.svg" class="org-svg" />
+</span>
+</div>
+</div>
+<div id="outline-container-org9358f10" class="outline-4">
+<h4 id="org9358f10">Claim</h4>
+<div class="outline-text-4" id="text-org9358f10">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_da4d35a630634b39e096f66564450996665a33ae.svg" alt="20250215122759-export_da4d35a630634b39e096f66564450996665a33ae.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_2d157f2c7798a6b7711a740bc8845b5be5641768.svg" alt="20250215122759-export_2d157f2c7798a6b7711a740bc8845b5be5641768.svg" class="org-svg" /> è una funzione, e inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_e1cb2e0bba17816853da8e62dcb2efbe148760f7.svg" alt="20250215122759-export_e1cb2e0bba17816853da8e62dcb2efbe148760f7.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org1355f55" class="outline-4">
+<h4 id="org1355f55">Dimostrazione del claim</h4>
+<div class="outline-text-4" id="text-org1355f55">
+<p>
+Supponiamo che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_ee227979c5ed3b24a1b8126acbc01b694d81ac22.svg" alt="20250215122759-export_ee227979c5ed3b24a1b8126acbc01b694d81ac22.svg" class="org-svg" />
+</span>
+</div>
+<p>
+sia non vuoto. Per la well-foundness di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" alt="20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" class="org-svg" /> l&rsquo;elemento <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />-minimale della classe di cui sopra.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" alt="20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_cbdec9064e3907f9fc70b848647b15cc8fd6ee05.svg" alt="20250215122759-export_cbdec9064e3907f9fc70b848647b15cc8fd6ee05.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_cc06e4e5c8db578c8ccd72b7375f1de8399789d7.svg" alt="20250215122759-export_cc06e4e5c8db578c8ccd72b7375f1de8399789d7.svg" class="org-svg" />.
+</p>
+
+<p>
+Per la 2&rsquo;. si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_b914d6f3bb8c7bc613e01b499ff370858d2b2d34.svg" alt="20250215122759-export_b914d6f3bb8c7bc613e01b499ff370858d2b2d34.svg" class="org-svg" />. Inoltre, per la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />-minimalità di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" alt="20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1ddb170ffd20e02c76caedc4ffc3dbbe63b775ab.svg" alt="20250215122759-export_1ddb170ffd20e02c76caedc4ffc3dbbe63b775ab.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto, per 3.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_8cb210cc8c5da20170fe62d8d010db380eb68cbd.svg" alt="20250215122759-export_8cb210cc8c5da20170fe62d8d010db380eb68cbd.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Assurdo.
+</p>
+
+<p>
+È facile verificare che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_e1cb2e0bba17816853da8e62dcb2efbe148760f7.svg" alt="20250215122759-export_e1cb2e0bba17816853da8e62dcb2efbe148760f7.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org75be068" class="outline-4">
+<h4 id="org75be068">Costruzione della classe funzione</h4>
+<div class="outline-text-4" id="text-org75be068">
+<p>
+Sia dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_2e8592eb9c52d7038b958f72d36af074ded34483.svg" alt="20250215122759-export_2e8592eb9c52d7038b958f72d36af074ded34483.svg" class="org-svg" />. Questa è una <a href="20250202170607-classe_relazione_binaria.html#ID-3d32a0c5-4b10-4170-947d-d18578917ac4">classe funzione</a> (grazie al claim precedente) con dominio <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_d74e84ac2218f8606f95b7399063a24690382d98.svg" alt="20250215122759-export_d74e84ac2218f8606f95b7399063a24690382d98.svg" class="org-svg" />. Inoltre, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_eab6d392d6a0fa839eaec419884df0151e943958.svg" alt="20250215122759-export_eab6d392d6a0fa839eaec419884df0151e943958.svg" class="org-svg" /> soddisfa la tesi del thm per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_1dec3cba7e83949cd85f661b0e913b0c5ee9d666.svg" alt="20250215122759-export_1dec3cba7e83949cd85f661b0e913b0c5ee9d666.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org2c06db8" class="outline-4">
+<h4 id="org2c06db8">Dominio della classe funzione</h4>
+<div class="outline-text-4" id="text-org2c06db8">
+<p>
+Supponiamo per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_299a13d8a056c59649dd6b912c98326e036b5398.svg" alt="20250215122759-export_299a13d8a056c59649dd6b912c98326e036b5398.svg" class="org-svg" />.
+Sia allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" alt="20250215122759-export_c22b16f2b70b58a5f6a87c03deeb6badaf896793.svg" class="org-svg" /> l&rsquo;elemento <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />-<a href="20250203102516-massimo_e_minimo.html#ID-2ca0b3d3-dc69-4457-87b8-7c2ccec6c4d3">minimale</a> di
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_c43b1a7fb0465105ae5cc1431c22af436e2e9bfe.svg" alt="20250215122759-export_c43b1a7fb0465105ae5cc1431c22af436e2e9bfe.svg" class="org-svg" />
+</span>
+</div>
+<p>
+che esiste per well-foundness di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250215122759-export_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" />. Sia inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" alt="20250215122759-export_b105ee7a79f9aa0e00f42c3bde114f95ccf6fe4b.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_dbcf3891c868e71b4c6b13abc86f19ab53e179d3.svg" alt="20250215122759-export_dbcf3891c868e71b4c6b13abc86f19ab53e179d3.svg" class="org-svg" />.
+</p>
+
+<p>
+Per una <a href="20250207121738-chiusura_transitiva_di_una_relazione_mk.html#ID-d9c8b941-5d1a-4b64-9c09-da53f456b8b1">proposizione precedente</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_b416c594915e276265bbb435db598ef66c73fb88.svg" alt="20250215122759-export_b416c594915e276265bbb435db598ef66c73fb88.svg" class="org-svg" /> è left-narrow, e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_01699bc9cdec53b161d2824e7ca30414e10c8080.svg" alt="20250215122759-export_01699bc9cdec53b161d2824e7ca30414e10c8080.svg" class="org-svg" /> è un insieme, e dunque per l&rsquo;Osservazione 1 si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_9035ea62834f89b425204536d0e99aaad67ec1b9.svg" alt="20250215122759-export_9035ea62834f89b425204536d0e99aaad67ec1b9.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_75d172f2c27ca6de01e208c13d5f676d4337cd7d.svg" alt="20250215122759-export_75d172f2c27ca6de01e208c13d5f676d4337cd7d.svg" class="org-svg" />, e inoltre
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_6eef0ddb89e792b8b6d9bbe4b52e57edd0d6352c.svg" alt="20250215122759-export_6eef0ddb89e792b8b6d9bbe4b52e57edd0d6352c.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250215122759-export_5ecb483059d2180ff6874c10859d8de2430e4139.svg" alt="20250215122759-export_5ecb483059d2180ff6874c10859d8de2430e4139.svg" class="org-svg" />. Assurdo.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

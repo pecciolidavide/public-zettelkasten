@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Morfismo di prefasci</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Morfismo di prefasci</h1>
+<div id="outline-container-orgb14919f" class="outline-2">
+<h2 id="orgb14919f">Definizione</h2>
+<div class="outline-text-2" id="text-orgb14919f">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_6004ce35e33e8783c0083898dd4e48655cd6932d.svg" alt="20250325180613-morfismo_di_prefasci_6004ce35e33e8783c0083898dd4e48655cd6932d.svg" class="org-svg" /> due <a href="20250324165349-prefascio.html#ID-5a306964-a8f9-4187-8868-01bd59458f00">prefasci</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />. Un <b>morfismo</b> di prefasci <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" alt="20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" class="org-svg" /> è, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto, un <a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">morfismo</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_80c874507e116831f52990062449002c0e721599.svg" alt="20250325180613-morfismo_di_prefasci_80c874507e116831f52990062449002c0e721599.svg" class="org-svg" />
+</span>
+</div>
+<p>
+tali che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_0e354a2c2a479bca659a5d30b1168fd501bc67c6.svg" alt="20250325180613-morfismo_di_prefasci_0e354a2c2a479bca659a5d30b1168fd501bc67c6.svg" class="org-svg" /> aperti, il seguente diagramma commuti:
+\[
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_38c33367508e30af198f182f66055acb90d8074f.svg" alt="20250325180613-morfismo_di_prefasci_38c33367508e30af198f182f66055acb90d8074f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+\]
+</p>
+
+<p>
+In particolare, considerata la <a href="20250325192239-fascio_come_funtore.html#ID-1c33aa6a-9027-4303-9ea1-76c173f46c76">definizione di prefascio come funtore</a> (vedi <a href="20241205131958-funtore.html#ID-E23C463B-1AE5-4B15-8DE2-D0887E4BA998">Funtore</a>), un morfismo tra prefasci è una <a href="20241205132705-trasformazioni_naturali.html#ID-F15602B0-F8C8-4073-9D6C-9364786857FC">trasformazione naturale</a> tra i due funtori.
+</p>
+</div>
+<div id="outline-container-orga40fe73" class="outline-3">
+<h3 id="orga40fe73">Morfismo identità tra prefasci</h3>
+<div class="outline-text-3" id="text-orga40fe73">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" alt="20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" class="org-svg" /> un <a href="20250324165349-prefascio.html#ID-5a306964-a8f9-4187-8868-01bd59458f00">prefascio</a>. Il <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo</a> identità <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_aad3c30a1773f27399864ce86e4ab77277951e7b.svg" alt="20250325180613-morfismo_di_prefasci_aad3c30a1773f27399864ce86e4ab77277951e7b.svg" class="org-svg" /> è, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_b09a9f9ee86c37d39aa97be43cf973c2875bb3db.svg" alt="20250325180613-morfismo_di_prefasci_b09a9f9ee86c37d39aa97be43cf973c2875bb3db.svg" class="org-svg" />. (vedi <a href="20250310111151-funzione_identita.html#ID-cd26efcd-0e28-4a8b-b165-1fc3405896d9">Funzione identità</a>).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgebc5187" class="outline-2">
+<h2 id="orgebc5187">Morfismo di fasci</h2>
+<div class="outline-text-2" id="text-orgebc5187">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" alt="20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_a1170ed545ed2c457fda51b9ecd5496482e9a4ba.svg" alt="20250325180613-morfismo_di_prefasci_a1170ed545ed2c457fda51b9ecd5496482e9a4ba.svg" class="org-svg" /> sono due fasci, un <span class="underline">morfismo di fasci</span> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" alt="20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" class="org-svg" /> è il <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo tra prefasci</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" alt="20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org03db073" class="outline-3">
+<h3 id="org03db073">Morfismo identità tra fasci</h3>
+<div class="outline-text-3" id="text-org03db073">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" alt="20250325180613-morfismo_di_prefasci_97cc34a0e4e91f6abeaedcc0345c64da0e9875be.svg" class="org-svg" /> un <a href="20250324174728-fascio.html#ID-c606cb88-f96a-43c9-be3a-e28d54c87147">fascio</a>. Il <a href="#orgebc5187">morfismo</a> identità <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_aad3c30a1773f27399864ce86e4ab77277951e7b.svg" alt="20250325180613-morfismo_di_prefasci_aad3c30a1773f27399864ce86e4ab77277951e7b.svg" class="org-svg" /> è, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_b09a9f9ee86c37d39aa97be43cf973c2875bb3db.svg" alt="20250325180613-morfismo_di_prefasci_b09a9f9ee86c37d39aa97be43cf973c2875bb3db.svg" class="org-svg" />. (vedi <a href="20250310111151-funzione_identita.html#ID-cd26efcd-0e28-4a8b-b165-1fc3405896d9">Funzione identità</a>).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9273155" class="outline-2">
+<h2 id="org9273155">Composizione di morfismi di prefasci</h2>
+<div class="outline-text-2" id="text-org9273155">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_8946da6af9d0673cec57e85e5330c3d343360f06.svg" alt="20250325180613-morfismo_di_prefasci_8946da6af9d0673cec57e85e5330c3d343360f06.svg" class="org-svg" /> <a href="20250324165349-prefascio.html#ID-5a306964-a8f9-4187-8868-01bd59458f00">prefasci</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />. Siano
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cac8e2902813f87660a6e9b8d95bb570ed43eaf0.svg" alt="20250325180613-morfismo_di_prefasci_cac8e2902813f87660a6e9b8d95bb570ed43eaf0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+due <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismi di prefasci</a>. Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto si hanno i <a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">morfismi</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_926c9fb45b898520a22fa236a1c3f14b0dfbb92c.svg" alt="20250325180613-morfismo_di_prefasci_926c9fb45b898520a22fa236a1c3f14b0dfbb92c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+la cui composizione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_502914567ebce62f3ea3921e45b8742104071f59.svg" alt="20250325180613-morfismo_di_prefasci_502914567ebce62f3ea3921e45b8742104071f59.svg" class="org-svg" />.
+</p>
+
+<p>
+Questo definisce un <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_9f62da13ef678e72176fdab52aa6562255ec02e3.svg" alt="20250325180613-morfismo_di_prefasci_9f62da13ef678e72176fdab52aa6562255ec02e3.svg" class="org-svg" />.
+</p>
+</div>
+<div id="outline-container-org445bb44" class="outline-3">
+<h3 id="org445bb44">Composizione di morfismi di fasci</h3>
+<div class="outline-text-3" id="text-org445bb44">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_8946da6af9d0673cec57e85e5330c3d343360f06.svg" alt="20250325180613-morfismo_di_prefasci_8946da6af9d0673cec57e85e5330c3d343360f06.svg" class="org-svg" /> <a href="20250324174728-fascio.html#ID-c606cb88-f96a-43c9-be3a-e28d54c87147">fasci</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />. Siano
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cac8e2902813f87660a6e9b8d95bb570ed43eaf0.svg" alt="20250325180613-morfismo_di_prefasci_cac8e2902813f87660a6e9b8d95bb570ed43eaf0.svg" class="org-svg" />
+</span>
+</div>
+<p>
+due <a href="#orgebc5187">morfismi di fasci</a>. Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" alt="20250325180613-morfismo_di_prefasci_3f6ecf4b08ebb90dc2c708b43c2573c0117dae7e.svg" class="org-svg" /> aperto si hanno i <a href="20241126100904-categoria.html#ID-47EA53E0-CC62-472A-A686-5485D7A718E3">morfismi</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_926c9fb45b898520a22fa236a1c3f14b0dfbb92c.svg" alt="20250325180613-morfismo_di_prefasci_926c9fb45b898520a22fa236a1c3f14b0dfbb92c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+la cui composizione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_502914567ebce62f3ea3921e45b8742104071f59.svg" alt="20250325180613-morfismo_di_prefasci_502914567ebce62f3ea3921e45b8742104071f59.svg" class="org-svg" />.
+</p>
+
+<p>
+Questo definisce un <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_9f62da13ef678e72176fdab52aa6562255ec02e3.svg" alt="20250325180613-morfismo_di_prefasci_9f62da13ef678e72176fdab52aa6562255ec02e3.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8885ee2" class="outline-2">
+<h2 id="org8885ee2">Isomorfismo di prefasci</h2>
+<div class="outline-text-2" id="text-org8885ee2">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_1d9213e070137805763dab1294a6f91d1f42ef79.svg" alt="20250325180613-morfismo_di_prefasci_1d9213e070137805763dab1294a6f91d1f42ef79.svg" class="org-svg" /> due <a href="20250324165349-prefascio.html#ID-5a306964-a8f9-4187-8868-01bd59458f00">prefasci</a>. Un <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" alt="20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" class="org-svg" /> è detto <span class="underline">isomorfismo</span> se esiste un <a href="20250325180613-morfismo_di_prefasci.html#ID-3da9d108-a57e-4e44-99fe-b6d3307d35a9">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_db4e8dad5f9959f30a6650de92e7e1d7e2e6190a.svg" alt="20250325180613-morfismo_di_prefasci_db4e8dad5f9959f30a6650de92e7e1d7e2e6190a.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_dedd6456cdfa7f211deb78b2833c5ebb9c18cf25.svg" alt="20250325180613-morfismo_di_prefasci_dedd6456cdfa7f211deb78b2833c5ebb9c18cf25.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Vedi:
+</p>
+<ul class="org-ul">
+<li><a href="#org9273155">Composizione di morfismi di prefasci</a></li>
+<li><a href="#orga40fe73">Morfismo identità tra prefasci</a></li>
+</ul>
+</div>
+<div id="outline-container-orgfa0eab2" class="outline-3">
+<h3 id="orgfa0eab2">Isomorfismo di fasci</h3>
+<div class="outline-text-3" id="text-orgfa0eab2">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250325180613-morfismo_di_prefasci_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">spazio topologico</a> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_1d9213e070137805763dab1294a6f91d1f42ef79.svg" alt="20250325180613-morfismo_di_prefasci_1d9213e070137805763dab1294a6f91d1f42ef79.svg" class="org-svg" /> due <a href="20250324174728-fascio.html#ID-c606cb88-f96a-43c9-be3a-e28d54c87147">fasci</a>. Un <a href="#orgebc5187">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" alt="20250325180613-morfismo_di_prefasci_487a97ef214168d802ccba3f145fc759d26fc3a6.svg" class="org-svg" /> è detto <span class="underline">isomorfismo</span> se esiste un <a href="#orgebc5187">morfismo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_db4e8dad5f9959f30a6650de92e7e1d7e2e6190a.svg" alt="20250325180613-morfismo_di_prefasci_db4e8dad5f9959f30a6650de92e7e1d7e2e6190a.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250325180613-morfismo_di_prefasci_dedd6456cdfa7f211deb78b2833c5ebb9c18cf25.svg" alt="20250325180613-morfismo_di_prefasci_dedd6456cdfa7f211deb78b2833c5ebb9c18cf25.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Vedi:
+</p>
+<ul class="org-ul">
+<li><a href="#org445bb44">Composizione di morfismi di fasci</a></li>
+<li><a href="#org03db073">Morfismo identità tra fasci</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

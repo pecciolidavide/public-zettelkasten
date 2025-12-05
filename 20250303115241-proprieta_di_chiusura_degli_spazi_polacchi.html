@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proprietà di chiusura degli Spazi Polacchi</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Proprietà di chiusura degli Spazi Polacchi</h1>
+<div id="outline-container-orgfbf78c1" class="outline-2">
+<h2 id="orgfbf78c1">Chiusura per omeomorfismi</h2>
+<div class="outline-text-2" id="text-orgfbf78c1">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_114f4a0a1582c808e34f4170ad8f4ea9b6106f1a.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_114f4a0a1582c808e34f4170ad8f4ea9b6106f1a.svg" class="org-svg" /> è un <a href="20250111142332-omeomorfismo.html#ID-d9a63289-f721-420e-9a06-ecc594dd8f4d">omeomorfismo</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" class="org-svg" /> è uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-org6dd56ff" class="outline-2">
+<h2 id="org6dd56ff">Chiusura per sottoinsiemi chiusi</h2>
+<div class="outline-text-2" id="text-org6dd56ff">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_4a2d252a2bfd6c063bbd5a148cb9ffbee938fe7d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_4a2d252a2bfd6c063bbd5a148cb9ffbee938fe7d.svg" class="org-svg" /> è un <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-fdc86b04-828f-4f24-8cdf-948211d93a95">sottoinsieme</a> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">chiuso</a>, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> è uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a> con la <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">topologia di sottospazio</a>.
+</p>
+</div>
+<div id="outline-container-org3bf12b2" class="outline-3">
+<h3 id="org3bf12b2">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org3bf12b2">
+<p>
+Segue dalla <a href="20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.html#ID-08b8155e-c6bd-48b9-9330-1cbad5654e38">caratterizzazione dei chiusi in termini di successioni</a>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd9cf9e9" class="outline-2">
+<h2 id="orgd9cf9e9">Chiusura per prodotto cartesiano numerabile</h2>
+<div class="outline-text-2" id="text-orgd9cf9e9">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_b1d28525f7d58069b4afe8992d8f5f4666c7c48d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_b1d28525f7d58069b4afe8992d8f5f4666c7c48d.svg" class="org-svg" /> è una <a href="20250206170922-sequenze_e_stringhe.html#ID-868cd6d0-64f7-4ac7-a231-889f0a034230">sequenza</a> di <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazi polacchi</a> (vedi <a href="20250203161110-numeri_naturali_sono_ordinali.html#ID-741b2f11-96a8-4436-9900-5ebbb9efe11c">Ordinale omega</a>), allora il <a href="20250131183735-prodotto_cartesiano_di_classi_mk.html#ID-9f0a2e20-c4fe-476d-bde1-7bd21c3cdc0a">prodotto</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_fb6464c9a7c96c02ec1a997bdc09356f01141bfd.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_fb6464c9a7c96c02ec1a997bdc09356f01141bfd.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è uno spazio polacco con la <a href="20250109154723-topologia_prodotto.html#ID-88fa98ee-2e42-41b3-b12e-b7a4075399da">topologia prodotto</a>.
+</p>
+</div>
+<div id="outline-container-org5bd747d" class="outline-3">
+<h3 id="org5bd747d"><span class="todo TODO">TODO</span> Dimostrazione</h3>
+</div>
+</div>
+<div id="outline-container-orgc0c160b" class="outline-2">
+<h2 id="orgc0c160b">Chiusura per unione disgiunta numerabile</h2>
+<div class="outline-text-2" id="text-orgc0c160b">
+<p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_b1d28525f7d58069b4afe8992d8f5f4666c7c48d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_b1d28525f7d58069b4afe8992d8f5f4666c7c48d.svg" class="org-svg" /> è una <a href="20250206170922-sequenze_e_stringhe.html#ID-868cd6d0-64f7-4ac7-a231-889f0a034230">sequenza</a> di <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazi polacchi</a> (vedi <a href="20250203161110-numeri_naturali_sono_ordinali.html#ID-741b2f11-96a8-4436-9900-5ebbb9efe11c">Ordinale omega</a>), allora l&rsquo;<a href="20250113175700-unione_disgiunta.html#ID-51a4c91d-b234-4245-a925-2c1384085d2d">unione disgiunta</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_f5eb90be2cbaf85473d85100f3d05850cd3fa751.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_f5eb90be2cbaf85473d85100f3d05850cd3fa751.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a>
+</p>
+</div>
+<div id="outline-container-orgd9a9357" class="outline-3">
+<h3 id="orgd9a9357"><span class="todo TODO">TODO</span> Dimostrazione</h3>
+</div>
+</div>
+<div id="outline-container-org9cc2cb9" class="outline-2">
+<h2 id="org9cc2cb9">Chisura per intersezione numerabile</h2>
+<div class="outline-text-2" id="text-org9cc2cb9">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d55fa9974dd6b08b7b2d61cdceca34a4920d591d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d55fa9974dd6b08b7b2d61cdceca34a4920d591d.svg" class="org-svg" /> una <a href="20250206170922-sequenze_e_stringhe.html#ID-868cd6d0-64f7-4ac7-a231-889f0a034230">sequenza</a> di <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazi polacchi</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_532020e84281f68d78c5cbd45d9d7b85eb5b064c.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_532020e84281f68d78c5cbd45d9d7b85eb5b064c.svg" class="org-svg" /> (vedi <a href="20250203161110-numeri_naturali_sono_ordinali.html#ID-741b2f11-96a8-4436-9900-5ebbb9efe11c">Ordinale omega</a> e <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">Sottospazio topologico</a>).
+</p>
+
+<p>
+Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_45593ae53508273417e454ad421bcd92be5c37ea.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_45593ae53508273417e454ad421bcd92be5c37ea.svg" class="org-svg" /> è uno spazio polacco dotato della <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">topologia di sottospazio</a> (vedi <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-84ea8ee8-aee1-469b-9fd0-0d7c1aae6973">Intersezione di classi MK</a>).
+</p>
+</div>
+<div id="outline-container-orgcd36970" class="outline-3">
+<h3 id="orgcd36970"><span class="todo TODO">TODO</span> Dimostrazione</h3>
+</div>
+</div>
+<div id="outline-container-org25668a7" class="outline-2">
+<h2 id="org25668a7">Sottoinsiemi aperti di spazi polacchi sono polacchi</h2>
+<div class="outline-text-2" id="text-org25668a7">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">spazio polacco</a> e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_74f619797753073ac092b2f88e1b6644caa50a8e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_74f619797753073ac092b2f88e1b6644caa50a8e.svg" class="org-svg" /> un <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">sottoinsieme</a> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a>. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" class="org-svg" /> è <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">polacco</a> con la <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">topologia di sottospazio</a>.
+</p>
+</div>
+<div id="outline-container-org457a259" class="outline-3">
+<h3 id="org457a259">Dimostrazione</h3>
+<div class="outline-text-3" id="text-org457a259">
+<p>
+Sicuramente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" class="org-svg" /> è <a href="20250111142303-spazio_topologico_a_base_numerabile.html#ID-95baddc2-1fe1-405e-8194-95627a964af7">secondo numerabile</a>, e pertanto è necessario mostrare solamente che sia <a href="20250301193401-spazio_topologico_metrizzabile.html#ID-f4fd3e45-fff3-4ce3-ac13-db05788cfe0d">completamente metrizzabile</a>.
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c3964c7872ed46302d3fa80b1b7f9c644dc37ea8.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c3964c7872ed46302d3fa80b1b7f9c644dc37ea8.svg" class="org-svg" /> una <a href="20250301193511-spazio_metrico.html#ID-59033095-a7ca-4c79-92a9-c93654eb71f3">distanza</a> su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" class="org-svg" /> sia uno <a href="20250301194153-spazio_metrico_completo.html#ID-769be75d-d3df-4b0f-a738-00f54e291057">spazio metrico completo</a>, e tale che <a href="20250301193530-topologia_indotta_da_una_distanza.html#ID-f04bbfc8-e615-42f2-a433-a10dc1cf8b12">induca</a> la topologia di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" />.
+Si supponga <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" /> limitata<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_3d847427d007fe7a6371bb31b5181be7aff47706.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_3d847427d007fe7a6371bb31b5181be7aff47706.svg" class="org-svg" /> (vedi <a href="20250131155822-operazioni_insiemistiche_tra_classi_mk.html#ID-c8a97993-7323-4116-8580-d2b2f2b82b9a">Sottrazione di classi MK</a>) e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1f1ad96d7dd7cecdb09aa21f3df0a57141f074fb.svg" class="org-svg" /> si ponga (vedi <a href="20250203102516-massimo_e_minimo.html#ID-c785716d-f40a-4a2d-809b-7dcc8919fe9a">Estremo superiore ed inferiore</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_35d2a0ad6cbe401d3a6b8e67d8ee943ab5d49f37.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_35d2a0ad6cbe401d3a6b8e67d8ee943ab5d49f37.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si definisca su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_761c265b415d63a05394122cd1c887fd97d46f4e.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_368a6d024b8599a9b98716d2dbc114f9c4c3a6f2.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_368a6d024b8599a9b98716d2dbc114f9c4c3a6f2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Osserviamo<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1991816de92d0b630c9af821f1004d2bdd5d4d4b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1991816de92d0b630c9af821f1004d2bdd5d4d4b.svg" class="org-svg" /> è una funzione <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continua</a>.
+</p>
+</div>
+<div id="outline-container-orgc65f49d" class="outline-4">
+<h4 id="orgc65f49d"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_082f738e903ccf821a6e254d79a71c9626eb48a4.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_082f738e903ccf821a6e254d79a71c9626eb48a4.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_0527f868815cce4da6658bcf3ae245e3f68674c5.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_0527f868815cce4da6658bcf3ae245e3f68674c5.svg" class="org-svg" /> inducono la stessa topologia su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_026d822a951a9f17a8b1f73190267ec479b4ec3a.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_026d822a951a9f17a8b1f73190267ec479b4ec3a.svg" class="org-svg" /></h4>
+<div class="outline-text-4" id="text-orgc65f49d">
+<p>
+Per definizione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" />, si ha che, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6a875a3662304a8a40442de7c7dbc54ee258c8e7.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6a875a3662304a8a40442de7c7dbc54ee258c8e7.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_68320527730a032060bc4fe675f825b0fa346400.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_68320527730a032060bc4fe675f825b0fa346400.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto, posti
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_bb191e3e6969abae800e9202fccc9b96ed5955d3.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_bb191e3e6969abae800e9202fccc9b96ed5955d3.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si ha che, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" class="org-svg" /> e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6e1687ac6990959b00af853b3bbecbed38fd9b9e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6e1687ac6990959b00af853b3bbecbed38fd9b9e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+È sufficiente dimostrare che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" class="org-svg" /> e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dee1fd0323895b97b5f6790561644f5f1e7c1e24.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dee1fd0323895b97b5f6790561644f5f1e7c1e24.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" /> fissati.
+Esiste<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" class="org-svg" /> tale che: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_86f2fd6a4e790e820fc1b3464199af0f5d32edbb.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_86f2fd6a4e790e820fc1b3464199af0f5d32edbb.svg" class="org-svg" /> e per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_33b97fce1344065d41d80f3e193db38ac4ed6546.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_33b97fce1344065d41d80f3e193db38ac4ed6546.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Allora, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" class="org-svg" /> si ha
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_51cb08928afad322cf75300f7d7c10612420fa3a.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_51cb08928afad322cf75300f7d7c10612420fa3a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_32d544463e14ec50ccc9508e78f42e3ba15330f1.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_32d544463e14ec50ccc9508e78f42e3ba15330f1.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-org07bfd58" class="outline-4">
+<h4 id="org07bfd58"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_83909909e1709600d1e48047bb7a51b7ffbb3862.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_83909909e1709600d1e48047bb7a51b7ffbb3862.svg" class="org-svg" /> è uno spazio metrico completo.</h4>
+<div class="outline-text-4" id="text-org07bfd58">
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" /> <a href="20250301193530-topologia_indotta_da_una_distanza.html#ID-f04bbfc8-e615-42f2-a433-a10dc1cf8b12">inducono</a> la stessa topologia, allora ogni <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" />-<a href="20250303134529-successione_di_cauchy.html#ID-f5741e31-03b6-4b84-90d1-02ce0d61ef2e">Cauchy</a> è <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" />-Cauchy.
+</p>
+
+<p>
+Sia dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6100505fa3fdf2b0c2aad70665e2d92d6c78d792.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6100505fa3fdf2b0c2aad70665e2d92d6c78d792.svg" class="org-svg" /> una successione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" />-Cauchy. Allora<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_0e5b352c68dbb06f692acfc93d5b7f696d2f3278.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_0e5b352c68dbb06f692acfc93d5b7f696d2f3278.svg" class="org-svg" /> <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">converge</a> a qualche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_95be8a395b7ab0e0a1375dd7a202be7450c1eba6.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_95be8a395b7ab0e0a1375dd7a202be7450c1eba6.svg" class="org-svg" />.
+</p>
+
+<p>
+Consideriamo ora la successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e736e14619c388f8bd14fc2e38b81eda61305ae0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e736e14619c388f8bd14fc2e38b81eda61305ae0.svg" class="org-svg" />: questa è di Cauchy in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" class="org-svg" />, infatti per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_a8fd91bbe3c36a553631fb11d5c037376d29fb8a.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_a8fd91bbe3c36a553631fb11d5c037376d29fb8a.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d2d38a21cb6d86af496bb6cd20cfd46f71b2902d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d2d38a21cb6d86af496bb6cd20cfd46f71b2902d.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_198847cc95cd1af7ecd31f628c1b46aab040f218.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_198847cc95cd1af7ecd31f628c1b46aab040f218.svg" class="org-svg" /> è sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" />-Cauchy che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" />-Cauchy, per cui si ha la tesi.
+</p>
+
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e736e14619c388f8bd14fc2e38b81eda61305ae0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e736e14619c388f8bd14fc2e38b81eda61305ae0.svg" class="org-svg" /> è di Cauchy in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_d9777f634bba84adc3c4aa6de511e3c4984aba1b.svg" class="org-svg" />, allora converge a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_29184a583f9a97252c43f92367500c01962c5fdb.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_29184a583f9a97252c43f92367500c01962c5fdb.svg" class="org-svg" />.
+</p>
+<ul class="org-ul">
+<li><p>
+Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_efadc0dfd25dbbdceef104900f9025315a8faab7.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_efadc0dfd25dbbdceef104900f9025315a8faab7.svg" class="org-svg" />, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_067063799d46cd2ca99fac532fa2c35325899467.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_067063799d46cd2ca99fac532fa2c35325899467.svg" class="org-svg" /> per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" class="org-svg" />, dunque la successione esiste per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_325b44d6507d26da4f39db0fdace7a22fdeca8ff.svg" class="org-svg" />; dunque per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_796e4bb53a684b68f4f8f97f854d3032da35ae2c.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_796e4bb53a684b68f4f8f97f854d3032da35ae2c.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Necessariamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_470a512e9f8564411f171f60830f21b4a7b93418.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_470a512e9f8564411f171f60830f21b4a7b93418.svg" class="org-svg" />, per il <a href="20250304161634-teorema_di_permanenza_del_segno.html#ID-14acdced-110b-4d3c-b774-6a6b412768da">Teorema di permanenza del segno</a>.
+</p></li>
+<li>Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" /> è limitata, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dcf5a831d6966da886424e8da9620fa30d8b8bdd.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dcf5a831d6966da886424e8da9620fa30d8b8bdd.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c3084b68872c5878111f97695cd11ee8ea3ea56c.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c3084b68872c5878111f97695cd11ee8ea3ea56c.svg" class="org-svg" />.
+</p>
+
+<p>
+Poiché
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dd71903699bc34b2c8a8a85784a2cedcf9b692e4.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_dd71903699bc34b2c8a8a85784a2cedcf9b692e4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è continua, <a href="20250304142114-funzione_continua_e_continua_per_successioni.html#ID-7b2a2cda-8919-4070-9d66-840574ea043b">allora</a> è <a href="20250304142114-funzione_continua_e_continua_per_successioni.html#ID-7b2a2cda-8919-4070-9d66-840574ea043b">continua per successioni</a>, e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e1a853311672f1673190768731aecd3359905cbc.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_e1a853311672f1673190768731aecd3359905cbc.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Per <a href="20250103103252-funzione_continua.html#ID-c17f33d1-5e51-4c05-98e5-9207678c6677">continuità</a><sup><a id="fnr.2.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1d547252c11c9c1413ff95498c967bdbc7f05e6f.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_1d547252c11c9c1413ff95498c967bdbc7f05e6f.svg" class="org-svg" /> (vedi <a href="20250304142114-funzione_continua_e_continua_per_successioni.html#ID-7b2a2cda-8919-4070-9d66-840574ea043b">Funzione continua è continua per successioni</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_fb77c75ab2d9ed713606c121657e4aff9a958db2.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_fb77c75ab2d9ed713606c121657e4aff9a958db2.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Per l&rsquo;<a href="20250304162602-unicita_del_limite.html#ID-d98bab35-ad62-4041-a7dc-0dc50734472a">unicità del limite</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6d406301f45714e8372c033c27459736b61ca52c.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6d406301f45714e8372c033c27459736b61ca52c.svg" class="org-svg" />, e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_bc0a8b10f0b40f9cb39091431aea264f89b994b8.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_bc0a8b10f0b40f9cb39091431aea264f89b994b8.svg" class="org-svg" /> e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_4a91d859fe47bf9b5d7968265853395bfbd2c0be.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_4a91d859fe47bf9b5d7968265853395bfbd2c0be.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Questo si può sempre fare, vedi l&rsquo;osservazione di <a href="20250301193401-spazio_topologico_metrizzabile.html#ID-5522c9c1-947e-4e36-8f90-704208e7a17e">Spazio topologico metrizzabile</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Sarebbe da dimostrare questa continuità
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Infatti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_763a63e239970088df5b32d0a01495964e6d0880.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_763a63e239970088df5b32d0a01495964e6d0880.svg" class="org-svg" /> è continua e  <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5bd332ecffd14d4842aaeabdfb678d270b24b7c3.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5bd332ecffd14d4842aaeabdfb678d270b24b7c3.svg" class="org-svg" /> è continua, e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_2ef85b01dff7fb663bf844a0346b73b39589415e.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_2ef85b01dff7fb663bf844a0346b73b39589415e.svg" class="org-svg" />
+</span>
+</div>
+<p class="footpara">
+è continua e dunque, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_ba29c4f2b19cd6d4e2a5dbd73f40c51fa6ab2385.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_61094bc75c8567463ff39cc64ba8c75beb06d52b.svg" class="org-svg" /> tale che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_592e213ab8739874d5703b1fcc5389088a8f1069.svg" class="org-svg" /> si ha
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_33b97fce1344065d41d80f3e193db38ac4ed6546.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_33b97fce1344065d41d80f3e193db38ac4ed6546.svg" class="org-svg" />
+</span>
+</div>
+<p class="footpara">
+Senza perdità di generalità si può porre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_86f2fd6a4e790e820fc1b3464199af0f5d32edbb.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_86f2fd6a4e790e820fc1b3464199af0f5d32edbb.svg" class="org-svg" />.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Infatti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_6df140a71d55b2f81912c3a6ec8d93b0bbd5d616.svg" class="org-svg" />-Cauchy implica <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_5249d04f10a9b83827f6535b2a5b6a465ff2b337.svg" class="org-svg" />-Cauchy, ma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" alt="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi_44ff11510bfd79aca423d254db14b502dcd62fd9.svg" class="org-svg" /> è uno <a href="20250301194153-spazio_metrico_completo.html#ID-769be75d-d3df-4b0f-a738-00f54e291057">spazio metrico completo</a>, e quindi (per definizione) ogni successione di Cauchy è convergente.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>
