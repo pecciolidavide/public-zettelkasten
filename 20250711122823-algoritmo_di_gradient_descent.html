@@ -199,35 +199,35 @@
 <h2 id="orge1278da">Algoritmo di Gradient Descent</h2>
 <div class="outline-text-2" id="text-orge1278da">
 <p>
-L&rsquo;algoritmo di <span class="underline">Gradient Descent</span> è un algoritmo per trovare iterativamente il <a href="20250627153543-massimo_e_minimo_di_una_funzione_reale.html#ID-9acf3073-9f99-45ee-9d77-cdac3303067b">minimo</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" /> di una funzione reale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_0ffd669b3d0a32f78cecfe1892e61896feb4709b.svg" alt="20250711122823-algoritmo_di_gradient_descent_0ffd669b3d0a32f78cecfe1892e61896feb4709b.svg" class="org-svg" />.
+L&rsquo;algoritmo di <span class="underline">Gradient Descent</span> è un algoritmo per trovare iterativamente il <a href="20250627153543-massimo_e_minimo_di_una_funzione_reale.html#ID-9acf3073-9f99-45ee-9d77-cdac3303067b">minimo</a> <img src="images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" /> di una funzione reale <img src="images/20250711122823-algoritmo_di_gradient_descent_0ffd669b3d0a32f78cecfe1892e61896feb4709b.svg" alt="20250711122823-algoritmo_di_gradient_descent_0ffd669b3d0a32f78cecfe1892e61896feb4709b.svg" class="org-svg" />.
 </p>
 
 <p>
-Per il <a href="20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.html#ID-930d1498-f5e9-4ea0-82c9-da1f689bd504">teorema</a><sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, per ogni punto di partenza <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" /> sufficientemente vicino ad <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" /> esiste una curva <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> che collega <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" /> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" />, perpendicolare in ogni punto alle curve di livello (<a href="20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.html#ID-a96501fa-8c4b-45f0-a1cd-249d69cc0e29">ovvero</a> parallela al <a href="20250624171244-gradiente_di_una_funzione.html#ID-b39d165c-f1f2-4610-8e2a-95f28ca5ad1d">gradiente della funzione</a>).
+Per il <a href="20250627130923-esistenza_di_una_curva_perpendicolare_a_tutte_le_curve_di_livello.html#ID-930d1498-f5e9-4ea0-82c9-da1f689bd504">teorema</a><sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, per ogni punto di partenza <img src="images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" /> sufficientemente vicino ad <img src="images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" /> esiste una curva <img src="images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> che collega <img src="images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" /> a <img src="images/20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" alt="20250711122823-algoritmo_di_gradient_descent_a9a0d89d38f0d77c57be7f4b37dec08a70a03f1a.svg" class="org-svg" />, perpendicolare in ogni punto alle curve di livello (<a href="20250627130736-gradiente_e_perpendicolare_alle_curve_di_livello.html#ID-a96501fa-8c4b-45f0-a1cd-249d69cc0e29">ovvero</a> parallela al <a href="20250624171244-gradiente_di_una_funzione.html#ID-b39d165c-f1f2-4610-8e2a-95f28ca5ad1d">gradiente della funzione</a>).
 </p>
 
 <p>
-Si vuole approssimare <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> con una poligonale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_8e3739a54f568548e5db120740565b4e61769f2d.svg" alt="20250711122823-algoritmo_di_gradient_descent_8e3739a54f568548e5db120740565b4e61769f2d.svg" class="org-svg" /> tale che:
+Si vuole approssimare <img src="images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> con una poligonale <img src="images/20250711122823-algoritmo_di_gradient_descent_8e3739a54f568548e5db120740565b4e61769f2d.svg" alt="20250711122823-algoritmo_di_gradient_descent_8e3739a54f568548e5db120740565b4e61769f2d.svg" class="org-svg" /> tale che:
 </p>
 <ol class="org-ol">
-<li>detti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_07a3a9d6abbee4e23c5ac344b312e2c204a7eda3.svg" alt="20250711122823-algoritmo_di_gradient_descent_07a3a9d6abbee4e23c5ac344b312e2c204a7eda3.svg" class="org-svg" />, si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_0be8754fe91fb7ef5dbb0fc2b649d59987465aaf.svg" alt="20250711122823-algoritmo_di_gradient_descent_0be8754fe91fb7ef5dbb0fc2b649d59987465aaf.svg" class="org-svg" /></li>
-<li>il segmento <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_f59ff50384a106918865521b17ad179fc93f829b.svg" alt="20250711122823-algoritmo_di_gradient_descent_f59ff50384a106918865521b17ad179fc93f829b.svg" class="org-svg" /> sia perpendicolare a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_8f6b36e22866e8000d9ffde3889cac003da73f8d.svg" alt="20250711122823-algoritmo_di_gradient_descent_8f6b36e22866e8000d9ffde3889cac003da73f8d.svg" class="org-svg" /><sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>.</li>
+<li>detti <img src="images/20250711122823-algoritmo_di_gradient_descent_07a3a9d6abbee4e23c5ac344b312e2c204a7eda3.svg" alt="20250711122823-algoritmo_di_gradient_descent_07a3a9d6abbee4e23c5ac344b312e2c204a7eda3.svg" class="org-svg" />, si ha che <img src="images/20250711122823-algoritmo_di_gradient_descent_0be8754fe91fb7ef5dbb0fc2b649d59987465aaf.svg" alt="20250711122823-algoritmo_di_gradient_descent_0be8754fe91fb7ef5dbb0fc2b649d59987465aaf.svg" class="org-svg" /></li>
+<li>il segmento <img src="images/20250711122823-algoritmo_di_gradient_descent_f59ff50384a106918865521b17ad179fc93f829b.svg" alt="20250711122823-algoritmo_di_gradient_descent_f59ff50384a106918865521b17ad179fc93f829b.svg" class="org-svg" /> sia perpendicolare a <img src="images/20250711122823-algoritmo_di_gradient_descent_8f6b36e22866e8000d9ffde3889cac003da73f8d.svg" alt="20250711122823-algoritmo_di_gradient_descent_8f6b36e22866e8000d9ffde3889cac003da73f8d.svg" class="org-svg" /><sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>.</li>
 </ol>
 </div>
 <div id="outline-container-org6f680a6" class="outline-3">
 <h3 id="org6f680a6">Gradient Descent con passo fissato</h3>
 <div class="outline-text-3" id="text-org6f680a6">
 <p>
-Il primo metodo per farlo è utilizzando il metodo della <span class="underline">discesa più ripida</span>. Partendo da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" />, si cerca il minimo della funzione muovendosi di un passo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" alt="20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" class="org-svg" /> nella direzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" alt="20250711122823-algoritmo_di_gradient_descent_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" class="org-svg" /> in cui la funzione decresce più rapidamente.
+Il primo metodo per farlo è utilizzando il metodo della <span class="underline">discesa più ripida</span>. Partendo da <img src="images/20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d282e90eac543fddef7a92cf864a9aefddcbb10.svg" class="org-svg" />, si cerca il minimo della funzione muovendosi di un passo <img src="images/20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" alt="20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" class="org-svg" /> nella direzione <img src="images/20250711122823-algoritmo_di_gradient_descent_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" alt="20250711122823-algoritmo_di_gradient_descent_a278b160f8542d1aaba3bdb45128ea27b5ae8f54.svg" class="org-svg" /> in cui la funzione decresce più rapidamente.
 </p>
 
 <p>
-Dunque, fissato <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" alt="20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" class="org-svg" />, si cerca <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a57095cf7d4ff96bab596178106b3aee1fa7a626.svg" alt="20250711122823-algoritmo_di_gradient_descent_a57095cf7d4ff96bab596178106b3aee1fa7a626.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_ea96a0fa462ee5033ec2b8887bba2abe7b00ebaf.svg" alt="20250711122823-algoritmo_di_gradient_descent_ea96a0fa462ee5033ec2b8887bba2abe7b00ebaf.svg" class="org-svg" /> e tale per cui
+Dunque, fissato <img src="images/20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" alt="20250711122823-algoritmo_di_gradient_descent_3dff6c7bca740147804e0225e428c1240798dc98.svg" class="org-svg" />, si cerca <img src="images/20250711122823-algoritmo_di_gradient_descent_a57095cf7d4ff96bab596178106b3aee1fa7a626.svg" alt="20250711122823-algoritmo_di_gradient_descent_a57095cf7d4ff96bab596178106b3aee1fa7a626.svg" class="org-svg" /> tale che <img src="images/20250711122823-algoritmo_di_gradient_descent_ea96a0fa462ee5033ec2b8887bba2abe7b00ebaf.svg" alt="20250711122823-algoritmo_di_gradient_descent_ea96a0fa462ee5033ec2b8887bba2abe7b00ebaf.svg" class="org-svg" /> e tale per cui
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_f80a19695cf8217542cbcb289386799d02b81903.svg" alt="20250711122823-algoritmo_di_gradient_descent_f80a19695cf8217542cbcb289386799d02b81903.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_f80a19695cf8217542cbcb289386799d02b81903.svg" alt="20250711122823-algoritmo_di_gradient_descent_f80a19695cf8217542cbcb289386799d02b81903.svg" class="org-svg" />
 </span>
 </div>
 <p>
@@ -240,7 +240,7 @@ Utilizzando le <a href="20250717132708-serie_di_taylor.html#ID-fcd0597d-5ea0-4cf
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_86d17a065ad894c0ee2b0c890e9734998b797348.svg" alt="20250711122823-algoritmo_di_gradient_descent_86d17a065ad894c0ee2b0c890e9734998b797348.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_86d17a065ad894c0ee2b0c890e9734998b797348.svg" alt="20250711122823-algoritmo_di_gradient_descent_86d17a065ad894c0ee2b0c890e9734998b797348.svg" class="org-svg" />
 </span>
 </div>
 <p>
@@ -249,7 +249,7 @@ Per la <a href="20250629112810-disuguaglianza_di_cauchy_schwarz.html#ID-4e0069ee
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_b3b85a7a192d78f7b8289d94de567edd13c78427.svg" alt="20250711122823-algoritmo_di_gradient_descent_b3b85a7a192d78f7b8289d94de567edd13c78427.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_b3b85a7a192d78f7b8289d94de567edd13c78427.svg" alt="20250711122823-algoritmo_di_gradient_descent_b3b85a7a192d78f7b8289d94de567edd13c78427.svg" class="org-svg" />
 </span>
 </div>
 <p>
@@ -258,35 +258,35 @@ ovvero
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_a1d7841707c59ad9d81728ff339c46bd4aa9620e.svg" alt="20250711122823-algoritmo_di_gradient_descent_a1d7841707c59ad9d81728ff339c46bd4aa9620e.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_a1d7841707c59ad9d81728ff339c46bd4aa9620e.svg" alt="20250711122823-algoritmo_di_gradient_descent_a1d7841707c59ad9d81728ff339c46bd4aa9620e.svg" class="org-svg" />
 </span>
 </div>
 <p>
-Inoltre per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_ee1c9d14e07dd2dead1046dcbb6ff6ced5ef1fe7.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee1c9d14e07dd2dead1046dcbb6ff6ced5ef1fe7.svg" class="org-svg" /> si ottiene
+Inoltre per <img src="images/20250711122823-algoritmo_di_gradient_descent_ee1c9d14e07dd2dead1046dcbb6ff6ced5ef1fe7.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee1c9d14e07dd2dead1046dcbb6ff6ced5ef1fe7.svg" class="org-svg" /> si ottiene
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_7777a057ed810ef6d91b2924ade52bdcb9dc0529.svg" alt="20250711122823-algoritmo_di_gradient_descent_7777a057ed810ef6d91b2924ade52bdcb9dc0529.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_7777a057ed810ef6d91b2924ade52bdcb9dc0529.svg" alt="20250711122823-algoritmo_di_gradient_descent_7777a057ed810ef6d91b2924ade52bdcb9dc0529.svg" class="org-svg" />
 </span>
 </div>
 <p>
-e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_1d6aa4a450e0bed2e5e400e44478bbfd8cd01249.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d6aa4a450e0bed2e5e400e44478bbfd8cd01249.svg" class="org-svg" /> è la direzione di massima decrescita, e la sopracitata decrescita è
+e pertanto <img src="images/20250711122823-algoritmo_di_gradient_descent_1d6aa4a450e0bed2e5e400e44478bbfd8cd01249.svg" alt="20250711122823-algoritmo_di_gradient_descent_1d6aa4a450e0bed2e5e400e44478bbfd8cd01249.svg" class="org-svg" /> è la direzione di massima decrescita, e la sopracitata decrescita è
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_53403bd83b08f6e33e6df34be505a46ceda09eff.svg" alt="20250711122823-algoritmo_di_gradient_descent_53403bd83b08f6e33e6df34be505a46ceda09eff.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_53403bd83b08f6e33e6df34be505a46ceda09eff.svg" alt="20250711122823-algoritmo_di_gradient_descent_53403bd83b08f6e33e6df34be505a46ceda09eff.svg" class="org-svg" />
 </span>
 </div>
 
 <p>
-Questo dà luogo ad una <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" />:
+Questo dà luogo ad una <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> <img src="images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" />:
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_05e85227e4948ee4d28b2230da833b04aeba0e65.svg" alt="20250711122823-algoritmo_di_gradient_descent_05e85227e4948ee4d28b2230da833b04aeba0e65.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_05e85227e4948ee4d28b2230da833b04aeba0e65.svg" alt="20250711122823-algoritmo_di_gradient_descent_05e85227e4948ee4d28b2230da833b04aeba0e65.svg" class="org-svg" />
 </span>
 <span class="equation-label">
 1
@@ -296,28 +296,28 @@ Questo dà luogo ad una <a href="20250115100904-successione.html#ID-2a8ac178-8c8
 Si noti che:
 </p>
 <ol class="org-ol">
-<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_29829ee15396cb941997aeab951bd975b23bb5e2.svg" alt="20250711122823-algoritmo_di_gradient_descent_29829ee15396cb941997aeab951bd975b23bb5e2.svg" class="org-svg" /> e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_6aec3f1c7e2735f739375bece9ff935f322f423b.svg" alt="20250711122823-algoritmo_di_gradient_descent_6aec3f1c7e2735f739375bece9ff935f322f423b.svg" class="org-svg" /></li>
-<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_31c00e69d8860736856072dae4c0b3507ac86a0d.svg" alt="20250711122823-algoritmo_di_gradient_descent_31c00e69d8860736856072dae4c0b3507ac86a0d.svg" class="org-svg" /> è parallelo a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_f85e043370d071175729787c99acd07c94276eee.svg" alt="20250711122823-algoritmo_di_gradient_descent_f85e043370d071175729787c99acd07c94276eee.svg" class="org-svg" />, e pertanto perpendicolare alla curva di livello di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250711122823-algoritmo_di_gradient_descent_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> passante per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" alt="20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" class="org-svg" /></li>
+<li><img src="images/20250711122823-algoritmo_di_gradient_descent_29829ee15396cb941997aeab951bd975b23bb5e2.svg" alt="20250711122823-algoritmo_di_gradient_descent_29829ee15396cb941997aeab951bd975b23bb5e2.svg" class="org-svg" /> e quindi <img src="images/20250711122823-algoritmo_di_gradient_descent_6aec3f1c7e2735f739375bece9ff935f322f423b.svg" alt="20250711122823-algoritmo_di_gradient_descent_6aec3f1c7e2735f739375bece9ff935f322f423b.svg" class="org-svg" /></li>
+<li><img src="images/20250711122823-algoritmo_di_gradient_descent_31c00e69d8860736856072dae4c0b3507ac86a0d.svg" alt="20250711122823-algoritmo_di_gradient_descent_31c00e69d8860736856072dae4c0b3507ac86a0d.svg" class="org-svg" /> è parallelo a <img src="images/20250711122823-algoritmo_di_gradient_descent_f85e043370d071175729787c99acd07c94276eee.svg" alt="20250711122823-algoritmo_di_gradient_descent_f85e043370d071175729787c99acd07c94276eee.svg" class="org-svg" />, e pertanto perpendicolare alla curva di livello di <img src="images/20250711122823-algoritmo_di_gradient_descent_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250711122823-algoritmo_di_gradient_descent_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> passante per <img src="images/20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" alt="20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" class="org-svg" /></li>
 </ol>
 <p>
-e dunque la successione così costruita dà luogo ad una approssimazione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> con una poligonale, come richiesto all&rsquo;inizio.
+e dunque la successione così costruita dà luogo ad una approssimazione di <img src="images/20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" alt="20250711122823-algoritmo_di_gradient_descent_56e189cd8f50f36ead2d5223eb043a98320c5d6c.svg" class="org-svg" /> con una poligonale, come richiesto all&rsquo;inizio.
 </p>
 
 <p>
-Al passo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250711122823-algoritmo_di_gradient_descent_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" />-esimo:
+Al passo <img src="images/20250711122823-algoritmo_di_gradient_descent_9238e0af9b6771c899aeac377eadae9d36f79928.svg" alt="20250711122823-algoritmo_di_gradient_descent_9238e0af9b6771c899aeac377eadae9d36f79928.svg" class="org-svg" />-esimo:
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_cee361272e6589d0473d87538095be59043710e7.svg" alt="20250711122823-algoritmo_di_gradient_descent_cee361272e6589d0473d87538095be59043710e7.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_cee361272e6589d0473d87538095be59043710e7.svg" alt="20250711122823-algoritmo_di_gradient_descent_cee361272e6589d0473d87538095be59043710e7.svg" class="org-svg" />
 </span>
 </div>
 <p>
-dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_dd76c13713d8dd223cc0fc42ddef0c02233bb8e6.svg" alt="20250711122823-algoritmo_di_gradient_descent_dd76c13713d8dd223cc0fc42ddef0c02233bb8e6.svg" class="org-svg" /> è il <a href="20250327131547-diametro_di_un_insieme.html#ID-8bff569c-e3f5-4383-b8bf-b39176ef6f57">diametro</a> dell&rsquo;insieme.
+dove <img src="images/20250711122823-algoritmo_di_gradient_descent_dd76c13713d8dd223cc0fc42ddef0c02233bb8e6.svg" alt="20250711122823-algoritmo_di_gradient_descent_dd76c13713d8dd223cc0fc42ddef0c02233bb8e6.svg" class="org-svg" /> è il <a href="20250327131547-diametro_di_un_insieme.html#ID-8bff569c-e3f5-4383-b8bf-b39176ef6f57">diametro</a> dell&rsquo;insieme.
 </p>
 
 <p>
-Questo metodo ha un problema: siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_eab0707f84aeb0c9e8ecde7968711b5f662fbced.svg" alt="20250711122823-algoritmo_di_gradient_descent_eab0707f84aeb0c9e8ecde7968711b5f662fbced.svg" class="org-svg" /> fissato, la successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_0d25ed98c0739b0950a485775122f3362f8943b3.svg" alt="20250711122823-algoritmo_di_gradient_descent_0d25ed98c0739b0950a485775122f3362f8943b3.svg" class="org-svg" /> non è di <a href="20250303134529-successione_di_cauchy.html#ID-f5741e31-03b6-4b84-90d1-02ce0d61ef2e">Cauchy</a>, <a href="20250301194153-spazio_metrico_completo.html#ID-769be75d-d3df-4b0f-a738-00f54e291057">e dunque</a> <span class="underline">non <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">converge</a></span>.
+Questo metodo ha un problema: siccome <img src="images/20250711122823-algoritmo_di_gradient_descent_eab0707f84aeb0c9e8ecde7968711b5f662fbced.svg" alt="20250711122823-algoritmo_di_gradient_descent_eab0707f84aeb0c9e8ecde7968711b5f662fbced.svg" class="org-svg" /> fissato, la successione <img src="images/20250711122823-algoritmo_di_gradient_descent_0d25ed98c0739b0950a485775122f3362f8943b3.svg" alt="20250711122823-algoritmo_di_gradient_descent_0d25ed98c0739b0950a485775122f3362f8943b3.svg" class="org-svg" /> non è di <a href="20250303134529-successione_di_cauchy.html#ID-f5741e31-03b6-4b84-90d1-02ce0d61ef2e">Cauchy</a>, <a href="20250301194153-spazio_metrico_completo.html#ID-769be75d-d3df-4b0f-a738-00f54e291057">e dunque</a> <span class="underline">non <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">converge</a></span>.
 </p>
 </div>
 </div>
@@ -330,7 +330,7 @@ Per ovviare al problema di cui sopra, si sostituisce la&nbsp;con
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_41abc8b54bb39929f77862daad90653f9495d521.svg" alt="20250711122823-algoritmo_di_gradient_descent_41abc8b54bb39929f77862daad90653f9495d521.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_41abc8b54bb39929f77862daad90653f9495d521.svg" alt="20250711122823-algoritmo_di_gradient_descent_41abc8b54bb39929f77862daad90653f9495d521.svg" class="org-svg" />
 </span>
 <span class="equation-label">
 2
@@ -343,7 +343,7 @@ Questo algoritmo è quello che si intende comunemente con <span class="underline
 <div class="outline-text-3" id="text-orgbac7921">
 <div class="prop" id="org29b010f">
 <p>
-La successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" /> definita in&nbsp;<a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">converge</a> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_955922ca530a7682a08c35d8c784a137cc806b0e.svg" alt="20250711122823-algoritmo_di_gradient_descent_955922ca530a7682a08c35d8c784a137cc806b0e.svg" class="org-svg" /> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_23aa9a3b3a5185d7263adb6302d73805bc2882fa.svg" alt="20250711122823-algoritmo_di_gradient_descent_23aa9a3b3a5185d7263adb6302d73805bc2882fa.svg" class="org-svg" />.
+La successione <img src="images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" /> definita in&nbsp;<a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">converge</a> se e solo se <img src="images/20250711122823-algoritmo_di_gradient_descent_955922ca530a7682a08c35d8c784a137cc806b0e.svg" alt="20250711122823-algoritmo_di_gradient_descent_955922ca530a7682a08c35d8c784a137cc806b0e.svg" class="org-svg" /> per <img src="images/20250711122823-algoritmo_di_gradient_descent_23aa9a3b3a5185d7263adb6302d73805bc2882fa.svg" alt="20250711122823-algoritmo_di_gradient_descent_23aa9a3b3a5185d7263adb6302d73805bc2882fa.svg" class="org-svg" />.
 </p>
 
 </div>
@@ -353,33 +353,33 @@ La successione <img src="file:///Users/davidepeccioli/Documents/roam_website/ima
 <h3 id="org151e6df">Line Search Method</h3>
 <div class="outline-text-3" id="text-org151e6df">
 <p>
-Una variante del metodo di cui sopra è dato dallo scegliere una successione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" />:
+Una variante del metodo di cui sopra è dato dallo scegliere una successione <img src="images/20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" alt="20250711122823-algoritmo_di_gradient_descent_e8dfe39d9cd2700121037341d791328923c899de.svg" class="org-svg" />:
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_e7cb456d1563e080719195cc2339bb9fb210f07b.svg" alt="20250711122823-algoritmo_di_gradient_descent_e7cb456d1563e080719195cc2339bb9fb210f07b.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_e7cb456d1563e080719195cc2339bb9fb210f07b.svg" alt="20250711122823-algoritmo_di_gradient_descent_e7cb456d1563e080719195cc2339bb9fb210f07b.svg" class="org-svg" />
 </span>
 <span class="equation-label">
 3
 </span>
 </div>
 <p>
-dove <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_ef5471cee96f3612ab6fd51c32975101396b7e35.svg" alt="20250711122823-algoritmo_di_gradient_descent_ef5471cee96f3612ab6fd51c32975101396b7e35.svg" class="org-svg" /> è scelto come
+dove <img src="images/20250711122823-algoritmo_di_gradient_descent_ef5471cee96f3612ab6fd51c32975101396b7e35.svg" alt="20250711122823-algoritmo_di_gradient_descent_ef5471cee96f3612ab6fd51c32975101396b7e35.svg" class="org-svg" /> è scelto come
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_6ec4798c1224c2681fb683b29d1bf877f9f23400.svg" alt="20250711122823-algoritmo_di_gradient_descent_6ec4798c1224c2681fb683b29d1bf877f9f23400.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_6ec4798c1224c2681fb683b29d1bf877f9f23400.svg" alt="20250711122823-algoritmo_di_gradient_descent_6ec4798c1224c2681fb683b29d1bf877f9f23400.svg" class="org-svg" />
 </span>
 </div>
 
 <p>
-L&rsquo;idea è la seguente: partendo dal punto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" alt="20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" class="org-svg" />, si procede lungo la linea retta con direzione e verso <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_f69768505edc46f72a17c718b694b07c49d64751.svg" alt="20250711122823-algoritmo_di_gradient_descent_f69768505edc46f72a17c718b694b07c49d64751.svg" class="org-svg" />, e si sceglie il punto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_f622c560d94d8641160eea0f202f82cd77778928.svg" alt="20250711122823-algoritmo_di_gradient_descent_f622c560d94d8641160eea0f202f82cd77778928.svg" class="org-svg" /> lungo questa retta che rende minima la quantità <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_5ffbecb53bd74afe75b3afc8822083f28a154b21.svg" alt="20250711122823-algoritmo_di_gradient_descent_5ffbecb53bd74afe75b3afc8822083f28a154b21.svg" class="org-svg" />. Geometricamente, questo significa scegliere il punto in cui la retta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_3a68871715075c1e4af00c161781f5072bcc7b0a.svg" alt="20250711122823-algoritmo_di_gradient_descent_3a68871715075c1e4af00c161781f5072bcc7b0a.svg" class="org-svg" /> interseca tangenzialmente una curva di livello.
+L&rsquo;idea è la seguente: partendo dal punto <img src="images/20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" alt="20250711122823-algoritmo_di_gradient_descent_fd2fa4dcfe7e236ae209a2dd5810ddb09c2e3556.svg" class="org-svg" />, si procede lungo la linea retta con direzione e verso <img src="images/20250711122823-algoritmo_di_gradient_descent_f69768505edc46f72a17c718b694b07c49d64751.svg" alt="20250711122823-algoritmo_di_gradient_descent_f69768505edc46f72a17c718b694b07c49d64751.svg" class="org-svg" />, e si sceglie il punto <img src="images/20250711122823-algoritmo_di_gradient_descent_f622c560d94d8641160eea0f202f82cd77778928.svg" alt="20250711122823-algoritmo_di_gradient_descent_f622c560d94d8641160eea0f202f82cd77778928.svg" class="org-svg" /> lungo questa retta che rende minima la quantità <img src="images/20250711122823-algoritmo_di_gradient_descent_5ffbecb53bd74afe75b3afc8822083f28a154b21.svg" alt="20250711122823-algoritmo_di_gradient_descent_5ffbecb53bd74afe75b3afc8822083f28a154b21.svg" class="org-svg" />. Geometricamente, questo significa scegliere il punto in cui la retta <img src="images/20250711122823-algoritmo_di_gradient_descent_3a68871715075c1e4af00c161781f5072bcc7b0a.svg" alt="20250711122823-algoritmo_di_gradient_descent_3a68871715075c1e4af00c161781f5072bcc7b0a.svg" class="org-svg" /> interseca tangenzialmente una curva di livello.
 </p>
 
 <p>
-Questo algoritmo converge molto più velocemente del gradient descent, e la poligonale <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_6967c353c4e1f05d7ea16c5eee8b5ea0464d8234.svg" alt="20250711122823-algoritmo_di_gradient_descent_6967c353c4e1f05d7ea16c5eee8b5ea0464d8234.svg" class="org-svg" /> contiene solamente angoli retti.
+Questo algoritmo converge molto più velocemente del gradient descent, e la poligonale <img src="images/20250711122823-algoritmo_di_gradient_descent_6967c353c4e1f05d7ea16c5eee8b5ea0464d8234.svg" alt="20250711122823-algoritmo_di_gradient_descent_6967c353c4e1f05d7ea16c5eee8b5ea0464d8234.svg" class="org-svg" /> contiene solamente angoli retti.
 </p>
 </div>
 </div>
@@ -387,27 +387,27 @@ Questo algoritmo converge molto più velocemente del gradient descent, e la poli
 <h3 id="org6cebf8f">Algoritmo di Stochastic Gradient Descent</h3>
 <div class="outline-text-3" id="text-org6cebf8f">
 <p>
-Una generalizzazione del <a href="#orge1278da">GD</a> applicato a <a href="20250624155858-neurone_artificiale.html#ID-5f8d0623-180d-430e-af13-8ce5df47fa38">funzioni costo</a> è l&rsquo;algoritmo di <span class="underline">Stochastic Gradient Descent</span>. Questo prevede di suddividere il <a href="20250627110009-training_error_and_test_error.html#ID-1f83d438-357c-46bf-a511-9b5acbda993c">training set</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_e5a22014eddec441c4aed85a601d28b734042f0d.svg" alt="20250711122823-algoritmo_di_gradient_descent_e5a22014eddec441c4aed85a601d28b734042f0d.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> parti disgiunte:
+Una generalizzazione del <a href="#orge1278da">GD</a> applicato a <a href="20250624155858-neurone_artificiale.html#ID-5f8d0623-180d-430e-af13-8ce5df47fa38">funzioni costo</a> è l&rsquo;algoritmo di <span class="underline">Stochastic Gradient Descent</span>. Questo prevede di suddividere il <a href="20250627110009-training_error_and_test_error.html#ID-1f83d438-357c-46bf-a511-9b5acbda993c">training set</a> <img src="images/20250711122823-algoritmo_di_gradient_descent_e5a22014eddec441c4aed85a601d28b734042f0d.svg" alt="20250711122823-algoritmo_di_gradient_descent_e5a22014eddec441c4aed85a601d28b734042f0d.svg" class="org-svg" /> in <img src="images/20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> parti disgiunte:
 </p>
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_cf2a16943dfcbcb5e9396e83cde1a924ea20d23f.svg" alt="20250711122823-algoritmo_di_gradient_descent_cf2a16943dfcbcb5e9396e83cde1a924ea20d23f.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_cf2a16943dfcbcb5e9396e83cde1a924ea20d23f.svg" alt="20250711122823-algoritmo_di_gradient_descent_cf2a16943dfcbcb5e9396e83cde1a924ea20d23f.svg" class="org-svg" />
 </span>
 </div>
 <p>
-e di eseguire sulla funzione costo per i punti di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_c59ca236e8560bc2b39c2f274f1867d8ada653ff.svg" alt="20250711122823-algoritmo_di_gradient_descent_c59ca236e8560bc2b39c2f274f1867d8ada653ff.svg" class="org-svg" /> l&rsquo;algoritmo di GD. I parametri ottenuti saranno i parametri iniziali per svolgere il GR sulla funzione costo per i punti di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_2cd44baa3b91b6e13ef004300e5d48952d1e6c20.svg" alt="20250711122823-algoritmo_di_gradient_descent_2cd44baa3b91b6e13ef004300e5d48952d1e6c20.svg" class="org-svg" />, con la convenzione che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_40f72e47309f8edb8b267b582a926e24e1a965b8.svg" alt="20250711122823-algoritmo_di_gradient_descent_40f72e47309f8edb8b267b582a926e24e1a965b8.svg" class="org-svg" />. L&rsquo;algoritmo è illustrato in figura&nbsp;
+e di eseguire sulla funzione costo per i punti di <img src="images/20250711122823-algoritmo_di_gradient_descent_c59ca236e8560bc2b39c2f274f1867d8ada653ff.svg" alt="20250711122823-algoritmo_di_gradient_descent_c59ca236e8560bc2b39c2f274f1867d8ada653ff.svg" class="org-svg" /> l&rsquo;algoritmo di GD. I parametri ottenuti saranno i parametri iniziali per svolgere il GR sulla funzione costo per i punti di <img src="images/20250711122823-algoritmo_di_gradient_descent_2cd44baa3b91b6e13ef004300e5d48952d1e6c20.svg" alt="20250711122823-algoritmo_di_gradient_descent_2cd44baa3b91b6e13ef004300e5d48952d1e6c20.svg" class="org-svg" />, con la convenzione che <img src="images/20250711122823-algoritmo_di_gradient_descent_40f72e47309f8edb8b267b582a926e24e1a965b8.svg" alt="20250711122823-algoritmo_di_gradient_descent_40f72e47309f8edb8b267b582a926e24e1a965b8.svg" class="org-svg" />. L&rsquo;algoritmo è illustrato in figura&nbsp;
 </p>
 
 <p>
-Ogni ciclo di GD su tutti i <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> training set è detto un&rsquo;<span class="underline">epoca</span> di apprendimento.
+Ogni ciclo di GD su tutti i <img src="images/20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" alt="20250711122823-algoritmo_di_gradient_descent_ee78e9f3816b4c4744e691e6f0b83c843a0ad44b.svg" class="org-svg" /> training set è detto un&rsquo;<span class="underline">epoca</span> di apprendimento.
 </p>
 
 <div class="figure" id="org707dd98">
 
 <div class="equation-container">
 <span class="equation">
-<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_2ca6239e4f03f5e17a5520c19fe72795bc1e01d8.svg" alt="20250711122823-algoritmo_di_gradient_descent_2ca6239e4f03f5e17a5520c19fe72795bc1e01d8.svg" class="org-svg" />
+<img src="images/20250711122823-algoritmo_di_gradient_descent_2ca6239e4f03f5e17a5520c19fe72795bc1e01d8.svg" alt="20250711122823-algoritmo_di_gradient_descent_2ca6239e4f03f5e17a5520c19fe72795bc1e01d8.svg" class="org-svg" />
 </span>
 </div>
 
@@ -424,7 +424,7 @@ AGGIUNGERE RIFERIMENTO PUNTUALE
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-Con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250711122823-algoritmo_di_gradient_descent_77ca880f00edff220cd2a7d569d22ffe14edcf1b.svg" alt="20250711122823-algoritmo_di_gradient_descent_77ca880f00edff220cd2a7d569d22ffe14edcf1b.svg" class="org-svg" /> si indica la <a href="20250627131207-curva_di_livello.html#ID-e4c98c5f-a3de-49a7-b58b-2c53350c7699">curva di livello</a>.
+Con <img src="images/20250711122823-algoritmo_di_gradient_descent_77ca880f00edff220cd2a7d569d22ffe14edcf1b.svg" alt="20250711122823-algoritmo_di_gradient_descent_77ca880f00edff220cd2a7d569d22ffe14edcf1b.svg" class="org-svg" /> si indica la <a href="20250627131207-curva_di_livello.html#ID-e4c98c5f-a3de-49a7-b58b-2c53350c7699">curva di livello</a>.
 </p></div></div>
 
 
