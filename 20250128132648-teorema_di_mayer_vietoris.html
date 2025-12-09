@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org3c7755c" class="outline-2">
+<h2 id="org3c7755c">Teorema di Mayer-Vietoris (in omologia)</h2>
+<div class="outline-text-2" id="text-org3c7755c">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" alt="20250128132648-teorema_di_mayer_vietoris_5c806716513d14f3ed6ec19a20ba9bd3a3e0d261.svg" class="org-svg" /> un <a href="20241219112842-pid.html#ID-CFCD9E38-AFEC-4381-A8C6-5AD75E7E43DC">PID</a>.
+</p>
+
+<div class="thm" id="orgbeb1743">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250128132648-teorema_di_mayer_vietoris_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> uno spazio topologico, e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_c4cd5175aafd25555e0c86c9a1fd62590ec6e89f.svg" alt="20250128132648-teorema_di_mayer_vietoris_c4cd5175aafd25555e0c86c9a1fd62590ec6e89f.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_11bfcd3662df518cba73d2c82f3b156d3438e89c.svg" alt="20250128132648-teorema_di_mayer_vietoris_11bfcd3662df518cba73d2c82f3b156d3438e89c.svg" class="org-svg" /> (vedi <a href="20250122181431-parte_interna.html#ID-177e40ac-00b4-4a0c-ad7f-16d8294a124a">Parte interna</a>).
+Allora si ha la seguente <a href="20250120125004-successione_di_r_moduli_esatta.html#ID-eebacc20-60a5-4880-a772-a5f542480600">successione esatta</a> (vedi <a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">Omologia Singolare</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_7bcd86edba956a3bba7f9e3eb911e474acc36878.svg" alt="20250128132648-teorema_di_mayer_vietoris_7bcd86edba956a3bba7f9e3eb911e474acc36878.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove, date le seguenti inclusioni:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_6275380813289ba19171f14b4dbe4cbda04f17fe.svg" alt="20250128132648-teorema_di_mayer_vietoris_6275380813289ba19171f14b4dbe4cbda04f17fe.svg" class="org-svg" />
+</span>
+</div>
+<p>
+applicando il <a href="20250123115927-funtore_di_omologia_singolare.html#ID-88dd6cfe-252a-4d15-a6b1-d3aea4a3d421">funtore di omologia singolare</a> si ottengono
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_805018d6f15c6a27e977df2ad4917aa6872b76c7.svg" alt="20250128132648-teorema_di_mayer_vietoris_805018d6f15c6a27e977df2ad4917aa6872b76c7.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si definiscono le mappe
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_a46604927fea5fb891bfbd53d3806b5f3c23f151.svg" alt="20250128132648-teorema_di_mayer_vietoris_a46604927fea5fb891bfbd53d3806b5f3c23f151.svg" class="org-svg" />
+</span>
+</div>
+
+</div>
+
+<div class="proof" id="org307c993">
+<p>
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_990111f8fe5bc044d2a14d260e5bf45a0aecd541.svg" alt="20250128132648-teorema_di_mayer_vietoris_990111f8fe5bc044d2a14d260e5bf45a0aecd541.svg" class="org-svg" /> si ha la seguente <a href="20250120131527-sec.html#ID-1d599af4-e230-41e1-9c86-ceb19e266737">SEC</a> di <a href="20241205141053-r_moduli.html#ID-8D25B2FF-81C9-45C9-8ACD-4D66C51C19B9">moduli</a> di <a href="20250122133435-simplesso_singolare.html#ID-f197d1be-d28d-4620-8f7a-7192b69600e5">catene singolari</a> (vedi <a href="20241206142802-sottomoduli.html#ID-d58d8f04-8e46-4898-8599-e528468ce061">Somma di sottomoduli</a> e <a href="20250120130155-caratterizzazione_di_alcune_successioni_esatte_di_r_moduli.html#ID-3d0561e0-918c-47c7-9f11-7b332da871ed">Caratterizzazione di alcune successioni esatte di R-Moduli</a> e <a href="20241213095808-somma_diretta.html#ID-4D33988E-FFC7-4B89-B7BC-7DAAD76D2066">Somma-Diretta</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_fe19f44ad039c696bdb6b79091d56ff8b96234c0.svg" alt="20250128132648-teorema_di_mayer_vietoris_fe19f44ad039c696bdb6b79091d56ff8b96234c0.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Siccome tutte le mappe commutano con gli operatori di bordo, considerato che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_bd07af0e0b273161863a29fbd9b6fcdacded9c3f.svg" alt="20250128132648-teorema_di_mayer_vietoris_bd07af0e0b273161863a29fbd9b6fcdacded9c3f.svg" class="org-svg" /> (vedi <a href="20250128131232-complesso_di_catene_singolare_intersezione.html#ID-093e7fdf-10fa-49a2-84e3-e6ac04754816">Complesso di catene singolare intersezione</a>), e vista la definizione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_f0f680b60e205493484927d4138c8ee0a3057323.svg" alt="20250128132648-teorema_di_mayer_vietoris_f0f680b60e205493484927d4138c8ee0a3057323.svg" class="org-svg" /> (vedi <a href="20250128131221-complesso_di_catene_singolare_somma.html#ID-95712b08-f4fb-461b-9813-014b2d29eccb">Complesso di catene singolare somma</a>) si ha la seguente <a href="20250120183640-sec_di_complessi_di_catene.html#ID-7c0d7a97-ab15-4653-8a35-b282196fece8">SEC</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_bd88b6b278be6267f2918c1e846669bda3d4c429.svg" alt="20250128132648-teorema_di_mayer_vietoris_bd88b6b278be6267f2918c1e846669bda3d4c429.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Per lo <a href="20250120164938-zig_zag_lemma.html#ID-15c85cfd-d57c-42ce-a111-f9ff5e1409bf">Zig-Zag Lemma</a>, questo induce la seguente catena (vedi <a href="20250122133631-omologia_singolare.html#ID-a740baed-01dc-4ce9-a3fb-cf5e9a0fc8bc">Omologia Singolare</a> e <a href="20250120164857-modulo_di_omologia_dei_complessi_di_catene.html#ID-799d82d4-087a-4eaa-adf4-37761a52eb2b">Modulo di omologia dei complessi di catene</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_bd8de336336dd5ca2096de121d71e350ebdbccd1.svg" alt="20250128132648-teorema_di_mayer_vietoris_bd8de336336dd5ca2096de121d71e350ebdbccd1.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Per il <a href="20250126223310-teorema_di_escissione.html#ID-81a1d073-55f1-411d-b829-95080097d0d3">Teorema di Escissione</a> (in particolare il Lemma 2)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250128132648-teorema_di_mayer_vietoris_adfb4097b32bd7ef38c16e122f191123b5b0a9db.svg" alt="20250128132648-teorema_di_mayer_vietoris_adfb4097b32bd7ef38c16e122f191123b5b0a9db.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto si è dimostrata la tesi.
+</p>
+
+</div>
+</div>
+<div id="outline-container-orgcc7c5a8" class="outline-3">
+<h3 id="orgcc7c5a8"><span class="todo WAIT">WAIT</span> Sistemare questa cosa perché non è così precisa</h3>
+</div>
+</div>
+</div>
+</body>
+</html>

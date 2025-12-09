@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org4155b8d" class="outline-2">
+<h2 id="org4155b8d">Percettrone</h2>
+<div class="outline-text-2" id="text-org4155b8d">
+<p>
+Il modello di <a href="20250624155858-neurone_artificiale.html#ID-f567e1e4-af7b-4e3c-b78b-79637194d3c2">neurone</a> più semplice è quello che riceve degli input, li somma dopo averli moltiplicati per dei pesi, e:
+</p>
+<ul class="org-ul">
+<li>restituisce <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" alt="20250710102223-percettrone_88e56adf835cbba5df9c6772adc30ddfceed9544.svg" class="org-svg" /> se la somma così ottenuta non supera un <span class="underline">treshold</span> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" alt="20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" class="org-svg" />;</li>
+<li>restituisce <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_2bab30f90ca0b28ed798cfc818372104ce8735dd.svg" alt="20250710102223-percettrone_2bab30f90ca0b28ed798cfc818372104ce8735dd.svg" class="org-svg" /> se la somma così ottenuta è maggiore o uguale a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" alt="20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Questo viene schematizzato in questo modo:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_21a8c9e025ccaa4cce3d0eaaa0198657116afcd3.svg" alt="20250710102223-percettrone_21a8c9e025ccaa4cce3d0eaaa0198657116afcd3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e l&rsquo;output <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_eda01cdfc7dab16e21a7b44bf78988db870e9f19.svg" alt="20250710102223-percettrone_eda01cdfc7dab16e21a7b44bf78988db870e9f19.svg" class="org-svg" /> è dato da<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_db9a7f22b05e41432f89f0e34ba83e8b3db6ade4.svg" alt="20250710102223-percettrone_db9a7f22b05e41432f89f0e34ba83e8b3db6ade4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+dove per convenzione si è posto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_5634296a029a30090ad925458299e3abac7a3cf9.svg" alt="20250710102223-percettrone_5634296a029a30090ad925458299e3abac7a3cf9.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_c48a49a3f8f55af43572bc28f3333b0573abaab0.svg" alt="20250710102223-percettrone_c48a49a3f8f55af43572bc28f3333b0573abaab0.svg" class="org-svg" />.
+</p>
+
+<p>
+La convenzione è per semplicità di notazione, infatti
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_0068d1116d5fa832eb8ce8f9ad2482e88debfb13.svg" alt="20250710102223-percettrone_0068d1116d5fa832eb8ce8f9ad2482e88debfb13.svg" class="org-svg" />
+</span>
+</div>
+
+<div class="definizione" id="orgfee0043">
+<p>
+Il <span class="underline">percettrone</span> è il neurone con <a href="20250624155858-neurone_artificiale.html#ID-44b3867d-3969-44ff-aad2-8fab83314a25">funzione di attivazione</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b6991a20c88feda2b4befaf0bbd7d9ec50d6fb5c.svg" alt="20250710102223-percettrone_b6991a20c88feda2b4befaf0bbd7d9ec50d6fb5c.svg" class="org-svg" />.
+</p>
+
+</div>
+</div>
+<div id="outline-container-org596c312" class="outline-3">
+<h3 id="org596c312">Interpretazione Geometrica</h3>
+<div class="outline-text-3" id="text-org596c312">
+<p>
+Consideriamo il neurone con dimensione di input <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_00bb14f91a4bc70c7875cdba30e2f36cba48edbd.svg" alt="20250710102223-percettrone_00bb14f91a4bc70c7875cdba30e2f36cba48edbd.svg" class="org-svg" />, ovvero <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_d8ebdb5605b09c9e3b5a499013d7c425f241847c.svg" alt="20250710102223-percettrone_d8ebdb5605b09c9e3b5a499013d7c425f241847c.svg" class="org-svg" />. Al variare di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_3416ca7c6d46bde3b78027fcbd82be1c592dbdbb.svg" alt="20250710102223-percettrone_3416ca7c6d46bde3b78027fcbd82be1c592dbdbb.svg" class="org-svg" />, l&rsquo;output del neurone è quello mostrato in Figura&nbsp;
+</p>
+
+<div class="figure" id="org7877650">
+
+</div>
+
+<p>
+Inoltre:
+</p>
+<ul class="org-ul">
+<li><p>
+il percettrone sa implementare la funzione <a href="20250710120853-and_logico.html#ID-72d170ce-f5e1-467d-a69a-62b394ffff59">AND</a>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" alt="20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" class="org-svg" /></th>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" alt="20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" class="org-svg" /></th>
+<th scope="col" class="org-right">AND</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+<p>
+con parametri <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_8eb2853a2758f14fa96f70be508af667a7758ffb.svg" alt="20250710102223-percettrone_8eb2853a2758f14fa96f70be508af667a7758ffb.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_675944a69ad37c982a536499d8fd22a93d36f6be.svg" alt="20250710102223-percettrone_675944a69ad37c982a536499d8fd22a93d36f6be.svg" class="org-svg" />, come in figura&nbsp;
+</p></li>
+
+<li><p>
+il percettrone sa implementare la funzione <a href="20250710120858-or_logico.html#ID-dc659685-64c0-41b7-bf21-055123a4daac">OR</a>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" alt="20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" class="org-svg" /></th>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" alt="20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" class="org-svg" /></th>
+<th scope="col" class="org-right">OR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+<p>
+con parametri <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_8eb2853a2758f14fa96f70be508af667a7758ffb.svg" alt="20250710102223-percettrone_8eb2853a2758f14fa96f70be508af667a7758ffb.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b1ef4ca05807409d0a84cc8a68518a9d745b38ae.svg" alt="20250710102223-percettrone_b1ef4ca05807409d0a84cc8a68518a9d745b38ae.svg" class="org-svg" />, come in figura&nbsp;
+</p></li>
+<li><p>
+il percettrone <span class="underline">non sa</span> implementare la funzione <a href="20250710120916-xor_logico.html#ID-470af5e3-40be-405f-8075-3c6d98ebfb10">XOR</a>, mostrata in figura&nbsp;
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" alt="20250710102223-percettrone_729e3d00fd6790d4ace5af3298171b08e645db61.svg" class="org-svg" /></th>
+<th scope="col" class="org-right"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" alt="20250710102223-percettrone_efdf8d15b725bc66941b281bf91374a80802a2e9.svg" class="org-svg" /></th>
+<th scope="col" class="org-right">XOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+<p>
+Infatti, supponiamo che esistano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4bb334c1f9863d67b002d7e826e2329b9365e60f.svg" alt="20250710102223-percettrone_4bb334c1f9863d67b002d7e826e2329b9365e60f.svg" class="org-svg" /> tale che la retta <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_378a6536240e9773825b42418da1c33e631d3457.svg" alt="20250710102223-percettrone_378a6536240e9773825b42418da1c33e631d3457.svg" class="org-svg" /> è
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_8d94af80e2fcce01c36a7551b570bccc0978aec4.svg" alt="20250710102223-percettrone_8d94af80e2fcce01c36a7551b570bccc0978aec4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_e629c64e8593d755f1661223318426ff837a8d24.svg" alt="20250710102223-percettrone_e629c64e8593d755f1661223318426ff837a8d24.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_eae9ae8177acebefc0cf4658b1e0fdc79862e239.svg" alt="20250710102223-percettrone_eae9ae8177acebefc0cf4658b1e0fdc79862e239.svg" class="org-svg" /> per la prima espressione, ma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_12d9bf106070a59a62fac64fbccd0cf1c9f62553.svg" alt="20250710102223-percettrone_12d9bf106070a59a62fac64fbccd0cf1c9f62553.svg" class="org-svg" /> per la seconda. Assurdo.
+</p></li>
+</ul>
+
+
+<div class="figure" id="org5fdf6c9">
+
+</div>
+
+<div class="figure" id="org408adf8">
+
+</div>
+
+<div class="figure" id="org0071403">
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgc9016bc" class="outline-3">
+<h3 id="orgc9016bc">Generalizzazione: classificazione binaria</h3>
+<div class="outline-text-3" id="text-orgc9016bc">
+<p>
+Si consideri un percettrone con input bidimensionale, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4931682a7bfd81fff941e11f73ace731ead4743d.svg" alt="20250710102223-percettrone_4931682a7bfd81fff941e11f73ace731ead4743d.svg" class="org-svg" />, e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_44481576f26a0c248936e534b5724f8d3ccd9850.svg" alt="20250710102223-percettrone_44481576f26a0c248936e534b5724f8d3ccd9850.svg" class="org-svg" />.
+</p>
+
+<p>
+Lo spazio dei possibili input è rappresentato da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7ce1eeb53b9d7258bea57a6bdfcd243e521d0c06.svg" alt="20250710102223-percettrone_7ce1eeb53b9d7258bea57a6bdfcd243e521d0c06.svg" class="org-svg" />. Si supponga che sia diviso in due: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_f3fdeb3297ac917e25565a260bfc01aae1914345.svg" alt="20250710102223-percettrone_f3fdeb3297ac917e25565a260bfc01aae1914345.svg" class="org-svg" />, e che vi sia una funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_98ce124c4704a11b5c6567e37b4bfe2070338532.svg" alt="20250710102223-percettrone_98ce124c4704a11b5c6567e37b4bfe2070338532.svg" class="org-svg" /> che indica l&rsquo;appartenenza ad uno dei due gruppi.
+</p>
+
+<p>
+Si vuole studiare se il percettrone è in grado di distinguere gli elementi del gruppo 1 da quelli del gruppo 2. Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_f5b771c116ab64bed4671aca70951da08d50dcfd.svg" alt="20250710102223-percettrone_f5b771c116ab64bed4671aca70951da08d50dcfd.svg" class="org-svg" /> l&rsquo;output del percettrone.
+</p>
+
+<p>
+Si conoscesse esattamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_e1483fd14a45b070b76a7b62b4814c0dc9cfc782.svg" alt="20250710102223-percettrone_e1483fd14a45b070b76a7b62b4814c0dc9cfc782.svg" class="org-svg" /> sarebbe possibile calcolare i pesi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_a5f35aa06872e88c4449a212f274752a2801c283.svg" alt="20250710102223-percettrone_a5f35aa06872e88c4449a212f274752a2801c283.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" alt="20250710102223-percettrone_7faeb68e00f7d0d3f50b9d27f4684e3226e4420a.svg" class="org-svg" /> minimizzando la norma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_cbc9a8d9336046bfe28255c69155d4930023abc6.svg" alt="20250710102223-percettrone_cbc9a8d9336046bfe28255c69155d4930023abc6.svg" class="org-svg" />:<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_d3579cb1d9b079e92e6d7cd797f4dce5197983f3.svg" alt="20250710102223-percettrone_d3579cb1d9b079e92e6d7cd797f4dce5197983f3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questo è quindi il metodo del <a href="20250710141709-mean_square_error.html#ID-b4156a3d-d93b-4e62-a3d4-d147944d8235">Mean Square Error</a> (MSE)
+</p>
+
+<p>
+<span class="underline">Senza conoscere esattamente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_1b48298b7a2a23e23cfd8cc554b8d336f47d2c03.svg" alt="20250710102223-percettrone_1b48298b7a2a23e23cfd8cc554b8d336f47d2c03.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_19bc4b86a95980e26d8b1b459e17e0a3e039d524.svg" alt="20250710102223-percettrone_19bc4b86a95980e26d8b1b459e17e0a3e039d524.svg" class="org-svg" /></span>, ma conoscendo soltanto la classificazione di un numero finito di punti
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4328d35c059154ecbf773f0ec46f76437fbcfa6a.svg" alt="20250710102223-percettrone_4328d35c059154ecbf773f0ec46f76437fbcfa6a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+è possibile soltanto calcolare la versione empirica <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_371ad6ceb639852577f5fea2cb9c602efe574834.svg" alt="20250710102223-percettrone_371ad6ceb639852577f5fea2cb9c602efe574834.svg" class="org-svg" />, utilizzando la <a href="20250710140836-legge_dei_grandi_numeri.html#ID-ede40acc-a455-4811-8499-f3aea57f8962">legge dei grandi numeri</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_2162bd52ba1685e1660cb7aeae7154db3834c243.svg" alt="20250710102223-percettrone_2162bd52ba1685e1660cb7aeae7154db3834c243.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questo è il metodo dell&rsquo;<a href="20250710141709-mean_square_error.html#ID-f4ef0f29-ce16-4df2-a89d-4f46795a106e">Empirical MSE</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc73b84f" class="outline-3">
+<h3 id="orgc73b84f">Perceptron Learning Algorithm</h3>
+<div class="outline-text-3" id="text-orgc73b84f">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_99abe13ac039467c9948b37d7496e15b02b91919.svg" alt="20250710102223-percettrone_99abe13ac039467c9948b37d7496e15b02b91919.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_f0eafc144125f3998c41969ea4b83022324ca0aa.svg" alt="20250710102223-percettrone_f0eafc144125f3998c41969ea4b83022324ca0aa.svg" class="org-svg" /> l&rsquo;insieme su cui si esegue l&rsquo;allenamento, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4d37bc140db13b2149060e65437cd330e5909a0d.svg" alt="20250710102223-percettrone_4d37bc140db13b2149060e65437cd330e5909a0d.svg" class="org-svg" /> la funzione di output di un neurone <a href="#org4155b8d">perceptron</a>.
+</p>
+
+<p>
+Si definiscono
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7e506cce3ad0463a987e2339ab1edf265825d54d.svg" alt="20250710102223-percettrone_7e506cce3ad0463a987e2339ab1edf265825d54d.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si vuole trovare <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" alt="20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" class="org-svg" /> tale per cui
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_31d29f5a7a2d6bac7f739a1c981f732c73ae7b2f.svg" alt="20250710102223-percettrone_31d29f5a7a2d6bac7f739a1c981f732c73ae7b2f.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+L&rsquo;<a href="20250627110009-training_error_and_test_error.html#ID-1f83d438-357c-46bf-a511-9b5acbda993c">algoritmo di apprendimento</a> per questo task è il seguente: si scelga <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_5c25ad1c8b026dae1192846581205b177a258568.svg" alt="20250710102223-percettrone_5c25ad1c8b026dae1192846581205b177a258568.svg" class="org-svg" /> casualmente. Il seguente ciclo iterativo si esegue finché non c&rsquo;è convergenza: al passo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_95e1f3ec47dc367e3e212a5dbd1204d19af49b9e.svg" alt="20250710102223-percettrone_95e1f3ec47dc367e3e212a5dbd1204d19af49b9e.svg" class="org-svg" />, si scelga casualmente <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_cf5a831998d2010188f969dfd3847642fc2e1d88.svg" alt="20250710102223-percettrone_cf5a831998d2010188f969dfd3847642fc2e1d88.svg" class="org-svg" />;
+</p>
+<ul class="org-ul">
+<li>se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_3d9a3aed15baba4f682c3f093a95cadf83214848.svg" alt="20250710102223-percettrone_3d9a3aed15baba4f682c3f093a95cadf83214848.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b7eb66ae7d10eff2d6857515926c2148afa3fc08.svg" alt="20250710102223-percettrone_b7eb66ae7d10eff2d6857515926c2148afa3fc08.svg" class="org-svg" /> allora si pone <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4d635f7f78df3f6b38f80091cd735be7a54a61ee.svg" alt="20250710102223-percettrone_4d635f7f78df3f6b38f80091cd735be7a54a61ee.svg" class="org-svg" />;</li>
+<li>se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_621637299c702eeb47e6c4b2621ff89a2a1fc7e9.svg" alt="20250710102223-percettrone_621637299c702eeb47e6c4b2621ff89a2a1fc7e9.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_4f7975f709cb521fa8ef8918bec953a4e47408c0.svg" alt="20250710102223-percettrone_4f7975f709cb521fa8ef8918bec953a4e47408c0.svg" class="org-svg" /> allora si pone <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b289dc85a812ebd990c645d649e314a56af694b1.svg" alt="20250710102223-percettrone_b289dc85a812ebd990c645d649e314a56af694b1.svg" class="org-svg" />;</li>
+<li>altrimenti si pone <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_dabfc7ba73d83b48fb0c4fb46ebc5e09067bb477.svg" alt="20250710102223-percettrone_dabfc7ba73d83b48fb0c4fb46ebc5e09067bb477.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+In sostanza l&rsquo;algoritmo è riassumibile come segue: fissato <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_5c25ad1c8b026dae1192846581205b177a258568.svg" alt="20250710102223-percettrone_5c25ad1c8b026dae1192846581205b177a258568.svg" class="org-svg" /> e una <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> di punti <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_f98affccbc2337272d79978fb31a4152f6f19fb3.svg" alt="20250710102223-percettrone_f98affccbc2337272d79978fb31a4152f6f19fb3.svg" class="org-svg" /> catalogati da <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_41c7bcafbbe227a4dbcc3792201c745505a8b6c5.svg" alt="20250710102223-percettrone_41c7bcafbbe227a4dbcc3792201c745505a8b6c5.svg" class="org-svg" /><sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>, si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_80d7ba2e1ddbd92a7645ee9a491bba288219354d.svg" alt="20250710102223-percettrone_80d7ba2e1ddbd92a7645ee9a491bba288219354d.svg" class="org-svg" />
+</span>
+</div>
+
+<div class="oss" id="orgc0af415">
+<p>
+Quando tutti gli elementi di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_3f8f9d224b473d95fbcaef53d818b3c6cc07ecc2.svg" alt="20250710102223-percettrone_3f8f9d224b473d95fbcaef53d818b3c6cc07ecc2.svg" class="org-svg" /> sono stati processati dall&rsquo;algoritmo (e dunque si ricomincia a sceglierli), si dice che è passata un&rsquo;epoca.
+</p>
+
+</div>
+</div>
+<div class="outline-text-3" id="text-orgc73b84f">
+<div class="thm" id="org936c397">
+<p>
+Se il dataset è linearmente separabile allora il percettrone trova un iperpiano di separazione in un numero finito di passi, altrimenti cicla infinite volte.
+</p>
+
+</div>
+</div>
+<div class="outline-text-3" id="text-orgc73b84f">
+<div class="proof" id="org49d6381">
+<p>
+Se il training set <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_e5a22014eddec441c4aed85a601d28b734042f0d.svg" alt="20250710102223-percettrone_e5a22014eddec441c4aed85a601d28b734042f0d.svg" class="org-svg" /> è separabile linearmente, allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" alt="20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_1876db257ae27187ce9cf8c376c913b6f69a00ce.svg" alt="20250710102223-percettrone_1876db257ae27187ce9cf8c376c913b6f69a00ce.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Si noti che in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" alt="20250710102223-percettrone_259d3ce31aed5bdc9a7f1a5f93b2991c9ad918f7.svg" class="org-svg" /> è presente sempre il bias.
+</p>
+
+<p>
+Si riscala il tutto in maniera tale che
+</p>
+<ul class="org-ul">
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_9f6cb83f8bc75aba206356f381002a6c513de4f7.svg" alt="20250710102223-percettrone_9f6cb83f8bc75aba206356f381002a6c513de4f7.svg" class="org-svg" />;</li>
+<li><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_73ce5e22c410279b58d89db9fc0c457f22766180.svg" alt="20250710102223-percettrone_73ce5e22c410279b58d89db9fc0c457f22766180.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_874c6429a4b1c6c2a593a660ad4acb89a61ed3eb.svg" alt="20250710102223-percettrone_874c6429a4b1c6c2a593a660ad4acb89a61ed3eb.svg" class="org-svg" />.</li>
+</ul>
+
+<p>
+Sia quindi
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_185e6e82295643610f558fc1817e73053545a75a.svg" alt="20250710102223-percettrone_185e6e82295643610f558fc1817e73053545a75a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_e4cb642563309bd7dc31b697ee792eea05297cdc.svg" alt="20250710102223-percettrone_e4cb642563309bd7dc31b697ee792eea05297cdc.svg" class="org-svg" />, sia inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_862e5acb3f194484d14e686b62b6c51a0ef1d015.svg" alt="20250710102223-percettrone_862e5acb3f194484d14e686b62b6c51a0ef1d015.svg" class="org-svg" /> la successione di pesi costruita con l&rsquo;algoritmo. Si supponga di aver eliminato tutti i termini uguali, tranne l&rsquo;eventuale coda dettata dalla convergenza.
+</p>
+
+<p>
+Allora valgono le seguenti disuguaglianze (dimostrate in fondo):
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_902836471d14232cd2a231346163db037dd80549.svg" alt="20250710102223-percettrone_902836471d14232cd2a231346163db037dd80549.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+1
+</span>
+</div>
+
+<p>
+Applicando iterativamente , si ottiene che, se per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_9f91c338f8ef22751841fcf78e915180713c1d2d.svg" alt="20250710102223-percettrone_9f91c338f8ef22751841fcf78e915180713c1d2d.svg" class="org-svg" /> si ha <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7f06c8e287a31a920dba20c501969aae8873fa9d.svg" alt="20250710102223-percettrone_7f06c8e287a31a920dba20c501969aae8873fa9d.svg" class="org-svg" />, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_04c4b33c79795579b5ab80be85d1ddc94d1ec074.svg" alt="20250710102223-percettrone_04c4b33c79795579b5ab80be85d1ddc94d1ec074.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+2
+</span>
+</div>
+<p>
+mentre applicando iterativamente , si ottiene
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_be85a56a54c7355cce4a9f09356ffeaa334ea4c3.svg" alt="20250710102223-percettrone_be85a56a54c7355cce4a9f09356ffeaa334ea4c3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Quest&rsquo;ultima disuguaglianza si utilizza per dimostrare:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_0c07c90c7a9786fc8ffb637b3985a0957d239a0f.svg" alt="20250710102223-percettrone_0c07c90c7a9786fc8ffb637b3985a0957d239a0f.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+3
+</span>
+</div>
+
+<p>
+Combinando dunque e si ottiene che, se per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_9f91c338f8ef22751841fcf78e915180713c1d2d.svg" alt="20250710102223-percettrone_9f91c338f8ef22751841fcf78e915180713c1d2d.svg" class="org-svg" /> si ha <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_7f06c8e287a31a920dba20c501969aae8873fa9d.svg" alt="20250710102223-percettrone_7f06c8e287a31a920dba20c501969aae8873fa9d.svg" class="org-svg" />, allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_efa898ebcc3a0fb846dcb017e294d72e157837d2.svg" alt="20250710102223-percettrone_efa898ebcc3a0fb846dcb017e294d72e157837d2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Essendo tutte quantità positive, si ottiene <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_acbb2e0b9ae933c07718fda857f0d9e0a85fbc9c.svg" alt="20250710102223-percettrone_acbb2e0b9ae933c07718fda857f0d9e0a85fbc9c.svg" class="org-svg" />, ovvero
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b9a6ce385ef04bc0aadd9f0dc7ba3a852ad2e447.svg" alt="20250710102223-percettrone_b9a6ce385ef04bc0aadd9f0dc7ba3a852ad2e447.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si è quindi dimostrato che se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_dd20f0c02e2a10dfe36f3106a2b65b9516f2ea0f.svg" alt="20250710102223-percettrone_dd20f0c02e2a10dfe36f3106a2b65b9516f2ea0f.svg" class="org-svg" /> allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_510550885f6310d5ad6969941f920b3346cfae3c.svg" alt="20250710102223-percettrone_510550885f6310d5ad6969941f920b3346cfae3c.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b3abb661cea00fad02d08160c1e7a709521972cd.svg" alt="20250710102223-percettrone_b3abb661cea00fad02d08160c1e7a709521972cd.svg" class="org-svg" />. Per costruzione, quindi, l&rsquo;algoritmo converge ad un certo valore <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_0fd3e12cfc413bdab5cea26fa16c38f7595f7ca5.svg" alt="20250710102223-percettrone_0fd3e12cfc413bdab5cea26fa16c38f7595f7ca5.svg" class="org-svg" />, che per costruzione separa i punti.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+La funzione <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_9559bf94556b179f4d052bf56e8611101066a6fd.svg" alt="20250710102223-percettrone_9559bf94556b179f4d052bf56e8611101066a6fd.svg" class="org-svg" /> è la <a href="20250624161413-funzione_di_heaviside.html#ID-00380f35-c1bc-4595-9132-9bea1797c1f2">Funzione di Heaviside</a>:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_c4f330ea7f2485366235c7236a3f4e4b2b359e12.svg" alt="20250710102223-percettrone_c4f330ea7f2485366235c7236a3f4e4b2b359e12.svg" class="org-svg" />
+</span>
+</div></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Vedi &ldquo;<a href="20250710140734-valore_atteso.html#ID-77147edc-fd80-4657-84da-23362205872c">Valore atteso</a>&rdquo;
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Ovvero per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" alt="20250710102223-percettrone_9e0a43e02f4410fc67578d61581c2cad30ffbd9d.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250710102223-percettrone_b8284b5b556a0cb18691d03ca01af46b4e2fe222.svg" alt="20250710102223-percettrone_b8284b5b556a0cb18691d03ca01af46b4e2fe222.svg" class="org-svg" />.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

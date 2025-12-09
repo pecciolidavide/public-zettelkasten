@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>(bib) FIPSAS - "P1 - Lezione T5 - Apparato respiratorio e circolatorio"</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">(bib) FIPSAS - &ldquo;P1 - Lezione T5 - Apparato respiratorio e circolatorio&rdquo;</h1>
+<div id="outline-container-org267c466" class="outline-2">
+<h2 id="org267c466">Approfondimento SLIDES</h2>
+<div class="outline-text-2" id="text-org267c466">
+<p>
+Approfondimento fatto tramite ({FIPSAS}, 2017,  Giusti, Nicola, 2024)
+</p>
+</div>
+<div id="outline-container-orgaebf4a9" class="outline-3">
+<h3 id="orgaebf4a9">Slide 1: FIPSAS - 1<sup>o</sup> GRADO AR: ARGOMENTI DEL CORSO</h3>
+<div class="outline-text-3" id="text-orgaebf4a9">
+</div>
+<div id="outline-container-orgf8ca4b6" class="outline-4">
+<h4 id="orgf8ca4b6">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-orgf8ca4b6">
+<p>
+La slide elenca gli argomenti principali del corso <b><b>FIPSAS 1<sup>o</sup> Grado AR</b></b> (Autorespiratore ad Aria). Gli argomenti includono: Attrezzatura di base, Cenni di Fisica per il subacqueo, Apparato uditivo e compensazione, La vista in immersione, Attrezzatura ARA, Apparato respiratorio e circolatorio, Assorbimento e rilascio di gas in immersione, Comportamento e tecnica d’immersione, Tabelle d’immersione, e Pianificazione dell’immersione.
+</p>
+</div>
+</div>
+<div id="outline-container-org25353dc" class="outline-4">
+<h4 id="org25353dc">Approfondimento dal Manuale P1</h4>
+<div class="outline-text-4" id="text-org25353dc">
+<p>
+Il corso di <b><b>1<sup>o</sup> Grado AR (P1)</b></b> abilita il subacqueo a immergersi fino a una profondità massima di <b><b>18 metri</b></b>, sempre accompagnato da almeno un compagno. Il percorso didattico completo della FIPSAS per gli autorespiratori si articola in tre livelli base (1<sup>o</sup>, 2<sup>o</sup> e 3<sup>o</sup> grado AR), che abilitano a profondità crescenti: 18 m, 30 m e 42 m.
+</p>
+
+<p>
+Il <b><b>Manuale P1</b></b> funge da strumento di studio fondamentale, contenendo in forma estesa tutte le informazioni che l&rsquo;istruttore illustrerà in aula. La struttura teorica del corso si articola in 12 capitoli che riflettono gli argomenti elencati nella slide, aggiungendo in particolare i cenni sull&rsquo;ambiente marino.
+</p>
+
+<p>
+Il corso include una parte teorica e una pratica in acqua. L&rsquo;addestramento in piscina (o altro bacino delimitato) è fondamentale per acquisire l&rsquo;acquaticità e sviluppare le abilità richieste in immersione in un ambiente sicuro e a bassa profondità. L&rsquo;addestramento in acque libere (mare o lago) è indispensabile per <b><b>consolidare le abilità</b></b> nell&rsquo;ambiente effettivo di immersione, sempre sotto la continua supervisione dell&rsquo;istruttore, per diventare subacquei consapevoli e immergersi in sicurezza.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae4a77c" class="outline-3">
+<h3 id="orgae4a77c">Slide 2: CENNI DI ANATOMIA E FISIOLOGIA - Cellule (p. 71)</h3>
+<div class="outline-text-3" id="text-orgae4a77c">
+</div>
+<div id="outline-container-org0b8f419" class="outline-4">
+<h4 id="org0b8f419">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org0b8f419">
+<p>
+Introduzione al concetto di <b><b>Cellule</b></b> come unità base degli organismi e la loro funzione vitale (nascere, nutrirsi, riprodursi, morire). Viene definita la formula del <b><b>Metabolismo cellulare</b></b>: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02037583766d8f0945381d1f5af290ad97c54ca3.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02037583766d8f0945381d1f5af290ad97c54ca3.svg" class="org-svg" />.
+</p>
+</div>
+</div>
+<div id="outline-container-orgeb482f7" class="outline-4">
+<h4 id="orgeb482f7">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-orgeb482f7">
+<p>
+Le cellule sono l&rsquo;unità funzionale della vita. Il <b><b>Metabolismo cellulare</b></b> è il processo di &ldquo;combustione&rdquo; di sostanze energetiche (come <b><b>zuccheri e grassi</b></b>) all&rsquo;interno della cellula per ricavare l&rsquo;<b><b>energia</b></b> indispensabile.
+</p>
+
+<p>
+Questo processo vitale genera calore e i sottoprodotti di scarto: <b><b>anidride carbonica (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />) e scorie</b></b>. Il metabolismo stabilisce la necessità fisiologica di un costante apporto di <b><b>Ossigeno (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" class="org-svg" />)</b></b> e di una rimozione efficace della <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />.
+</p>
+
+<p>
+L&rsquo;azoto (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_4953941a5b29cb06af5b3b6d525f7c3beb3b4335.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_4953941a5b29cb06af5b3b6d525f7c3beb3b4335.svg" class="org-svg" />), che costituisce circa il 78% dell&rsquo;aria respirata, è un <b><b>gas inerte</b></b> e <b><b>non interviene nei processi metabolici</b></b>. L&rsquo;Ossigeno, invece, rappresenta circa il 21% dell&rsquo;aria inspirata e viene utilizzato nei processi metabolici.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1269c4b" class="outline-3">
+<h3 id="org1269c4b">Slide 3: CENNI DI ANATOMIA E FISIOLOGIA - Tessuti, Organi, Apparati</h3>
+<div class="outline-text-3" id="text-org1269c4b">
+</div>
+<div id="outline-container-org8dfcb7c" class="outline-4">
+<h4 id="org8dfcb7c">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org8dfcb7c">
+<p>
+Viene presentata la gerarchia strutturale del corpo:
+</p>
+<ul class="org-ul">
+<li><b><b>Tessuti:</b></b> Insieme di cellule (es. Sangue, Adiposo, Nervoso, Muscolare, Cartilagineo, Osseo).</li>
+<li><b><b>Organi:</b></b> Insieme di tessuti (es. Occhio, Orecchio, Polmone, Cuore).</li>
+<li><b><b>Apparati:</b></b> Insiemi di organi (es. Visivo, Uditivo, Respiratorio, Circolatorio).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7ff594e" class="outline-4">
+<h4 id="org7ff594e">Approfondimento dal Manuale P1</h4>
+<div class="outline-text-4" id="text-org7ff594e">
+<p>
+Sebbene il Manuale P1 non approfondisca specificamente la definizione di tessuti o apparati in questo punto, esso tratta in dettaglio gli apparati cruciali per il subacqueo, come evidenziato dalla struttura del corso:
+</p>
+<ol class="org-ol">
+<li><b><b>Orecchio e compensazione (T3):</b></b> L&rsquo;orecchio, in particolare l&rsquo;orecchio medio, è trattato ampiamente in relazione agli effetti della pressione.</li>
+<li><b><b>Vista in immersione (T4):</b></b> Tratta le alterazioni percettive causate dall&rsquo;ambiente subacqueo (distorsione delle dimensioni e delle distanze, riduzione del contrasto e del rilievo cromatico) e la funzione della maschera.</li>
+<li><b><b>Apparato respiratorio e cardiocircolatorio (T6):</b></b> Questi sistemi sono fondamentali per sostenere il metabolismo cellulare, garantendo lo scambio <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" class="org-svg" />/<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" class="org-svg" /> e il trasporto nel corpo.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf00f085" class="outline-3">
+<h3 id="orgf00f085">Slide 4: APPARATO RESPIRATORIO - Funzione e Costituzione (p. 71)</h3>
+<div class="outline-text-3" id="text-orgf00f085">
+</div>
+<div id="outline-container-org089eb94" class="outline-4">
+<h4 id="org089eb94">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org089eb94">
+<p>
+<b><b>Funzione:</b></b> Fornire <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" class="org-svg" /> al sangue ed eliminare la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />.
+<b><b>Costituzione - Vie aeree superiori:</b></b> Naso, seni paranasali, bocca, faringe, laringe.
+<b><b>Costituzione - Vie aeree inferiori:</b></b> Trachea, bronchi, polmoni.
+</p>
+</div>
+</div>
+<div id="outline-container-org58fb09f" class="outline-4">
+<h4 id="org58fb09f">Approfondimento dal Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-org58fb09f">
+<p>
+L&rsquo;apparato respiratorio ha il compito di mettere in atto la <b><b>fase meccanica</b></b> della respirazione (richiamo dell&rsquo;aria) e lo <b><b>scambio gassoso</b></b> (captazione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" class="org-svg" /> ed eliminazione di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />).
+</p>
+
+<p>
+La respirazione è guidata primariamente dalla necessità di smaltire la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />. Lo <b><b>stimolo respiratorio</b></b> è dato principalmente dall’incremento della <b><b>pressione parziale dell’anidride carbonica</b></b> nel sangue. Specifiche cellule nervose nel midollo allungato (nuclei chemiotattici) sono sensibili all’eccesso di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" /> (ipercapnia) e, in misura minore, alla mancanza di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" class="org-svg" /> (ipossia), e da qui partono i comandi per i muscoli respiratori.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf4c7950" class="outline-3">
+<h3 id="orgf4c7950">Slide 5: APPARATO RESPIRATORIO - Vie Aeree Inferiori (Dettaglio)</h3>
+<div class="outline-text-3" id="text-orgf4c7950">
+</div>
+<div id="outline-container-orge348b2f" class="outline-4">
+<h4 id="orge348b2f">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-orge348b2f">
+<p>
+Viene fornita una lista sequenziale delle vie aeree inferiori, culminanti negli <b><b>alveoli</b></b> dove avvengono gli scambi, e l&rsquo;elenco delle strutture associate:
+</p>
+<ul class="org-ul">
+<li>Trachea (1)</li>
+<li>Bronchi (2)</li>
+<li>Polmoni (3)</li>
+<li>Bronchioli (4)</li>
+<li>Lobuli (5)</li>
+<li>Alveoli (6)</li>
+<li>Pleure (7) e Diaframma (8).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaad5808" class="outline-4">
+<h4 id="orgaad5808">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-orgaad5808">
+<p>
+Le vie aeree inferiori (trachea, bronchi, bronchioli e alveoli) contengono l&rsquo;<b><b>aria ventilata a vuoto</b></b> che non partecipa agli scambi gassosi, nota come <b><b>Spazio morto bronco tracheale</b></b>.
+</p>
+
+<p>
+Gli alveoli sono il sito primario dello scambio gassoso. Il <b><b>diaframma</b></b> è un muscolo fondamentale per la respirazione.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org83e4ae7" class="outline-3">
+<h3 id="org83e4ae7">Slide 6: APPARATO RESPIRATORIO - Respirazione: Inspirazione (Fase attiva)</h3>
+<div class="outline-text-3" id="text-org83e4ae7">
+</div>
+<div id="outline-container-org30b5d37" class="outline-4">
+<h4 id="org30b5d37">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org30b5d37">
+<p>
+L&rsquo;<b><b>Inspirazione</b></b> è la <b><b>fase attiva</b></b>. Si verifica quando il <b><b>diaframma si contrae e si abbassa</b></b>, espandendo la gabbia toracica e permettendo all’aria di entrare nei polmoni.
+</p>
+</div>
+</div>
+<div id="outline-container-org9e20b4e" class="outline-4">
+<h4 id="org9e20b4e">Approfondimento dal Manuale P1</h4>
+<div class="outline-text-4" id="text-org9e20b4e">
+<p>
+(Non si trovano dettagli aggiuntivi sul processo meccanico dell&rsquo;inspirazione oltre quanto già riportato).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga3ab4c0" class="outline-3">
+<h3 id="orga3ab4c0">Slide 7: APPARATO RESPIRATORIO - Respirazione: Espirazione (Fase passiva)</h3>
+<div class="outline-text-3" id="text-orga3ab4c0">
+</div>
+<div id="outline-container-org5a06fd5" class="outline-4">
+<h4 id="org5a06fd5">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org5a06fd5">
+<p>
+L&rsquo;<b><b>Espirazione</b></b> è la <b><b>fase passiva</b></b>. Il diaframma si rilassa e si alza; la cassa toracica si rilassa (o si comprime).
+</p>
+</div>
+</div>
+<div id="outline-container-orgb9cf971" class="outline-4">
+<h4 id="orgb9cf971">Frequenza respiratoria media: 12-18 atti al minuto.</h4>
+</div>
+<div id="outline-container-org7707625" class="outline-4">
+<h4 id="org7707625">Volume di ventilazione totale: 7-8 litri al minuto.</h4>
+</div>
+<div id="outline-container-orgd74a4c2" class="outline-4">
+<h4 id="orgd74a4c2">Approfondimento dal Manuale P1</h4>
+<div class="outline-text-4" id="text-orgd74a4c2">
+<p>
+Il manuale sottolinea che la respirazione deve essere <b><b>regolare e continua</b></b> e, per il subacqueo, è raccomandato che l&rsquo;<b><b>espirazione sia più lunga dell’inspirazione</b></b>.
+</p>
+
+<p>
+In caso di affanno (condizione in cui la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" /> ristagna nella parte inferiore dei polmoni), si deve <b><b>interrompere qualsiasi attività</b></b>, assumere una posizione orizzontale, e se possibile, facilitare la respirazione utilizzando il pulsante del secondo stadio dell&rsquo;erogatore.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6a13848" class="outline-3">
+<h3 id="org6a13848">Slide 8: APPARATO RESPIRATORIO - Volumi e Capacità Polmonari</h3>
+<div class="outline-text-3" id="text-org6a13848">
+</div>
+<div id="outline-container-org7d02a44" class="outline-4">
+<h4 id="org7d02a44">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org7d02a44">
+<ul class="org-ul">
+<li><b><b>Volume polmonare medio totale:</b></b> 5500 cc (5.5 litri).</li>
+<li><b><b>Capacità vitale:</b></b> 4000 cc (Volume di ventilazione 500 cc + Volume di riserva inspiratoria 2500 cc + Volume di riserva espiratoria 1000 cc).</li>
+<li><b><b>Volume residuo:</b></b> 1350 cc.</li>
+<li><b><b>Spazio morto bronco tracheale:</b></b> 150 cc.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9fb6ec6" class="outline-4">
+<h4 id="org9fb6ec6">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-org9fb6ec6">
+<p>
+Il <b><b>volume dei polmoni (Capacità polmonare)</b></b> è stimato in circa <b><b>5500 cc (5,5 litri)</b></b>.
+</p>
+
+<p>
+Il concetto di <b><b>Spazio morto bronco tracheale</b></b> (150 cc) è importante perché questo è il volume d’aria contenuto nelle vie aeree che <b><b>non partecipa agli scambi gassosi</b></b> e viene ventilato a vuoto ad ogni atto respiratorio.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org132abb7" class="outline-3">
+<h3 id="org132abb7">Slide 9: APPARATO RESPIRATORIO - Composizione Aria e Ruolo dell&rsquo;Azoto</h3>
+<div class="outline-text-3" id="text-org132abb7">
+</div>
+<div id="outline-container-org1a86393" class="outline-4">
+<h4 id="org1a86393">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org1a86393">
+<ul class="org-ul">
+<li><b><b>Aria inspirata:</b></b> N2 (Azoto) 79%, O2 (Ossigeno) 21%, CO2 trascurabile.</li>
+<li><b><b>Aria espirata:</b></b> O2 16%, CO2 5%.</li>
+<li><b><b>Azoto (N2):</b></b> Gas inerte, non partecipa al metabolismo cellulare.</li>
+<li><b><b>Stimolo respiratorio:</b></b> Dato dal livello di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" />. L&rsquo;eccesso di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" /> (ipercapnia) produce affanno.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaf0b7e6" class="outline-4">
+<h4 id="orgaf0b7e6">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-orgaf0b7e6">
+<p>
+L&rsquo;aria che respiriamo è composta da circa <b><b>78% di Azoto (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_4953941a5b29cb06af5b3b6d525f7c3beb3b4335.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_4953941a5b29cb06af5b3b6d525f7c3beb3b4335.svg" class="org-svg" />)</b></b> e <b><b>21% di Ossigeno (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_1d8fb1a41adcd3d786314f8eb6af1d939f2326ed.svg" class="org-svg" />)</b></b>. L&rsquo;azoto è un gas inerte, ma la sua esposizione a pressioni superiori a quella atmosferica durante l&rsquo;immersione fa sì che venga assorbito dai tessuti.
+</p>
+
+<p>
+La <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" /> è il principale regolatore della respirazione. Un aumento della concentrazione di anidride carbonica nel sangue determina l&rsquo;aumento della frequenza respiratoria per eliminarla. Il subacqueo deve stare attento all&rsquo;<b><b>affanno</b></b>, una condizione in cui la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_02a7895866c01b1a4d03f17e19fa5466dcb33868.svg" class="org-svg" /> ristagna nella parte inferiore dei polmoni, spesso causata da una respirazione tecnicamente non corretta.
+</p>
+
+<p>
+La tossicità dei gas è legata alla loro pressione parziale (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_73a6796da5a9edea4ea08aa635b1bbbc4a716872.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_73a6796da5a9edea4ea08aa635b1bbbc4a716872.svg" class="org-svg" />), secondo la <b><b>Legge di Dalton</b></b> (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_caf7c5be18342010dca1fbb270f14ac75f7c29f2.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_caf7c5be18342010dca1fbb270f14ac75f7c29f2.svg" class="org-svg" />):
+</p>
+<ul class="org-ul">
+<li><b><b>Ossigeno:</b></b> Diventa tossico ad elevate pressioni parziali. Il limite universalmente accettato è <b><b>1.6 atm</b></b> per 45 minuti. Se respiriamo aria (f = 0.21), una <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_0f2cc0f2cdd2ae81d0fc1fc4f1ebc2e0d4a11efe.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_0f2cc0f2cdd2ae81d0fc1fc4f1ebc2e0d4a11efe.svg" class="org-svg" /> di 1.6 atm si raggiunge teoricamente a <b><b>66 metri</b></b>.</li>
+<li><b><b>Azoto:</b></b> Ad elevate pressioni parziali causa la <b><b>narcosi da azoto</b></b> (o ebbrezza da profondità o &ldquo;martini effect&rdquo;). La pressione parziale massima sicura per l&rsquo;azoto in immersione sportiva è circa <b><b>4.3 atm</b></b>, corrispondente a circa <b><b>45 metri</b></b> di profondità in aria.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org026fe26" class="outline-3">
+<h3 id="org026fe26">Slide 10: APPARATO RESPIRATORIO - Respirazione in Immersione</h3>
+<div class="outline-text-3" id="text-org026fe26">
+</div>
+<div id="outline-container-orgb1b27ca" class="outline-4">
+<h4 id="orgb1b27ca">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-orgb1b27ca">
+<p>
+<b><b>In immersione la respirazione deve essere:</b></b>
+</p>
+<ol class="org-ol">
+<li>Regolare e continua.</li>
+<li>Senza pause pronunciate.</li>
+<li>L&rsquo;espirazione deve essere più lunga dell’inspirazione (idealmente 1 volta e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_61dbe5257cace33ef3d05106c6e2881521f188b0.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_61dbe5257cace33ef3d05106c6e2881521f188b0.svg" class="org-svg" />).</li>
+<li>Consigliata la respirazione a &ldquo;dente di sega&rdquo;.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgb01c36b" class="outline-4">
+<h4 id="orgb01c36b">Approfondimento dal Manuale P1</h4>
+<div class="outline-text-4" id="text-orgb01c36b">
+<p>
+La regola di non trattenere il respiro, specialmente in risalita, è fondamentale per la sicurezza.
+</p>
+
+<p>
+Se il subacqueo con autorespiratori non espira durante la risalita, l&rsquo;aria contenuta nei polmoni si espande a causa della diminuzione della pressione ambiente (Legge di Boyle-Mariotte). Questa espansione forzata (sovradistensione polmonare), non trovando via d&rsquo;uscita, può <b><b>lacerare il tessuto polmonare</b></b>, causando l&rsquo;ingresso d&rsquo;aria nel circolo sanguigno arterioso e portando all&rsquo;<b><b>Embolia Gassosa Arteriosa (EGA)</b></b>. Questo incidente, tra i più gravi, può teoricamente verificarsi anche risalendo da poco più di un metro di profondità.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org17e7174" class="outline-3">
+<h3 id="org17e7174">Slide 11: APPARATO CIRCOLATORIO - Funzione e Costituzione (p. 75)</h3>
+<div class="outline-text-3" id="text-org17e7174">
+</div>
+<div id="outline-container-orgdce9f98" class="outline-4">
+<h4 id="orgdce9f98">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-orgdce9f98">
+<p>
+<b><b>Funzione:</b></b> Distribuire l&rsquo;<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" class="org-svg" /> al corpo e portare la <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" class="org-svg" /> ai polmoni.
+<b><b>Costituzione:</b></b>
+</p>
+<ol class="org-ol">
+<li>Cuore (pompa).</li>
+<li>Arterie (vasi che partono dal cuore).</li>
+<li>Vene (vasi che arrivano al cuore).</li>
+<li>Sangue (arterioso ricco di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_b8e74296d6fb8c18e5366db75f4007b8b410e8a2.svg" class="org-svg" />, venoso ricco di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_344c2cb64107a2dfe3bb29ae113dad48b7073df6.svg" class="org-svg" />).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgc2d993a" class="outline-4">
+<h4 id="orgc2d993a">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-orgc2d993a">
+<p>
+La funzione del sangue è cruciale. Oltre ai globuli rossi, il sangue contiene <b><b>piastrine e globuli bianchi</b></b>. Le piastrine, che servono a far coagulare il sangue, e i globuli bianchi, coinvolti nella risposta immunitaria, hanno un ruolo nell’evoluzione della <b><b>Malattia da Decompressione (MDD)</b></b>.
+</p>
+
+<p>
+L&rsquo;apparato circolatorio è l&rsquo;intermediario tra lo scambio gassoso nei polmoni e l&rsquo;uso dei gas nelle cellule (metabolismo cellulare).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd401647" class="outline-3">
+<h3 id="orgd401647">Slide 12: APPARATO CIRCOLATORIO - Grande e Piccolo Circolo</h3>
+<div class="outline-text-3" id="text-orgd401647">
+</div>
+<div id="outline-container-org69ad285" class="outline-4">
+<h4 id="org69ad285">Contenuto della Slide (Riepilogo)</h4>
+<div class="outline-text-4" id="text-org69ad285">
+<ol class="org-ol">
+<li><b><b>Piccolo Circolo (Circolazione polmonare):</b></b> VD <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" class="org-svg" /> Polmoni (scambio gas) <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" class="org-svg" /> AS.</li>
+<li><b><b>Grande Circolo (Circolazione sistemica):</b></b> VS <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" class="org-svg" /> Corpo (nutrimento cellule) <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_8c4e1deb89c9195a5e137fc2feba6db1f2e24014.svg" class="org-svg" /> AD.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org15acc83" class="outline-4">
+<h4 id="org15acc83">Approfondimento dal Manuale P1 / Manuale Federale d’Immersione</h4>
+<div class="outline-text-4" id="text-org15acc83">
+<p>
+Il <b><b>Piccolo Circolo</b></b> è l&rsquo;insieme dei vasi sanguigni tra il ventricolo destro (VD) e l&rsquo;atrio sinistro (AS). Un aspetto interessante è che in questo circolo <b><b>le vene contengono sangue arterioso e le arterie contengono sangue venoso</b></b>.
+</p>
+
+<p>
+Le valvole presenti nel cuore e nei vasi sanguigni assicurano che il <b><b>verso della circolazione non possa invertirsi</b></b>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org93b7756" class="outline-3">
+<h3 id="org93b7756">Appendice: Principi Fisici e Fisiologici Correlati al Contenuto delle Slide</h3>
+<div class="outline-text-3" id="text-org93b7756">
+<p>
+Sebbene le slide si concentrino sull&rsquo;anatomia e fisiologia di base, per un subacqueo tali concetti sono indissolubilmente legati alle leggi fisiche e agli effetti iperbarici:
+</p>
+
+<p>
+<b><b>Compensazione e Boyle-Mariotte:</b></b>
+La legge di Boyle-Mariotte (<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_c63d95aabadc6cde342537aed342e9c9a4b2a0b4.svg" alt="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio_c63d95aabadc6cde342537aed342e9c9a4b2a0b4.svg" class="org-svg" />) spiega che all&rsquo;aumentare della pressione (in discesa), il volume dei gas diminuisce. Questa legge è fondamentale per la sicurezza perché spiega la necessità di:
+</p>
+<ol class="org-ol">
+<li><b><b>Compensazione dell&rsquo;orecchio medio:</b></b> Scendendo, il volume d&rsquo;aria nell&rsquo;orecchio medio (normalmente chiuso dalla tuba di Eustachio) diminuisce, causando introflessione del timpano, fastidio e potenziale dolore/lacerazione. La manovra di compensazione (es. Valsalva o Marcante-Odaglia) introduce aria nell&rsquo;orecchio medio attraverso la tuba per ristabilire l&rsquo;equilibrio pressorio.</li>
+<li><b><b>Compensazione della maschera:</b></b> La maschera racchiude il naso, permettendo la compensazione di questo spazio, che altrimenti si schiaccerebbe contro il viso.</li>
+</ol>
+
+<p>
+<b><b>Assorbimento dei Gas e Legge di Henry:</b></b>
+La <b><b>Legge di Henry</b></b> afferma che, a temperatura costante, la quantità di gas che si scioglie in un liquido è <b><b>direttamente proporzionale alla pressione</b></b> che il gas esercita sul liquido. Questa legge governa l&rsquo;assorbimento dell&rsquo;azoto nei tessuti corporei durante l&rsquo;immersione:
+</p>
+<ul class="org-ul">
+<li>In immersione, l&rsquo;organismo assorbe azoto in quantità proporzionale alla pressione.</li>
+<li>Durante la risalita, l&rsquo;azoto assorbito deve essere rilasciato in modo controllato, altrimenti può portare alla <b><b>formazione di bolle gassose</b></b> (MDD - Malattia da Decompressione).</li>
+<li>L&rsquo;azoto viene assorbito dai tessuti con velocità proporzionale al loro <b><b>grado di vascolarizzazione</b></b>. La cessione (desaturazione) avviene secondo il percorso inverso.</li>
+<li>Per prevenire la MDD, è fondamentale rispettare una <b><b>corretta velocità di risalita</b></b> (9 m/min) e le <b><b>soste di decompressione</b></b> (se fuori curva).</li>
+</ul>
+</div>
+</div>
+<div class="outline-text-2" id="text-org267c466">
+<p>
+Giusti, Nicola (2024). <i>Manuale Del Corso 1° Grado AR</i>.</p>
+
+<p>
+{FIPSAS} (2017). <i>Manuale Del Corso 2° Grado AR</i>.</p>
+</div>
+</div>
+</div>
+</body>
+</html>
