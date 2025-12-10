@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org7c3c25a" class="outline-2">
+<h2 id="org7c3c25a">INPUT</h2>
+<div class="outline-text-2" id="text-org7c3c25a">
+<p>
+Questa è una lista delle entry del database ancora da processare:
+</p>
+
+<ul class="org-ul">
+<li><a href="20250901104256-teoria_della_ricorsivita_corso_sel2025.html#ID-3e74304e-1629-40bb-8614-81db436a1988">Teoria della ricorsività [CORSO SEL2025] </a></li>
+<li><a href="20250901104138-teoria_dei_modelli_corso_sel_2025.html#ID-a35a0f1d-d182-49bb-acbc-b189acf1f20b">Teoria dei modelli [CORSO SEL2025] </a></li>
+<li><a href="20251024102757-topological_games_lectio.html#ID-1bfa1684-fc5e-484e-a65d-c8a6b33d0f9d">Topological Games [LECTIO] </a></li>
+<li><a href="20251117151400-boolean_valued_semantics_for_infinitary_logics_corso.html#ID-678e32ea-5de1-4e4a-b9a0-901082cd044f">Boolean valued semantics for infinitary logics [CORSO] </a></li>
+<li><a href="20250922171928-teoria_dei_modelli_corso.html#ID-4ef6e321-6ad2-4c5a-9eb0-18fd522067f5">Teoria dei modelli [CORSO] </a></li>
+<li><a href="20250922095937-istituzioni_di_algebra_corso.html#ID-7139d390-1a26-4a5b-a74c-1ec904ed48f9">Istituzioni di Algebra [CORSO] </a></li>
+<li><a href="20251210093225-inbox.html#ID-8fbf82a5-eb84-497a-b6e7-e8d23493e42c">INBOX - Fleeting Notes </a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org594079b" class="outline-2">
+<h2 id="org594079b">DA FINIRE</h2>
+<div class="outline-text-2" id="text-org594079b">
+<p>
+Questa è una lista delle entry del database ancora da ultimare
+</p>
+
+<ul class="org-ul">
+<li><a href="20250522113216-ogni_insieme_analitico_non_numerabile_ammette_un_sottoinsieme_boreliano_non_numerabile.html#ID-13c56e92-e768-4121-b804-de1301da1928">Ogni insieme analitico non numerabile ammette un sottoinsieme boreliano non numerabile </a></li>
+<li><a href="20250901104256-teoria_della_ricorsivita_corso_sel2025.html#ID-3e74304e-1629-40bb-8614-81db436a1988">Teoria della ricorsività [CORSO SEL2025] </a></li>
+<li><a href="20250901104138-teoria_dei_modelli_corso_sel_2025.html#ID-a35a0f1d-d182-49bb-acbc-b189acf1f20b">Teoria dei modelli [CORSO SEL2025] </a></li>
+<li><a href="20241219113434-anello_dei_polinomi.html#ID-0C7F82D1-FB6F-4DBD-B401-27DE8C1F8B6C">Anello-dei-polinomi </a></li>
+<li><a href="20251020171928-caratterizzazione_delle_formule_preservate_da_delta_morfismi.html#ID-36415697-af50-4401-9a58-84f8697f9724">Caratterizzazione delle formule preservate da delta-morfismi </a></li>
+<li><a href="20251020170822-caratterizzazione_della_delta_eliminazione_positiva_dei_quantificatori_tramite_delta_morfismi.html#ID-ef05d3c8-3eca-42e1-938a-50906fc6a3ce">Caratterizzazione della delta-eliminazione positiva dei quantificatori tramite delta-morfismi </a></li>
+<li><a href="20251026195543-caratterizzazione_phi_tipi_invarianti_su_un_insieme.html#ID-593b5071-6ec4-4075-90ae-073c90cc4cf4">Caratterizzazione phi-tipi invarianti su un insieme </a></li>
+<li><a href="20251026161720-phi_formula_su_un_insieme.html#ID-8d38d7bc-c9b2-41d1-b9b2-5a5ba0e0b3ad">phi-tipo su un insieme </a></li>
+<li><a href="20251104154216-relazione_erede_coerede_stazionaria.html#ID-e2d46d56-3a31-44f0-a198-cab86ad3b679">Relazione erede-coerede stazionaria </a></li>
+<li><a href="20251104154216-relazione_erede_coerede_stazionaria.html#ID-e2d46d56-3a31-44f0-a198-cab86ad3b679">Relazione erede-coerede stazionaria </a></li>
+<li><a href="20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.html#ID-8dbd164b-ac89-4378-af18-06c36c80e8b1">Estensione semigruppo a Modello Mostro </a></li>
+<li><a href="20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.html#ID-cd8dd88d-eb71-40cd-9cc5-8eda6bfffe50">Semigruppo di Ellis </a></li>
+<li><a href="20251104154427-estensione_di_un_semigruppo_ad_un_modello_mostro.html#ID-fc5a8ec4-936b-4021-aace-931a6561ad66">Gruppo di Ellis </a></li>
+<li><a href="20251026161851-phi_tipo_invariante_su_un_insieme.html#ID-ad838097-8ee8-447c-b586-2a52bd314862">Tipo invariante su un insieme </a></li>
+<li><a href="20251104163738-semigruppo.html#ID-fad7de1d-7671-493a-a1ee-7d7cb1eaa75d">Semigruppo </a></li>
+<li><a href="20251111165459-stile_scala_di_formalita.html#ID-61fd7441-615f-425c-8a08-3f298863a81a">Stile - Scala di Formalità </a></li>
+<li><a href="20251104131959-lemma_del_diagramma_elementare.html#ID-774ecd87-a7ef-4693-b36a-6646748ba2fb">Lemma del diagramma elementare </a></li>
+<li><a href="20250131103053-morfismo_tra_strutture_del_prim_ordine.html#ID-bf2f9a5e-90ad-464d-be4c-51799746ac4d">Morfismo pieno tra strutture del prim&rsquo;ordine </a></li>
+<li><a href="20251120111212-teorema_di_milliken_taylor.html#ID-2c6d0431-4cfb-4edb-a3c6-93738e0a0d20">Teorema di Milliken-Taylor </a></li>
+<li><a href="20251127142345-bib_baro.html#ID-cd1c169a-14ce-4432-90ee-a31c8adca338">(bib) Neuman - Physiology and Medicine of Hyperbaric Oxygen Therapy, 2008 </a></li>
+<li><a href="20251201092513-sicurezza_in_immersione.html#ID-9726cdca-7017-4488-9773-dd33196a37de">Pianificazione dell&rsquo;immersione </a></li>
+<li><a href="20241213101756-cardinalita.html#ID-52D5B0F4-4F1A-4F14-B508-D51011BD1B0F">Cardinalità </a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7597b85" class="outline-2">
+<h2 id="org7597b85">BIB</h2>
+<div class="outline-text-2" id="text-org7597b85">
+<p>
+Questo è un elenco di tutte le note bibliografiche
+</p>
+
+<ul class="org-ul">
+<li><a href="20251125114225-bib_fipsas_p1_lezione_t5_apparato_respiratorio_e_circolatorio.html#ID-b2fdeb85-6f99-4fee-be5c-8a566cb8da2b">(bib) FIPSAS - &ldquo;P1 - Lezione T5 - Apparato respiratorio e circolatorio&rdquo; </a></li>
+<li><a href="20251015172832-bib_a_creche_course_in_model_theory_2024.html#ID-7e9acce4-bd34-422c-aab8-c667cb809e46">(bib) Zambella - A Crèche Course in Model Theory, 2024 </a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
