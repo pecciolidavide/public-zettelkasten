@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<div class="prop" id="orged02473">
+<p>
+Let <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_83cabd61a7a1e8ce96e02cade5d2af076a355c8d.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_83cabd61a7a1e8ce96e02cade5d2af076a355c8d.svg" class="org-svg" /> and let <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_ebde904773ad8c453012f956cd639c2808059f84.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_ebde904773ad8c453012f956cd639c2808059f84.svg" class="org-svg" /> be an <a href="20251026210908-sequenza_di_indiscernibili.html#ID-abe7498f-a1e9-4df1-b7f2-beafd1251ee4"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" />-indiscernible sequence</a> in <a href="20251028160605-eq_espansione_di_un_modello_mostro.html#ID-c518a4d5-cec4-439c-aed4-2ad329f4a4ee"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_aa91224412786922307e80c6905db7f49ed361ff.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_aa91224412786922307e80c6905db7f49ed361ff.svg" class="org-svg" /></a>.
+Prove that there is a <a href="20250131103317-formula_del_prim_ordine.html#ID-91ce2e12-1712-41ad-be2b-4a6bd725572c">formula</a> <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_2358a54a9bb2c2a310c9a9df61ac3ce5637cc4b1.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_2358a54a9bb2c2a310c9a9df61ac3ce5637cc4b1.svg" class="org-svg" /> and an <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" />-indiscernible sequence <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_7c72758c91583cf5f3250b59b5ff5c2b1091973d.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_7c72758c91583cf5f3250b59b5ff5c2b1091973d.svg" class="org-svg" /> in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_c2a710ef600fbdda40627898214906a3b6562d9e.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_c2a710ef600fbdda40627898214906a3b6562d9e.svg" class="org-svg" /> such that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_9eb315a499a22641ccec91b1968236024db752ec.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_9eb315a499a22641ccec91b1968236024db752ec.svg" class="org-svg" />.
+</p>
+
+</div>
+
+<div class="proof" id="orga7d88b7">
+<p>
+Si suppone che ciascun <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_b49e729bff9528fca1d1659886e5b0cea25842ae.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_b49e729bff9528fca1d1659886e5b0cea25842ae.svg" class="org-svg" /> per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_ddbc763a90fbd1a9abac65492b7670f278572b83.svg" class="org-svg" /> fissata.
+</p>
+<ul class="org-ul">
+<li><p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_59fd3e842f1b0494f75c5eafa2a326470752e494.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_59fd3e842f1b0494f75c5eafa2a326470752e494.svg" class="org-svg" />, allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_8833e9597f51f922e426ce43911452f86b841c0a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_8833e9597f51f922e426ce43911452f86b841c0a.svg" class="org-svg" /> ed esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_4731d1e4471d655ba6af5401f74b671ae525e165.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_4731d1e4471d655ba6af5401f74b671ae525e165.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_c176e2ec765d9b22bae8b51f7b8148682e2e8a66.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_c176e2ec765d9b22bae8b51f7b8148682e2e8a66.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e, ponendo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_9d2708066c0b38e3796cfc74f5d13645a66235c5.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_9d2708066c0b38e3796cfc74f5d13645a66235c5.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_ad797065119a075eb14db1cdc3ce875beaca5f47.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_ad797065119a075eb14db1cdc3ce875beaca5f47.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_6c5eb7b4ba63145058460cf14b9b1a0d4844ed0a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_6c5eb7b4ba63145058460cf14b9b1a0d4844ed0a.svg" class="org-svg" />
+</span>
+</div></li>
+<li><p>
+Il fatto che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_b64bb498691bebe5286e606fcdc464e12e205615.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_b64bb498691bebe5286e606fcdc464e12e205615.svg" class="org-svg" /> sia una sequenza di indiscernibili su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> significa che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3ef10cc70202120c506b173c5c849704cf334c48.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3ef10cc70202120c506b173c5c849704cf334c48.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_61ad194a4d3bb8d2d13d58dbde4234c21643e1a6.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_61ad194a4d3bb8d2d13d58dbde4234c21643e1a6.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_b8a8225ceb2bc568781be46312157ec5c2e5f1c6.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_b8a8225ceb2bc568781be46312157ec5c2e5f1c6.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+1
+</span>
+</div></li>
+</ul>
+
+<p>
+Siccome si ha
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_9d8db4206ddf9f06be2e7660017c943ae4bfa0af.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_9d8db4206ddf9f06be2e7660017c943ae4bfa0af.svg" class="org-svg" />
+</span>
+</div>
+<p>
+allora per la&nbsp;si ha che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3591ef53f64ab66b5d8fa08434c1b4b9d030e0ca.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3591ef53f64ab66b5d8fa08434c1b4b9d030e0ca.svg" class="org-svg" />
+(ponendo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_68d064b0b5799924b9b9c16f555c26025fd62360.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_68d064b0b5799924b9b9c16f555c26025fd62360.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_d7bcb31047d14c8a69f34c2e437376c826b33533.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_d7bcb31047d14c8a69f34c2e437376c826b33533.svg" class="org-svg" />)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_a4a5bb1225fa4e1fa0a46322c575ff7fa9d97b64.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_a4a5bb1225fa4e1fa0a46322c575ff7fa9d97b64.svg" class="org-svg" />
+</span>
+</div>
+<p>
+ovvero, se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_8a1e56472bc13664b3689a63a321b049f0dcd75f.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_8a1e56472bc13664b3689a63a321b049f0dcd75f.svg" class="org-svg" /> vale:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_6cd93c7ae01bf993940e5123c888b185faa3d3bd.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_6cd93c7ae01bf993940e5123c888b185faa3d3bd.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Pertanto per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_e3899c9753f6e79d58e86d91ec3b0eca92335246.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_e3899c9753f6e79d58e86d91ec3b0eca92335246.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_409347d03acb785ead9417a6e6aff40acfbb496a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_409347d03acb785ead9417a6e6aff40acfbb496a.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_e782173226a297c681fb99449f7a6a2b5e9dcae4.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_e782173226a297c681fb99449f7a6a2b5e9dcae4.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+2
+</span>
+</div>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_c8dfe83bb45f382658d00f4a40fc9eecf39eebee.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_c8dfe83bb45f382658d00f4a40fc9eecf39eebee.svg" class="org-svg" /> la sequenza associata.
+Si consideri <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_160b2bd2618908656b88b9069e2240e83b7c2251.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_160b2bd2618908656b88b9069e2240e83b7c2251.svg" class="org-svg" />. Per il <a href="20251107125444-teorema_di_ehrenfeucht_mostowski.html#ID-9d834ce1-c682-4092-bac1-0dadd72531d4">Teorema di Ehrenfeucht-Mostowski</a> esiste una sequenza di indiscernibili
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_5dd1c710572731fc49f6fa75465d92854a66d988.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_5dd1c710572731fc49f6fa75465d92854a66d988.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_bfeadda42862ff4d10afe76c22ad8e50b739bae4.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_bfeadda42862ff4d10afe76c22ad8e50b739bae4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Sia quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_a452ee9250496de2e3919549174a86d3c3fee953.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_a452ee9250496de2e3919549174a86d3c3fee953.svg" class="org-svg" /> e
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_e6df63e03c82c6928825138c1cae4bc455bf6f5a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_e6df63e03c82c6928825138c1cae4bc455bf6f5a.svg" class="org-svg" />.
+</p>
+
+<p>
+Si dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_4bcd6ce63b36ef1a728153820c55b7cde01daf57.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_4bcd6ce63b36ef1a728153820c55b7cde01daf57.svg" class="org-svg" />.
+Infatti, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_7f4bef8e7dc03aa70582934654aa8ea414be95e1.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_7f4bef8e7dc03aa70582934654aa8ea414be95e1.svg" class="org-svg" /> tale che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_64759870f0890e76c7afc4ee45a342e82ddb3e6b.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_64759870f0890e76c7afc4ee45a342e82ddb3e6b.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+3
+</span>
+</div>
+<p>
+Se per assurdo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3ed1cbe9d3297993222355490593ca5122b507be.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3ed1cbe9d3297993222355490593ca5122b507be.svg" class="org-svg" /> poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_7d8728f8e48f23863967c8aba31c36a335e0742f.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_7d8728f8e48f23863967c8aba31c36a335e0742f.svg" class="org-svg" /> è una sequenza di indiscernibili, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_c58f2d860b61df0db106a7f528e93d2deeb3bdb7.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_c58f2d860b61df0db106a7f528e93d2deeb3bdb7.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_a57a587bfcea08c79bec6dddc60e41d7ffa14995.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_a57a587bfcea08c79bec6dddc60e41d7ffa14995.svg" class="org-svg" />
+</span>
+</div>
+<p>
+In particolar modo, quindi, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_c58f2d860b61df0db106a7f528e93d2deeb3bdb7.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_c58f2d860b61df0db106a7f528e93d2deeb3bdb7.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_1e5a4f1b8fbff2edf0b005f797f0316a646d753e.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_1e5a4f1b8fbff2edf0b005f797f0316a646d753e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_38fbe10e9435b77eac0334765793331b19bc3f4a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_38fbe10e9435b77eac0334765793331b19bc3f4a.svg" class="org-svg" />.
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_b237341736f4c3d0d0895235dd283111ab5cb453.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_b237341736f4c3d0d0895235dd283111ab5cb453.svg" class="org-svg" /> allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_f11f8998586d0ba288d7b8bda4664a7a1a9f1231.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_f11f8998586d0ba288d7b8bda4664a7a1a9f1231.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Assurdo, per la&nbsp;.
+Quindi per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_7f4bef8e7dc03aa70582934654aa8ea414be95e1.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_7f4bef8e7dc03aa70582934654aa8ea414be95e1.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_dba7a16e600c17de59165a1f11e4a9d7ba305663.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_dba7a16e600c17de59165a1f11e4a9d7ba305663.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_37838e6fa4c33d8f949ee1a1c531fcec256dda2a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_37838e6fa4c33d8f949ee1a1c531fcec256dda2a.svg" class="org-svg" /> è chiuso per negazioni, questo implica che
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_4bcd6ce63b36ef1a728153820c55b7cde01daf57.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_4bcd6ce63b36ef1a728153820c55b7cde01daf57.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3acd4d9c19549ddb02c55a6832fafc2bc5c0d83e.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3acd4d9c19549ddb02c55a6832fafc2bc5c0d83e.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_6ca0df33200db06fe063dfd3dbe8d6c69bd4329a.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_6ca0df33200db06fe063dfd3dbe8d6c69bd4329a.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_6c0195aa3cd051b984b41af0080fd53f5e85b41e.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_6c0195aa3cd051b984b41af0080fd53f5e85b41e.svg" class="org-svg" />.
+Per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_9d9b24ab2a84fa5b8d49d5138f7a2e22c44665ae.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_9d9b24ab2a84fa5b8d49d5138f7a2e22c44665ae.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_0909a3c991cc32cdd92e2c2e0587d65a7c9c003b.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_0909a3c991cc32cdd92e2c2e0587d65a7c9c003b.svg" class="org-svg" />
+</span>
+</div>
+<p>
+avendo posto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_ac9e66049c1d3ab6732d43b92726aaab4c2e17eb.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_ac9e66049c1d3ab6732d43b92726aaab4c2e17eb.svg" class="org-svg" />.
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_13578fff705c53019e6fa694a045f7b55b22e24d.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_13578fff705c53019e6fa694a045f7b55b22e24d.svg" class="org-svg" /> è un automorfismo,
+e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_bf61dbbc7a8e49e1c7207e39871aa7d3e66a7580.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_bf61dbbc7a8e49e1c7207e39871aa7d3e66a7580.svg" class="org-svg" /> è sequenza di indiscernibili
+allora anche <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20251028160440-sequenza_di_indiscernibili_eq_expansion_3192a5d62c16770bae105ddab03cf569b4c383b1.svg" alt="20251028160440-sequenza_di_indiscernibili_eq_expansion_3192a5d62c16770bae105ddab03cf569b4c383b1.svg" class="org-svg" /> lo è.
+</p>
+
+</div>
+</div>
+</body>
+</html>

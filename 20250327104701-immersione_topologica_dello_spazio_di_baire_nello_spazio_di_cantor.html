@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Immersione topologica dello spazio di Baire nello spazio di Cantor</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Immersione topologica dello spazio di Baire nello spazio di Cantor</h1>
+<div id="outline-container-orgaf0858a" class="outline-2">
+<h2 id="orgaf0858a">Proposizione</h2>
+<div class="outline-text-2" id="text-orgaf0858a">
+<p>
+Prove that the map
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_98aa81c43d2cf4f72e80806449c03a8d1dc42996.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_98aa81c43d2cf4f72e80806449c03a8d1dc42996.svg" class="org-svg" />
+is a (topological) <a href="20250331122739-immersione_topologica.html#ID-70511397-a6e8-44f8-96d0-5d38b3f5b0c6">embedding</a>, and argue that this provides an alternative proof of the fact that
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7cb62bc888fffdb3e28ada3ab8c9fa44b75ac97b.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7cb62bc888fffdb3e28ada3ab8c9fa44b75ac97b.svg" class="org-svg" />
+is a <a href="20250301193045-sottoinsieme_denso.html#ID-bdd1abc5-a371-4507-a7ca-ee9709a0ea55">dense</a> <a href="20250301194013-spazio_polacco.html#ID-c0d47e62-8d50-44c0-984a-c115c0ea2c40">Polish</a> <a href="20250103163814-sottospazio_topologico.html#ID-3271bde2-1623-4ce8-a76f-93aaa0121fe6">subspace</a> of <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_320d15fdf8756d3fc447ac5c8e7d80a4e6d2ab2f.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_320d15fdf8756d3fc447ac5c8e7d80a4e6d2ab2f.svg" class="org-svg" />. In contrast, show that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_320d15fdf8756d3fc447ac5c8e7d80a4e6d2ab2f.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_320d15fdf8756d3fc447ac5c8e7d80a4e6d2ab2f.svg" class="org-svg" /> cannot be embedded as a dense subset in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_008cd5c2f5d9497d50f3198dc61ac72b52597aeb.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_008cd5c2f5d9497d50f3198dc61ac72b52597aeb.svg" class="org-svg" />.
+</p>
+
+<p>
+[Hint. Use compactness.]
+</p>
+</div>
+<div id="outline-container-orgd5b06bb" class="outline-3">
+<h3 id="orgd5b06bb">Dimostrazione</h3>
+<div class="outline-text-3" id="text-orgd5b06bb">
+</div>
+<div id="outline-container-org6135d53" class="outline-4">
+<h4 id="org6135d53">Prima parte</h4>
+<div class="outline-text-4" id="text-org6135d53">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_b5819d00b5b5dd7a34f2f6e0e4a3c3ecdd75b092.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_b5819d00b5b5dd7a34f2f6e0e4a3c3ecdd75b092.svg" class="org-svg" /> la funzione descritta. Sia, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_f9f06ffdf3a3b1c11544aefebcad8ef3b4af8fde.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_f9f06ffdf3a3b1c11544aefebcad8ef3b4af8fde.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Si costruisce quindi l&rsquo;$&omega;$-schema associato ad <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_1019596acb2dd3580f2700ff656b37a3447c4a74.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_1019596acb2dd3580f2700ff656b37a3447c4a74.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si applica il lemma 1.3.9.
+</p>
+<ul class="org-ul">
+<li>Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_160f0585b2041cbde91819553e75554b69bdf976.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_160f0585b2041cbde91819553e75554b69bdf976.svg" class="org-svg" /> è aperto in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" class="org-svg" />, per definizione di <a href="20250109154723-topologia_prodotto.html#ID-88fa98ee-2e42-41b3-b12e-b7a4075399da">topologia prodotto</a> (sono insiemi con un numero finito di componenti fissate).</li>
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3f6c31cdc50e93520a524bfa3e986571e5763796.svg" class="org-svg" /> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3d402541a704f4e4d61ef38bb8b8df5598cc9e9a.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3d402541a704f4e4d61ef38bb8b8df5598cc9e9a.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a1d9d3a9a73bf3f7607cd1c5a9456683d5adfb1e.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a1d9d3a9a73bf3f7607cd1c5a9456683d5adfb1e.svg" class="org-svg" />. Supponiamo per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_f22c0d804878d50ef1dda6fc1f2238f500736f9c.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_f22c0d804878d50ef1dda6fc1f2238f500736f9c.svg" class="org-svg" />, ovvero
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_9bc5f7a68643dac502e4eb81aa3c169c0e97c688.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_9bc5f7a68643dac502e4eb81aa3c169c0e97c688.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Dunque esistono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a9ea9be7163a508db5cfa1be52159df0e0ddcca6.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a9ea9be7163a508db5cfa1be52159df0e0ddcca6.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_e4048c81488979f3cbf8674bb3ddd3ae7b1f64c4.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_e4048c81488979f3cbf8674bb3ddd3ae7b1f64c4.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_12eba7edd43782a9f0eb50a94c78b19aeab73c79.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_12eba7edd43782a9f0eb50a94c78b19aeab73c79.svg" class="org-svg" />. Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è <a href="20241219101956-funzione_iniettiva.html#ID-52F75203-A232-4D1F-84B4-3965A48258F9">iniettiva</a>, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_c448a35e4d8b16dd9353bb3bf3aa1736235ce699.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_c448a35e4d8b16dd9353bb3bf3aa1736235ce699.svg" class="org-svg" />, ma <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_31df962832cda95a3244c8282c6c9de5123c605d.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_31df962832cda95a3244c8282c6c9de5123c605d.svg" class="org-svg" />. Assurdo.
+</p></li>
+</ul>
+<p>
+Per il punto (c) si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_145b0753718dc19f85d0fae39e0a263ccd2c847c.svg" class="org-svg" /> è una immersione topologica.
+</p>
+</div>
+</div>
+<div id="outline-container-org3cd66ba" class="outline-4">
+<h4 id="org3cd66ba">Seconda parte</h4>
+<div class="outline-text-4" id="text-org3cd66ba">
+<p>
+Sia
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_fc07f6320e1643f2c6eed4b2133d70d1018a0de4.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_fc07f6320e1643f2c6eed4b2133d70d1018a0de4.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8f06e18893bce55a947d6b402b751578e2fc6c2b.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8f06e18893bce55a947d6b402b751578e2fc6c2b.svg" class="org-svg" />. Infatti, l&rsquo;inclusione ``<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_d422b26a4ffdde9fc47ed15953c8b42b9f319b5c.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_d422b26a4ffdde9fc47ed15953c8b42b9f319b5c.svg" class="org-svg" />&rsquo;&rsquo; è ovvia. Per il viceversa, si definisce per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_dd74b3e2130c6fe89739239817bf3b29dfd2f152.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_dd74b3e2130c6fe89739239817bf3b29dfd2f152.svg" class="org-svg" />, l&rsquo;insieme
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a2e2e22105214bef3bc3d5d59d274b48fc4a9820.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_a2e2e22105214bef3bc3d5d59d274b48fc4a9820.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Si ordina <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_cf8f955dfca73081a9881c381ef604eae98700d1.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_cf8f955dfca73081a9881c381ef604eae98700d1.svg" class="org-svg" /> in maniera crescente, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_44b88cf2f969448730f7283d84120f535cc48dfe.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_44b88cf2f969448730f7283d84120f535cc48dfe.svg" class="org-svg" />.
+</p>
+
+<p>
+Si definisce <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_9fd02858dd99dd696b542f2962e36795de635447.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_9fd02858dd99dd696b542f2962e36795de635447.svg" class="org-svg" /> come:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_99f2b40be4d420e530e753eb8fc2dfca9a0dd5c6.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_99f2b40be4d420e530e753eb8fc2dfca9a0dd5c6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e si ottiene che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3e607b1d02ef8145f7bcf9a70738571c9b0b11cf.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3e607b1d02ef8145f7bcf9a70738571c9b0b11cf.svg" class="org-svg" />.
+</p>
+
+<p>
+Questo dimostra che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> è un sottospazio polacco di <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" class="org-svg" />, <a href="20250303115241-proprieta_di_chiusura_degli_spazi_polacchi.html#ID-7356324e-3e5d-4027-8568-28b8e51b5dcc">poiché</a> <a href="20250111142332-omeomorfismo.html#ID-d9a63289-f721-420e-9a06-ecc594dd8f4d">omeomorfo</a> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" class="org-svg" /> spazio polacco.
+</p>
+
+<p>
+Inoltre, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_ea4bcf8ce6c28fad59c0313f1fff4045510d09a9.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_ea4bcf8ce6c28fad59c0313f1fff4045510d09a9.svg" class="org-svg" />, e sia, per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_1a2be21b587a6b65c776a40d9a0850294fa60f74.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_aea4ca243c579d40e6548912eeae4537e620db1a.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_aea4ca243c579d40e6548912eeae4537e620db1a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_bba3a44d7deebf303f7befd32bab49076acda1eb.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_bba3a44d7deebf303f7befd32bab49076acda1eb.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_4b07e9bf37fe885e08ba601107be291104598624.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_4b07e9bf37fe885e08ba601107be291104598624.svg" class="org-svg" />, in quanto, considerata la distanza su <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" class="org-svg" />:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_fa9bd922a03d640f588436eb42c2cb0778ca4dd6.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_fa9bd922a03d640f588436eb42c2cb0778ca4dd6.svg" class="org-svg" />
+</span>
+</div>
+<p>
+per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_c8c92b1b5d71d40ea307aa9c2caa650d6d1bd8b0.svg" class="org-svg" /> esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_2ca2773dca0d9c69c9693a13487eedb5ff0e3d4e.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_2ca2773dca0d9c69c9693a13487eedb5ff0e3d4e.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_4fd08628a68c2bee23e70bf559f49e25e54db6de.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_4fd08628a68c2bee23e70bf559f49e25e54db6de.svg" class="org-svg" /> tale che per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_57dee0d8072d4af196f9c7e2a0a8e8e68efdd5e5.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_57dee0d8072d4af196f9c7e2a0a8e8e68efdd5e5.svg" class="org-svg" />: <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7f7c8ed9dcb29d5994e513884a77da9406428a08.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7f7c8ed9dcb29d5994e513884a77da9406428a08.svg" class="org-svg" />. Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_3ac8e9614bb5a78c533c196cdbd283987f1ea489.svg" class="org-svg" /> è denso in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" class="org-svg" />, per la <a href="20250303121451-caratterizzazione_della_chiusura_in_termini_di_successioni.html#ID-883b01f5-2009-499b-9217-2e7cb088d8d2">caratterizzazione della chiusura per successioni</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc524c74" class="outline-4">
+<h4 id="orgc524c74">Terza parte</h4>
+<div class="outline-text-4" id="text-orgc524c74">
+<p>
+Lo spazio <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" class="org-svg" /> è <a href="20250301193401-spazio_topologico_metrizzabile.html#ID-5522c9c1-947e-4e36-8f90-704208e7a17e">metrizzabile</a>, e pertanto <a href="20250109155715-spazio_topologico_di_hausdorff.html#ID-4b266bd6-84ae-452e-a3e9-7dda45cdda84">T2</a>.
+</p>
+
+<p>
+Supponiamo che per assurdo esista <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_e778844fb5c1c533e69bf070a65b72c373cc5ea6.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_e778844fb5c1c533e69bf070a65b72c373cc5ea6.svg" class="org-svg" /> immersione topologica tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_438d6158759436e75bfb9bdd9a133c158390a8a5.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_438d6158759436e75bfb9bdd9a133c158390a8a5.svg" class="org-svg" /> sia denso in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" class="org-svg" />.
+</p>
+
+<p>
+Siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_eeeaa092944926fd69c8447afc867edaeb825f02.svg" class="org-svg" /> è compatto, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_cd6e7184fcd6a6a25c1a7d292c501d5f258f1207.svg" class="org-svg" /> è compatto, ed inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_ab5c7b67d14b088ffdb29d4b503cdee384ddc037.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_ab5c7b67d14b088ffdb29d4b503cdee384ddc037.svg" class="org-svg" />. Ma in uno spazio di Hausdorff <a href="20250331174140-compatto_in_un_haussdorf_e_chiuso.html#ID-12735647-7e95-44c0-8508-05642d362d68">i compatti sono chiusi</a>, e <a href="20250103144944-chiusura_topologica.html#ID-93f0bbd0-29be-498f-a645-6da7d5fe795d">pertanto</a>
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7ddb992cac76535eb1a3ab539b5f9d751d07b787.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_7ddb992cac76535eb1a3ab539b5f9d751d07b787.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Questo è un assurdo, poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" alt="20250327104701-immersione_topologica_dello_spazio_di_baire_nello_spazio_di_cantor_8c58aa4dcf2220b791f1654caf89b51694114722.svg" class="org-svg" /> non è compatto.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
