@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cubica Gobba</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Cubica Gobba</h1>
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" alt="20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" class="org-svg" /> un <a href="20241231112713-campo_algebricamente_chiuso.html#ID-6ccadde1-dfc2-4c91-a5f7-4d214b6ca537">Campo Algebricamente Chiuso</a>, e sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_8708ad00bef5a1e80add8341eea68210ded00525.svg" alt="20250102104043-cubica_gobba_8708ad00bef5a1e80add8341eea68210ded00525.svg" class="org-svg" /> (vedi <a href="20241231115051-spazio_proiettivo.html#ID-dbad3607-127c-4f50-ac11-d7ac06ac3b8e">Spazio Proiettivo</a>)
+</p>
+<div id="outline-container-org8fbaeb9" class="outline-2">
+<h2 id="org8fbaeb9">Definizione</h2>
+<div class="outline-text-2" id="text-org8fbaeb9">
+<p>
+Consideriamo
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_bbe0f424cd5ce8681808d46d7d93bfa160529bdb.svg" alt="20250102104043-cubica_gobba_bbe0f424cd5ce8681808d46d7d93bfa160529bdb.svg" class="org-svg" />
+</span>
+</div>
+<p>
+L&rsquo;insieme <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_d50b533bee745e5a8d35dc2f462e5919b4e20bdd.svg" alt="20250102104043-cubica_gobba_d50b533bee745e5a8d35dc2f462e5919b4e20bdd.svg" class="org-svg" />, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_97535668a2184ae73c39dc3965117edb17c25ee8.svg" alt="20250102104043-cubica_gobba_97535668a2184ae73c39dc3965117edb17c25ee8.svg" class="org-svg" /> è detto <b>cubica gobba</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-org0625f5d" class="outline-2">
+<h2 id="org0625f5d">Varietà algebrica proiettiva</h2>
+<div class="outline-text-2" id="text-org0625f5d">
+<p>
+Ci si chiede se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_0318184dfb5cc564993132348cc99e9a544a298e.svg" alt="20250102104043-cubica_gobba_0318184dfb5cc564993132348cc99e9a544a298e.svg" class="org-svg" /> è una <a href="20241231123223-varieta_algebrica_proiettiva.html#ID-fc105c9d-d6d0-4719-8852-8569a2afab96">varietà algebrica proiettiva</a>, ovvero se è possibile trovare degli <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_3b0ec6bf6b08ff6686f7ba7c116338aa723365c9.svg" alt="20250102104043-cubica_gobba_3b0ec6bf6b08ff6686f7ba7c116338aa723365c9.svg" class="org-svg" /> (vedi <a href="20241219113434-anello_dei_polinomi.html#ID-0C7F82D1-FB6F-4DBD-B401-27DE8C1F8B6C">Anello-dei-polinomi</a>) tali che (vedi <a href="20241231112823-radici_polinomiali.html#ID-b7f15eca-8c80-4764-a5e1-4f5a8ce62891">Luogo di zeri</a>)
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_1858d919f400bff07b6268b50eab93a113450fbd.svg" alt="20250102104043-cubica_gobba_1858d919f400bff07b6268b50eab93a113450fbd.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_f9eabc6a6a5fcf3f2def1356c7579235d64db69b.svg" alt="20250102104043-cubica_gobba_f9eabc6a6a5fcf3f2def1356c7579235d64db69b.svg" class="org-svg" /> definiti come segue:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_810a5d39f6e2b34c8d97be608f711d64196d9f8f.svg" alt="20250102104043-cubica_gobba_810a5d39f6e2b34c8d97be608f711d64196d9f8f.svg" class="org-svg" />
+</span>
+</div>
+<p>
+È immediato vedere che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_5df366ffe0f899b2eacbc2f4bd94dbb7c0976ff1.svg" alt="20250102104043-cubica_gobba_5df366ffe0f899b2eacbc2f4bd94dbb7c0976ff1.svg" class="org-svg" />. Infatti, sia
+V<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_280bb363219ac23ec575a0c21c3aae76d19bb430.svg" alt="20250102104043-cubica_gobba_280bb363219ac23ec575a0c21c3aae76d19bb430.svg" class="org-svg" />
+~{z} = [~{z}<sub>0</sub>:~{z}<sub>1</sub>:~{z}<sub>2</sub>:~{z}<sub>3</sub>] &isin; C
+
+e sia dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_a4f2d34a2b3d833a5b6a437a540fdcaa002c03c5.svg" alt="20250102104043-cubica_gobba_a4f2d34a2b3d833a5b6a437a540fdcaa002c03c5.svg" class="org-svg" />,
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_e85dad0abf74a4a01ceced6564e76c0c82ca406a.svg" alt="20250102104043-cubica_gobba_e85dad0abf74a4a01ceced6564e76c0c82ca406a.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Calcoliamo dunque
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_c59e4f45d39af699f7db8a36ee305824ba53bee4.svg" alt="20250102104043-cubica_gobba_c59e4f45d39af699f7db8a36ee305824ba53bee4.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Viceversa, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_1070c2b530f70c384bf98762491c4d600b5b5c0c.svg" alt="20250102104043-cubica_gobba_1070c2b530f70c384bf98762491c4d600b5b5c0c.svg" class="org-svg" />.
+Almeno uno tra <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" alt="20250102104043-cubica_gobba_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_0c0e5b6dcb7cc2e5c921f8e67f192cadfa43db99.svg" alt="20250102104043-cubica_gobba_0c0e5b6dcb7cc2e5c921f8e67f192cadfa43db99.svg" class="org-svg" /> è non nullo. Infatti, se per assurdo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_23c3ab17ffbf63f20a9c67cfb462b3ca46fd3748.svg" alt="20250102104043-cubica_gobba_23c3ab17ffbf63f20a9c67cfb462b3ca46fd3748.svg" class="org-svg" /> allora:
+</p>
+<ul class="org-ul">
+<li>siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_d6bba909606aa7d75d99cc16dd7135cf3cd1bdd3.svg" alt="20250102104043-cubica_gobba_d6bba909606aa7d75d99cc16dd7135cf3cd1bdd3.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_2421965108d8fb1f956b2b6dd47c2b076044a7e3.svg" alt="20250102104043-cubica_gobba_2421965108d8fb1f956b2b6dd47c2b076044a7e3.svg" class="org-svg" /> e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_7db8d54853c4d0dd8dcca66c7016f2e8ea6d8879.svg" alt="20250102104043-cubica_gobba_7db8d54853c4d0dd8dcca66c7016f2e8ea6d8879.svg" class="org-svg" />;</li>
+<li>siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_440151aece921e635fb5707660ac5a5a7862962a.svg" alt="20250102104043-cubica_gobba_440151aece921e635fb5707660ac5a5a7862962a.svg" class="org-svg" /> allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_09c9f82019a7b1ee5b11ec91c937b445b2e4bb6e.svg" alt="20250102104043-cubica_gobba_09c9f82019a7b1ee5b11ec91c937b445b2e4bb6e.svg" class="org-svg" /> e dunque <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_3bbc7ff25e020e462219ce7b4e4ad643ac429ce5.svg" alt="20250102104043-cubica_gobba_3bbc7ff25e020e462219ce7b4e4ad643ac429ce5.svg" class="org-svg" />;</li>
+</ul>
+<p>
+il risultato è che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_f262eceb697bb7c51d48e0df4625626ace56e154.svg" alt="20250102104043-cubica_gobba_f262eceb697bb7c51d48e0df4625626ace56e154.svg" class="org-svg" /> (assurdo poiché <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_0d5734fcc80d17ece99a5e3ee7af8a5cf7f13e15.svg" alt="20250102104043-cubica_gobba_0d5734fcc80d17ece99a5e3ee7af8a5cf7f13e15.svg" class="org-svg" />).
+</p>
+
+<p>
+Supponiamo quindi che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_d7fc310a7db1529c514bc166e3a9cf88dd2f875b.svg" alt="20250102104043-cubica_gobba_d7fc310a7db1529c514bc166e3a9cf88dd2f875b.svg" class="org-svg" />. Dividendo tutte le coordinate per <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" alt="20250102104043-cubica_gobba_46d422ce8cdd4cf1a67814eda927d7fdf9521988.svg" class="org-svg" />, possiamo assumere <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_36655684bc8fad7a928946da4b1feed97f8242ed.svg" alt="20250102104043-cubica_gobba_36655684bc8fad7a928946da4b1feed97f8242ed.svg" class="org-svg" />. Unendo questa informazione al fatto che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_d2b22036aee15b1eaa1548e484386cba20f41071.svg" alt="20250102104043-cubica_gobba_d2b22036aee15b1eaa1548e484386cba20f41071.svg" class="org-svg" /> si ottiene
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_966e5c6d30ac443b1a6a3a703136fb6702e0db85.svg" alt="20250102104043-cubica_gobba_966e5c6d30ac443b1a6a3a703136fb6702e0db85.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_41e60e48e3d986379a021a14fd36735892ded9eb.svg" alt="20250102104043-cubica_gobba_41e60e48e3d986379a021a14fd36735892ded9eb.svg" class="org-svg" />
+</p>
+
+<p>
+Ricordando che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_3395ad9ea2eb4a43b518bc39c02b2a0499a99560.svg" alt="20250102104043-cubica_gobba_3395ad9ea2eb4a43b518bc39c02b2a0499a99560.svg" class="org-svg" />
+si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_eca7d4c05931a14d20a7163140b62ec6dde852d9.svg" alt="20250102104043-cubica_gobba_eca7d4c05931a14d20a7163140b62ec6dde852d9.svg" class="org-svg" />
+</span>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b50a1a" class="outline-2">
+<h2 id="org3b50a1a">Curva piana</h2>
+<div class="outline-text-2" id="text-org3b50a1a">
+<p>
+Ci si chiede se la cubica gobba, sia una <a href="20250102104749-curva_piana.html#ID-3f07fc2f-b81d-4030-8be5-482d3c04c70e">Curva Piana</a>, ovvero sia contenuta in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_8bd5b362cf8fba47d1c5543a3180681c561b8a10.svg" alt="20250102104043-cubica_gobba_8bd5b362cf8fba47d1c5543a3180681c561b8a10.svg" class="org-svg" /> piano.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_262ad611bf90977ba1c6692ad187a345ae2e16f5.svg" alt="20250102104043-cubica_gobba_262ad611bf90977ba1c6692ad187a345ae2e16f5.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si ha che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_def84c27a2c24b4e1e6ed0dd6bb7f47424b82cb8.svg" alt="20250102104043-cubica_gobba_def84c27a2c24b4e1e6ed0dd6bb7f47424b82cb8.svg" class="org-svg" /> se e solo se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_5fb00bd2dd5d4bad9d4ce19af199620e36a54a5a.svg" alt="20250102104043-cubica_gobba_5fb00bd2dd5d4bad9d4ce19af199620e36a54a5a.svg" class="org-svg" />
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_5d9b2b092b6bddb46abb2cfba186452332119b60.svg" alt="20250102104043-cubica_gobba_5d9b2b092b6bddb46abb2cfba186452332119b60.svg" class="org-svg" />
+</span>
+<span class="equation-label">
+1
+</span>
+</div>
+<p>
+Ci chiediamo dunque se esistono <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_d4757c971680cd73d8e527920cddfe4f15bf88f9.svg" alt="20250102104043-cubica_gobba_d4757c971680cd73d8e527920cddfe4f15bf88f9.svg" class="org-svg" /> tali per cui la condizione di cui sopra è vera.
+Ricordiamo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_e7347e3b0f7b1cd66b9b6964552bb8cae74967fc.svg" alt="20250102104043-cubica_gobba_e7347e3b0f7b1cd66b9b6964552bb8cae74967fc.svg" class="org-svg" />.
+</p>
+<ul class="org-ul">
+<li><p>
+In <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_8ac072f43242f90a74f70b8481b300b469a9ff12.svg" alt="20250102104043-cubica_gobba_8ac072f43242f90a74f70b8481b300b469a9ff12.svg" class="org-svg" /> si può porre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_31783d85bf6704c58d82aaadf6d8e3a3fa25d568.svg" alt="20250102104043-cubica_gobba_31783d85bf6704c58d82aaadf6d8e3a3fa25d568.svg" class="org-svg" />, e la condizione diventa:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_edab392a922d57a886939868cd177632067993e3.svg" alt="20250102104043-cubica_gobba_edab392a922d57a886939868cd177632067993e3.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Questo è un polinomio in una variabile, che pertanto ha un numero <b>finito</b> di soluzioni.
+</p></li>
+<li><p>
+In <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_642bb26b727cbff46062deb3e67c9f86ce577dec.svg" alt="20250102104043-cubica_gobba_642bb26b727cbff46062deb3e67c9f86ce577dec.svg" class="org-svg" /> valgono considerazioni simili, e pertanto in <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_8ac072f43242f90a74f70b8481b300b469a9ff12.svg" alt="20250102104043-cubica_gobba_8ac072f43242f90a74f70b8481b300b469a9ff12.svg" class="org-svg" /> ci sono un numero <b>finito</b> di soluzioni
+</p>
+
+<p>
+Pertanto, l&rsquo;equazione polinomiale (1) ha un numero finito di soluzioni, e pertanto non possono esistere dei coefficieni tali per cui (1) è vera per ogni <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_0f17ba3219106fb78947a24cfc30682a2eb0f61d.svg" alt="20250102104043-cubica_gobba_0f17ba3219106fb78947a24cfc30682a2eb0f61d.svg" class="org-svg" /> (siccome <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_2b50b9fdd512d03be538821c112ea1433853ab3e.svg" alt="20250102104043-cubica_gobba_2b50b9fdd512d03be538821c112ea1433853ab3e.svg" class="org-svg" /> ha infiniti punti)<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+Dunque, <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" alt="20250102104043-cubica_gobba_870ecc6c77eb1153a1d8556620f6aeaf469a44a5.svg" class="org-svg" /> non è una curva piana.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Si noti, infatti, che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_3de3c4503d54a40f1333ca64a99958729ef7e096.svg" alt="20250102104043-cubica_gobba_3de3c4503d54a40f1333ca64a99958729ef7e096.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_0c76bc97831caf5a1f3ca3e86c73c3d1c802a42d.svg" alt="20250102104043-cubica_gobba_0c76bc97831caf5a1f3ca3e86c73c3d1c802a42d.svg" class="org-svg" />. Dal momento che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" alt="20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" class="org-svg" /> è <a href="20241231112713-campo_algebricamente_chiuso.html#ID-6ccadde1-dfc2-4c91-a5f7-4d214b6ca537">Campo Algebricamente Chiuso</a> vale che <a href="20250102103618-infinitezza_campi_alg_chiusi.html#ID-64cc4bf9-e6dc-4c25-b3ba-fef43b094a35"><img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" alt="20250102104043-cubica_gobba_a97044bfce4426c0d1e06d7dd7d483f3f7721fef.svg" class="org-svg" /> ha infiniti punti</a>.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

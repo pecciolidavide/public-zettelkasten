@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proprietà di base di un ultrametrica</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel='stylesheet' type='text/css' href='org.css'/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Proprietà di base di un ultrametrica</h1>
+<div id="outline-container-org4ecdef3" class="outline-2">
+<h2 id="org4ecdef3">Proprietà</h2>
+<div class="outline-text-2" id="text-org4ecdef3">
+<p>
+Suppose that <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4c8829f90856ffd637fcefb18711867e0f741e4a.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4c8829f90856ffd637fcefb18711867e0f741e4a.svg" class="org-svg" /> is an <a href="20250318161815-ultrametrica.html#ID-e7b4ac1b-155f-4061-8492-714a9fa44c55">ultrametric</a> on a space <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_3da213c39ccfdd6c738e0ea3ad07314873218cd8.svg" class="org-svg" />. Prove the following statements:
+</p>
+<ol class="org-ol">
+<li>If <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_6c2338bdfae5cbf0ad02a31a3f64d4df2f15ce4b.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_6c2338bdfae5cbf0ad02a31a3f64d4df2f15ce4b.svg" class="org-svg" />, then <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_bc7bed4ad1f344d35953f6bd0c13195a675ef2eb.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_bc7bed4ad1f344d35953f6bd0c13195a675ef2eb.svg" class="org-svg" /> (&ldquo;all triangles are isosceles with legs longer than or equal to the basis&rdquo;).</li>
+<li>The &ldquo;<a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">open</a>&rdquo; balls <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_532754948958197114beb27baf1e41e315dc5710.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_532754948958197114beb27baf1e41e315dc5710.svg" class="org-svg" /> and the &ldquo;<a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">closed</a>&rdquo; balls <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_a9219f9862e0180ccf4e57c75d51b4453828ba81.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_a9219f9862e0180ccf4e57c75d51b4453828ba81.svg" class="org-svg" /> are both <a href="20250318170914-insieme_clopen.html#ID-a179b8b4-4b24-451e-a379-925e06d62015">clopen</a>.</li>
+<li>If <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_34e2415cd5cf7e25bf50bc430b5de708b4c64453.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_34e2415cd5cf7e25bf50bc430b5de708b4c64453.svg" class="org-svg" />, then <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_7e1a9fec86b8400d2b7eccf86b58ecedfe3c7c60.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_7e1a9fec86b8400d2b7eccf86b58ecedfe3c7c60.svg" class="org-svg" /> (&ldquo;all elements of an open ball are centers of it&rdquo;).</li>
+<li>If two open (closed) balls intersect, then one is contained in the other one.</li>
+</ol>
+</div>
+<div id="outline-container-orgbda066f" class="outline-3">
+<h3 id="orgbda066f">Dimostrazione</h3>
+<div class="outline-text-3" id="text-orgbda066f">
+</div>
+<div id="outline-container-orgf5c3c46" class="outline-4">
+<h4 id="orgf5c3c46">Parte a.</h4>
+<div class="outline-text-4" id="text-orgf5c3c46">
+<p>
+Si supponga per assurdo che esistano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_df58998d40f5f81a764d1bf273f5d1800987ce25.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_df58998d40f5f81a764d1bf273f5d1800987ce25.svg" class="org-svg" /> tali che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_8415069418d7611f3f2df2986f3304f2539dad9c.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_8415069418d7611f3f2df2986f3304f2539dad9c.svg" class="org-svg" /> e
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_e7d8f5f3e67392c1d99984169af43c896e85c697.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_e7d8f5f3e67392c1d99984169af43c896e85c697.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_561274af6ffabac35432f233e499801f72d4e257.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_561274af6ffabac35432f233e499801f72d4e257.svg" class="org-svg" /> e <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_a5a729f7361dc91b73c30ad5269685b6350337db.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_a5a729f7361dc91b73c30ad5269685b6350337db.svg" class="org-svg" />, e pertanto vale anche
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_a2585237ac48b934da6e4c3c8711e1c3340452f6.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_a2585237ac48b934da6e4c3c8711e1c3340452f6.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Si considerino ora l&rsquo;insieme di numeri reali distinti:
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_716b43a69f3143054e802b9adb42a11e38991855.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_716b43a69f3143054e802b9adb42a11e38991855.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e se ne consideri il massimo <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_56bffbe39f890ff174aef4f436ab06278fa94f16.svg" class="org-svg" />, che esiste poiché l&rsquo;insieme è finito. La prima condizione asserisce che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_0972cc0e5567011953226ea4ec365c8a5d056340.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_0972cc0e5567011953226ea4ec365c8a5d056340.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_ef1c389bf0181b162e2218be9ac8eb886133fc7b.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_ef1c389bf0181b162e2218be9ac8eb886133fc7b.svg" class="org-svg" />. Similmente, la seconda condizione asserisce che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4583aad3321aac6d24ef08f41f5cb14f2f43dbc7.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4583aad3321aac6d24ef08f41f5cb14f2f43dbc7.svg" class="org-svg" /> e la terza che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_694128a27a6a378d1b983666a229d6b80372330e.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_694128a27a6a378d1b983666a229d6b80372330e.svg" class="org-svg" />. Assurdo.
+</p>
+</div>
+</div>
+<div id="outline-container-orgac4c1a6" class="outline-4">
+<h4 id="orgac4c1a6">Parte d.</h4>
+<div class="outline-text-4" id="text-orgac4c1a6">
+<p>
+Siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_754866b05176279ff008cd055e0430d62fb6ce24.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_754866b05176279ff008cd055e0430d62fb6ce24.svg" class="org-svg" /> e siano <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_364a3da76fb8b025b2d36bfade22798d94825061.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_364a3da76fb8b025b2d36bfade22798d94825061.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_92624de4adb40762ca180c09b36a902ddc451d96.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_92624de4adb40762ca180c09b36a902ddc451d96.svg" class="org-svg" />.
+</p>
+
+<ul class="org-ul">
+<li><p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_d91aa79d5f9468d183c31e3ce36b1a6acfe97e38.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_d91aa79d5f9468d183c31e3ce36b1a6acfe97e38.svg" class="org-svg" />, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_f9c407a5f138463b1f06c7751443d916b04bb562.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_f9c407a5f138463b1f06c7751443d916b04bb562.svg" class="org-svg" />.
+</p>
+
+<p>
+Infatti, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_7305e937dcf44ddaf42c769805ee3da65d3cef91.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_7305e937dcf44ddaf42c769805ee3da65d3cef91.svg" class="org-svg" />. Si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_a0a7e0adf9242ad2dac63d9ace571260aafdf8ef.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_a0a7e0adf9242ad2dac63d9ace571260aafdf8ef.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia ora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_c2f517c6ececef159fc0b1eb5ffb9beffc036b3c.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_c2f517c6ececef159fc0b1eb5ffb9beffc036b3c.svg" class="org-svg" />, i.e. <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_1de845045e389486264ba7bd832b5ee39114f1b4.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_1de845045e389486264ba7bd832b5ee39114f1b4.svg" class="org-svg" />. Allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_0c403e7d6c590c956bb1cc9fb92bdb5f4c9cb510.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_0c403e7d6c590c956bb1cc9fb92bdb5f4c9cb510.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" class="org-svg" />.
+</p></li>
+
+<li><p>
+Se <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_fb11e325d2f0457391f67b58179ab40e3d416a51.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_fb11e325d2f0457391f67b58179ab40e3d416a51.svg" class="org-svg" />, allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_198f65c2685dc64306563ef2f8006a7c6c49cfbe.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_198f65c2685dc64306563ef2f8006a7c6c49cfbe.svg" class="org-svg" />.
+</p>
+
+<p>
+Infatti, sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_46bdbb1be1875f11243ef2815e25d8aa7354b420.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_46bdbb1be1875f11243ef2815e25d8aa7354b420.svg" class="org-svg" />. Si ha che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_170709fa8680dfcabda8d8e7102c7f6f2727969e.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_170709fa8680dfcabda8d8e7102c7f6f2727969e.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Sia ora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_2092a4ebdd6dce602aea881bb6aa6f1614547171.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_2092a4ebdd6dce602aea881bb6aa6f1614547171.svg" class="org-svg" />, i.e. <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_ec61c6a532ccfaac621f43f2fa7a7245e539d2c3.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_ec61c6a532ccfaac621f43f2fa7a7245e539d2c3.svg" class="org-svg" />. Allora
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_fad6f38e0e87333f3d7aff8aff3573f8b2ec3baf.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_fad6f38e0e87333f3d7aff8aff3573f8b2ec3baf.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_1c6defde99696792f2aa13adf535b384b41ef5e0.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_1c6defde99696792f2aa13adf535b384b41ef5e0.svg" class="org-svg" />.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc11674a" class="outline-4">
+<h4 id="orgc11674a">Parte b.</h4>
+<div class="outline-text-4" id="text-orgc11674a">
+<ul class="org-ul">
+<li>La palla <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_ed093b7379f0b401473f6cc88f33c6279239238b.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_ed093b7379f0b401473f6cc88f33c6279239238b.svg" class="org-svg" /> è aperta per definizione di <a href="20250301193530-topologia_indotta_da_una_distanza.html#ID-f04bbfc8-e615-42f2-a433-a10dc1cf8b12">topologia indotta da una metrica</a></li>
+
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_070e5d04068cf6c62ea06aff3eecd3f5a1fa0a26.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_070e5d04068cf6c62ea06aff3eecd3f5a1fa0a26.svg" class="org-svg" /> una <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">convergente</a> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" />. Allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4468319fb61f6efd3f7a1cfa65e5142a17e1c4d8.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4468319fb61f6efd3f7a1cfa65e5142a17e1c4d8.svg" class="org-svg" />. Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_26caa98a7c891ebb257a755f259300f872b87c38.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_26caa98a7c891ebb257a755f259300f872b87c38.svg" class="org-svg" />.
+</p>
+
+<p>
+Supponiamo per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_c8309ab7d9d9386c88238db98876fed0ff2b9d08.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_c8309ab7d9d9386c88238db98876fed0ff2b9d08.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_e5e393b97bd49c63f9de8af264dc1bea7743e950.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_e5e393b97bd49c63f9de8af264dc1bea7743e950.svg" class="org-svg" />. Ma, per definizione di ultrametrica
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_e988b5c28aa11fce1755225dcbb74e3b11dbf5e2.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_e988b5c28aa11fce1755225dcbb74e3b11dbf5e2.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Assurdo. Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_ed093b7379f0b401473f6cc88f33c6279239238b.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_ed093b7379f0b401473f6cc88f33c6279239238b.svg" class="org-svg" /> è <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">chiusa</a>, per la <a href="20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.html#ID-08b8155e-c6bd-48b9-9330-1cbad5654e38">caratterizzazione dei chiusi per successioni</a>.
+</p></li>
+
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_c77dc11c41184f1448ecc551de393ddb7fa912ef.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_c77dc11c41184f1448ecc551de393ddb7fa912ef.svg" class="org-svg" /> una <a href="20250115100904-successione.html#ID-2a8ac178-8c85-418c-90b4-7e619ee2eaf1">successione</a> <a href="20250115100930-convergenza_per_una_successione.html#ID-147aa939-076c-4184-85b3-3078ec56c2be">convergente</a> a <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_05b62546556a56f11f7d69931013bc9a5ca1b074.svg" class="org-svg" />. Allora esiste <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_fc229e181a439c33b20a9403d9e0c07fe41a3437.svg" class="org-svg" /> tale che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_5411cef72eef4ca6fa439eb5235bcc3424c0b9a4.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_5411cef72eef4ca6fa439eb5235bcc3424c0b9a4.svg" class="org-svg" />. Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_7d926bc8c3e63db599dea383e757f515997fe4d0.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_7d926bc8c3e63db599dea383e757f515997fe4d0.svg" class="org-svg" />.
+</p>
+
+<p>
+Supponiamo per assurdo che <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_27a7ce1044bae2cfb535ba12413b0dafcbebb4a7.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_27a7ce1044bae2cfb535ba12413b0dafcbebb4a7.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_a2193e63849ad58c125234442219812b53f698b7.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_a2193e63849ad58c125234442219812b53f698b7.svg" class="org-svg" />. Ma, per definizione di ultrametrica
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_690a5962a1cfd5131eb1cd0ff51ec2abf49bb6cc.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_690a5962a1cfd5131eb1cd0ff51ec2abf49bb6cc.svg" class="org-svg" />
+</span>
+</div>
+<p>
+Assurdo. Pertanto <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_6f02db2d5bdc7ab4498e73735cc33156d25f99ab.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_6f02db2d5bdc7ab4498e73735cc33156d25f99ab.svg" class="org-svg" /> è <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">chiusa</a>, per la <a href="20250303120747-caratterizzazione_dei_chiusi_in_termini_di_successioni.html#ID-08b8155e-c6bd-48b9-9330-1cbad5654e38">caratterizzazione dei chiusi per successioni</a>.
+</p></li>
+
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_50004bb2027565a71c1085db91682a66c2a862ee.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_50004bb2027565a71c1085db91682a66c2a862ee.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_493dac05843251e9c73467f2f7c3313347e25db1.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_493dac05843251e9c73467f2f7c3313347e25db1.svg" class="org-svg" />, con <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_33261e990240cb1aa6aef346fe6755ab14f17b87.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_33261e990240cb1aa6aef346fe6755ab14f17b87.svg" class="org-svg" /> aperto.
+</p>
+
+<p>
+Inoltre <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_d7137635079216a8a3f7d4872c2422c46d03ef1b.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_d7137635079216a8a3f7d4872c2422c46d03ef1b.svg" class="org-svg" /> e pertanto, per il punto d.
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_e0a6277a8a5fc26fb1def53507ad0a79622215a8.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_e0a6277a8a5fc26fb1def53507ad0a79622215a8.svg" class="org-svg" />
+</span>
+</div>
+
+<p>
+Quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_6f02db2d5bdc7ab4498e73735cc33156d25f99ab.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_6f02db2d5bdc7ab4498e73735cc33156d25f99ab.svg" class="org-svg" /> è intorno di ogni suo punto, e <a href="20250317093153-insieme_aperto_sse_intorno_di_ogni_suo_punto.html#ID-96081881-2377-4665-9923-1d0280f8aed4">quindi</a> <a href="20250103145124-topologia.html#ID-0739c4de-6fe4-43d3-bca9-33455ef06da8">aperto</a>.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcba84ac" class="outline-4">
+<h4 id="orgcba84ac">Parte c.</h4>
+<div class="outline-text-4" id="text-orgcba84ac">
+<p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_200bb976db1c688083178363b70c0ef8bfa6c652.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_200bb976db1c688083178363b70c0ef8bfa6c652.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_b37ce068926e9d236a7bf4dd3fd08f8de554e121.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_b37ce068926e9d236a7bf4dd3fd08f8de554e121.svg" class="org-svg" />.
+</p>
+
+<p>
+Si vuole dimostrare che
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_499640fcfb77db2570b2dc2e6829432d955d63fc.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_499640fcfb77db2570b2dc2e6829432d955d63fc.svg" class="org-svg" />
+</span>
+</div>
+<ul class="org-ul">
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_44dae34fb7a016757ca4a2ed130fd1baaada1648.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_44dae34fb7a016757ca4a2ed130fd1baaada1648.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_ccf419302783c975bfb33236fd92b5b9dcedfabd.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_ccf419302783c975bfb33236fd92b5b9dcedfabd.svg" class="org-svg" />, e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_c7aa14ce78b1cf443b67fc8a79f0d597d1eb0857.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_c7aa14ce78b1cf443b67fc8a79f0d597d1eb0857.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" class="org-svg" />.
+</p></li>
+<li><p>
+Sia <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4f38583d6039385f7b3b55fa5b3cb63c63e6eb86.svg" class="org-svg" />. Allora <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_4faa344b8399247fa3ce6ad913d5cf306ef680b4.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_4faa344b8399247fa3ce6ad913d5cf306ef680b4.svg" class="org-svg" />, e pertanto
+</p>
+
+<div class="equation-container">
+<span class="equation">
+<img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_b36f604bd192d22e05c0edfc571f336979cbf22a.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_b36f604bd192d22e05c0edfc571f336979cbf22a.svg" class="org-svg" />
+</span>
+</div>
+<p>
+e quindi <img src="file:///Users/davidepeccioli/Documents/roam_website/images/20250313193059-proprieta_di_base_di_un_ultrametrica_44dae34fb7a016757ca4a2ed130fd1baaada1648.svg" alt="20250313193059-proprieta_di_base_di_un_ultrametrica_44dae34fb7a016757ca4a2ed130fd1baaada1648.svg" class="org-svg" />.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
